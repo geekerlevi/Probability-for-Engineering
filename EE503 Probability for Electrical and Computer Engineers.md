@@ -1722,7 +1722,7 @@ $$\binom{5}{2}+\binom{5}{2}+\binom{5}{3}=30$$
 
 Randomly pick 10 items
 
-Probability that exactly 5 of selected items are defective
+<u>Probability that exactly 5 of selected items are defective</u>
 
 $$\frac{\binom{10}{5}\binom{40}{5}}{\binom{50}{10}}$$
 
@@ -1730,13 +1730,2106 @@ $$\frac{\binom{10}{5}\binom{40}{5}}{\binom{50}{10}}$$
 
 #### Example
 
-32 bit binary number. How many such numbers have exactly 5 zeros
+32 bit binary number. <u>How many such numbers have exactly 5 zeros</u>
 
 $$\binom{32}{5}$$
 
 ------
 
+A computer randomly generate a 32 bit binary number.
+
+<u>Probability that the number generated has exactly 5 zeros.</u>
+
+$$\frac{\binom{32}{5}}{2^{32}}$$
+
+------
+
+#### Example
+
+$$n$$ antennas, $$m$$ defective , $$n-m$$ functional, $$1\leq m \leq n$$
+
+$$n$$ antennas are arranged in a row
+
+a) How many ways can I arrange $$m$$ defective (0) and $$(n-m)$$ functional (1) antennas?
+
+say $$n=4,m=2$$ 
+
+$$\binom{4}{2}=\frac{4!}{2!2!}=6$$
+
+$$n$$ - bit binary number with $$m$$ 0 and $$n-m$$ 1
+
+$$\binom{n}{m}$$
+
+b) How many arrangement where no 2 defective antennas are adjacent to each other?
+
+$$n$$ bits where no 2 zeros are adjacent
+
+$$m$$ zeros and $$n-m$$ ones
+
+say $$m=2$$ then $$n-2$$ ones simply
+
+$$\binom{n-1}{2}$$
 
 
 
+$$^{n-m+1} \mathrm{C}_m$$ number of valid arrangement
+
+If $$m \leq n-m+1$$
+
+$$^{n-m+1} \mathrm{C}_{m}=\binom{n-m+1}{m}$$
+
+If $$m>n-m+1$$
+
+$$^{n-m+1} \mathrm{C}_{m}=0$$
+
+c) Antenna system works as long as no two defective antennas are next to each other
+
+$$P(\text{Antenna system works})=\frac{^{n-m+1} \mathrm{C}_{m}}{\binom{n}{m}}$$
+
+------
+
+#### Example
+
+$$S=(I_1, ... I_n)$$
+
+Divide $$S$$ into groups: Group 1 with $$k_1$$ items, Group with $$k_2$$ items
+
+where $$k_1+k_2=n$$ , $$1 \leq k_1 \leq n$$ , $$1 \leq k_2 \leq n$$
+
+How many such division of $$S$$ are possible?
+
+$$\binom{n}{k_1}\binom{n-k_1}{k_2}=\binom{n}{k_1}\binom{k_2}{k_2}=\binom{n}{k_1}$$
+
+Problem:
+
+Divide $$S$$ into $$r$$ groups 
+
+Group 1: $$k_1$$ items
+
+...
+
+Group r: $$k_r$$ items
+
+where $$k_1+...+k_r=n$$
+
+How many such divisions are possible?
+
+$$\binom{n}{k_1}\binom{n-k_1}{k_2}...\binom{n-k_1-k_2-...-k_{r-1}}{k_r}$$
+
+$$=\frac{n!}{k_1!(n-k_1)!} \frac{(n-k_1)!}{k_2!(n-k_1-k_2)!}...$$
+
+$$=\frac{n!}{k_1!k_2!...k_r!}$$ 
+
+Multinomial coefficient
+
+------
+
+#### Example
+
+6 sided die. Roll it 12 times.
+
+How man sequence with 10 ones, 1 twos and 1 threes?
+
+12 positions
+
+Divide 12 positions into 3 groups
+
+G1- 10
+
+G2- 1
+
+G3- 1
+
+$$\frac{12!}{10!1!1!}$$
+
+Exercise: How many outcomes where each number appears exactly twice
+
+------
+
+## Week 3 Session 2
+
+### Combinatorial Problems
+
+$$S={I_1, ... I_n}$$
+
+1. Number of ordered $$k$$-tuple with repetitions allowed
+
+   $$n^k$$
+
+2. Number of ordered $$k$$-tuples without repetition $$1\leq k \leq n$$
+
+   $$\frac{n!}{(n-k)!}$$ 
+
+3. Number of possible subsets of size $$k$$ , $$1\leq k \leq n$$
+
+   $$\binom{n}{k}$$ 
+
+4. Partition $$S$$ into $$r$$ groups of sizes $$k_1, k_2, ... k_r$$ respectively $$(k_1+k_2+...+k_r=n)$$
+
+   Number of possible partitions
+
+   $$\frac{n!}{k_1!...k_r!}=\binom{n}{k_1, k_2, ... k_r}$$
+
+------
+
+Example: $$k$$ identical items ($$k$$ $1 bills)
+
+Divide among two people
+
+| $$P1$$  | $$P2$$  |
+| ------- | ------- |
+| 0       | $$k$$   |
+| 1       | $$k-1$$ |
+| 2       | $$k-2$$ |
+| $$...$$ | $$...$$ |
+| $$k-1$$ | 1       |
+| $$k$$   | 0       |
+
+Each outcome compounds to $$k+1$$ bit number with exactly one 0
+
+Number of such number$$=\binom{k+1}{1}$$
+
+
+
+Divide among 3 people 
+
+Each outcome compounds to a $$k+2$$ bit number with exactly two 0
+
+$$\binom{k+2}{2}$$
+
+
+
+Divide $$k$$ identical item among $$n$$ people
+
+$$\binom{n-1+k}{n-1}=$$ number of possible division of $$k$$ identical items among $$n$$ people 
+
+$$\binom{n-1+k}{n-1}=\binom{n-1+k}{k}$$
+
+------
+
+#### Example
+
+Consider the equation
+
+$$x_1+x_2+...+x_n=k$$
+
+Non-negative integer $$x_1, ... , x_n$$ that satisfy the equation above.
+
+<u>How many such solutions are possible?</u>
+
+$$\binom{n-1+k}{n-1}$$
+
+------
+
+#### Example
+
+Unordered sampling with replacement
+
+$$S=\{a,b,c\}$$
+
+Sample this set $$k$$ times with repitition allowed
+
+Outcome is triplet $$(x_a,x_b,x_c)$$
+
+$$x_a+x_b+x_c=k$$ where $$x_a$$ is the number of times $$a$$ was picked, $$x_b$$ is the number of times $$b$$ was picked, $$x_c$$ is the number of times $$c$$ was picked
+
+Number of possible outcomes$$=\binom{k+2}{2}$$
+
+
+
+Ordered sampling with replacement
+
+$$S=\{a,b,c\}$$
+
+Sample this set $$k$$ times with repitition allowed
+
+Outcome is the sequence of items selected
+
+E.g., $$aabb...b$$ 
+
+
+
+$$S=\{a,b,c\}$$
+
+Sampling without repetition, 3 times
+
+Number of ordered triplets$$=3\times 2 \times 1$$
+
+Picking a subset of size 3
+
+Number of subsets$$=\binom{3}{3}=1$$
+
+ 
+
+$$S=\{a,b,c\}$$
+
+Sampling with repetition, ordered $$k$$-tuple
+
+Number of order $$k$$-tuple$$=3^k$$
+
+Number of such tuples with 1$$a$$, 1$$b$$, $$k-2$$  $$c$$
+
+$$\frac{k!}{1!1!(k-2)!}$$
+
+------
+
+#### Example
+
+Roll a 6-sided die $$n$$ times
+
+Outcome is the sequence of number obtained
+
+Number of possible outcomes$$=6^n$$
+
+Number of possible outcomes with $$k_1$$ ones, $$k_2$$ twos, ... $$k_6$$ sixes
+
+$$\binom{n}{k_1, k_2, ... , k_6}$$
+
+Number of possible outcomes with $$x$$ even numbers and $$n-x$$ odd numbers
+
+------
+
+Sequential experiment with independent sub-experiments
+
+Toss a coin $$n$$ times $$(n=3)$$
+
+$$\Omega=\{HHH,TTT,...\}$$
+
+$$P(\{HTH\})=P(\{\text{Heads on 1st toss}\}\{\text{Tails on 2nd toss}\}\{\text{Heads on 3rd toss}\})$$
+
+Assume Independence 
+
+$$=P(\text{Heads on 1st toss})P(\text{Tails on 2nd toss})P(\text{Heads on 3rd toss})$$
+
+$$=p(1-p)p$$
+
+$$P(\text{Heads on\:}k^{th}\text{\: toss})=p$$
+
+$$P(\text{Tails on\:}k^{th}\text{\: toss})=1-p$$
+
+------
+
+#### Example
+
+Roll a 4-sided die 3 times.
+
+Rolls are independent. The die is fair.
+
+$$P((\text{Even number of 1st roll})\bigcap (\text{Even number of 2nd roll}) \bigcap (\text{4 on 3rd roll}))$$
+
+$$=P((\text{Even number of 1st roll})P(\text{Even number of 2nd roll})P(\text{4 on 3rd roll})$$
+
+$$=1/2 \cdot 1/2 \cdot 1/4$$
+
+------
+
+Suppose we have a sequential experiment with $$n$$ independent sub-experiments
+
+This means that if we consider any $$n$$ events $$A_1, ..., A_n$$
+
+where $$A_i$$ occurrence depends only on the outcomes of $$i$$th sub-experiments
+
+Then, $$A_1,...,A_n$$ are independent
+
+------
+
+#### Example
+
+Coin toss $$n$$ times
+
+Each toss is $$H$$ with probability $$p$$ and $$T$$ with probability $$(1-p)$$
+
+Coin tosses are independent
+
+$$P(HHTT...T)=p \cdot p \cdot (1-p)...\cdot (1-p)$$
+
+$$=p^2(1-p)^{n-2}$$
+
+$$P(THHT...T)=p^2(1-p)^{n-2}$$
+
+$$P(\text{a sqeunce of length\:}n \text{\:with\:} k \: H, (n-k) \:T)=p^k(1-p)^{n-k}$$
+
+Probability that we get $$k$$ heads and $$n-k$$ tails
+
+$$=\sum_{\text{sequence with\:}k \: H, (n-k) \:T)}P(\text{sequence})$$
+
+ $$=\sum_{\text{sequence with\:}k \: H, (n-k) \:T)}p^k(1-p)^{n-k}$$
+
+$$=\text{sequence with\: k \: H, (n-k) \:T} \:p^k(1-p)^{n-k}$$
+
+$$=\binom{n}{k}\:p^k(1-p)^{n-k}$$
+
+
+
+$$P(\{\text{Getting\:}k\text{\:heads in\:}n\text{independent coin tosses}\})=\binom{n}{k}\:p^k(1-p)^{n-k}$$
+
+------
+
+$$k=0,1,2, ... n$$
+
+### Binomial probability law
+
+#### Example
+
+$$n$$ trials of a new drug
+
+Each trial is a success with probability or a failure with probability $$1-p$$
+
+Trials are independent
+
+$$P(\{\text{Get exactly \:}k \text{\:success in\:}n\text{\:trials}\})=\binom{n}{k}\:p^k(1-p)^{n-k}$$
+
+
+
+#### Example
+
+100 bits are transmitted over a noisy channel. The transmission of each bit are independent.
+
+Each bit is received correctly with probability $$\lambda$$ or incorrectly with probability $$1-\lambda$$
+
+$$P(\{\text{Get \:}k \text{\:bits correctly})=\binom{100}{k}\lambda^k(1-\lambda)^{100-k}$$
+
+------
+
+#### Example
+
+A coin is tossed infinitely many times. Coin tosses are independent
+
+For each toss, $$H\rightarrow p, T\rightarrow 1-p$$ , $$0\leq p \leq 1$$
+
+Probability that the first $$H$$ appears on the $$m^{th}$$ toss
+
+| $$m=1$$ | $$p$$            |
+| ------- | ---------------- |
+| $$m=2$$ | $$(1-p)\cdot p$$ |
+
+Probability that first $$H$$ on $$m^{th}$$ toss
+
+$$=P(\{TT...TH\})=(1-p)^{m-1}p$$ where $$m=1,2,3,...$$
+
+
+
+Exercise: Probability that it takes more than $$m$$ tosses to get the first $$H$$
+
+
+
+$$P(\{\text{first\:}H\text{\:on\:}m+1\text{\:toss}\}\bigcup\{\text{first\:}H\text{\:on\:}m+2\text{\:toss}\}\bigcup\{...\})$$
+
+Additivity since disjoint events
+
+$$=\sum_{k=m+1}^{\infty}P(\text{first\:}H \text{\:on\:} k^{th}\text{toss})$$
+
+$$=\sum_{k=m+1}^{\infty}P(TT...H)$$
+
+$$=\sum_{k=m+1}^{\infty}(1-p)^{k-1}p$$
+
+$$=(1-p)^mp+(1-p)^{m+1}p+...$$
+
+$$=\frac{(1-p)^mp}{1-(1-p)}=(1-p)^m$$
+
+$$P(\{TTT...T\})=(1-p)^m$$
+
+------
+
+#### Example
+
+Roll a 6-sided die 7 times. Rolls are independent
+
+Once each roll, probability of getting $$k, (k=1,2,...,6)$$ is $$p_k$$
+
+$$p_1+p_2+...+p_6=1$$
+
+Probability of getting this sequence (1123456)$$=p_1 \cdot p_1 \cdot p_2 \cdot p_3 \cdot p_4 \cdot p_5 \cdot p_6$$
+
+Probability of getting (2311564) $$=p_1 \cdot p_1 \cdot p_2 \cdot p_3 \cdot p_4 \cdot p_5 \cdot p_6$$
+
+Probability of getting 2 ones, 1 two, 1 three, 1 four, 1 five, 1 six?
+
+$$=\sum_{\text{sequence with 2 ones, 1 twos, ...}}P(\text{sequence})$$
+
+$$=\{\text{Number of sequence with 2 ones, 1 twos, ...}\} \cdot p_1^2p_2...p_6$$
+
+$$=\frac{7!}{2!1!...1!}p_1^2p_2...p_6$$
+
+------
+
+Sequential experiment with $$n$$ independent sub-experiments
+
+On each sub-experiment, there are $$m$$ possible outcomes with probability $$p_1, p_2, ... p_m$$
+
+$$\sum_{i=1}^{m}p_i=1$$
+
+Probability(Outcome 1 happens $$k_1$$ times, Outcome 2 happen $$k_2$$ times, ... Outcome $$m$$ happens $$k_m$$ times)
+
+$$k_1+k_2+...k_m=n$$
+
+$$=\{\text{Number of valid sequences}\}p_1^{k_1}p_2^{k_2}...p_m^{k_m}$$
+
+$$=\binom{n}{k_1,k_2, ...k_m}p_1^{k_1}p_2^{k_2}...p_m^{k_m}$$
+
+### Multinomial probability Law
+
+------
+
+### Random Variable
+
+6-sided die
+
+Roll it 3 times
+
+Number of sequence with 1 even 2 odds
+
+Pick 1 position for even number:  $$\binom{3}{1}$$
+
+Pick an even number to put in the selected position: 3
+
+Pick 2 odd number to put in the other 2 position: $$3^2$$
+
+$$\binom{3}{1} \cdot 3 \cdot 3^2=3^4$$
+
+
+
+6-sided die
+
+$$n$$ rolls, $$k$$ even numbers, $$n-k$$ odd numbers
+
+Pick $$k$$ positions for the evens: $$\binom{n}{k}$$
+
+Pick $$k$$ even numbers: $$3^k$$
+
+Pick $$(n-k)$$ odds: $$3^{n-k}$$
+
+$$\sum_{k=0}^{n}\binom{n}{k}3^n=\sum_{k=1}^{n}\text{Number of sequence with\: }k \text{\:events}=\text{Total number of sequence}$$
+
+$$3^n\sum_{k=0}^{n}\binom{n}{k}=6^n$$
+
+$$3^n2^n=6^n$$
+
+------
+
+## Week 4 Session 1
+
+Suppose we have a sequential experiment with $$n$$ independent sub-experiments
+
+Consider event $$A_1,A_2, ... A_n$$
+
+where $$A_i's$$ occurrence depends only on outcome of $$i^{th}$$ sub-experiment
+
+Then $$A_1, A_2, ... A_n$$ are independent
+
+
+
+#### Example
+
+Coin toss $$n$$ times
+
+Each toss is $$H$$ with probability $$p$$ and $$T$$ with probability $$(1-p)$$
+
+Coin tosses are independent
+
+$$P(\text{Getting\:}k \text{\:heads in\:} n \text{\:independent coin tosses})=p^k(1-p)^{n-k}$$
+
+$$k=\{0,1,2,...n\}$$
+
+Binomial probability law
+
+$$A=\{\text{first\:}k\text{\:out of\:}n\text{\:coin tosses are\:}H\}$$
+
+$$B=\{\text{There were\:\}}k H\text{\:in\:}n\text{\:coin tosses}$$
+
+$$P(A|B)=\frac{P(A\bigcap B)}{P(B)}=\frac{p^k(1-p)^{n-k}}{\binom{n}{k}\:p^k(1-p)^{n-k}}=\frac{1}{\binom{n}{k}}$$
+
+$$A\bigcap B=HH...HT...T$$ where there are $$kH,(n-k)T$$ 
+
+
+
+$$\sum_{k=0}^{n}\binom{n}{k}\:p^k(1-p)^{n-k}=1$$
+
+Probabilistic way:
+
+$$\sum_{k=0}^{n}P(\{\text{Getting\:}kH \text{\:in tosses}\})$$
+
+$$=P(\{\text{Getting 0H\}}\bigcap\{1H\}...\bigcap{nH})$$
+
+$$=P(\Omega)=1$$
+
+
+
+Algebraic way:
+
+Binomial expansion:
+
+$$(a+b)^n=\sum_{k=0}^{n}\binom{n}{k}a^kb^{n-k}$$
+
+where $$a=p,b=1-p$$
+
+$$\sum_{k=0}^{n}\binom{n}{k}p^k(1-p)^{n-k}=(p+1-p)^n=1$$
+
+say $$p=1/2$$
+
+$$\sum_{k=0}^{n}\binom{n}{k}\frac{1}{2^n}=1$$
+
+$$\sum_{k=0}^{n}\binom{n}{k}=2^n$$
+
+------
+
+### Random Variables
+
+Probability model $$\Omega, \mathcal{F}, p$$
+
+Definition: A random variable (RV) is a function from $$\Omega$$ to real number $$\R$$
+
+$$X:\Omega \rightarrow \R$$
+
+
+
+#### Example
+
+Coin toss $$n=2$$ times with independent tosses
+
+$$X(\omega)=\{\text{Number of \:}H \text{\:in\:} \omega\}$$
+
+
+
+#### Example
+
+$$H: \Omega \rightarrow \R$$
+
+$$H(\omega)=\{\text{Height of selected student}\}$$
+
+
+
+### Remark
+
+1. $$X$$ is a function
+
+   Fix $$\omega$$, then $$X(\omega)$$ is a fixed real number
+
+2. $$X$$ may be a many-to-one function
+
+   It is possible to have $$X(\omega_1)=X(\omega_2)$$ for some $$\omega_1 \neq \omega_2$$
+
+------
+
+Events in terms of RVs
+
+$$X: \omega \rightarrow \R$$
+
+$$A=\{\omega \in \Omega: X(\omega)=2\}$$ is an event
+
+$$B=\{\omega \in \Omega: 0\leq X(\omega) \leq2\}$$
+
+$$C=\{\omega \in \Omega: sin(X(\omega))>0\}$$
+
+$$P(\{\omega \in \Omega: X(\omega)=2\})$$
+
+Notation: $$P(X=2)$$
+
+$$P(\{\omega \in \Omega: X(\omega)\leq2\})$$
+
+Notation: $$P(X\leq2)$$
+
+$$P(\{\omega \in \Omega: X(\omega)\in (a,b)\})$$
+
+Notation: $$P(X\in (a,b))=P(a<x<b)$$
+
+
+
+#### Example
+
+$$n$$ coin toss, independent toss
+
+Probability of $$H=p$$
+
+Probability of $$T=1-p$$
+
+$$X(\omega)=\text{Number of\:}H \text{\:in\:} \omega$$
+
+$$P(X=0)= P(\{\omega \in \Omega: X(\omega)=0\})$$
+
+$$=P(\{TT...T\})$$
+
+$$=(1-p)^n$$
+
+
+
+$$P(X\leq1)= P(\{T...T,HT...T,TH...T,...\})$$
+
+$$=(1-p)^n+np(1-p)^{n-1}$$
+
+$$P(X\leq1)=P(\{X=0\}\bigcap\{X=1\})$$
+
+$$=P(X=0)+P(X=1)$$
+
+$$=P(\text{Getting 0H})+P(\text{Getting 1H})$$
+
+$$=\binom{n}{0}p^k0(1-p)^{n-0}+\binom{n}{1}p^1(1-p)^{n-1}$$
+
+$$=(1-p)^n+np(1-p)^{n-1}$$
+
+
+
+#### Example
+
+Roll a 4-sided die two times
+
+Rolls are independent. Die is fair.
+
+$$\Omega=\{(1,1),(1,2),...(4,4)\}$$
+
+$$z=\text{Number on the 2nd roll}$$
+
+$$P(z=1)=P(\text{Get 1 on 2nd roll})=1/4$$
+
+$$P(\{1,1\}=P(\text{1 on first})P(\text{1 on second})=1/4 \cdot 1/4=1/16$$
+
+$$P(\{(1,1),(1,2),...(4,4)\})=4 \cdot 1/16=1/4$$
+
+$$X=$$ minimum if the numbers on the 2 roll
+
+$$P(X=4)=P(\{4,4\})=1/16$$
+
+$$P(X=2)=P(\{2,2\},\{2,3\},\{2,4\},\{3,2\},\{4,2\})=5/16$$
+
+
+
+Exercise: $$P(X=3), P(X=1)$$
+
+------
+
+### Discrete RVs
+
+Range of RV $$X=$$ all possible values $$X(\omega)$$ can take
+
+Coin toss example $$X=\text{number of }H$$ 
+
+Range of $$X$$: $$S_x=\{0,1,2...,n\}$$
+
+Definition: A RV $$X$$ is discrete if $$S_x$$ is a finite or a countably infinite set.
+
+
+
+#### Example
+
+Coin with probability $$H=p, T=1-p$$
+
+Independent coin tosses.
+
+Keep tossing until a $$H$$ appears
+
+$$N=\text{Number of tosses until an\:}H\text{\:appears}$$
+
+$$S_N=\{1,2,3,...\}$$
+
+$$N$$ is a discrete RV
+
+$$P(N=1)=p$$
+
+$$P(N=k)=(1-p)^{k-1}p$$ where $$k \geq 2$$
+
+
+
+$$S_x=\{x_1,x_2,...x_n\}$$
+
+$$S_x=\{x_1,x_2,x_3,...\}$$
+
+Notations: $$X,Y,Z$$ to indicate RV
+
+$$P(X=x)$$ 
+
+$$x,y,z$$ indicates real number/ values that a RV may take
+
+
+
+### Probability Mass Function (PMF)
+
+$$S_x=\{x_1,x_2,...x_n\}$$
+
+$$P_{X}(x_i)=P(X=x_i)=P(\{\omega\in \Omega:X(\omega)=x_i\})$$
+
+1. $$0 \leq P_{X}(x_i) \leq 1$$
+
+2. $$S_x=\{x_1,x_2,...x_n\}$$
+
+   $$a \neq S_x$$
+
+   $$P(X=a)=P(\{\omega\in \Omega:X(\omega)=a\})=P(\phi)=0$$
+
+3. $$P(\{X=x_1\}\bigcap\{X=x_2\})=0$$
+
+   Disjoint Events
+
+4. $$P(\{X=x_1\}\bigcup\{X=x_2\}\bigcup...\{X=x_n\})=P(\Omega)=1$$
+
+   $$\sum_{i=1}^{n}P(X=x_i)$$
+
+   $$\sum_{i=1}^{n}P_X(x_i)$$
+
+   $$\sum_{i=1}^{n}P_X(x_i)=1$$
+
+   PMF add up to 1
+
+5. $$\{X=x_1\}, \{X=x_2\}, ..., \{X=x_n\}$$ form a partition of $$\Omega$$
+
+6. Let $$(a,b)$$ be an interval in $$\R$$
+
+   $$P(X\in (a,b))$$
+
+   Law of total probability: $$\sum_{i=1}^{n}P(X \in (a,b)\bigcap X=x_i)$$
+
+   $$=\sum_{i: x_i \in (a,b)}P(X\in (a,b) \bigcap X=x_i)+\sum_{i: x_i \notin (a,b)}P(X\in (a,b) \bigcap X=x_i)$$
+
+   where $$\sum_{i: x_i \notin (a,b)}P(X\in (a,b) \bigcap X=x_i)=0$$
+
+   $$=\sum_{i: x_i \in (a,b)}P(X=x_i)$$
+
+   $$=\sum_{i: x_i \in (a,b)}P_X(x_i)$$
+
+   Therefore: $$P(X\in (a,b))=\sum_{i: x_i \in (a,b)}P_X(x_i)$$
+
+$$P(X\in(1,2)\bigcup X\in(4,5))$$
+
+$$=P(X \in (1,2))+P(X\in(4,5))$$
+
+$$=\sum_{x_i \in(1,2)P_X(x_i)}+\sum_{x_i \in(4,5)P_X(x_i)}$$
+
+$$=\sum_{x_i\in (1,2)\bigcup (4,5)}P_X(x_i)$$
+
+For any arbitrary subset $$B$$ pf the real line
+
+$$P(X \in B)=\sum_{i: x_i\in B}P_X(x_i)$$
+
+
+
+#### Example
+
+Coin toss $$n$$ times independent. 
+
+$$X=\text{Number of \:} H\text{\: that appear}$$
+
+$$S_x=\{0,1,...,n\}$$
+
+Binomial RV:
+
+$$P_X(k)=\binom{n}{k}p^k(1-p)^{n-k}$$ where $$0 \leq k \leq n$$
+
+$$X \sim \text{Binomial}(n,p)$$
+
+$$X \sim \text{Binomial}(10,1/2)$$
+
+$$P_X(k)=\binom{10}{k}\frac{1}{2^k}\frac{1}{2^{n-k}}$$ where $$0 \leq k \leq 10$$
+
+$$P(X \geq 9)=P_X(9)+P_X(10)$$
+
+$$P(X < 0.8)=P_X(0)$$
+
+$$P(|X-5|\leq 1)=P_X(4)+P_X(5)+P_X(6)$$
+
+
+
+#### Example
+
+If $$X \geq n-1$$, then I win $100.
+
+Otherwise if $$X<n-1$$, I lose $10
+
+$$Y=$$ my earnings, $$y=g(x)$$
+
+<u>What is the PMF of y?</u>
+
+$$S_y=\{100,-10\}$$
+
+$$P_Y(100)=P(y=100)=P(X \geq n-1)=P_X(n-1)+P_X(n)$$
+
+$$P_Y(-10)=1-P_Y(100)=1-P_X(n-1)-P_X(n)$$
+
+
+
+#### Example
+
+Keep repeating independent coin tosses until $$H$$ 
+
+$$N=$$ Number of coin tosses until $$H$$
+
+<u>What is the PMF of $$N$$</u>
+
+$$S_N=\{1,2,3,...\}$$
+
+For $$k \geq 1$$
+
+$$P_N(k)=P(N=k)=(1-p)^{k-1}p$$ 
+
+Geometric RV
+
+$$X \sim \text{Geometric}(p)$$
+
+
+
+$$X\sim \text{Binomial}(n,p)$$
+
+$$P_X(k)=\binom{n}{k}p^k(1-p)^{n-k}$$
+
+#### Example
+
+Roll a fair 4-sided die.
+
+$$X=$$ Number that appears
+
+$$S_X=\{1,2,3,4\}$$
+
+$$P_X(k)=P(X=K)=1/4$$
+
+Uniform RV
+
+Uniform RV with range $$=\{1,2,...,m\}$$ where $$1\leq k \leq m$$
+
+$$P_X(k)=1/m$$ 
+
+Uniform RV with range $$=\{-m,-(m-1),...,m\}$$ where $$-m\leq k \leq m$$
+
+$$P_X(k)=1/(2m+1))$$ 
+
+------
+
+## Week 4 Session 2
+
+### Random Variable
+
+$$X: \Omega \rightarrow \R$$
+
+for each $$\omega \in \Omega$$, $$X(\omega)$$ is a real number
+
+Events:
+
+$$P(a<X \leq b)=P(\{\omega \in \Omega: a<X(\omega)\leq b\})$$
+
+Discrete RV:
+
+finite or countably infinite range $$S_X$$
+
+$$S_x=\{x_1,x_2,...x_n\}$$
+
+$$S_x=\{x_1,x_2,x_3,...\}$$
+
+$$S_X=\{\text{All possible values of\:}X(\omega)\text{\:for all\:}\omega \in \Omega\}$$ 
+
+PMF of $$X$$: 
+
+$$P(X\in B)=\sum_{i: x_i \in B}P_X(x_i)$$
+
+$$P(a< X\leq b)=\sum_{i: a<x_i \leq b}P_X(x_i)$$
+
+$$P(ax^3+bx^2+cx>0)=\sum_{i: ax_i^3+bx_i^2+cx_i>0}P_X(x_i)$$
+
+
+
+#### Example
+
+$$X\sim \text{Binomial}(n,p)$$
+
+$$P_X(k)=\binom{n}{k}p^k(1-p)^{n-k}$$ where $$0 \leq k \leq n$$
+
+$$P(X \geq 1)=\sum_{k \geq 1}P_X(k)$$
+
+$$=\sum_{k \geq 1}\binom{n}{k}p^k(1-p)^{n-k}$$
+
+or
+
+$$=1-P(X<1)$$
+
+$$=1-P(X=0)$$
+
+$$=1-\binom{n}{0}p^0k(1-p)^{n-0}$$
+
+$$=1-(1-p)^n$$
+
+------
+
+### Bernoulli RV
+
+$$S_X=\{0,1\}$$
+
+$$P_X(1)=p, P_X(0)=1-p$$
+
+$$X \sim \text{Bernoulli}(p)$$
+
+
+
+#### Example
+
+$$X:\Omega \rightarrow \R$$
+
+$$X(\omega)= \begin{cases}1 &\text{if\:} \omega \in A \\0 &\text{if\:} \omega \notin A \end{cases}$$
+
+Indicator RV for event $$A$$, $$I_A$$
+
+$$P_X(1)=P(X=1)$$
+
+$$=P(\{\omega \in \Omega: X(\omega)=1\})$$
+
+$$=P(A)$$
+
+$$P_X(0)=1-P_X(1)=1-P(A)=P(A^c)$$
+
+------
+
+### Poisson RV
+
+$$S_X=\{0,1,2,3...\}$$
+
+$$P_X(k)=\frac{e^{-\lambda}\lambda^k}{k!}$$ for $$k=0,1,2...$$
+
+Here, $$\lambda$$ is a fixed positve number
+
+$$X \sim \text{Poisson}(\lambda)$$
+
+$$P_X(k) \geq 0$$
+
+$$\sum_{k \geq 0}P_X(k)=\sum_{k\geq 0}\frac{e^{-\lambda}\lambda^k}{k!}$$
+
+$$=e^{-\lambda} \sum_{k\geq 0} \frac{\lambda^k}{k!}$$
+
+$$=e^{-\lambda}e^{\lambda}=1$$
+
+$$P(X \geq 1)=1-P(X<1)$$
+
+$$=1-P(X=0)$$
+
+$$=1-\frac{e^{-\lambda}\lambda^0}{0!}$$
+
+$$=1-e^{-\lambda}$$
+
+------
+
+#### Example
+
+$$Z$$ is a discrete RV
+
+$$P(Z \leq 1) \leq P(Z\leq 2)$$
+
+where $$P(Z\leq 1)=0.1, P(Z\leq 2)=0.2$$
+
+$$P(Z \leq2)=P(\{Z \leq 1\}\bigcup\{1<Z \leq 2\})$$
+
+$$=P(Z\leq 1)+P(1<Z \leq 2)$$
+
+$$P(1<Z\leq 2)=0.2$$
+
+------
+
+### Expected Value of RV
+
+Definition: $$X$$ is a discrete RV
+
+$$E[X]=\sum_{x \in S_X}xP_X(x)$$
+
+$$S_X=\{x_1,x_2, ... x_n\}$$
+
+$$E[X]=\sum_{x_i \in S_X}x_iP_X(x_i)$$ , finite value
+
+
+
+$$S_X=\{x_1,x_2, ... \}$$
+
+$$E[X]=\sum_{i=1}^{\infty}x_iP_X(x_i)$$
+
+It is possible that this infinite series doesn't converge. In that case, $$E[X]$$​ is undefined.
+
+------
+
+#### Example
+
+$$X \sim \text{Bernoulli}(p)$$
+
+$$S_X=\{0,1\}$$
+
+$$P_X(1)=p, P_X(0)=1-p$$
+
+$$E[X]=0 \cdot (1-p)+1 \cdot p=p$$
+
+------
+
+#### Example
+
+$$X \sim \text{Uniform with range\:} S_X=\{0,1, ..., (M-1)\}$$
+
+$$P_X(k)=1/M, 0 \leq k \leq M-1$$
+
+$$E[X]=\sum_{k=0}^{M-1}k \cdot 1/M$$
+
+$$=1/M \cdot \sum_{k=0}^{M-1}k$$ 
+
+$$=1/M \cdot \frac{M(0+M-1)}{2}$$
+
+$$=\frac{M-1}{2}$$
+
+In general of PMF is symmetric about same number $$c$$
+
+$$P_X(c+a)=P_X(c-a), \forall a \in \R$$
+
+Then $$E[X]=c$$
+
+------
+
+#### Example
+
+$$X \sim \text{Binomial}(3,0.5)$$
+
+$$P_X(k)\binom{3}{k}\frac{1}{2^k}(1/2)^{3-k}$$ , $$k=0,1, 2, 3$$
+
+$$E[X]=\sum_{k=0}^{3}k \cdot P_X(k)$$
+
+$$=1 \cdot \binom{3}{1}\frac{1}{2^3}+2 \cdot \binom{3}{2}\frac{1}{2^3}+3 \cdot \binom{3}{3}\frac{1}{2^3}=1.5$$
+
+Result:
+
+$$X \sim \text{Binomial}(n,p)$$
+
+$$E[X]=np$$
+
+------
+
+### Interpretation of $$E[X]$$
+
+$$S_X=\{1,2,4\}$$
+
+$$P_X(1)=1/4, P_X(2)=1/2, P_X(4)=1/4$$
+
+------
+
+$$N$$ independent repetitions of the underlying random experiment and record the value of $$X$$ in each experiment
+
+$$2,2,4,1,2,1,2,4,...$$
+
+Average value$$=\frac{\text{Add up all numbers}}{N}$$
+
+$$=\frac{(\text{number of times 1})\cdot 1+(\text{number of times 2})\cdot 2+(\text{number of times 4})\cdot 4}{N}$$
+
+$$=\sum_{x\in S_X}x \cdot \frac{\text{number of times\:}x \text{\:appears}}{N}$$
+
+As $$N \rightarrow \infty$$, $$\text{number of times\:}x \text{\:appears} \rightarrow P_X(x)$$
+
+Empirical average $$\rightarrow \sum_{n \in S_X}x \cdot P_X(x)=E[X]$$
+
+------
+
+$$X \sim \text{Binomial}(n,p), E[X]=np$$
+
+$$P_X(k)=\binom{n}{k}p^k(1-p)^{n-k}$$ , $$0 \leq k \leq n$$
+
+Binomial expansion
+
+$$(a+b)^n=\sum_{k=0}^{n}\binom{n}{k}a^kb^{n-k}$$
+
+$$E[x]=\sum_{k=0}^{n}kP_X(k)$$
+
+$$=\sum_{k=0}^{n}k\binom{n}{k}p^k(1-p)^{n-k}$$
+
+$$=\sum_{k=0}^{n}k\frac{n!}{k!(n-k)!}p^k(1-p)^{n-k}$$
+
+$$=\sum_{k=1}^{n}\frac{n!}{(k-1)!(n-k)!}p^k(1-p)^{n-k}$$
+
+$$=\sum_{k=1}^{n}n\frac{(n-1)!}{(k-1)!((n-1)-(k-1)!)}p^k(1-p)^{n-k}$$
+
+say $$j=k-1$$
+
+$$=n\sum_{j=0}^{n-1}\frac{(n-1)!}{j!(n-1-j)!}p^{j+1}(1-p)^{(n-1)-j}$$
+
+$$=np\sum_{j=0}^{n-1}\binom{n-1}{j}p^{j}(1-p)^{(n-1)-j}$$
+
+where $$\binom{n-1}{j}p^{j}(1-p)^{(n-1)-j} $$ is a term from Binomial $$(n-1,p)$$ 
+
+$$=np(p+1-p)^{n-1}$$
+
+$$=np$$
+
+------
+
+$$X \sim \text{Geometric}(p), p >0$$
+
+$$P_X(k)=(1-p)^{k-1}p$$ , $$k=1,2,3,...$$
+
+say $$q=1-p$$
+
+$$P_X(k)=q^{k-1}p$$
+
+$$E[X]=\sum_{k=1}^{\infty}kq^{k-1}p$$
+
+$$=p\sum_{k=1}^{\infty}kq^{k-1}$$
+
+$$=p\frac{1}{(1-q)^2}$$
+
+$$=1/p$$
+
+Mathematics used:
+
+$$\sum_{k=0}^{\infty}a^k=\frac{1}{1-a}$$ , $$0<a<1$$
+
+$$\sum_{k=1}^{\infty}ka^{k-1}=\frac{1}{(1-a)^2}$$ , $$0<a<1$$
+
+$$\sum_{k=1}^{\infty}ka^k=\frac{a}{(1-a)^2}$$ , $$0<a<1$$
+
+------
+
+#### Example
+
+$$X \sim \text{Poisson}(\lambda)$$
+
+$$P_X(k)=\frac{e^{-\lambda}\lambda^{k}}{k!}$$ , $$k=0,1,2,3...$$
+
+$$E[X]=\sum_{k \geq 0}k\frac{e^{-\lambda}\lambda^{k}}{k!}$$
+
+$$=\sum_{k \geq 1}k\frac{e^{-\lambda}\lambda^{k}}{k!}$$
+
+$$=\sum_{k \geq 1}\lambda\frac{e^{-\lambda}\lambda^{k-1}}{(k-1)!}$$
+
+$$=\lambda e^{-\lambda} \sum_{k \geq 1}\frac{\lambda^{k-1}}{(k-1)!}$$
+
+where $$\sum_{k \geq 1}\frac{\lambda^{k-1}}{(k-1)!}=e^\lambda$$
+
+$$=\lambda$$
+
+
+
+#### Example
+
+$$S_X={3}$$ constant RV, degenerate RV
+
+$$P_X(3)=1$$
+
+$$E[X]=\sum_{x\in S_X}xP_X(x)=3 \cdot 1=3$$
+
+$$E[3]=3$$
+
+In general $$E[a]=a$$ where $$a \in \R$$
+
+
+
+#### Example
+
+$$S_X=\{1,2,3,...\}$$
+
+$$P_X(k)=\frac{1}{ck^2}$$ where $$k=1,2,...$$ , $$c$$ is a positive constant
+
+$$\sum_{k \geq1}\frac{1}{ck^2}=1$$
+
+$$\frac{1}{c}\sum_{k \geq1}\frac{1}{k^2}=1$$
+
+$$\sum_{k \geq1}\frac{1}{k^2}=c$$
+
+where $$\sum_{k \geq1}\frac{1}{k^2}\rightarrow \frac{\pi^2}{6}$$
+
+$$E[X]=\sum_{k \geq 1}k P_X(k)$$
+
+$$=\frac{1}{c}\sum_{k \geq1}\frac{k}{k^2}$$
+
+$$=\frac{1}{c}\sum_{k \geq1}\frac{1}{k}$$
+
+where $$\sum_{k \geq1}\frac{1}{k} \rightarrow \infty$$
+
+$$E[X]=\infty$$
+
+------
+
+### Remarks
+
+If $$S_X$$ is countably infinite and it included both positive and negative values
+
+$$E[X]=\sum_{x\in S_X}xP_X(x)$$
+
+$$=\sum_{x\in S_X, x\geq 0}xP_X(x)+\sum_{x\in S_X, x < 0}xP_X(x)$$
+
+If $$\sum_{x\in S_X, x\geq 0}xP_X(x)\rightarrow \infty$$  
+
+If $$\sum_{x\in S_X, x < 0}xP_X(x)\rightarrow -\infty$$
+
+$$E[X]=\infty-\infty$$ which is undefined
+
+------
+
+### Properties of $$E[X]$$
+
+$$S_X=\{x_1, x_2, ...\}$$
+
+Suppose $$x_i \geq a$$ for $$i=1,2...$$
+
+$$E[X]\geq a$$
+
+$$E[X]=\sum_{x\in S_X}xP_X(x)=\sum_{x\in S_X}aP_X(x)=a\sum_{x\in S_X}P_X(x)=a$$
+
+Similarly if $$x_i \leq b \forall x_i \in S_X$$ 
+
+$$E[X] \leq b$$
+
+------
+
+### Function of a RV
+
+$$S_X=\{-3,-1,1,3\}$$
+
+$$X \sim \text{uniform over the range \:}S_X$$ 
+
+$$E[X]=0, Y=X^2$$ 
+
+$$S_Y=\{1,9\}$$
+
+$$P_Y(y)$$
+
+$$P_Y(1)=P(Y=1)=P(X^2=1)=P_X(1)+P_X(-1)=1/2$$
+
+$$P_Y(9)=1-P_Y(1)=1/2$$
+
+$$E[Y]=1 \cdot 1/2 + 9 \cdot 1/2=5$$
+
+------
+
+#### Result
+
+If $$y=g(x)$$, then
+
+$$E[Y]=\sum_{x \in S_X}g(x)P_X(x)$$
+
+------
+
+$$E[Y]=E[X^2]=5 \neq (E[X])^2$$
+
+In general $$E[g(x)] \neq g(E[X])$$
+
+
+
+Proof of result
+
+$$Y=g(x)$$ , $$S_y=\{y_1,y_2, ... y_m\}$$
+
+$$E[Y]=\sum_{y \in S_y}yP_Y(y)$$
+
+$$P_Y(y)=P(Y=y)=P(g(x)=y)$$
+
+$$=\sum_{x_i: g(x_i)=y}P_X(x_i)$$
+
+So, $$E[Y]=\sum_{y \in S_y}y(\sum_{x_i: g(x_i)=y}P_X(x_i))$$
+
+RHS: 
+
+$$\sum_{x \in S_X}g(x)P_X(x)$$
+
+$$=\sum_{x\in S_X: g(x)=y_1}g(x)P_X(x)+\sum_{x\in S_X: g(x)=y_2}g(x)P_X(x)+...\sum_{x\in S_X: g(x)=y_m}g(x)P_X(x)$$
+
+$$=\sum_{x\in S_X: g(x)=y_1}y_1P_X(x)+\sum_{x\in S_X: g(x)=y_2}y_2P_X(x)+...\sum_{x\in S_X: g(x)=y_m}y_mP_X(x)$$
+
+$$=y_1\sum_{x\in S_X: g(x)=y_1}P_X(x)+y_2\sum_{x\in S_X: g(x)=y_2}P_X(x)+...y_m\sum_{x\in S_X: g(x)=y_m}P_X(x)$$
+
+------
+
+## Week 5 Session 1
+
+Expected value of RV
+
+Definition: $$X$$ is a discrete RV
+
+$$E[X]=\sum_{x\in S_X}x P_X(x)$$
+
+Function of a RV
+
+If $$y=g(x)$$
+
+Then $$E[Y]=\sum_{x\in S_X}g(x)P_X(x)$$
+
+Why?
+
+By definition of $$E[Y]$$
+
+$$E[Y]=\sum_{y \in S_Y}yP(Y=y)$$ where $$P(Y=y)=P(g(x))=y)$$
+
+$$=\sum_{y \in S_Y}y(\sum_{x:g(x)=y}P_X(x))$$
+
+$$=y_1\sum_{x:g(x)=y_1}P_X(x)+y_2\sum_{x:g(x)=y_2}P_X(x)+ ...$$
+
+Moreover
+
+$$\sum_{x \in S_X}g(x)P_X(x)$$ $$\text{rearrange terms}$$ equals to the above
+
+------
+
+#### Example
+
+$$X$$ uniform $$S_X=\{-3,-1,1,3\}$$
+
+$$E[X]=0$$
+
+$$Y=g(x)=\begin{cases}1 & \text{\:if\:} x<0 \\ 0 & \text{\:if\:} x \geq0 \end{cases}$$
+
+$$E[Y]=\sum_{x \in S_X}g(x)P_X(x)=1 \cdot 1/4 + 1 \cdot 1/4 + 0 \cdot 1/4 + 0 \cdot 1/4=1/2$$
+
+$$g(E[X])=0 \neq E[g(x)]$$
+
+------
+
+### Linearity properties of Expectation
+
+1. $$E[aX+b]=aE[X]+b$$
+
+   $$Y=aX+b$$
+
+   $$E[Y]=\sum_{x \in S_X}(ax+b)P_X(x)$$
+
+   $$=\sum_{x \in S_X}a_xP_X(x)+\sum_{x\in S_X}bP_X(x)$$
+
+   $$=aE[X]+b$$
+
+2. $$E[ag(x)+bh(x)+c]$$
+
+   $$=aE[g(x)]+bE[h(x)]+c$$
+   
+   $$Z=ag(x)+bh(x)+c$$
+   
+   $$E[Z]=\sum_{x\in S_X}(ag(x)+bh(x)+c)P_X(x)$$
+   
+   $$=a\sum_{x}g(x)P_X(x)+b\sum h(x)P_X(x)+c\sum P_X(x)$$
+   
+   $$=aE[g(x)]+bE[h(x)]+c$$
+
+
+
+#### Example
+
+$$E[X]=0$$ ,mean of $$X$$, mean value of $$X$$, $$1^{st}$$ moment of $$X$$
+
+$$E[X^2]=5$$ , $$2^{nd}$$ moment of $$X$$
+
+$$E[X^n]$$ , $$n^{th}$$ moment of $$X$$
+
+$$Y=(2x+10)^2$$
+
+$$E[Y]=E[(2X+10)^2]$$
+
+$$=E[4X^2+40X+100]$$
+
+$$=4E[X^2]+40E[X]+100$$
+
+$$=120$$
+
+
+
+#### Example
+
+$$X \sim \text{Binomial}(48,1/3)$$ , $$S_X=\{0,1,...,48\}$$
+
+$$X$$ is the number of voice packets that need to be transmitted.
+
+Transmitter can only send 20 packets.
+
+If $$X$$ is more than 20, the excess packets are discarded.
+
+<u>Expected number of discarded packets</u>
+
+$$Y=g(x)=\begin{cases}x-20 &\text{if\:}x>20 \\ 0 &\text{if\:} x \leq 20\end{cases}$$ 
+
+$$E[Y]=\sum_{x\in S_X}g(x)P_X(x)$$
+
+$$=\sum_{k=0}^{20}0 \cdot P_X(x)+\sum_{k=21}^{48}(k-20) \cdot P_X(k)$$
+
+$$=\sum_{k=21}^{48}(k-20)\binom{48}{k}(\frac{1}{3})^k(\frac{2}{3})^{48-k}$$
+
+$$=0.182$$
+
+------
+
+$$E[X]=0$$
+
+$$Var(X)=E[(X-0)^2]$$
+
+$$=E[X^2]=(1)^2 \cdot 1/2 + (-1)^2 \cdot 1/2$$
+
+$$=1$$
+
+
+
+$$E[Y]=0$$
+
+$$Var[Y]=E[(Y-0)^2]$$
+
+$$=E[Y^2]=100$$
+
+
+
+### Variance of a RV
+
+$$E[(X-m_X)^2]$$
+
+Variance of $$X$$ : $$Var(X)$$ or $$\sigma_X^2$$
+
+------
+
+Standard Deviation
+
+$$\sigma_X=+\sqrt{Var(X)}$$
+
+
+
+#### Example
+
+$$X \sim \text{Bernoulli}(p)$$
+
+$$S_X=\{0,1\}$$
+
+$$P_X(1)=p, P_X(0)=1-p$$
+
+$$E[X]=0\cdot P_X(0)+1 \cdot P_X(1)=p$$
+
+$$Var[X]=E[(X-p)^2]$$
+
+$$=(0-p)^2P_X(0)+(1-p)^2P_X(1)$$
+
+$$=p^2(1-p)+(1-p)^2p$$
+
+$$=p(1-p)$$
+
+------
+
+#### Example: Degenerate/ Constant RV
+
+$$S_X=\{c\}$$
+
+$$E[X]=c \cdot 1=c$$
+
+$$Var(X)=E[(X-c)^2]$$
+
+$$=\sum_{x \in S_X}(x-c)^2P_X(x)=0$$
+
+------
+
+$$Var(X)=E[(X-m_X)^2]=\sum_{x \in S_X}(x-m_X)^2P_X(x)$$
+
+$$Var(X)=E[(X-m_X)^2]=E[X^2-2m_XX+m_X^2]$$
+
+$$=E[X^2]-2m_XE[X]+m_X^2$$
+
+$$=E[X^2]-2m_Xm_X+m_X^2$$
+
+$$=E[X^2]-m_X^2$$
+
+$$E[ag(x)+bh(x)+c]=aE[g(x)]+bE[h(x)]+c$$ applied
+
+$$Var(X)=E[X^2]-m_X^2$$
+
+------
+
+#### Example
+
+$$Y=X+c$$
+
+$$E[Y]=E[X+c]=E[X]+c$$ where $$E[X]=m_X$$ 
+
+$$Var(Y)=E[(Y-m_Y)^2]$$ where $$m_Y=m_X+c$$
+
+$$=E[(x+c-(m_X+c))^2]$$
+
+$$=E[(X-m_X)^2]$$
+
+$$=\sigma_X^2$$
+
+If $$Y=X+c$$, then $$Var(Y)=Var(X)$$
+
+------
+
+#### Example
+
+$$Y=c \cdot X$$
+
+$$E[Y]=E[cX]=cE[X]=cm_X$$
+
+$$Var(Y)=E[(Y-m_Y)^2]$$
+
+$$=E[(cX-cm_X)^2]$$
+
+$$=E[c^2(X-m_X)^2]$$
+
+$$=c^2E[(X-m_X)^2]$$
+
+$$=c^2Var(X)$$
+
+If $$Y=cX$$, then $$Var(Y)=c^2Var(X)$$
+
+If $$Y=-X$$, then $$Var(Y)=Var(X)$$
+
+------
+
+#### Example
+
+$$X, m_X, \sigma_X^2$$
+
+$$Y=\frac{X-m_X}{\sigma_X}$$
+
+$$E[Y]=E[\frac{1}{\sigma_X}(X-m_X)]$$
+
+$$=\frac{1}{\sigma_X}E[(X-m_X)]$$
+
+$$=\frac{1}{\sigma_X}(E[X]-m_X)$$
+
+$$=0$$
+
+$$Var(Y)=E[(Y-0)^2]$$
+
+$$=E[Y^2]$$
+
+$$=E[\frac{(X-m_X)^2}{\sigma_X^2}]$$
+
+$$=E[\frac{1}{\sigma_X^2}(X-m_X)^2]$$
+
+$$=\frac{1}{\sigma_X^2}E[(X-m_X)^2]$$
+
+$$=\frac{\sigma_X^2}{\sigma_X^2}=1$$
+
+$$\frac{X-m_X}{\sigma_X} \rightarrow$$ Normalized form of $$X$$ has mean 0 and variance 1
+
+------
+
+Conditional probability
+
+Bayes' Rule
+
+Total probability law
+
+
+
+Let $$C$$ be any event with $$P(C)>0$$
+
+$$P(A|C)=\frac{P(A \bigcap C)}{P(C)}$$
+
+$$A=\{X=x\}=\{\omega \in \Omega: X(\omega)=x\}$$
+
+$$P(A|C)=P(X=x|C)$$
+
+$$=\frac{P(\{X=x\} \bigcap C)}{P(C)}$$
+
+$$P_X(x|C):=\frac{P(\{X=x\} \bigcap C)}{P(C)}=P({X=x}|C)$$
+
+We can use the above definition for all $$x\in S_X$$ 
+
+$$S_X=\{x_1, x_2, ... , x_n\}$$
+
+$$P_X(x_1|C), P_X(x_2|C), ... $$ are conditional PMF of $$X$$ given $$C$$
+
+Results
+
+1. $$0 \leq P_X(x_i|C) \leq 1$$
+
+2. $$\sum_{x \in S_X}P_X(x|C)=1$$
+
+3. a) $$P(x\in (a,b)|C)=\sum_{x \in (a,b)}P_X(x|C)$$
+
+   b) If $$B$$ is any subset of $$\R$$
+
+   $$P(X\in B|C)=\sum_{x \in B}P_X(x|C)$$
+
+------
+
+$$S_X=\{x_1,...,x_n\}$$
+
+$$\sum_{i=1}^{n}P(X=x_i|C)=P(\Omega|C)=1$$
+
+------
+
+#### Example
+
+$$X$$ has uniform PMF with $$S_X=\{1,2,...,L\}$$ for $$1 \leq k \leq L$$
+
+$$P_X(k)=\frac{1}{L}$$
+
+$$C=\{X>1\}$$
+
+Conditional PMF of $$X$$ given $$C$$
+
+$$P_X(1|C)=P(X=1|X>1)=\frac{P(X=1 \bigcap X>1)}{P(X>1)}=0$$
+
+For $$2\leq k \leq L$$
+
+$$P_X(k|C)=P(X=2|X>1)=\frac{P(X=2 \bigcap X>1)}{P(X>1)}=\frac{1/L}{1-1/L}=\frac{1}{L-1}$$
+
+------
+
+#### Example
+
+$$X\sim \text{Geometric}(p)$$
+
+$$S_X=\{1,2,3...\}$$ 
+
+$$P_X(k)=(1-p)^{k-1}p$$ where $$k\geq 1$$
+
+$$C=\{X>1\}$$
+
+$$Y=X-1$$
+
+Conditional PMF of $$Y$$ given $$C$$
+
+$$P(Y=k|C)=P(Y=k|X>1)$$
+
+$$=P(X-1=k|X>1)$$
+
+$$=P(X=1+k|X>1)$$
+
+$$=\frac{P(X=1+k \bigcap X>1)}{P(X>1)}$$
+
+$$=\begin{cases} \frac{0}{1-p} & k=0\\ \frac{P_X(1+k)}{1-p} & k=1,2,...\end{cases}$$
+
+$$P(Y=k|X>1)=P(X=k)$$
+
+------
+
+Exercise
+
+$$X \sim \text{Geometric}(p)$$
+
+$$C=\{X>m\}$$ where $$m$$ is a positive integer
+
+$$Z=X-m$$
+
+Find the conditional PMF of $$Z$$ given $$C$$
+
+------
+
+Chain Rule
+
+$$P(A\bigcap B)=P(A|B)P(B)$$
+
+Bayes' Rule
+
+$$P(A|B)=\frac{P(B|A)P(A)}{P(B)}$$
+
+Law of total probability
+
+$$P(A)=\sum_{i=1}^{n}P(A \bigcap C_i)$$
+
+$$=\sum_{i=1}^{n}P(A|C_i)P(C_i)$$
+
+------
+
+#### Example
+
+Factory that produce 2 types of devices
+
+Type 1 is produced with probability $$\alpha$$
+
+Lifetime $$\sim \text{Geometric}(r)$$
+
+Type 2 is produced with probability $$1-\alpha$$
+Lifetime $$\sim \text{Geometric}(s)$$
+
+I purchase a device from this factory $$X=$$ lifetimes of purchased device
+
+$$S_X=\{1,2,3,...\}$$
+
+<u>PMF of $$X$$</u>
+
+$$P_X(k)=P(X=k)$$
+
+$$=P(X=k|\text{Type 1})P(\text{Type 1})+P(X=k|\text{Type 2})P(\text{Type 2})$$
+
+$$=(1-r)^{k-1}r\alpha+(1-s)^{k-1}s(1-\alpha)$$
+
+
+
+Verify that $$P_X(k)$$ adds up to 1 of summed over all $$k \geq 1$$
+
+Suppose I observe that $$X=m$$
+
+$$P(\text{Type 1 device was purchased}|X=m)=\frac{P(X=m|\text{Type 1})P(\text{Type 1})}{P(X=m)}$$
+
+$$=\frac{(1-r)^{m-1}r\alpha}{(1-r)^{m-1}r\alpha+(1-s)^{m-1}s(1-\alpha)}$$
+
+$$P(\text{Type 1}|X> m)=\frac{P(X>m|\text{Type 1})P(\text{Type 1})}{P(X>m)}$$
+
+where $$P(X>m|\text{Type 1})=\sum_{k=m+1}^{\infty}(1-r)^{k-1}r$$ 
+
+$$P(X>m)=P(X>m|\text{Type 1})\alpha+P(X>m|\text{Type 2})(1-\alpha)$$
+
+------
+
+| PMF             | Expectation                         |
+| --------------- | ----------------------------------- |
+| $$P_X(k)$$      | $$E[X]=\sum_{x \in S_X}xP_X(x)$$    |
+| Conditional PMF | Conditional Expectation             |
+| $$P_X(x|C)$$    | $$E[X|C]=\sum_{x\in S_X}xP_X(x|C)$$ |
+
+$$E[\text{lifetime}|\text{Type 1}]=\sum_{k=1}^{\infty}kP_X(k|\text{Type 1})$$
+
+$$=\sum_{k=1}^{\infty}k(1-r)^{k-1}r$$
+
+## Week 5 Session 2
+
+1. $$E[aX+b]=aE[X]+b$$
+
+2. $$Var[X]=E[(X-m_X)^2]=E[X^2]-m_X^2$$
+
+3. Conditional PMF of RV $$X$$ given event $$C$$
+
+   $$P_X(x|C)$$ for $$x\in S_X$$
+
+------
+
+Using law of total probability with RVs
+
+Suppose $$C_1, C_2, ... C_n$$ is a partition of $$\Omega$$, then
+
+$$P_X(x)=P(X=x)$$
+
+$$=\sum_{i=1}^{n}P(\{X=x\}\bigcap C_i)$$
+
+$$=\sum_{i=1}^{n}P(X=x|C_i)P(C_i)$$
+
+$$=\sum_{i=1}^{n}P_X(x|C_i)P(C_i)$$
+
+------
+
+#### Example
+
+$$X$$ is a discrete RV with range $$S_X=\{x_1,x_2,...x_n\}$$
+
+For any real number $$c$$, the mean squared error is defined as follows
+
+$$f(c)=E[(X-c)^2]$$
+
+What choice of $$c$$ given the minimum value of $$f(c)$$
+
+$$E[(X-c)^2]=\sum_{i=1}^{n}(x_i-c)^2P_X(x_i)$$
+
+$$f(c)=\sum_{i=1}^{n}(x_i-c)^2P_X(x_i)$$
+
+$$\frac{df(c)}{dc}=0$$
+
+$$\sum_{i=1}^{n}-2(x_i-c)P_X(x_i)=0$$
+
+$$\sum_{i=1}^{n}x_iP_X(x_i)=c\sum_{i=1}^{n}P_X(x_i)$$
+
+$$c=m_X$$
+
+$$\frac{d^2f(c)}{dc}>0$$
+
+$$c=m_X$$
+
+$$f(c)=f(m_X)=E[(X-m_X)^2]=Var(X)$$
+
+------
+
+### Conditional PMF given $$C$$
+
+$$P_X(x|C), x\in S_X$$
+
+Conditional expectation given $$C$$
+
+$$m_{X|c}=E[X|C]=\sum_{x\in S_X}xP_X(x|C)$$
+
+$$E[g(X)|C]=\sum_{x \in S_X}g(x)P_X(x|C)$$
+
+Conditional variance given $$C$$
+
+$$E[(X-m_{X|C})^2|C]=\sum_{x\in S_X}(x-m_{X|C})^2P_X(x|C)$$
+
+------
+
+### Law of total expectation
+
+Theorem: Suppose $$C_1,...C_n$$ is a partition of $$\Omega$$. Then
+
+$$P_X(x)=\sum_{i=1}^{n}P_X(x|C_i)P(C_i)$$
+
+$$E[X]=\sum_{i=1}^{n}E[X|C_i]P(C_i)$$
+
+Proof: 
+
+$$E[X]=\sum_{x\in S_X}xP_X(x)$$
+
+$$=\sum_{x\in S_X}x\sum_{i=1}^{n}P_X(x|C_i)P(C_I)$$
+
+$$=\sum_{i=1}^{n}\sum_{x\in S_X}xP_X(x|C_i)P(C_i)$$
+
+$$=\sum_{i=1}^{n}E[X|C_i]P(C_i)$$
+
+
+
+$$Y=g(x)$$
+
+$$E[Y]=\sum_{i=1}^{n}E[Y|C_i]P(C_i)$$
+
+$$E[g(x)]=\sum_{i=1}^{n}E[g(x)|C_i]P(C_i)$$
+
+------
+
+Example
+
+$$C_1,C_2$$ form a partition of $$\Omega$$
+
+Given $$C_1$$. $$X\sim \text{Geometric}(r)$$
+
+Given $$C_2$$. $$X\sim \text{Geometric}(s)$$
+
+$$Z\sim \text{Geometric}(p)$$
+
+$$E[Z]=1/p$$
+
+$$E[Z^2]=\frac{1+p}{p^2}$$
+
+<u>Find $$Var(X)$$</u>
+
+$$Var(X)=E[X^2]-m_X^2$$
+
+$$m_X=E[X]=E[X|C_1]P(C_1)+E[X|C_2]P(C_2)$$
+
+$$=\frac{1}{r} P(C_1)+\frac{1}{s} P(C_2)$$
+
+$$E[X^2]=E[X^2|C_1]P(C_1)+E[X^2|C_2]P(C_2)$$
+
+$$=\frac{1+r}{r^2}P(C_1)+\frac{1+s}{s^2}P(C_2)$$
+
+$$Var(X)=E[X^2]-(m_X)^2$$
+
+------
+
+#### Example
+
+$$n$$ independent Bernoulli trials
+
+Each trial may result in a success with probability $$p$$ or a failure with probability $$1-p$$
+$$X=$$ number of successes in $$n$$ trials
+
+$$P_X(k)=\binom{n}{k}p^k(1-p)^{n-k}$$ where $$0\leq k \leq n$$
+
+Suppose $$X=1$$
+
+<u>What is the conditional probability that the first trial was successful?</u>
+
+$$A_1=\{\text{first trial is success}\}$$
+
+$$P(A_1|X=1)=\frac{P(A_1\bigcap X=1)}{P(X=1)}$$
+
+$$=\frac{P(SFFFF...F)}{\binom{n}{1}p^1(1-p)^{n-1}}$$
+
+$$=\frac{p^1(1-p)^{n-1}}{\binom{n}{1}p^1(1-p)^{n-1}}$$
+
+$$=\frac{1}{n}$$
+
+
+
+$$A_2=\{\text{second trial is success}\}$$
+
+$$P(A_2|X=1)=\frac{P(A_2\bigcap X=1)}{P(X=1)}$$
+
+$$=\frac{P(FSFFF...F)}{\binom{n}{1}p^1(1-p)^{n-1}}$$
+
+$$=\frac{1}{n}$$
+
+------
+
+#### Example
+
+Given $$A_1$$, find the conditional PMF of $$X$$
+
+$$S_X=\{0,1,...,n\}$$
+
+$$P_X(0|A_1)=P(X=0|A_1)=0$$
+
+For $$n \geq k \geq 1$$
+
+$$P_X(k|A_1)=P(X=k|A_1)=\frac{P(X=k\bigcap A_1)}{P(A_1)}$$
+
+$$P(A_1)=p$$
+
+$$P(X=k \bigcap A_1)=P(A_1 \bigcap k-1 \text{\: success trials\: }2,3,...n)$$
+
+$$=P(A_1)P(k-1 \text{\: success trials\: }2,3,...n)$$
+
+$$=p\binom{n-1}{k-1}p^{k-1}(1-p)^{n-k}$$
+
+$$P_X(k|A_1)=\binom{n-1}{k-1}p^{k-1}(1-p)^{n-k}$$ for $$1\leq k \leq n$$
+
+------
+
+$$P(X\geq n-1|A_1)=P_X(n-1|A_1)+P_X(n|A_1)$$
+
+$$=\binom{n-1}{n-2}p^{n-2}(1-p)^{1}+p^{n-1}$$
+
+$$=(n-1)p^{n-2}(1-p)+p^{n-1}$$
+
+------
+
+Conditional PMF of $$X$$ given $$A_1^c$$ 
+
+$$S_X=\{0,1,...,n\}$$
+
+$$P_X(n|A_1^c)=P(X=n|A_1^c)=0$$
+
+For $$0 \leq k \leq n-1$$
+
+$$P_X(k|A_1^c)=P(X=k|A_1^c)$$
+
+$$=\frac{P(X=k \bigcap A_1^c)}{P(A_1^c)}$$
+
+$$=\frac{P(A_1^c \bigcap k\text{\: success in trials 2,...,n})}{1-p}$$
+
+$$=\frac{P(A_1^c)P(\text{success in trials 2,...,n})}{1-p}$$
+
+$$=\binom{n-1}{k}p^k(1-p)^{n-1-k}$$
+
+------
+
+$$P_X(k|A_1), P_X(k|A_1^c)$$ where $$0 \leq k \leq n$$
+
+Verify
+
+$$P(X=k)=P(X=k|A_1)P(A_1)+P(X=k|A_1^c)P(A_1^c)$$
+
+
+
+$$k=0$$
+
+LHS: $$P(X=0)=(1-p)^n$$
+
+RHS: $$P(X=0|A_1)P(A_1)+P(X=0|A_1^c)P(A_1^c)$$
+
+$$=0 P(A_1)+(1-p)^{n-1}(1-p)$$
+
+$$=(1-p)^n$$
+
+------
+
+$$P(A_1|X=2)=\frac{P(X=2|A_1)P(A_1)}{P(X=2)}$$
+
+$$P(A_1 \bigcap A_2|X=2)=\frac{P(A_1 \bigcap A_2 \bigcap X=2)}{P(X=2)}$$
+
+$$=\frac{pp(1-p)^{n-2}}{\binom{n}{2}p^2(1-p)^{n-2}}$$
+
+$$=\frac{1}{\binom{n}{2}}$$
+
+
+
+If $$A,B$$ are independent
+
+$$P(A \bigcap B)=P(A)P(B)$$
+
+If $$A,B$$ are disjoint
+
+$$P(A \bigcup B|C)=P(A|C)+P(B|C)$$
+
+$$P(A \bigcup B|C)=\frac{P(A\bigcup B \bigcap C) }{P(C)}$$
+
+$$=\frac{P(A \bigcap C \bigcup B \bigcap C}{P(C)}$$
+
+$$=\frac{P(A \bigcap C)+P(B \bigcap C)}{P(C)}$$
+
+$$=P(A|C)+P(B|C)$$
+
+------
+
+$$Z \sim \text{Poisson}(\lambda)$$
+
+$$P_X(k)=\frac{\lambda^ke^{-\lambda}}{k!}$$ for $$k=0,1,2...$$
+
+$$E[Z]=\lambda$$
+
+$$Var[Z]=\lambda$$
+
+$$E[Z^2]=\lambda+\lambda^2$$
+
+------
+
+#### Example
+
+Optical Communication
+
+Receiver in an optical communication system. If message is being sent, then the receiver gets a random number of photons that has a Poisson PMF $$\lambda_1$$
+
+If message is not being sent, then receiver gets a random number of photons with a Poisson PMF $$\lambda_0$$
+
+$$\lambda_0 < \lambda_1$$
+
+The prior probability that a message is being sent is $$p$$
+
+a) Suppose the receiver get $$k$$ photons. <u>Conditional probability that a message was sent</u>
+
+$$X=$$ number of photons at the receiver
+
+$$M=\{\text{message is sent}\}$$ 
+
+$$A=\{\text{message is absent}\}$$ , $$A=M^c$$
+
+$$P(M|X=k)=\frac{P(X=k|M)P(M)}{P(X=k)}$$
+
+Number$$=\frac{\lambda_1^ke^{-\lambda_1}}{k!}p$$
+
+Denominator $$P(X=k)=P(X=k|M)P(M)+P(X=k|A)P(A)$$
+
+$$=\frac{\lambda_1^ke^{-\lambda_1}}{k!}p+=\frac{\lambda_0^ke^{-\lambda_0}}{k!}(1-p)$$
+
+
+
+b) Receiver calculates $$I=P(M|X=k)$$ and $$II=P(A|X=k)$$
+
+Declares message present if $$I>II$$
+
+Declares message absent if $$I<II$$
+
+Declare present if: 
+
+$$P(M|X=k)>P(A|X=k)$$ 
+
+$$\frac{\frac{\lambda_1^ke^{-\lambda_1}}{k!}p}{P(X=k)}>\frac{\frac{\lambda_0^ke^{-\lambda_0}}{k!}(1-p)}{P(X=k)}$$
+
+$$\frac{\lambda_1}{\lambda_0}^k>\frac{1-p}{p}e^{\lambda_1-\lambda_0}$$
+
+$$k>\frac{log\frac{1-p}{p}+(\lambda_1-\lambda_0)}{log(\frac{\lambda_1}{\lambda_0})}=c$$
+
+Receiver decision rule is 
+
+Declare present if Number of photons $$>c$$
+
+Declare absent if Number of photons $$\leq c$$
+
+
+
+c) Suppose that a message is present. <u>What is the probability that the receiver makes a wrong declaration?</u> 
+
+$$P(\text{Declaring Absent}|M)=P(X\leq c|M)$$
+
+$$=\sum_{0  \leq k \leq c}e^{-\lambda_1}\frac{\lambda_1^k}{k!}$$
+
+
+
+d) $$P(\text{Declares present}|A)=P(X>c|A)$$
+
+$$=\sum_{k>c}e^{-\lambda_0}\frac{\lambda_0^k}{k!}$$
+
+
+
+e) Probability that receiver makes a wrong declaration
+
+$$W=\{\text{Weong declaration}\}$$
+
+$$P(W)=P(W|M)P(M)+P(W|A)P(A)$$
+
+$$=P(W|M)p+P(W|A)(1-p)$$
+
+
+
+f) $$M \rightarrow X\sim \text{Poisson}(\lambda_1)$$
+
+$$A \rightarrow X\sim \text{Poisson}(\lambda_0)$$
+
+$$E[X]=E[X|M]P[M]+E[X|A]P[A]$$
+
+$$=\lambda_1p+\lambda_0(1-p)$$
+
+
+
+g) $$E[X^2]=E[X^2|M]P[M]+E[X^2|A]P[A]$$
+
+$$=(\lambda+\lambda^2)p+(\lambda_0+\lambda_0^2)(1-p)$$
+
+------
+
+$$P(X=2), x\in S_X$$ 
+
+Cumulative Distribution Function (CDF)
+
+$$F_X(x)=P(X\leq x) \forall x \in \R$$
 
