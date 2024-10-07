@@ -170,7 +170,7 @@ $$\Omega=\{1,2,3,4,5,6\}$$
 
 Event space=Power set of $$\Omega$$
 
-$$P(\{1\})=P(\{2\})=P(\{3\})=P(\{4\})=P(\{5\})=5/12$$
+$$P(\{1\})=P(\{2\})=P(\{3\})=P(\{4\})=P(\{5\})=2/15$$
 
 $\textcolor{RedViolet}{{P(\{6\})}=1/3}$
 
@@ -3832,4 +3832,395 @@ $$P(X=2), x\in S_X$$
 Cumulative Distribution Function (CDF)
 
 $$F_X(x)=P(X\leq x) \forall x \in \R$$
+
+## Week 6 Session 1 (Only 1)
+
+### Random variable (RV)
+
+<u>Discrete RVs</u>
+
+PMF
+
+$$P_X(x_i)=P(X=x_i)$$ for each $$x_i \in S_x$$
+
+<u>Non-discrete RV</u>
+
+range of values in an uncountably infinite set
+
+Example
+
+$$S_x=[a,b]$$
+
+$$S_x=\R$$
+
+$$S_x=[0,\infty)$$
+
+------
+
+### Cumulative distribution function (CDF)
+
+$$F_X(x)=P(X \leq x)$$ for all $$x\in \R$$
+
+can be defined for all RVs (discrete or non-discrete)
+
+
+
+#### Example
+
+$$X \sim \text{Bernoulli} (p)$$
+
+$$S_x=\{0,1\}$$
+
+$$P_X(1)=p$$
+
+$$P_X(0)=1-p$$
+
+$$F_X(x)=P(X\leq x)$$
+
+$$F_X(0)=P(X\leq 0)=(1-p)$$
+
+$$F_X(1)=P(X \leq 1)=1$$
+
+
+
+#### Example
+
+$$X \sim \text{Binomial}(3,1/2)$$
+
+$$S_X=\{0,1,2,3\}$$
+
+$$P_X(k)=\binom{3}{k}(1/2)^3$$ where $$k=0,1,2,3$$
+
+CDF: $$F_X(x)=P(X\leq x)$$
+
+$$F_X(0)=P(X \leq 0)=P(X=0)=1/8$$
+
+$$F_X(1)=P(X \leq 1)=P_X(0)+P_X(1)=4/8$$
+
+
+
+#### Example
+
+A constant RV $$S_X=\{0\}$$
+
+$$P_X(0)=1$$
+
+
+
+#### Example
+
+Non-discrete RV
+
+$$\Omega=(0,1]$$
+
+$$P(\text{Any sub-interval of\:} \Omega)=\text{length of sub-interval}$$
+
+$$X: \Omega \rightarrow \R$$
+
+$$X(\omega)=\omega$$
+
+$$S_X=(0,1]$$
+
+$$P(1/2 \leq X \leq 1)=P(\{\omega \in \Omega: 1/2 \leq X(\omega) \leq1 \})$$
+
+$$=P([1/2,1])=1/2$$
+
+$$P(X \leq 1/3)=P(\{\omega \in \Omega: X(\omega) \leq 1/3\})$$
+
+$$=P((0,1/3])=1/3$$
+
+
+
+CDF $$F_X$$ for uniform RV over $$(0,1]$$
+
+$$F_X(0)=P(X\leq 0)=0$$
+
+$$F_X(2/3)=P(X\leq 2/3)=P((0,2/3])=2/3$$
+
+$$0 < x \leq 1$$
+
+$$F_X(x)=P(X \leq x)=P((0,x])=x$$
+
+
+
+#### Example
+
+A taxi is present with probability $$p$$ at the taxi when I arrive
+
+Waiting time =0 if taxi is present
+
+If not taxi is present, waiting time is uniform $$(0,1]$$ random variable
+
+CDF of waiting time $$Y$$
+$$F_Y(x)=P(Y \leq x)=P(Y \leq x | \text{Taxi present})P(\text{Taxi present})+P(Y \leq x | \text{Taxi absent})P(\text{Taxi absent})$$
+
+$$=P(Y \leq x | \text{Taxi present})p+P(Y \leq x | \text{Taxi absent})(1-p)$$
+
+$$P(Y \leq x | \text{Taxi present})=\begin{cases} 0 & \text{if\:} x<0 \\ 1 & \text{if\:} x \geq 0 \end{cases}$$
+
+$$P(Y \leq x | \text{Taxi absent})=\begin{cases} 0 & \text{if\:} x\leq0 \\ x & \text{if\:} 0<x \leq 1 \\ 1 & \text{if\:} x>1 \end{cases}$$
+
+$$F_Y(x)=\begin{cases} 0 & \text{if\:} x<0 \\ p & \text{if\: } x=0\\ p+(1-p)x & \text{if\:} 0<x \leq 1\\ 1 & \text{if\:} x>1 \end{cases}$$
+
+Mixed RV
+
+------
+
+### Properties of CDF
+
+1. $$0 \leq F_X(x) \leq 1$$
+
+2. Let $$a<b$$
+
+   $$F_X(a) \leq F_X(b)$$
+
+   $$F_X$$ is a non decreasing function
+
+   $$\{X \leq a\} \subset \{X \leq b\}$$
+
+   $$F_X(a)=P(X \leq a) \leq P(X \leq b)=F_X(b)$$
+
+3. Recall $$A_1 \subset A_2 ... \subset A_n$$
+
+   $$P(\bigcup_{i=1}^{n}A_i)=P(A_n)$$
+
+   $$A_1 \subset A_2 ... $$
+
+   $$P(\bigcup_{i=1}^{\infty}A_i)=\lim_{n \rightarrow \infty}P(A_n)$$
+
+   $$A_1=\{X\leq 1\}, A_2=\{X \leq 2\}, ... A_n=\{A \leq n\}$$
+
+   $$P(\bigcup_{i=1}^{\infty}A_i)=\lim_{n \rightarrow \infty}P(X \leq n)$$
+
+   $$P(\Omega)=\lim_{n \rightarrow \infty}F_X(n)$$
+
+   ==$$1=\lim_{n \rightarrow \infty}F_X(n)$$==
+
+4. $$B_1 \supset B_2 ... \supset B_n$$
+
+   $$P(\bigcap_{i=1}^{n}B_i)=P(B_n)$$
+
+   $$B_1 \supset B_2 ...$$
+
+   $$P(\bigcap_{i=1}^{\infty}B_i)=\lim_{n \rightarrow \infty}P(B_n)$$
+
+   $$B_1=\{X \leq -1\},B_2=\{X \leq -2\}... B_n=\{X \leq -n\}$$
+
+   $$P(\bigcap_{i=1}^{\infty}B_i)=\lim_{n \rightarrow \infty}P(X \leq -n)$$
+
+   $$P(\phi)=\lim_{n \rightarrow \infty}F_X(-n)$$
+
+   $$0=\lim_{n \rightarrow \infty}F_X(-n)$$
+
+   ==$$\lim_{x \rightarrow -\infty}F_X(x)=0$$==
+
+5. $$\lim_{h \downarrow 0}F_X(b+h)=F_X(b)$$
+
+   $$F_X$$ is a right continuous function
+
+   Decreasing sequence
+
+   $$B_1=\{X \leq b+1\}$$
+
+   $$B_2=\{X \leq b+1/2\}$$
+
+   $$...$$
+
+   $$B_n=\{X \leq b+ 1/n\}$$
+
+   $$P(\bigcap_{i=1}^{\infty}B_i)=\lim_{n \rightarrow \infty}P(B_n)$$
+
+   $$P(X \leq b)=\lim_{n \rightarrow \infty}P(X \leq b+ 1/n)$$
+
+   $$=\lim_{n \rightarrow \infty}F_X(b+1/n)$$
+
+   ==$$F_X(b)=\lim(h \downarrow 0)F_X(b+h)$$==
+
+   
+
+   In general $$F_X$$ is not left-continuous, i.e., $$F_X(b)$$ and $$\lim_{h \downarrow 0}F_X(b-h)$$ may or may not be equal
+
+   Example
+
+   $$X \sim \text{Bernoulli}(p)$$
+
+   $$P(X=0)=1-p$$
+
+   $$F_X(0^{+})-F_X(0)=0$$
+
+   $$F_X(0)=P(X\leq 0)=P(X=0)=1-p$$
+
+   $$F_X(-h)=0$$
+
+   $$\lim_{h \rightarrow 0}F_X(-h)=0 \neq F_X(0)$$
+
+   
+
+   $$F_X(b^{+}):= \lim_{h \downarrow 0}F_X(b+h)$$
+
+   $$F_X(b^{-}):=\lim_{h \downarrow 0}F_X(b-h)$$
+
+   $$F_X(b^{+})=F_X(b)$$
+
+   but $$F_X(b^{-1})$$ and $$F_X(b)$$ may or may not be equal
+
+6. $$P(X >x)=1-F_X(x)$$
+
+7. Let $$a<b$$
+
+   $$P(a < X \leq b)=F_X(b)-F_X(a)$$
+
+   $$\{X \leq b\}=\{X \leq a\} \bigcup \{a < X \leq B\}$$     disjoint
+
+   $$P(X \leq b)=P(X \leq a) +P (a < X \leq B)$$
+
+8. $$P(X=b)=F_X(b)-F_X(b^{-})$$
+
+   $$F_X(b^{-1})=\lim_{h \downarrow 0}F_X(b-h)$$
+
+   Interval: $$(b-h,b]$$
+
+   $$P(X=b)\leq P(b-h < X \leq b)=F_X(b)-F_X(b-h)$$
+
+   $$P(X=b)\leq \lim_{h \downarrow 0}P(b-h < X \leq b)$$
+
+   $$=F_X(b)-\lim_{h\downarrow 0}F_X(b-h)$$
+
+   $$=F_X(b)-F_X(b^{-})$$
+
+   More precisely,
+
+   $$P(X=b)=F_X(b)-F_X(b^{-})$$
+
+   
+
+$$B_1=\{X \in (b-1,b)\}$$
+
+$$B_2=\{X \in (b-1/2,b)\}$$
+
+$$...$$
+
+$$B_n=\{X \in (b-1/n,b)\}$$
+
+$$P(\bigcap_{i=1}^{\infty}B_i)=\lim_{n\rightarrow \infty}P(B_n)$$
+
+$$P(X=b)=\lim_{n \rightarrow \infty}P(b-1/n < X \leq b)$$
+
+$$P(X=b)=\lim_{n \rightarrow \infty}F_X(b)-F_X(b-1/n)$$
+
+$$P(X=b)=F_X(b)-\lim_{h \downarrow 0} F_X(b-h)$$
+
+$$=F_X(b)-F_X(b^{-})$$
+
+
+
+$$P(a < X \leq b)=F_X(b)-F_X(a)$$
+
+$$P(X=b)=F_X(b)-F_X(b^{-})$$
+
+
+
+#### Example
+
+$$P(a \leq X \leq b)$$
+
+$$\{a \leq X \leq b\}=\{X=a\} \bigcup \{a < X \leq b\}$$
+
+$$P(a \leq X \leq b)=F_X(a)-F_X(a^{-})+F_X(b)-F_X(a)$$
+
+$$=F_X(b)-F_X(a^{-})$$
+
+
+
+#### Example
+
+$$P(a \leq X <b)$$
+
+$$\{a \leq X \leq b\}=\{a \leq X < b\} \bigcup \{X=b\}$$
+
+$$P(a \leq X <b)=F_X(b)-F_X(a^{-})-(F_X(b)-F_X(b^{-}))$$
+
+$$=F_X(b^{-})-F_X(a^{-})$$
+
+
+
+#### Example
+
+$$F_X(x)=\begin{cases} 0 & \text{if \: }x < -1 \\ 1/2 & \text {if\:} -1 \leq x\leq 0\\ \frac{1+x}{2} & \text{if\:} 0 < x \leq 1 \\ 1 & \text{if\:} x>1\end{cases}$$
+
+$$P(X=-1)=F_X(-1)-F_X(-1^{-})$$
+
+$$=1/2-0=1/2$$
+
+$$P(X<1/2)=P(X \leq 1/2)-P(X=1/2)$$
+
+$$=F_X(1/2)-(F_X(1/2)-F_X(1/2^{-}))$$
+
+$$=F_X(1/2^{-})=3/4$$
+
+$$P(-1/2 < X \leq 1/2)=F_X(1/2)-F_X(-1/2)=1/4$$
+
+$$P(-1/2 < X < 1/2)=P(-1/2 < X \leq 1/2)-P(X=1/2)$$
+
+$$=1/4-(F_X(1/2)-F_X(1/2^{-}))$$
+
+$$=1/4$$
+
+
+
+#### Example
+
+$$F_X(x)=\begin{cases} 0 & \text{if\:} x<0 \\ 1-e^{-x} & \text{if\:} x \geq 0\end{cases}$$
+
+$$P(0<X \leq 1)=F_X(1)-F_X(0)$$
+
+$$=1-e^{-1}-0=1-e^{-1}$$
+
+$$P(0<X<1)=P(0<X\leq 1)-P(X=1)$$
+
+$$F_X(1)-F_X(1^{-})=0$$
+
+==Note==
+
+If $$F_X$$ is continuous at a point $$b$$
+
+$$F_X(b)=F_X(b^{-})=F_X(b{+})$$, then 
+
+$$P(X=b)=0$$
+
+------
+
+### Continuous RV
+
+(i) $$S_X$$ is an interval of real line or $$\R$$ or union of interval
+
+(ii) $$F_X$$ is a continuous function
+
+(iii) $$F_X(x)=\int_{-\infty}{x}f_x(t)dt$$
+
+where $$f_x$$ is called the probability density function of $$x$$
+
+It means that for any number $$b$$
+
+$$P(X=b)=F_X(b)-F_X(b^{-})=0$$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
