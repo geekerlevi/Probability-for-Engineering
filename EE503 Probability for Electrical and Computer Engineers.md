@@ -4204,19 +4204,397 @@ It means that for any number $$b$$
 
 $$P(X=b)=F_X(b)-F_X(b^{-})=0$$
 
+## Week 7 Session 1
+
+Cumulative distribution function (CDF)
+
+$$F_X(x)=P(X \leq x)$$ for all $$x\in \R$$
+
+Properties:
+
+1.  $$F_X(x)$$ is a non-decreasing function
+
+2. $$\lim_{x \rightarrow \infty}F(X)=1, \lim_{x\rightarrow -\infty}F(X)=0$$
+
+3. Right continuous:
+
+   $$\lim_{h \downarrow 0}F_X(b+h)=F_X(b)$$
+
+4. Let $$a<b$$
+
+   $$P(a<X \leq b)=F_X(b)-F_X(a)$$
+
+5. $$P(X=b)=F_X(b)-F_X(b^{-})$$
+
+   $$F_X(b^{-})=\lim_{h \downarrow 0}F_X(b-h)$$
+
+Continuous RV
+
+1. $$S_{X}$$ is an interval of real line or $$\R$$ or union of interval
+
+2. $$F_X$$ is a continuous function 
+
+   $$F_X(b)=F_X(b^{+})=F_X(b^{-})$$ for all real number $$b$$
+
+3. $$F_X(x)=\int_{-\infty}^{x}f_x(t)dt$$
+
+   where $$f_x$$ is called the probability density function of $$X$$
+
+   
+
+$$P(X=b)=F_X(b)-F_X(b^{-})=0$$
+
+$$X$$ is the lifetimes of a device measured in seconds
+
+$$S_X=[0,\infty)$$
+
+$$P(X=-10)=P(\phi)=0$$
+
+$$X$$ is a continuous RV
+
+$$P(X=0.33333333...)=0$$
+
+$$F_X(x)=\int_{-\infty}^{x}f_x(t)dt$$
+
+### Results
+
+1. For all $$x$$ where $$F_X$$ is differentiable
+
+   $$\frac{dF_X(x)}{dx}=f_X(x)$$ is the rate of change of CDF
+
+   2. $$f_X(x) \geq 0$$ for all $$x \in \R$$
+
+      $$f_X(x)$$ does not have to be $$\leq 1$$
+
+      ![image-20241011103427494](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241011103427494.png)
+
+      3. $$P(x<X \leq x+h)=F_X(x+h)-F_X(x)$$
+
+         $$=\frac{F_X(x+h)-F_X(x)}{h}h$$
+
+         $$\approx f_X(x)h$$
+
+         $$f_X(x) \approx \frac{P(x<X \leq x+h)}{h}$$
+
+      4. $$P(a<X\leq b)=F_X(b)-F_X(a)$$ where $$a<b$$
+
+         $$=\int_{-\infty}^{b}f_X(t)dt-\int_{-\infty}^{a}f_X(s)ds$$
+
+         $$=\int_{a}^{b}f_X(t)dt$$
+
+         
+
+         Discrete RV
+
+         $$Z$$ is a discrete RV $$P_Z$$
+
+         $$P(a<Z\leq b)=\sum_{a< Z \leq b}P_Z(z)$$
+
+         
+
+         $$P(a<X\leq b)=\int_{a}^{b}f_X(t)dt$$
+
+         $$P(a \leq X \leq b)=P(a<X\leq b)+P(X=a)$$
+
+         $$=\int_{a}^{b}f_X(t)dt$$
+
+         
+
+         $$P(a \leq X <b)=P(a \leq X \leq b)-P(X=b)$$
+
+         $$=\int_{a}^{b}f_X(t)dt$$
+
+         $$P(\{X \in (1,2)\} \bigcup \{X \in {3,4}\})$$
+
+         $$=\int_{1}^{2}f_X(t)dt+\int_{3}^{4}f_X(t)dt$$
+
+         In general, for any subset $$B$$ of the real line
+
+         $$P(X \in B)= \int_{B}f_X(t)dt$$
+
+         ![image-20241011112259320](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241011112259320.png)
+
+         $$Z$$ Discrete RV $$P_Z$$
+
+         $$P(Z \in B)=\sum_{Z \in B}P_Z(z)$$
+
+      5. $$\int_{-\infty}^{\infty}f_X(t)dt=1$$
+
+         
+
+         For Discrete RV
+
+         $$\sum_{Z \in \R}P_Z(z)=1$$
+
+         
+
+         $$\int_{-\infty}^{\infty}f_X(t)dt=\lim_{a \rightarrow \infty}\int_{-a}^{a}f_X(t)dt$$
+
+         $$=\lim_{a \rightarrow \infty}(F_X(a)-F_X(-a))$$
+
+         $$=\lim_{a \rightarrow \infty}F_X(a)-\lim_{a \rightarrow \infty}F_X(-a)$$
+
+         $$=1-\lim_{c \rightarrow -\infty}F_X(c)$$
+
+         $$=1$$
+
+         
+
+         #### Example
+
+         Uniform RV over interval $$[a,b], a< b$$ 
+
+         $$f_X(x)=\begin{cases} \frac{1}{b-a} & \text{if \: } a \leq x \leq b\\ 0 & \text{otherwise}\end{cases}$$
+
+      ![image-20241011112921036](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241011112921036.png)
+
+      CDF: $$F_X(x)=\int_{-\infty}^{x}f_X(t)dt$$
+
+      Case 1:  $$x<a$$
+
+      $$F_X(x)=0$$
+
+      Case 2: $$a \leq x \leq b$$
+
+      $$F_X(x)=\int_{-\infty}^{x}f_X(t)dt$$
+
+      $$=\int_{a}^{x}\frac{1}{b-a}dt$$
+
+      $$=\frac{x-a}{b-a}$$
+
+      Case 3: $$x>b$$
+
+      $$F_X(x)=\int_{-\infty}^{x}f_X(t)dt=1$$
+
+      ![image-20241011113414912](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241011113414912.png)
+
+      
+
+      #### Example
+
+      $$f_X(x)=\begin{cases} \lambda e^{-\lambda x} & \text{if \: } a \leq x \leq b\\ 0 & \text{otherwise}\end{cases}$$
+
+      Here, $$\lambda$$ is a positive parameter
+
+      exponential density with parameter $$\lambda$$
+
+      $$P(X>1)=\int_{1}^{\infty}f_X(t)dt$$
+
+      $$=\int_{1}^{\infty}\lambda e^{-\lambda x} dt$$
+
+      $$=\lambda \frac{e^{-\lambda t}}{-\lambda} |_{1}^{\infty}$$
+
+      $$=e^{-\lambda }$$
+
+      for $$x>0$$
+
+      $$P(X>x)=\int_{x}^{\infty}\lambda e^{-\lambda t}dt$$
+
+      $$=e^{-\lambda x}$$
+
+      $$F_X(x)=\begin{cases} 0 & x<0 \\ 1-e^{-\lambda x} & x \geq 0\end{cases}$$
+
+      
+
+      #### Laplacian Random Variable
+
+      $$f_X(x)=ce^{-\alpha |x|}, x\in \R$$ where $$c>0, \alpha>0$$ are constants
+
+      ![image-20241011120629683](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241011120629683.png)
+
+      $$\int_{-\infty}^{\infty}ce^{-\alpha |x|}dx=1$$
+
+      $$2\int_{0}^{\infty}ce^{-\alpha |x|}dx=1$$
+
+      $$2c\int_{0}^{\infty}e^{-\alpha x}dx=1$$
+
+      $$\frac{2c}{\alpha}=1$$
+
+      $$P(|X|<v)=P(-v < X < v)$$ where $$v>0$$
+
+      $$=\int_{-v}^{v}ce^{-\alpha |x|}dx$$
+
+      $$=2\int_{0}^{v}ce^{-\alpha |x|}dx$$
+
+      $$=2c\int_{0}^{v}e^{-\alpha x}dx$$
+
+      $$=1-e^{-\alpha v}$$
+
+      $$2c=\alpha$$
+
+### Standard Gaussian PDF (Standard normal pdf)
+
+$$f_X(x)=\frac{1}{\sqrt{2 \pi}}e^{-\frac{x^2}{2}}, x\in \R$$
+
+Bell-shaped curve symmetric around $$x=0$$
+
+![image-20241011121220424](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241011121220424.png)
+
+Gaussian pdf with parameters $$m$$ and $$\sigma^2$$
+
+$$f_X(X)=\frac{1}{\sqrt{2 \pi \sigma^2}} e^{-\frac{(x-m)^2}{2 \sigma^2}}, x \in \R$$
+
+![image-20241011121341932](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241011121341932.png)
+
+------
+
+$$F_X(x)=P(X \leq x)$$
+
+$$C$$ is some event with $$P(C)>0$$
+
+$$F_X(x|C)$$ is the conditional CDF of $$X$$ given $$C$$
+
+$$F_X(x|C)=P(X \leq x|C)$$
+
+$$\frac{dF_X(x)}{dx}=f_X(x)$$ (PDF)
+
+$$\frac{dF_X(x|C)}{dx}=f_X(x|C)$$ (conditional density function)
 
 
 
+#### Example
+
+$$X$$ is a continuous RV
+
+$$C=\{x>1\}$$
+
+$$F_X(x|C)=P(X \leq x| C)$$
+
+$$=\frac{P(X \leq x \bigcap C)}{P(C)}$$
+
+$$=\frac{P(X \leq x \bigcap X>1)}{P(X>1)}$$
+
+$$F_X(x|C)=\begin{cases} \frac{0}{1-F_X(1)} & x\leq 1\\ \frac{F_X(x)-F_X(1)}{1-F_X(1)} & x>1\end{cases}$$
+
+$$f_X(x|C)=\begin{cases} 0 & x \leq 1 \\ \frac{f_X(x)}{1-F_X(1)} & x>1\end{cases}$$
+
+$$\int_{1}^{\infty}f_X(x|C)dx=\frac{1}{1-F_X(1)}\int_{1}^{\infty}f_X(x)dx$$
+
+$$=\frac{1-F_X(1)}{1-F_X(1)}=1$$
+
+1. $$0 \leq F_X(x) \leq 1$$
+
+   $$0 \leq F_X(x|C)\leq 1$$
+
+2. $$\lim_{x \rightarrow \infty}F_X(x|C)=1$$
+
+   $$\lim_{x \rightarrow -\infty}F_X(x|C)=0$$
+
+3. $$F_X(x|C)$$ is non-decreasing and right continuous function of $$x$$
+4. $$C_1, C_2, ... C_n$$ is a partition of $$\Omega$$
+
+$$P(X \leq x)=\sum_{i=1}^{n}P(X \leq x |C_i)P(C_i)$$
 
 
 
+Discrete RV
+
+$$F_X(x)=\sum_{i=1}^{n}F_X(x|C_i)P(C_i)$$
+
+$$f_X(x)=\sum_{i=1}^{n}f_X(x|C_i)P(C_i)$$
+
+------
+
+#### Example
+
+Communication system
+
+Bit 0 with probability $$p$$ or 1 with probability $$1-p$$
+
+0 is sent a $$-v$$ voltage signal
+
+1 is sent a $$+v$$ voltage signal
+
+Receiver get signal plus noise
+
+$$Y=X+N$$
+
+where $$Y$$ is the received signal, $$X$$ is the transmitted signal, $$N$$ is the noise
+
+$$P(X=+v)=p$$
+
+$$P(X=-v)=1-p$$
+
+$$N$$ is a standard Gaussian RV
+
+$$f_N(x)=\frac{1}{\sqrt{2 \pi}}e^{-\frac{x^2}{2}}$$
+
+Independence assumption: For any number $$a,b$$ that $$\{X=a\}$$ and $$\{N \leq b\}$$ are independent
+
+Find CDF of the received signal $$Y$$
+$$F_Y(y)=P(Y \leq y)$$
+
+$$=P(Y\leq y|X=+v)P(X=+v)+P(Y\leq y|X=-v)P(X=-v)$$
+
+$$P(Y\leq y|X=+v)=P(X+N \leq y | X=+v)$$
+
+$$=P(+v+N \leq y | X=+v)$$
+
+$$=P(N \leq y-v|X=+v)$$
+
+$$=P(N \leq y-v)$$
+
+$$=F_N(y-v)$$
+
+$$=\int_{-\infty}^{y-v}f_N(t)dt$$
+
+$$=\int_{-\infty}^{y-v}\frac{1}{\sqrt{2 \pi}}e^{-\frac{x^2}{2}}dt$$
+
+$$P(Y\leq y|X=-v)=\int_{-\infty}^{y+v}\frac{1}{\sqrt{2 \pi}}e^{-\frac{x^2}{2}}dt$$
+
+$$F_Y(y)=pF_N(y-v)+(1-p)F_N(y+v)$$
+
+PDF of $$Y$$
+
+$$f_Y(y)=\frac{dF_Y(y)}{dy}=pf_N(y-v)+(1-p)f_N(y+v)$$
+
+$$=\frac{1}{\sqrt{2 \pi}} [p e^{-\frac{(y-v)^2}{2}} + (1-p)e^{-\frac{(y+v)^2}{2}} ] $$
+
+------
+
+### Expected value
+
+Discrete $$Z$$
+
+$$E[Z]=\sum z P_Z(z)$$
 
 
 
+$$E[X]=\int_{-\infty}^{\infty}x f_X(x)dx$$
+
+#### Example
+
+$$X\sim$$ Uniform $$[a,b]$$
+
+$$f_X(x)=\begin{cases} \frac{1}{b-a} & a \leq x \leq b \\ 0 & \text{otherwise}\end{cases}$$
+
+$$E[X]=\int_{-\infty}^{\infty}xf_X(x)dx$$
+
+$$=\frac{1}{b-a}\int_{a}^{b}xdx$$
+
+$$=\frac{1}{b-a}\frac{b^2-a^2}{2}=\frac{b+a}{2}$$
+
+![image-20241011132058515](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241011132058515.png)
+
+$$X \sim \text{exp} (\lambda)$$ 
+
+$$f_X(x)=\begin{cases} \lambda e^{-\lambda x} & x \geq 0\\ 0 & x<0\end{cases}$$
+
+$$E[X]=\int_{-\infty}^{\infty}xf_X(x)dx$$
+
+$$=\int_{0}^{\infty}x \lambda e^{-\lambda x}dx$$
+
+$$=-xe^{-\lambda x}|^{\infty}_{0}+\int_{0}^{\infty}e^{-\lambda x}dx$$
+
+$$=0-\frac{e^{-\lambda x}}{\lambda} |^{\infty}_{0}$$
+
+$$=\frac{1}{\lambda}$$
 
 
 
+Integration by parts:
 
+$$\int u dv =uv- \int vdu$$
 
 
 
