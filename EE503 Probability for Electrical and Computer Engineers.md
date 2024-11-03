@@ -4204,6 +4204,193 @@ It means that for any number $$b$$
 
 $$P(X=b)=F_X(b)-F_X(b^{-})=0$$
 
+## Discussion 6
+
+![image-20241102181133756](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241102181133756.png)
+
+a) $$N$$ as a discrete RV
+
+$$A:\{1 \leq N \leq 3\}$$
+
+$$P[N=2|A]=\frac{P[N=2 \bigcap A]}{P[A]}=\frac{P[N=2]}{P[A]}=\frac{P(N=2)}{P[N=1]+P[N=2]+P[N=3]}$$
+
+$$P[A|N=2]=1$$
+
+b) $$0<P(B)<1$$
+
+Given $$P[N=2|B]>P[N=2]$$
+
+S.T. $$P[N=2|B^c]< P(N=2)$$
+
+Proof by contradiction
+
+Suppose that
+
+$$P[N=2|B^c] \geq P[N=2]$$
+
+$$P[N=2]=P[N=2|B]P[B]+P[N=2|B^c]P[B^c]$$
+
+where $$P[N=2|B]>P[N=2], P[N=2|B^c] \geq P[N=2]$$
+
+$$P[N=2] > P[N=2]P[B]+P[N=2]P[B^c]$$
+
+$$=P[N=2][P[B]+P[B^c]]$$
+
+$$P[N=2]>P[N=2]$$
+
+so we arrive at contradiction
+
+$$P[N=2|B^c] < P[N=2]$$
+![image-20241102181920771](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241102181920771.png)
+
+$$A:$$ Event where webpage is listed first
+
+$$B:$$ Event where webpage is clocked
+
+$$P[A]=p, P[A^c]=1-p$$
+
+$$P[B|A]=q_1, P[B|A^c]=q_2$$
+
+a) $$P[B]=P[B|A]P[A]+P[B|A^c]P[A^c]$$
+
+$$P[B]=q_1p+q_2(1-p)$$
+
+b) $$P[A|B]=\frac{P[B|A]P[A]}{P[B]}$$
+
+$$P[A|B]=\frac{q_1p}{q_1p+q_2(1-p)}$$
+
+c) $$P[A^c|B^c]=\frac{P[B^c|A^c]P[A^c]}{P[B^c]}$$
+
+$$=\frac{(1-P[B|A^c])P[A^c]}{P[B^c]}$$
+
+$$=\frac{(1-q_2)(1-p)}{1-(q_1p+q_2(1-p))}$$
+
+d) If $$A \perp B$$ then
+
+$$P[A\bigcap B]=P[A]P[B]$$
+
+$$P[A|B]P[B]=P[q_1p+q_2(1-p)]$$
+
+$$\frac{q_1p}{P[B]}P[B]=P[q_1p+q_2(1-p)]$$
+
+$$q_1p=q_qp^2+q_2(1-p)p$$
+
+$$q_1p-q_1p^2=q_2(1-p)p$$
+
+$$(q_1-q_2)(1-p)=0$$
+
+$$q_1=q_2$$
+
+![image-20241102182722102](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241102182722102.png)
+
+|                        | Dependent             | Independent          |
+| ---------------------- | --------------------- | -------------------- |
+| Repetition allowed     | $$n^k$$               | $$\binom{n+k-1}{k}$$ |
+| Repetition not allowed | $$\frac{n!}{(n-k)!}$$ | $$\binom{n}{k}$$     |
+
+Urn 1: 1R, 4G
+
+Urn 2: 3R, 2G
+
+Total number possible wats to$$=\binom{5}{2}\binom{5}{2}=10 \cdot 10=100$$
+
+i) You pick 2 green balls and 2 red balls from urn 1 and urn 2
+
+$$=\binom{4}{2}\binom{3}{2}$$
+
+$$=6 \cdot 3=18$$
+
+ii) You pick 1 green and 1 red from urn
+
+$$=1 \cdot \binom{4}{1} \binom{3}{1} \binom{2}{1}$$
+
+$$=4 \times 3 \times 2$$
+
+$$=24$$
+
+number of possible ways to pick 2G&2R=18+24=42
+
+$$P[G=2,R=2]=\frac{42}{100}$$
+
+b) maximum number of transition in a string (binary) of length $$n=(n-1)$$
+
+01010
+
+10101
+
+If the first bit is fixed, number of $$k \leq (n-1)$$ transitions $$=\binom{n-1}{k}$$
+
+$$=2 \binom{n-1}{k}$$
+
+### Cumulative distribution function (CDF)
+
+CDF returns the probability that a RV $$X$$ is less than or equal to a value $$x$$
+
+$$F_X(x)=P[X \leq x]$$
+
+CDF can be defined for both discrete and non-discrete RV's
+
+Properties:
+
+1. Normalization
+
+   $$F_X(-\infty)=0, F_X(\infty)=1$$
+
+2. Non-negativity
+
+   $$F_X(x)$$ is non-decreasing positive function of $$x$$
+
+3. For $$b \geq a$$
+
+   $$F_X(b)-F_X(a)=P[a<X \leq b]$$
+
+4. For discrete RV's, CDF is piecewise constant function
+
+![image-20241102184859050](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241102184859050.png)
+
+$$Y:$$ the number of heads - the number of tails
+
+$$N=3$$
+
+Let, $$n_H,n_T$$ be number of head and tails
+
+$$Y=n_H-n_T$$
+
+$$Y=n_H-(N-n_H)=2n_H-N$$
+
+| $$n_H$$  | 0    | 1    | 2    | 3    |
+| -------- | ---- | ---- | ---- | ---- |
+| $$Y$$    | -3   | -1   | 1    | 3    |
+| $$P[Y]$$ | 1/8  | 3/8  | 3/8  | 1/8  |
+
+![image-20241102185113828](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241102185113828.png)
+
+b) $$P[|Y|<y]=P[-y < Y < y]$$
+
+$$=F_Y(y^{-}) -F_Y(-y)$$
+
+where $$F_Y(y^{-})=\lim_{h \downarrow 0}F_X(y-h)$$
+
+![image-20241102185230804](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241102185230804.png)
+
+a,b) $$\Omega=\{(x,y):x^2+y^2 \leq 2^2\}$$
+
+$$R=\sqrt{x^2+y^2}$$
+
+$$S_R\in \{0,2\}$$
+
+![image-20241102185408129](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241102185408129.png)
+
+c) $$P[A]=P[R \leq 1/4]=\frac{\text{Area \: of \: bulls \: eye}}{\text{total \: area}}$$
+
+$$=\frac{\pi (1/4)^2}{\pi (2)^2}$$
+
+$$=1/64$$
+
+d) $$F_R(r)=P(R\leq r)=\frac{\pi r^2}{\pi 2^2}=\frac{r^2}{4}$$
+
+![image-20241102185559624](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241102185559624.png)
+
 ## Week 7 Session 1
 
 Cumulative distribution function (CDF)
@@ -4595,6 +4782,3279 @@ $$=\frac{1}{\lambda}$$
 Integration by parts:
 
 $$\int u dv =uv- \int vdu$$
+
+------
+
+## Week 8 Session 1
+
+### Continuous RVs
+
+$$F_X(x)=\int_{-\infty}^{x}f_X(t)dt=P(X\leq x)$$
+
+where $$f_X$$ is called the probability density function of $$X$$
+
+Probability density function $$f_X$$
+
+1. $$f_X(x)=\frac{dF_X(x)}{dx}$$ where $$F_X(x)$$ is differentiable
+
+2. For small $$h>0$$
+
+   $$f_X(x)\cdot h \approx P(x<X<x+h)$$
+
+3. $$P(X\in B)=\int_{B}f_X(t)dt$$ 
+
+   where $$B$$ is any subset of $$\R$$
+
+Expected value
+
+$$E[X]=\int_{-\infty}^{\infty}xf_X(x)dx$$
+
+
+
+Discrete:
+
+$$E[X]=\sum xP_X(x)$$
+
+------
+
+#### Example
+
+$$X$$ is a continuous RV with $$f_x$$ symmetric about 0
+
+$$f(x)=f(-x)$$ for all $$x\in \R$$
+
+$$E[X]=\int_{-\infty}^{\infty}xf_X(x)dx=0$$
+
+$$=\int_{-\infty}^{0}xf_X(x)dx+\int_{0}^{\infty}xf_X(x)dx$$
+
+Let $$x=-u$$
+
+$$=\int_{\infty}^{0}(-u)f_X(-u)(-du)+\int_{0}^{\infty}xf_X(x)dx$$
+
+$$=-\int_{0}^{\infty}uf_X(-u)du+\int_{0}^{\infty}xf_X(x)dx$$
+
+as $$f_X(u)=f_X(-x)$$
+
+$$-\int_{0}^{\infty}uf_X(-u)du=-\int_{0}^{\infty}xf_X(x)dx$$
+
+$$E[X]=0$$
+
+as long as $$\int_{0}^{\infty}xf_X(x)dx$$ is finite
+
+If $$f_X$$ is symmetric around 0 and $$\int_{0}^{\infty}xf_X(x)dx$$ is finite
+
+then $$E[X]=0$$
+
+------
+
+Standard Normal RV
+
+$$f_X(x)=\frac{1}{\sqrt{2 \pi}}e^{-\frac{x^2}{2}}$$
+
+$$E[X]=0$$ since $$f(x)=f(-x)$$ and $$\int_{0}^{\infty}xf_X(x)dx < \infty$$
+
+------
+
+#### Example
+
+Symmetric $$f_X$$ around $$m$$
+
+$$f_X(m+x)=f_X(m-x)$$ for all $$x \in \R$$
+
+$$E[X]-m=\int_{-\infty}^{\infty}xf_X(x)dx-m\int_{-\infty}^{\infty}f_X(x)dx$$
+
+$$=\int_{-\infty}^{\infty}(x-m)f_X(x)dx$$
+
+$$=\int_{-\infty}^{m}(x-m)f_X(x)dx+\int_{m}^{\infty}(x-m)f_X(x)dx$$
+
+
+
+For $$\int_{-\infty}^{m}(x-m)f_X(x)dx$$
+
+Let $$m-x=t$$
+
+when $$x=-\infty, t=\infty$$
+
+when $$x=m, t=0$$
+
+
+
+For $$\int_{m}^{\infty}(x-m)f_X(x)dx$$
+
+Let $$x-m=t$$
+
+when $$x=m, t=0$$
+
+when $$x=\infty, t=\infty$$
+
+
+
+$$=\int_{\infty}^{0}(-t)f_X(m-t)(-dt)+\int_{0}^{\infty}tf_X(m+t)dt $$
+
+$$=-\int_{\infty}^{0}tf_X(m-t)(-dt)+\int_{0}^{\infty}tf_X(m+t)dt $$
+
+as $$f_X(m-t)=f_X(m+t)$$
+
+$$=0$$
+
+
+
+as long as $$\int_{0}^{\infty}tf_X(m+t)dt=\int_{m}^{\infty}(x-m)f_X(x)dx < \infty$$
+
+$$E[X]-m=0$$
+
+$$E[X]=m$$
+
+
+
+If $$f_X$$ is symmetric around $$m$$ and $$\int_{m}^{\infty}(x-m)f_X(x)dx$$, then $$E[X]=m$$
+
+
+
+Gaussian density with parameters $$m, \sigma^2$$
+
+$$f_X(x)=\frac{1}{\sqrt{2 \pi \sigma^2}}e^{-\frac{(x-m)^2}{2 \sigma^2}}$$
+
+$$f_X(m+t)=f_X(m-t)$$ for $$t\in \R$$
+
+$$E[X]=m$$ since $$\int_{m}^{\infty}(x-m)f_X(x)dx < \infty$$
+
+
+
+#### Example
+
+$$X$$ is a continuous RV with $$f_X$$
+
+$$X$$ is a non-negative RV
+
+$$P(X\geq 0)=1$$
+
+$$P(X<0)=0$$
+
+$$\int_{-\infty}^{0}f_X(dx)dx=0$$
+
+$$f_X(x)=0$$ for all $$x<0$$
+
+
+
+Show that $$E[X]=\int_{0}^{\infty}(1-F_X(t))dt$$
+
+Proof:
+
+$$E[X]=\int_{-\infty}^{\infty}xf_X(x)dx$$
+
+$$=\int_{0}^{\infty}xf_X(x)dx$$ 
+
+$$=\int_{0}^{\infty} [\int_{0}^{x} 1 dt] f_X(x)dx$$
+
+$$=\int_{0}^{\infty} \int_{0}^{x} 1 f_X(x)dt dx$$
+
+![image-20241018120805492](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241018120805492.png)
+
+$$=\int_{0}^{\infty} [\int_{t}^{\infty} 1 f_X(x)dx] dt$$
+
+$$=\int_{0}^{\infty} P(X>t) dt$$
+
+Recall:
+
+$$\int_{a}^{b}f_X(x)dx=P(a<X<b)$$
+
+$$=\int_{0}^{\infty}(1-F_X(t))dt$$
+
+
+
+#### Example
+
+Exponential RV
+
+$$f_X(x)=\begin{cases} \lambda e^{-\lambda x} & \text{for\:} x \geq 0 \\ 0 & \text{for\:} x<0 \end{cases}$$
+
+$$E[X]=\int_{0}^{\infty}(1-F_X(t))dt$$
+
+$$F_X(t)=1-e^{-\lambda t}$$
+
+$$E[X]=\int_{0}^{\infty}e^{-\lambda t}dt$$
+
+$$=\frac{-1}{\lambda}e^{-\lambda t} |^{\infty}_{0}$$
+
+$$=\frac{1}{\lambda}$$
+
+------
+
+#### Example
+
+$$X$$ is a standard Gaussian RV
+
+$$f_X(x)=\frac{1}{\sqrt{2 \pi}}e^{-\frac{x^2}{2}}$$
+
+$$E[X]=0$$
+$$Y=X^2$$
+
+Find the CDF and the pdf of $Y$
+
+$$F_Y(y)=P(Y \leq y)$$
+
+$$=P(X^2 \leq y)$$
+
+$$=\begin{cases} 0 & \text{if\:} y<0 \\ P(X^2 \leq y) & \text{if\:} y \geq 0\end{cases}$$
+
+$$P(X^2 \leq y)=P(-\sqrt{y} \leq X \leq \sqrt{y})$$
+
+$$=\int_{-\sqrt{y}}^{\sqrt{y}}f_X(x)dx$$
+
+$$=F_X(\sqrt{y})-F_X(-\sqrt{y})$$
+
+$$F_Y(y)=\begin{cases} 0 & \text{if\:} y<0 \\ F_X(\sqrt{y})-F_X(-\sqrt{y}) & \text{if\:} y \geq 0\end{cases}$$
+
+$$f_Y(y)=\begin{cases} 0 & \text{if\:} y<0 \\ \frac{1}{2\sqrt{y}}f_X(\sqrt{y})+\frac{1}{2\sqrt{y}}f_X(-\sqrt{y}) & \text{if\:} y \geq 0\end{cases}$$
+
+
+
+If $$Y=g(X)$$
+
+$$F_Y(y)=P(Y \leq y)$$
+
+$$=P(g(X)\leq y)$$
+
+
+
+Theorem:
+
+If $$X$$ is continuous RV with $$f_X$$ and $$Y=g(X)$$
+
+$$E[Y]=\int_{-\infty}^{\infty}g(x)f_X(x)dx$$
+
+
+
+Recap:
+
+$$X,Y$$ are discrete RV
+
+$$Y=g(X)$$
+
+$$E[Y]=\sum_{x}g(x)P_X(x)$$
+
+
+
+#### Example
+
+$$Y=\cos(\omega t+ \theta)$$
+
+where $$\theta \sim $$ uniform $$(0,2 \pi)$$ and $$\omega, t$$ are constant
+
+![image-20241018123307779](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241018123307779.png)
+
+$$f(\theta)=\frac{1}{2 \pi}$$
+
+$$E[\theta]=\pi$$
+
+$$E[Y]=\int_{-infty}^{\infty}g(\theta)f_{\theta}\theta d\theta$$
+
+$$=\int_{0}^{2 \pi} \cos(\omega t+ \theta) \frac{1}{2 \pi} d\theta$$
+
+$$=\frac{1}{2\pi} \sin(\omega t+ \theta)|^{2 \pi}_{0}$$
+
+$$=\frac{1}{2\pi} [\sin(\omega t+ 2\pi)-sin(\omega t+0)]$$
+
+$$=0$$
+
+
+
+$$Z=\begin{cases} 1 &\text{if\:} \theta \in [\pi, 2\pi] \\ 0 & \text{if\:} \theta \in (0,\pi)\end{cases}$$
+
+$$P_Z(1)=P(Z=1)$$
+$$=P(\theta \in [\pi, 2\pi])$$
+
+$$=\int_{\pi}^{2\pi}\frac{1}{2\pi}d\theta$$
+
+$$=1/2$$
+
+$$P_Z(0)=1/2$$
+
+$$E[Z]=0\cdot 1/2 + 1\cdot 1/2=1/2$$
+
+$$E[Z]=\int_{-\infty}^{\infty}g(\theta)f_{\theta}(\theta)d\theta$$
+
+where $$g(\theta)=\begin{cases} 1 & \text{if\:} \theta \in [\pi,2\pi] \\ 0 &\text{otherwise}\end{cases}$$
+
+$$=\int_{0}^{2\pi}g(\theta)f_{\theta}(\theta)d\theta$$
+
+$$=\int_{0}^{\pi}0 \cdot f_\theta(\theta)d\theta + \int_{\pi}^{2\pi}1 \cdot f_\theta(\theta)d\theta$$
+
+$$=\frac{1}{2\pi}d\theta=1/2$$
+
+
+
+Properties of Expectation of continuous RVs
+
+1. If $$X$$ is a non-negative RV (i.e., $$f_X(x)=0$$ for $$x<0$$)
+
+   then $$E[X] \geq 0$$
+
+​	$$E[X]=\int_{-\infty}^{\infty}xf_X(x)dx=\int_{0}^{\infty}xf_X(x)dx \geq 0$$
+
+2. $$E[X+c]=E[X]+c$$
+
+   where $$c$$ is a constant
+
+   Proof: $$Y=X+c$$
+
+   $$E[Y]=\int_{-\infty}^{\infty}(x+c)f_X(x)dx$$
+
+   =$$\int_{-\infty}^{\infty}xf_X(x)dx+c\int_{-\infty}^{\infty}f_X(x)dx$$
+
+   $$=E[X]+c$$
+
+3. $$E[cX]=cE[X]$$
+
+   Proof: $Y=<span class="md-search-hit">cX</span>$
+   $$E[Y]=\int_{-\infty}^{\infty}cxf_X(x)dx$$
+
+   $$=cE[X]$$
+
+4. $$E[aX+b]=aE[x]+b$$
+
+5. $$Z=ag(X)+bh(X)+c$$
+
+   where $$a,b,c$$ are constants, $$g,h$$ are functions
+
+   $$E[Z]=aE[g(X)]+bE[h(X)]+c$$
+
+   Proof: $$E[Z]=E[ag(X)+bh(X)+c]$$
+
+   Let $$ag(X)+bh(X)+c=Y=k(X)$$
+
+   $$=\int_{-\infty}^{\infty}k(X)f_X(x)dx$$
+
+   $$=\int_{-\infty}^{\infty}(ag(X)+bh(X)+c)f_X(x)dx$$
+
+   $$=\int_{-\infty}^{\infty}ag(x)f_X(x)dx+\int_{-\infty}^{\infty}bh(x)f_X(x)dx+\int_{-\infty}^{\infty}cf_X(x)dx$$
+
+   $$=aE[g(x)]+bE[h(x)]+c$$
+
+------
+
+#### Example
+
+Travel from point $$A$$ to point $$B$$ 
+
+Travel time is a non-negative RV with pdf $$f$$
+I leave at $$t=0$$, my appointment is at $$t=60 min$$
+
+If I arrive $$s$$ minutes early, my cost is $$cs$$
+
+If I arrive $$s$$ minutes late, my cost is $$ds$$
+
+Find the expected value of cost
+
+$$X=$$ travel time
+
+$$\text{Cost}(X) =\begin{cases} d(X-60) & \text{if\:} X>60 \\ c(60-X) & \text{if\:} X<60 \\ 0 & \text{if\:}X=60\end{cases}$$
+
+$$E[\text{Cost}(X)]=\int_{-\infty}^{\infty}\text{cost}(x)f_X(x)dx$$
+
+$$=\int_{0}^{60}c(60-x)f_X(x)dx+\int_{60}^{\infty}d(x-60)f_X(x)dx$$
+
+------
+
+Variance of $$X$$
+
+Discrete: 
+
+$$Var[X]=E[(X-m_X)^2]=E[X^2]-(m_X)^2$$
+
+Continuous: 
+
+$$Var[X]=E[(X-m_X)^2]=E[X^2]-(m_X)^2$$
+
+$$Var[X]=E[(X-m_X)^2]=\int_{-\infty}^{\infty}(x-m_X)^2f_X(x)dx$$
+
+$$n^{th}$$ moment of $$X$$
+
+$$E[X^n]=\int_{-\infty}^{\infty}x^nf_X(x)dx$$
+
+Standard Deviation: $$+\sqrt{Var(X)}$$
+
+
+
+#### Example
+
+$$X \sim$$ Uniform $$[a,b]$$   $$(a<b)$$
+
+$$f_X(x)=\begin{cases}\frac{1}{b-a} & \text{if\:} x \in [a,b] \\ 0 & \text{if\:} x \notin [a,b]\end{cases}$$
+
+![image-20241018185554388](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241018185554388.png)
+
+$$E[X]=\frac{b+a}{2}$$
+
+$$Var[X]=E[(X-m_X)^2]$$
+
+$$=\int_{-\infty}^{\infty}(x-\frac{a+b}{2})^2 f_X(x)dx$$
+
+$$=\frac{1}{b-a}\int_{a}^{b}(x-\frac{a+b}{2})dx$$
+
+$$=\frac{(b-a)^2}{12}$$
+
+Standard deviation: $$\frac{|b-a|}{\sqrt{12}}$$
+
+
+
+#### Example
+
+Standard Gaussian
+
+$$f_Y(y)=\frac{1}{\sqrt{2 \pi}}e^{-\frac{y^2}{2}}$$
+
+$$E[Y]=0$$
+
+$$Var[Y]=E[(Y-0)^2]$$
+
+$$=\int_{-\infty}^{\infty}y^2 \frac{1}{\sqrt{2 \pi}} e^{-\frac{y^2}{2}}dy$$
+
+$$=1$$
+
+------
+
+Gaussian with parameters $$m, \sigma^2$$
+
+$$f_X(x)=\frac{1}{\sqrt{2 \pi \sigma^2}}e^{-\frac{(x-m)^2}{2\sigma^2}}$$
+
+$$E[X]=m$$
+
+$$Var[X]=E[(X-m)^2]=\sigma^2$$
+
+$$=\int_{-\infty}^{\infty}(x-m)^2\frac{1}{\sqrt{2 \pi \sigma^2}}e^{-\frac{(x-m)^2}{2\sigma^2}}dx$$
+
+Let $$\frac{x-m}{\sigma}=y$$
+
+$$x-m=\sigma y$$
+
+$$dx=\sigma dy$$
+
+$$=\int_{-\infty}^{\infty} \sigma^2 y^2 \frac{1}{\sqrt{2 \pi \sigma^2}} e^{-\frac{y^2}{2}} \sigma dy$$
+
+$$=\sigma^2 \int_{-\infty}^{\infty} y^2 \frac{1}{\sqrt{2 \pi}} e^{-\frac{y^2}{2}} dy$$
+
+$$=\sigma^2$$
+
+------
+
+#### Example
+
+$$X,f_X$$
+
+(a) $$Y=X+c$$
+
+$$E[Y]=E[X+c]=E[X]+c$$
+
+$$Var[Y]=E[(Y-m_Y)^2]$$
+
+$$=E[(X+c-(m_X+c))^2]$$
+
+$$=E[(X-m_X)^2]$$
+
+$$=Var[X]$$
+
+
+
+(b) $$Z=cX$$
+
+$$E[Z]=E[cX]=cE[X]$$
+
+$$Var[Z]=E[(Z-m_Z)^2]$$
+
+$$=E[(cX-cm_X)^2]$$
+
+$$=E[c^2(X-m_X)^2]$$
+
+$$=c^2 E[(X-m_X)^2]$$
+
+$$=c^2Var[X]$$
+
+------
+
+## Week 8 Session 2
+
+Theorem:
+
+If $$X$$ is a continuous RV with $$f_X$$ as its pdf and $$Y=g(x)$$
+
+$$E[Y]=\int_{-\infty}^{\infty}g(x)f_X(x)dx$$
+
+1. $E[aX+b]=aE[X]+b$
+2. $$E[ag(x)+bh(x)+c]=aE[g(x)]+bE[h(x)]+c$$
+
+#### Example
+
+$$E[x^3+2x^2+1]=E[X^3]+2E[X^2]+1$$
+
+$$Var[x]=E[(X-m_X)^2]=\int_{-\infty}^{\infty}(X-m_X)^2 f_X(x)dx$$
+
+------
+
+### Exponential RV
+
+$$X \sim \text{exp}(\lambda)$$
+
+$$f_X(x)=\begin{cases} \lambda e^{-\lambda x} & \text{if\:} x \geq 0 \\ 0 & \text{if\:} x<0\end{cases}$$
+
+$$\lambda >0$$ is a paramater
+
+$$F_X(x)=\begin{cases} 1- e^{-\lambda x} & \text{if\:} x \geq 0 \\ 0 & \text{if\:} x<0\end{cases}$$
+
+$$E[X]=\int_{-\infty}^{\infty}xf_X(x)dx$$
+
+$$=\int_{-\infty}^{\infty} x \lambda e^{-\lambda x} dx$$
+
+$$=\frac{1}{\lambda}$$
+
+$$X$$ is a non-negative RV
+
+$$E[X]=\int_{0}^{\infty}(1-F_X(t))dt$$
+
+$$=\int_{0}^{\infty}e^{-\lambda t}dt$$
+
+$$=\frac{-1}{\lambda} e^{-\lambda t}|^{\infty}_{0}$$
+
+$$=\frac{1}{\lambda}$$
+
+
+
+$$E[X^2]=\int_{-\infty}^{\infty} x^2 f_X(x)dx$$
+
+$$=\int_{0}^{\infty} x^2 \lambda e^{-\lambda x}dx$$
+
+Say $$y=\lambda x$$ and $$dy=\lambda dx$$
+
+$$=\int_{0}^{\infty}\frac{y^2}{\lambda^2}e^{-y}dy$$
+
+$$=\frac{1}{\lambda^2} \int_{0}^{\infty}y^2 e^{-y} dy$$
+
+Integration by parts: $$y^2=u$$ and $$e^{-y}dy=dv$$
+
+$$=\frac{1}{\lambda^2}[-y^2e^{-y}|^{\infty}_{0}-\int_{0}^{\infty}2y(-e^{-y})dy]$$
+
+$$=\frac{1}{\lambda^2}[0+2\int_{0}^{\infty}ye^{-y}dy]$$
+
+$$\int_{0}^{\infty}ye^{-y}dy$$ is the expected value of an exponential RV with $$\lambda=1$$
+
+$$\lim_{y \rightarrow \infty} y^2 e^{-y} =0$$
+
+$$\lim_{y \rightarrow \infty} \frac{y^2}{e^y} = \lim_{y \rightarrow \infty} \frac{2y}{e^y}=\lim_{y \rightarrow \infty} \frac{2}{e^y}=0$$
+
+$$=\frac{2}{\lambda^2} \cdot 1$$
+
+$$E[X^2]=\frac{2}{\lambda^2}, E[X]=\frac{1}{\lambda}$$
+
+$$Var[X]=E[X^2]-(E[X])^2$$
+
+$$=\frac{2}{\lambda^2}-\frac{1}{\lambda^2}$$
+
+$$=\frac{1}{\lambda^2}$$
+
+------
+
+Exercise: 
+
+$$X \sim \text{exp}(\lambda)$$
+
+$$E[X^n]=\frac{n}{\lambda}E[X^{n-1}]$$ for $$n \geq 2$$
+
+$$E[X^n]=\frac{n!}{\lambda^n}$$
+
+------
+
+#### Example
+
+$$X \sim \text{exp}(\lambda)$$
+
+waiting time until the arrival of the first customer at a store (time in seconds)
+
+1. $$P(X>10)=1-P(X\leq 10)$$
+
+   $$=1-F_X(10)$$
+
+   $$=1-(1-e^{-\lambda 10})$$
+
+   $$=e^{-\lambda 10}$$
+
+2. Given that we have already waited for 2 seconds, what is the probability that we we will wait at least 10 seconds for the first customer?
+
+   $$P(X\geq 12|X>2)=\frac{P(X\geq 12 \bigcap X>2)}{P(X>2)}$$
+
+   $$=\frac{P(X\geq 12)}{P(X>2)}$$
+
+   $$=\frac{P(X>12)+P(X=12)}{P(X>2)}$$
+
+   $$=\frac{e^{-12 \lambda}}{e^{-2\lambda}}$$
+
+   $$=e^{-10\lambda}$$
+
+   
+
+Suppose $$t>0, s>0$$
+
+$$P(X>t+s|X>s)=\frac{P(X>t+s\bigcap X>s)}{P(X>s)}$$
+
+$$=\frac{P(X>t+s)}{P(X>s)}$$
+
+$$=\frac{e^{-\lambda (t+s)}}{e^{-\lambda s}}=e^{-\lambda t}$$
+
+$$=P(X>t)$$
+
+Property of $$X \sim \text{exp}(\lambda)$$
+
+$$P(X>t+s|X>s)=P(X>t)$$
+
+Memoryless property of exponential RVs
+
+------
+
+### Gaussian RV
+
+Standard Gaussian / Standard Normal
+
+$$Y \sim \mathcal{N}(0,1)$$
+
+$$E[Y]=0$$
+
+$$Var[Y]=1$$
+
+$$f_Y(y)=\frac{1}{\sqrt{2 \pi}}e^{-\frac{y^2}{2}}$$
+
+Gaussian RV with mean $$m$$, variance $$\sigma^2$$
+
+$$X \sim \mathcal{N}(m, \sigma^2)$$
+
+$$E[X]=m, Var[X]=\sigma^2$$
+
+$$f_X(x)=\frac{1}{\sqrt{2 \pi \sigma^2}}exp(-\frac{(x-m)^2}{2\sigma^2})$$
+
+------
+
+$$X \sim \mathcal{N}(m, \sigma^2)$$
+
+$$Z=\frac{X-m}{\sigma}$$
+
+$$E[Z]=E[\frac{X-m}{\sigma}]$$
+
+$$=E[\frac{X}{\sigma}-\frac{m}{\sigma}]$$
+
+$$=\frac{1}{\sigma}E[X]-\frac{m}{\sigma}$$
+
+$$=\frac{m}{\sigma}-\frac{m}{\sigma}=0$$
+
+$$Var[Z]=E[(Z-0)^2]$$
+
+$$=E[Z^2]$$
+
+$$=E[\frac{(X-m)^2}{\sigma^2}]$$
+
+$$=\frac{1}{\sigma^2}E[(X-m)^2]$$
+
+$$=\frac{1}{\sigma^2} \sigma^2$$
+
+$$=1$$
+
+CDF of $$Z$$
+
+$$F_Z(z)=P(Z \leq z)$$
+
+$$=P(\frac{X-m}{\sigma} \leq z)$$
+
+$$=P(X \leq m+ \sigma z)$$
+
+$$=F_X(m+ \sigma z)$$
+
+
+
+$$f_Z(z)=\frac{dF_Z(z)}{dz}=\frac{d}{dz}F_X(m+ \sigma z)$$
+
+$$=f_X(m+\sigma z) \sigma$$
+
+$$=\frac{1}{\sqrt{2 \pi \sigma^2}} exp (- \frac{(m+\sigma z -m)^2}{2 \sigma^2}) \sigma$$
+
+$$=\frac{1}{\sqrt{2 \pi}}e^{-\frac{z^2}{2}}$$
+
+Standard Normal Density
+
+
+
+If $$X \sim \mathcal{N}(m, \sigma^2)$$ and $$Z=\frac{X-m}{\sigma}$$
+
+then $$Z \sim \mathcal{N}(0,1)$$
+
+
+
+$$Y \sim \mathcal{N}(0,1)$$
+
+$$F_Y(y)=P(Y \leq y)=\int_{-\infty}^{y}\frac{1}{\sqrt{2 \pi}}e^{-\frac{t^2}{2}} dt$$
+
+Denote by $$\phi (y)$$ : CDF of a standard normal RV evaluated at $$y$$
+
+
+
+$$X \sim \mathcal{N}(m, \sigma^2)$$
+
+$$F_X(x)=P(X\leq x)$$
+
+$$=P(\frac{X-m}{\sigma} \leq \frac{x-m}{\sigma})$$
+
+$$=P(Z \leq \frac{x-m}{\sigma})$$
+
+$$=\phi(\frac{x-m}{\sigma})$$
+
+
+
+$$P(a<X\leq b)=P(\frac{a-m}{\sigma}<\frac{X-m}{\sigma} \leq \frac{b-m}{\sigma})$$
+
+$$=P(\frac{a-m}{\sigma}<Z \leq \frac{b-m}{\sigma})$$
+
+$$=\phi(\frac{b-m}{\sigma})-\phi(\frac{a-m}{\sigma})$$
+
+Recall: $$P(a<Y \leq b)=F_Y(b)-F_Y(a)$$
+
+
+
+$$P(X>b)=P(\frac{X-m}{\sigma}>\frac{b-m}{\sigma})$$
+
+$$=P(Z > \frac{b-m}{\sigma})$$
+
+$$=1-\phi(\frac{b-m}{\sigma})$$
+
+------
+
+### Properties of $$\phi$$ (the standard Gaussian CDF)
+
+$$\phi(y)=\int_{-\infty}^{y}\frac{e^{-\frac{t^2}{2}}}{\sqrt{2 \pi}}dt$$
+
+![image-20241021132938545](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241021132938545.png)
+
+$$Q(y)=\int_{y}^{\infty}\frac{e^{-\frac{t^2}{2}}}{\sqrt{2 \pi}}dt$$
+
+$$\phi(y)+Q(y)=1$$
+
+![image-20241021133036692](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241021133036692.png)
+
+$$\phi(0)=Q(0)=1/2$$
+
+$$\phi(-y)=Q(y)$$
+
+------
+
+### Cauchy RV
+
+$$f_X(x)=\frac{1}{\pi} \frac{1}{1+x^2} , -\infty < x < \infty$$
+
+==$$E[X]$$ is not defined==
+
+![image-20241021133236587](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241021133236587.png)
+
+$$f_X(x)=f_X(-x)$$
+
+$$E[X]=\int_{-\infty}^{\infty} x f_X(x)dx$$
+
+$$=\int_{-\infty}^{0} \frac{1}{\pi} \frac{1}{1+x^2} dx+ \int_{0}^{\infty} \frac{1}{\pi} \frac{1}{1+x^2} dx$$
+
+$$=- \int_{0}^{\infty} \frac{1}{\pi} \frac{1}{1+x^2} dx +\int_{0}^{\infty} \frac{1}{\pi} \frac{1}{1+x^2} dx$$
+
+$$=-\infty + \infty \implies$$ UNDEFINED
+
+
+
+$$\int_{0}^{\infty} \frac{1}{\pi} \frac{1}{1+x^2} dx$$
+
+$$t=1+x^2, 2xdx=dt$$
+
+$$=\frac{1}{\pi} \int_{1}^{\infty} \frac{dt}{2t}$$
+
+$$=\frac{1}{2 \pi} \ln{t}|^{\infty}_{1}$$
+
+$$=\infty$$
+
+------
+
+#### Example
+
+$$X \sim \mathcal{N}(0,1)$$
+
+$$Y =\begin{cases} -10 & \text{if\:} X \leq -1 \\ 0 & \text{if\:} -1<X<1 \\ 10 & \text{if\:} X \geq 1\end{cases}$$
+
+PMF of Y in terms of the standard Gaussian CDF of $$\phi$$
+
+$$P(Y=-10)=P(X \leq -1) = \phi(-1)$$
+
+$$P(Y=0)=P(-1 < X <1)=\phi(1)-\phi(-1)$$
+
+$$P(Y=10)=P(X \geq 1)= 1- \phi(1)$$
+
+------
+
+#### Example
+
+$$X$$ is a continuous RV with PDF $$f_X$$ and CDF $$F_X$$
+
+$$Y=aX+b$$
+
+1. Case $$a>0$$
+
+   $$F_Y(y)=P(Y \leq y)$$
+
+   $$=P(aX+b \leq y)$$
+
+   $$=P(X \leq \frac{y-b}{a})$$
+
+   $$=F_X(\frac{y-b}{a})$$
+
+   $$f_Y(y)=\frac{d}{dy}F_X(\frac{y-b}{a})=f_X(\frac{y-b}{a})\frac{1}{a}$$
+
+2. Case $$a<0$$
+
+   $$F_Y(y)=P(Y \leq y)$$
+
+   $$=P(aX+b \leq y)$$
+
+   $$=P(X \geq \frac{y-b}{a})$$
+
+   $$=1-F_X(\frac{y-b}{a})$$
+
+   $$f_Y(y)=\frac{d}{dy}F_Y(y)=-f_X(\frac{y-b}{a})\cdot \frac{1}{a}$$
+
+Therefore, $$f_Y(y)=f_X(\frac{y-b}{a})\frac{1}{|a|}$$
+
+==If $$Y=aX+b$$ and $$a \neq 0$$, then $$f_Y(y)=f_X(\frac{y-b}{a})\frac{1}{|a|}$$==
+
+
+
+Theorem: 
+
+Suppose $$X$$ is a continuous RV with PDF $$f_X$$
+
+Let $$Y=g(x)$$ where $$g$$ is a continuous differential and strictly monotonic function
+
+Recall that $$S_Y=$$ collection of all possible values of $$Y$$
+
+For $$y \in S_Y$$
+
+$$g^{-1}(y)=$$ value $$x$$ such that $$g(x)=y$$
+
+Method for finding $$f_Y(y)$$ where $$y\in S_Y$$
+
+Step 1. Find $$g^{-1}(y)$$ write $$f_X(g^{-1}(y))$$
+
+Step 2. $$\frac{dg(x)}{dx}|_{x=g^{-1}(y)}$$
+
+Theroem:
+
+$$f_Y(y)=\frac{f_X(g^{-1}(y))}{|\frac{dg(x)}{dx}|_{x=g^{-1}(y)}}$$
+
+whenever the denominator is non-zero
+
+------
+
+$$Y=g(x)=aX+b$$ where $$a \neq 0$$
+
+$$f_Y(y)=\frac{f_X(g^{-1}(y))}{|a|}=\frac{f_X(\frac{y-b}{a})}{|a|}$$
+
+------
+
+#### Example
+
+$$Y=e^x$$
+
+$$X \sim \mathcal{N}(m, \sigma^2)$$
+
+$$y=g(x)=e^x$$
+
+$$S_Y=(0,\infty)$$
+$$g^{-1}(y)=\ln(y)$$
+
+$$\frac{dg(x)}{dx}|_{x=g^{-1}(y)}=e^x|_{x=g^{-1}(y)}=e^{\ln(y)}=y$$
+
+For $$y \in (0,\infty)$$
+
+$$f_Y(y)=\frac{f_X(\ln(y))}{y}$$
+
+------
+
+#### Example
+
+$$Y=e^X$$
+
+$$X \sim \mathcal{N}(m, \sigma^2)$$
+
+$$F_Y(y)=P(Y \leq y)=P(e^X \leq y)$$
+
+$$=P(X \leq \ln(y))$$
+
+$$=F_X(\ln(y))$$
+
+$$f_Y(y)=\frac{dF_Y(y)}{dy}=\frac{d}{dy} F_X(\ln(y))$$
+
+$$=f_X(\ln(y))\cdot \frac{1}{y}$$
+
+
+
+$$Z=e^{-X}$$
+
+![image-20241021163034677](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241021163034677.png)
+
+$$S_Z=(0,\infty)$$ for $$z>0$$
+
+$$F_Z(z)=P(Z \leq z)$$
+
+$$=P(e^{-X} \leq z)$$
+
+$$=P(X \geq - \ln(z))$$
+
+$$=1-F_X(-\ln(z))$$
+
+$$f_Z(z)=\frac{d}{dz}F_Z(z)=-f_X(-\ln(z))\cdot (-\frac{1}{z})$$
+
+$$=\frac{-f_X(-\ln(z))}{z}$$
+
+## Discussion 8
+
+### Topics
+
+1. Continuous Random variable
+
+   1. Probability density function
+
+   2. Expectation, variance, $$n^{th}$$ moment of a continuous RV
+
+   3. Important families of continuous RV
+
+      Gamma and Beta
+
+   4. Some problems
+
+2. Integration tricks
+
+   1. Changing the order of integration in double integrals
+
+### Continuous Random Variables (RV)
+
+A RV $$X$$ is continuous if its range, $$S_X$$, consists of one or more intervals
+
+==$$P[X=x]=0$$== This is always true
+
+Note: No difference between open and closed intervals
+
+![image-20241021164904556](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241021164904556.png)
+
+$$P[a \leq X \leq b]=P[a < X < b]$$
+
+------
+
+
+
+### Probability density function (PDF)
+
+Similar to PMF is discrete case
+
+But $$P[X=x]=0$$
+
+CDF $$\rightarrow$$ PDF
+
+$$f_X(x)=\frac{d}{dx}F_X(x)$$
+
+Piecewise constant for discrete RV
+
+Because $$F_X(x)=P[X \leq x]=\int_{-\infty}^{x}f_X(x)dx$$
+
+------
+
+
+
+### Expected Value
+
+$$E[X]=\int_{-\infty}^{\infty}x f_X(x)dx= \mu_X$$
+
+If $$Y=g(x):x \rightarrow$$  continuous RV
+
+$$E[Y]=E[g(x)]=\int_{-\infty}^{\infty} g(x)f_X(x)dx$$
+
+------
+
+
+
+### Linearity Property
+
+$$E[aX+b]=aE[X]+b$$
+
+$$E[\cdot]$$ is a linear operator
+
+------
+
+
+
+### Variance
+
+$$Var[X]=E[(X-E[X])^2]=\int_{-\infty}^{\infty} (X-\mu_X)^2 f_X(x)dx$$
+
+Measures how spread-out on RV is around its mean
+
+$$2^{nd}$$ moment: $$Var[X]=E[X^2]-(E[X])^2$$
+
+$$1^{st}$$ moment: $$E[X]=\int_{-\infty}^{\infty}x f_X(x)dx= \mu_X$$
+
+$$n^{th}$$ moment: $$E[X^n]=\int_{-\infty}^{\infty}x^n f_X(x)dx$$
+
+------
+
+
+
+### Common continuous RV's
+
+1. Exponential RV
+
+   $$X \sim \text{exp}(\lambda)$$ where $$\lambda$$ is the rate parameter
+
+   $$E[X]=\frac{1}{\lambda}$$
+
+   $$Var[X]=\frac{1}{\lambda^2}$$
+
+   Exponential RV is a continuous version of geometric RV
+
+   Continuous waiting time (packet inter-arrival time)
+
+2. Gaussian RV
+
+   $$X \sim \mathcal{N}(\mu, \sigma^2)$$
+
+   $$f_X(x)=\frac{1}{\sqrt{2 \pi \sigma^2}} e^{-\frac{(x-\mu)^2}{2 \sigma^2}}$$
+
+   $$F_X(x)=\phi(\frac{x-\mu}{\sigma^2})$$ is the standard normal CDF
+
+   $$\phi(Z)=\int_{-\infty}^{\infty}\frac{1}{\sqrt{2 \pi}} e^{-\frac{w^2}{2}}dw$$
+
+   noise modeling, linear systems, high dimension data analysis
+
+3. Uniform RV
+
+   $$X \sim \text{Uniform} (a,b)$$
+
+   $$f_X(x)=\begin{cases}\frac{1}{b-a} &a \leq x \leq b \\ 0 & \text{otherwise}\end{cases}$$
+
+4. Gamma RV
+
+   $$\text{Gamma RV}=\begin{cases} \text{Exponential} \\ \text{Chi-squared} \\ \text{Erlang}\end{cases}$$
+
+   $$X \sim \gamma(\alpha, \lambda)$$ (2-parametric RV)
+
+   $$f_X(x)=\frac{1}{\Gamma(\alpha)}\lambda^{\alpha}x^{\alpha-1}e^{-\lambda x}, 0 \leq x\leq \infty$$
+
+   $$\Gamma(\alpha)=\int_{0}^{\infty}x^{\alpha-1}e^{-x}dx$$
+
+   $$\Gamma(n)=(n-1)!$$
+
+   $$\Gamma(1/2)=\sqrt{\pi}$$
+
+   $$\Gamma(\alpha+1)=\alpha \Gamma(\alpha)$$
+
+   When $$\alpha=1$$
+
+   $$X \sim \text{exp} (\lambda)$$
+
+   ![image-20241021193348823](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241021193348823.png)
+
+4. Beta RV
+
+   $$X \sim \text{Beta}(\alpha,\beta)$$
+
+   $$f_X(x)=\begin{cases}\frac{1}{B(\alpha,\beta)}x^{\alpha-1}(1-x)^{\beta-1} &0 \leq x \leq 1 \\ 0 & \text{otherwise}\end{cases}$$
+
+   $$B(\alpha,\beta)=\int_{0}^{1}x^{\alpha-1}(1-x)^{\beta-1}$$
+
+   when $$\alpha=\beta=1$$
+
+   $$X \sim \text{Uniform}(0,1)$$
+
+   $$E[X]=\frac{\alpha}{\alpha+\beta}$$
+
+   $$Var[X]=\frac{\alpha\beta}{(\alpha+\beta+1)(\alpha+\beta)^2}$$
+
+Note: $$X_1, X_2, ... $$ Independent
+
+$$X_i \sim \text{exp} (\lambda)$$
+
+If $$Y=X_1+X_2+...+X_m$$
+
+then $$Y \sim \text{Gamma} (m,\lambda)$$
+
+
+
+![image-20241021195555202](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241021195555202.png)
+
+$$t_j \sim \text{Gamma} (j, \lambda)$$
+
+$$\Delta t\sim \text{exp}(\lambda)$$
+
+------
+
+### Problem 6.1
+
+Let $$X$$ be a continuous random variable representing the (exact) ligetime of a hard drive, measured in years. A simple model for $$X$$ is that is an Exponential $$(\lambda)$$ random variable. You may assume that your brand of hard drive has an average lifetime of 100 years.
+
+Given:
+
+$$X \sim \text{exp}(\lambda)$$
+
+$$E[X]=100=\frac{1}{\lambda}$$
+
+$$\lambda=1/100$$
+
+(a) What is the probability that the drive fails before 1 year?
+
+$$P[X<1]=\int_{-\infty}^{1}f_X(x)dx$$
+
+$$=\int_{0}^{1}\lambda e^{-\lambda x}dx$$
+
+$$=\int_{0}^{1}\frac{1}{100}e^{-\frac{x}{100}}dx$$
+
+$$=-e^{-\frac{x}{100}}|_{0}^{1}$$
+
+$$=1-e^{-\frac{1}{100}}$$
+
+(b) What is the probability that it lasts less than 5 years?
+
+Same
+
+(c) Consider the event $$B ={X \geq y}$$ that your hard drive has already lasted y years. What is the conditional PDF $$f_{X|B}(x)$$? Interpret the intuition behind your formula.
+
+PDF of event $$B$$
+
+$$P[B]=P[X \geq y]=\int_{y}^{\infty}\frac{1}{100} e^{- \frac{x}{100}}dx$$
+
+$$P[B]=e^{- \frac{y}{100}}$$
+
+$$f_{X|B}(x)=\frac{f_X(x)}{P[B]}$$
+
+$$=\frac{1/100 e^{-\frac{x}{100}}}{e^{-\frac{y}{100}}}$$
+
+$$=\frac{1}{100} e^{- \frac{x-y}{100}}$$
+
+conditioned on the fact that nothing has happened up to time $$y$$, it is as if we start with on entirely new exponential RV treating $$y$$ as time 0
+
+memoryless property of exponential RV
+
+(d) Say that your hard drive has already lasted $$y$$ years. What is the probability that it fails before $$y + 1$$ years?
+
+$$P[X < y+1|X \geq y]=\int_{-\infty}^{y+1} f_{X|B}(x)dx$$
+
+$$=\int_{y}^{y+1}\frac{1}{100} e^{- \frac{x-y}{100}}dx$$
+
+------
+
+### Question
+
+A certain nonlinear circuit has random input $$X\sim \text{exp} (1)$$, and output $$Y=X^{1/4}$$ Find the second moment of the output.
+
+$$E[Y^2]=E[(X^{1/4})^2]$$
+
+$$=E[X^{1/2}]$$
+
+$$=\int_{-\infty}^{\infty} X^{1/2} f_X(x)dx$$
+
+$$E[Y^2]=\int_{0}^{\infty}X^{1/2}e^{-x}dx$$
+
+$$=\int_{0}^{\infty} X^{3/2 -1}e^{-x}dx$$
+
+Recall: $$\Gamma(\alpha)=\int_{0}^{\infty}x^{\alpha-1}e^{-x}dx$$
+
+$$=\Gamma(3/2)=\Gamma(1+1/2)$$
+
+Recall: $$\Gamma(\alpha+1)=\alpha \Gamma(\alpha)$$
+
+$$=1/2\Gamma(1/2)$$
+
+Recall: $$\Gamma(1/2)=\sqrt{\pi}$$
+
+$$=\frac{\sqrt{\pi}}{2}$$
+
+------
+
+### Integration tricks
+
+Claim:
+
+For a non-negative RV, i.e., $$f_X(x)=0, \forall x <0$$
+
+S.T. $$E[X]=\int_{0}^{\infty}(1-F_X(t))dt$$
+
+Proof:
+
+$$E[X]=\int_{-\infty}^{\infty}xf_X(x)dx$$
+
+$$=\int_{0}^{\infty} (\int_{t=0}^{x}1 dt)f_X(x)dx$$
+
+$$=\int_{x=0}^{\infty} \int_{t=0}^{x}  dtf_X(x)dx$$
+
+![image-20241021233219548](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241021233219548.png)
+
+$$D={(x,y): 0 \leq x \leq \infty, 0 \leq t \leq x}$$
+
+$$D={(x,y): t \leq x \leq \infty, 0 \leq t \leq \infty}$$
+
+$$=\int_{t=0}^{\infty} \int_{x=t}^{\infty}  f_X(x)dx dt$$
+
+where $$ \int_{x=t}^{\infty}  f_X(x)dx=P[X > t]=1-F_X(t)$$
+
+$$=\int_{t=0}^{\infty} (1-F_X(x)) dt$$
+
+------
+
+$$I=\int_{x=0}^{2} \int_{y=x^2}^{4}f(xy)dydx$$
+
+![image-20241021233728313](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241021233728313.png)
+
+$$D={(x,y): 0 \leq x \leq 2, x^2 \leq y \leq 4}$$
+
+$$D={(x,y): 0 \leq x \leq \sqrt{y}, 0 \leq y \leq 4}$$
+
+$$=\int_{y=0}^{4} \int_{x=0}^{\sqrt{y}}  f(xy)dx dy$$
+
+## Week 9 Session 1
+
+### Gaussian RV
+
+If $X \sim \mathcal{N}(m,\sigma^2)$ and $$Z=\frac{X-m}{\sigma}$$ , then $$Z \sim \mathcal{N}(0,1)$$
+
+$$F_X(x)=P(X \leq x)$$
+
+$$=P(\frac{X-m}{\sigma}\leq \frac{x-m}{\sigma})$$
+
+$$=P(Z \leq \frac{x-m}{\sigma})$$
+
+$$=\phi(\frac{x-m}{\sigma})$$
+
+where $$\phi$$ is the CDF of standard normal RV
+
+------
+
+### PDF of a function of a continuous RV
+
+Theorem:
+
+Suppose $$X$$ is a continuous RV with PDF $$f_X$$
+
+Let $$Y=g(x)$$, where $$g$$ is a continuous, differentiable and strictly monotonic function
+
+Then, for $$y \in S_Y$$
+
+$$f_Y(y)=\frac{f_X(g^{-1}(y))}{|\frac{dg(x)}{dx}|_{x=g^{-1}(y)}}$$
+
+whenever the denominator is non-zero
+
+For $$y \notin S_Y, f_Y(y)=0$$
+
+------
+
+### Extension of the previous theorem
+
+Thm:
+
+Suppose $$X$$ is a continuous RV with PDF $$f_X$$ and range $$S_X$$
+
+Let $$Y=g(X)$$
+
+Suppose $$S_X$$ can be partitioned into finitely many intervals such that $$g(x)$$ is continuous, differentiable and strictly monotonic in each interval
+
+$$S_X=(0,2\pi)$$
+![image-20241023190700729](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241023190700729.png)
+
+For $$y \in S_Y$$, let
+
+$$g^{-1}(y)=\{\text{all values of }x \text{\: such that\:} g(x)=y\}=\{x_1,x_2,...x_n\}$$
+
+Then 
+
+$$f_Y(y)=\sum_{i=1}^{n}\frac{f_X(x_i)}{|\frac{dg(x)}{dx}|_{x=x_i}}$$
+
+whenever the denominators are non-zero
+
+$$f_Y(y)=0$$ for all $$y \notin S_Y$$
+
+#### Example
+
+$$X \sim \text{Uniform}(-1,1)$$
+$$Y=X^2=g(X)$$
+
+$$\frac{dg(x)}{dx}=2x$$
+$$S_X=[0,1)$$
+
+![image-20241023192102416](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241023192102416.png)
+
+For $$y \in S_Y$$
+$$g^{-1}(y)=\{\sqrt{y}, - \sqrt{y}\}$$
+
+$$f_Y(y)=\frac{f_X(\sqrt{y})}{|\frac{dg(x)}{dx}|_{x=\sqrt{y}}}+\frac{f_X(-\sqrt{y})}{|\frac{dg(x)}{dx}|_{x=-\sqrt{y}}}$$
+
+$$=\frac{f_X (\sqrt{y})}{2\sqrt{y}}+\frac{f_X (-\sqrt{y})}{2\sqrt{y}}$$
+
+$$f_Y(y)=\begin{cases} \frac{f_X (\sqrt{y})}{2\sqrt{y}}+\frac{f_X (-\sqrt{y})}{2\sqrt{y}} & 0<y<1 \\ \text{undefined} &y=0 \\ 0 & y \notin S_Y \end{cases}$$
+
+#### Method 2 CDF Method
+
+$$Y=X^2$$
+$$S_Y=[0,1]$$
+
+$$F_Y(y)=P(Y \leq y)$$
+
+$$\begin{cases} 0 & \text{if\:} y<0 \\ P(Y \leq 0)=P(Y=0)=P(X=0)=0 & \text{if\:} y=0\\P(Y\leq y) & \text{if\:} 0<y<1 \\ 1 & \text{if\:} y \geq 1 \end{cases}$$
+
+$$P(Y \leq y)=P(X^2 \leq y)$$
+
+$$=P(-\sqrt{y} \leq x \leq \sqrt{y})$$
+
+$$=F_X(\sqrt{y})-F_X(-\sqrt{y})$$
+
+$$F_Y(y)=\begin{cases}0 & \text{if\:} y \leq 0 \\ F_X(\sqrt{y})-F_X(-\sqrt{y}) & \text{f\:} 0<y<1 \\ 1 & \text{if\:} y \geq 1\end{cases}$$
+
+$$f_Y(y)=\begin{cases}0 & \text{if\:} y \leq 0 \\ F_X(\sqrt{y}) \frac{1}{2\sqrt{y}}+F_X(-\sqrt{y})\frac{1}{2\sqrt{y}} & \text{f\:} 0<y<1 \\ 1 & \text{if\:} y \geq 1\end{cases}$$
+
+
+
+#### Example
+
+![image-20241024202735944](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241024202735944.png)
+
+Light source is pointing at a random angle $$\theta$$ from the vertical direction
+
+$$\theta \sim \text{Uniform}(-\frac{\pi}{2},\frac{\pi}{2})$$
+
+Find the CDF/PDF of $$X$$
+
+$$X=g(\theta)=\tan{\theta}$$
+
+<u>CDF method</u>
+
+$$S_X=(-\infty,\infty)$$
+$$P(X \leq x)=P(\tan{\theta} \leq x)$$
+
+$$=P(\theta \leq \tan^{-1}{x})$$
+
+$$=\int_{-\infty}^{\tan^{-1}{x}}f_{\theta}(t)dt$$
+
+Tangent graph
+
+![image-20241024203038760](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241024203038760.png)
+
+$$\theta \sim \text{Uniform}(-\frac{\pi}{2},\frac{\pi}{2})$$
+
+$$f_\theta(t)=\begin{cases} \frac{1}{\pi} & -\frac{\pi}{2}< t< \frac{\pi}{2} \\ 0 & \text{othewise}\end{cases}$$
+
+$$=\int_{-\frac{\pi}{2}}^{\tan^{-1}{x}}\frac{1}{\pi}dt$$
+
+$$=\frac{1}{\pi}(\tan^{-1}{x}+\frac{\pi}{2})$$
+
+$$\frac{dF_X(x)}{dx}=f_X(x)=\frac{1}{\pi}(\frac{1}{1+x^2})$$         - Cauchy Distribution
+
+Density of $$X$$ using the theorem above
+
+$$f_X(x)=\frac{f_\theta(g^{-1}(x))}{\frac{dg(\theta)}{d \theta}|_{\theta=g^{-1}(x)}}$$
+
+$$X=g(\theta)=\tan{\theta}$$
+
+$$g^{-1}(x)=\tan^{-1}(x)$$
+
+$$\frac{dg(\theta)}{d \theta}=\frac{d \tan{\theta}}{d \theta}=\frac{1}{\cos^2{\theta}}$$
+
+$$=\frac{f_\theta(\tan^{-1}(x))}{\frac{1}{\cos^2{\theta}}}|_{\theta=\tan^{-1}x}$$
+
+$$=\frac{\frac{1}{\pi}}{\frac{1}{\cos^2{\theta}}}|_{\theta=\tan^{-1}x}$$
+
+$$=\frac{1}{\pi \frac{1}{1+x^2}}$$
+
+
+
+$$\theta=\tan^{-1}x$$
+
+$$\tan{\theta}=x$$
+$$\frac{\sin{\theta}}{\cos{\theta}}=x$$
+$$\sin^2{\theta}+cos^2{\theta}=1$$
+
+$$\frac{\sin^2{\theta}}{\cos^2{\theta}}+1=\frac{1}{\cos^2{\theta}}$$
+
+$$x^2+1=\frac{1}{\cos^2{\theta}}$$
+
+------
+
+### Important Probability inequalities
+
+1. Markov Inequality
+
+   $$X$$ is a continuous RV which is non-negative
+
+   $$P(X \geq a)=\int_{a}^{\infty}f_X(x)dx$$ where $$a>0$$
+
+   we may only know the mean of $$X$$ but not its PDF
+
+### Markov inequality
+
+For a non-negative continuous RV $$X$$ and a positive number $$a$$
+
+$$P(X \geq a) \leq \frac{E[X]}{a}$$
+
+Proof:
+
+$$P(X \geq a)=\int_{a}^{\infty}f_X(t)dt$$
+
+$$E[X]=\int_{-\infty}^{\infty}xf_X(x)dx=\int_{0}^{\infty} x f_X(x)dx$$
+$$=\int_{0}^{a} x f_X(x)dx+\int_{a}^{\infty} x f_X(x)dx \geq \int_{a}^{\infty} x f_X(x)dx$$
+
+$$\geq \int_{a}^{\infty} a f_X(x)dx=aP(X \geq a)$$
+
+$$P(X \geq a ) \leq \frac{E[X]}{a}$$
+
+
+
+Markov Inequality
+
+==For any non-negative RV $$X$$ and a positive number $$a$$==
+
+==$$P(X \geq a ) \leq \frac{E[X]}{a}$$==
+
+
+
+#### Example
+
+1. Duration of a call at a cellphone base station is a continuous RV with mean 100 seconds. Find a bound on the probability that the call duration is $$\geq 150$$ seconds.
+
+   $$P(D\geq 150) \leq \frac{E[D]}{150}=\frac{100}{150}$$
+
+   $$P(D>150)=P(D\geq 150)$$
+
+2. Number of simultaneous calls at this base station is a discrete RV with mean 100. Denote this RV by $$N$$
+
+   $$P(N\geq 150) \leq \frac{E[N]}{150}=\frac{100}{150}$$
+
+   $$P(N > 150)=P(N \geq 151) \leq \frac{E[N]}{151}$$
+
+------
+
+Proof of Markov Inequality for arbitrary non-negative RV $$X$$
+
+$$Y=g(x)=\begin{cases} 1 &\text{if\:} X \geq a \\ 0 &\text{if\:} X<a\end{cases}$$
+
+$$E[Y]=1 \cdot P(X \geq a) + 0 \cdot P(X \leq a)$$
+
+$$=P(X \geq a)$$
+
+$$Z=X -ag(X)$$
+
+$$E[Z]=E[X-aY]$$
+$$=E[X]-aP(X\geq a)$$
+
+Claim: $$Z$$ is a non-negative RV 
+
+Proof:
+
+Suppose $$X$$ take the value $$x \geq 0$$
+
+Case 1: $$x \geq a $$
+$$Z=X-ag(X)$$
+
+$$=x-a \geq 0$$
+
+Case 2: $$x<a$$
+
+$$Z=X-ag(X)$$
+
+$$=x \geq 0$$
+
+So claim so true
+
+Because $$Z$$ is non-negatives
+
+$$E[Z] \geq 0$$
+
+$$E[x]-aP(X\geq a) \geq 0$$
+
+$$\frac{E[X]}{a}\geq P(X \geq a)$$
+
+
+
+#### Example
+
+$$X$$ is a non-negative
+
+$$E[X]=2$$
+
+$$P(X\geq 1) \leq \frac{E[X]}{1}=2$$
+
+
+
+### Chebyshev's Inequality
+
+$$X$$ is any RV given the mean $$m$$ and its variance $$\sigma^2$$, $$a>0$$
+
+$$P(|X-m| \geq a)=P((X-m)^2\geq a^2) \leq \frac{E[(X-m)^2]}{a^2}=\frac{\sigma^2}{a^2}$$
+
+$$P(|X-m|\geq a) \leq \frac{\sigma^2}{a^2}$$ for $$a>0$$
+
+
+
+#### Example
+
+$$X \sim \mathcal{N}(m,\sigma^2)$$
+
+$$k$$ is a positive number
+
+$$P(|X-m| \geq k\sigma) \leq \frac{\sigma^2}{k^2 \sigma^2}=\frac{1}{k^2}$$
+
+$$k=2$$
+
+$$P(|X-m|\geq 2\sigma) \leq \frac{1}{4}$$
+Exact calculation of probability
+
+$$P(|X-m|\geq 2 \sigma)=1-P(|X-m|< 2\sigma)$$
+$$=1-P(-2\sigma < X-m < 2 \sigma)$$
+$$=1-P(-2 < \frac{X-m}{\sigma} <2)$$
+
+where $$\frac{X-m}{\sigma}=\mathcal{N}(0,1)$$
+
+$$=1-(\phi(2)-\phi(-2))$$
+
+$$=0.0456$$
+
+
+
+#### Example
+
+$$X$$ is a discrete RV
+
+$$P(X=c)=P(X=-c)=1/2$$
+$$E[X]=0$$
+
+$$Var[X]=E[X^2]-m^2=E[X^2]=c^2$$
+$$P(|X-0|\geq c) \leq \frac{Var(X)}{c^2}=1$$
+After exact calculation
+
+$$P(|X|\geq c)=1$$
+
+------
+
+### Chernoff bound
+
+Any RV 
+
+For any $$a>0$$
+
+$$P(X \geq a)$$
+Consider any $$s \geq 0$$
+
+$$\{X \geq a\}=\{e^{sX} \geq e^{sa}\}$$
+
+$$P(X \geq a)=P(e^{sX} \geq e^{sa})$$
+$$Z=e^{sX}$$ is a non-negative RV
+
+$$P(Z \geq e^{sa}) \leq \frac{E[Z]}{e^{sa}}=\frac{E[e^{sX}]}{e^{sa}}$$
+
+==$$P(X \geq a) \leq \min_{s \geq 0} \frac{E[e^{sX}]}{e^{sa}}$$==
+
+
+
+#### Example
+
+$$X \sim \text{exp}(1)$$
+$$f_X(x) =\begin{cases} e^{-x} & \text{if\:} x \geq 0 \\ 0 & \text{if\:} x<0\end{cases}$$
+
+$$P(X \geq 7) \leq \min_{s \geq 0} \frac{E[e^{sX}]}{e^{7s}}$$
+
+$$E[e^{sX}]=\int_{0}^{\infty}e^{sx}e^{-x}dx$$
+
+$$=\begin{cases} \frac{1}{1-s} & \text{if\:} 0 \leq s < 1\\ \infty & \text{if\:} s \geq 1\end{cases}$$
+
+$$P(X \geq 7) \leq \min_{0 \leq s <1} \frac{\frac{1}{1-s}}{{e^{7s}}}$$
+
+minimum is achieved at $$s=6/7$$
+
+$$\frac{\frac{1}{1-6/7}}{{e^{7 \cdot 6/7}}}=7e^{-6}$$
+
+Exact value of $$P(X \geq 7)$$
+
+$$\int_{7}^{\infty} e^{-x}dx=$$ find this value and compare with upper bound above
+
+------
+
+## Week 9 Session 2
+
+### Pair of random variables
+
+Two random variable 
+
+$$\Omega$$
+
+$$X: \Omega \rightarrow \R$$
+
+$$Y: \Omega \rightarrow \R$$
+![image-20241024212440938](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241024212440938.png)
+
+#### Example
+
+Roll a fair 6-sided die 3 times
+
+$$\Omega=\{111,112,121,...\}$$
+
+Equally likely
+
+$$P(\{\Omega\})=\frac{1}{6^3}=\frac{1}{216}$$
+
+$$X=$$ Number on the first roll
+
+$$Y=$$ Sum of the numbers on 3 rolls
+
+![image-20241024212806190](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241024212806190.png)
+
+$$P(X=1 \text{\:and\:} Y=3)=P(\{111\})=\frac{1}{216}$$
+
+$$P(X=2 \text{\:and\:} Y=5)=P(\{212,221\})=\frac{2}{216}$$
+
+$$P(X=2, Y=5)$$
+
+$$P(Y-X \geq 2)=P(\Omega)=1$$
+
+$$P(Y-X=2)=P(\{111,211,311,411,511,611\})=\frac{6}{216}$$
+
+$$P(a \leq X \leq b, c \leq Y \leq d)$$
+
+$$P((X,Y) \in \R)$$
+
+![image-20241024213155661](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241024213155661.png)
+
+$$P(X \leq b, Y \leq d)$$
+
+![image-20241024213317630](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241024213317630.png)
+
+$$P(Y \geq -X)$$
+
+![image-20241024213333962](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241024213333962.png)
+
+$$P(Y \leq X^2)$$
+
+![image-20241024213352240](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241024213352240.png)
+
+------
+
+Two discrete RVs
+
+$$X: S_Y=\{x_1,x_2,...x_m\}$$
+
+$$Y: S_Y=\{y_1, ... ,y_n\}$$
+
+Joint PMF of $$X$$ and $$Y$$
+
+$$P_{XY}(x,y)=P(X=x \text{\: and \:} Y=y)$$
+
+PMF: $$P_X(x)=P(X=x)$$
+
+$$=P(\{X=x\} \bigcap \{Y=y\})$$
+
+### Properties
+
+1. $$ 0 \leq P_{XY}(x,y) \leq 1$$
+
+2. $$\sum_{x \in S_X} \sum_{y \in S_Y}P_{XY} (x,y)=1$$
+
+   $$\sum_{x \in S_X}P_X(x)=1$$
+
+   $$A_{ij}=\{\omega \in \Omega: X(\omega)=x_i \text{\: and \:} Y(\omega)=y_j\}$$
+
+   $$A_{11}, A_{12}, ... , A{mn}$$ - Partition of $$\Omega$$
+
+   $$\sum_{i} \sum_{j} P(A_{ij})=1$$
+
+   $$\sum_{i} \sum_{j} P_{XY}(x_i,y_j)=1$$
+
+3. $$P(a \leq X \leq b, c \leq Y \leq d)$$
+
+   $$\sum_{a \leq x \leq b} \sum_{c \leq y \leq d} P_{XY}(x,y)$$
+
+   ![image-20241024214103116](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241024214103116.png)
+
+   $$P((X,Y) \in B)$$
+
+   $$\sum_{(x,y)\in B} P_{XY} (x,y)$$
+
+   ![image-20241024214135252](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241024214135252.png)
+
+#### Example
+
+$$S_X=S_Y=\{0,1,2\}$$
+
+$$P_{XY}(x,y)$$
+
+| x\y  | 0    | 1    | 2    |
+| ---- | ---- | ---- | ---- |
+| 0    | 1/16 | 0    | 0    |
+| 1    | 1/4  | 1/8  | 0    |
+| 2    | 1/4  | 1/4  | 1/16 |
+
+$$P(X+Y =2)=P_{XY}(1,1)+P_{XY}(0,2)+P_{XY}(2,0)$$
+
+$$=1/8+0+1/4$$
+
+$$P(Y>X)=P_{XY}(0,1)+P_{XY}(0,2)+P_{XY}(1,2)$$
+
+$$=0+0+0$$
+
+------
+
+### Joint PMF to individual PMFs
+
+$$P_X(x)=P(X=x)$$
+
+$$=\sum_{y \in S_Y}P_{XY}(x,y)$$
+
+$$P(X=x)=\sum_{y \in S_Y} P(X=x,Y=y )=\sum_{y \in S_Y} P_{XY}(x,y)$$
+
+$$P_X(x)=\sum_{y \in S_Y} P_{XY} (x,y)$$
+
+$$P_Y(y)=\sum_{x \in S_X} P_{XY} (x,y)$$
+
+Marginal PMFs of $$X$$ and of $$Y$$
+
+
+
+#### Example
+
+Number of bytes is a RV $$N$$ with PMF
+
+$$P_N(n)=(1-p) p^n$$
+
+$$n=0,1,2,...$$
+
+Bytes are grouped into packets
+
+Two bytes are grouped to form 1 packet
+
+$$N=4 \rightarrow$$ (_ _ _ _) $$=(P1, P2)$$ 
+
+$$N=5 \rightarrow$$ (_ _ _ _ _) $$=(P1, P2, \_)$$ where the last byte is the leftover or remainder bytes
+
+$$Q=$$ Number of packets formed 
+
+$$R=$$ Number of remainder bytes
+
+$$S_Q=\{0,1,2,...\}$$
+
+$$S_R=\{0,1\}$$
+
+Joint PMF of $$Q$$ and $$R$$
+$$P_{QR}(q,r)=P(Q=q, R=r)$$
+
+$$=P(N=2q+r)$$
+
+$$=(1-p)p^{2q+r}$$
+
+
+
+Marginal PMF of $$Q$$
+
+$$P_Q(q)=\sum_{r=0}^{1}P_{QR}(q,r)$$
+$$=(1-p)p^{2q}+(1-p)^{2q+1}$$
+
+$$q=0,1,2,...$$
+
+
+
+Marginal PMF of R
+
+$$P_R(r)=\sum_{q=0}^{\infty}P_{QR}(q,r)$$
+
+$=\sum_{q=0}^{\infty} (1-p)p^{2q+r}$
+
+$$=(1-p)p^r \sum_{q \geq 0} p^{2q}$$
+
+$$=(1-p)p^r \frac{1}{1-p^2}$$
+
+$$P_R(0)+P_R(1)=1$$
+$$P(Q \leq 2, R=0)=\sum_{0 \leq q \leq 2}P_{QR} (q,0)$$
+
+------
+
+CDF
+
+$$F_X(x)=P(X \leq x)$$ defined for all RVs
+
+Joint CDF of $$X$$ and $$Y$$
+
+$$F_{XY}(x,y)=P(X \leq x \text{\: and \:}Y \leq y)$$
+
+$$=P(X \leq x, Y \leq y)$$ can be defined for all pairs of RVs
+
+### Properties of joint CDF
+
+1. $$0 \leq F_{XY}(x,y) \leq 1$$
+
+2. $$P(X \leq 1, Y \leq 2)=F_{XY}(1,2) \leq F_{XY}(5,8)=P(X \leq 5, Y \leq 8)$$
+
+   If $$x_1 \leq x_2$$ and $$y_1 \leq y_2$$, then
+
+   $$F_{XY}(x_1,y_1) \leq F_{XY} (x_2,y_2)$$
+
+3. $$\lim_{y \rightarrow \infty}F_{XY}(x,y)$$
+
+   $$\lim_{y \rightarrow \infty}P(X \leq x, Y \leq y)=P(X \leq x, y < \infty)$$
+
+   $$=P(\{X \leq x\} \bigcap \{Y < \infty\})$$    where $$\{Y < \infty\}=\Omega$$
+
+   $$=P(\{X \leq x\} \bigcap \Omega)$$
+
+   $$=P(X \leq x)=F_X(x)$$
+
+   $$\lim_{y \rightarrow \infty} F_{XY}(x,y)=F_X(x)$$
+
+   $$\lim_{x \rightarrow \infty} F_{XY}(x,y)=F_Y(y)$$
+
+4. $$\lim_{y \rightarrow \infty} \lim_{x \rightarrow \infty}F_{XY}(x,y)=1$$
+
+   $$\lim_{x \rightarrow \infty, y \rightarrow \infty}P(X \leq x, Y \leq y)=P(X < \infty, Y < \infty)=1$$
+
+   $$\lim_{y \rightarrow \infty}[\lim_{x \rightarrow \infty}F_{XY}(x,y)]=1$$
+
+   $$\lim_{y \rightarrow \infty}[F_Y(y)]=1$$
+
+5. $$\lim_{y \rightarrow -\infty}F_{XY}(x,y)=0$$
+
+   $$\lim_{x \rightarrow -\infty}F_{XY}(x,y)=0$$
+
+   $$\lim_{y \rightarrow -\infty}P(X \leq x, Y \leq y)=P(X \leq x, Y=-\infty)$$
+
+   $$=P(\{X \leq x\}\bigcap \{Y=-\infty\})$$    where $$\{Y =-\infty\}=\phi$$
+
+   $$=P(\phi)=0$$
+
+6. $$\lim_{y \rightarrow -\infty} \lim_{x \rightarrow -\infty}F_{XY}(x,y)=0$$
+
+7. Right continuity
+
+   $$\lim_{h \downarrow 0}F_X(x+h)=F_X(x)$$
+
+   $$\lim_{h \downarrow 0}F_{XY}(x+h,y)=F_{XY}(x,y)$$
+
+   ![image-20241024221641303](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241024221641303.png)
+
+   $$\lim_{h \downarrow 0}F_{XY}(x,y+h)=F_{XY}(x,y)$$
+
+8. $$P(x_1 < X \leq x_2, y_1 < Y \leq y_2)$$
+
+   ![image-20241024221809036](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241024221809036.png)
+
+   $$P(x_1 < X \leq x_2)=F_X(x_2)-F_X(x_1)$$
+
+   $$P(X \leq x_2, Y \leq y_2)=F_{XY}(x_2,y_2)$$
+
+   $$F_{XY}(x_2,y_2)=P(A)+P(B)+P(C)+P(D)$$
+
+   
+
+   $$D=\{X \leq x_1, Y \leq y_1\}$$
+
+   $$P(D)=P(X \leq x_1, Y \leq y_1)=F_{XY}(x_1,y_1)$$
+
+   
+
+   $$P(X \leq x_1, Y \leq y_2)=P(A)+P(D)$$
+
+   $$F_{XY}(x_1,y_2)=P(A)+P(D)$$
+
+   $$P(A)=F_{XY}(x_1,y_2)-F_{XY}(x_1,y_1)$$
+
+   
+
+   $$F_{XY}(x_2, y_1)=P(C)+P(D)$$
+
+   $$P(C)=F_{XY}(x_2,y_1)-F_{XY}(x_1,y_1)$$
+
+   
+
+   ==$$P(B)=F_{XY}(x_2,y_2)+F_{XY}(x_1,y_1)-F_{XY}(x_1,y_2)-F_{XY}(x_2,y_1)$$==
+
+   $$P(x_1< X \leq x_2, y_1< Y \leq y_2)$$
+
+#### Example
+
+$$F_{XY}(x,y)=\begin{cases} (1-e^{-\alpha x})(1-e^{-\beta y})& \text{if\:} x \geq 0, y \geq 0\\ 0 & \text{otherwise}\end{cases}$$
+
+$$=\begin{cases}0 & \text{if\:} x<0 \\ 1-e^{-\alpha x} & \text{if\:} x \geq 0\end{cases}$$
+
+$$F_Y(y)=\lim_{x \rightarrow \infty}F_{XY}(x,y)$$
+
+$$=\begin{cases}0 & \text{if\:} y<0 \\ 1-e^{-\beta y} & \text{if\:} y \geq 0\end{cases}$$
+
+
+
+#### Example
+
+$$F_{XY}(x,y)=\begin{cases} 0 & \text{if\: } x<0, y\in \R\\ 0 & \text{if\: } y<0, x\in \R\\ xy & 0 \leq x \leq 1, 0\leq y \leq 1\\x & 0 \leq x \leq 1, y>1 \\ y & x>1, 0\leq y \leq 1\\ 1 & x\geq 1, y\geq 1\end{cases}$$
+
+$$F_X(x)=\lim_{y \rightarrow \infty}F_{XY}(x,y)$$
+
+$$=\begin{cases} 0 & x<0 \\ x & 0\leq x \leq 1\\ 1 & x>1\end{cases}$$
+
+![image-20241024223530788](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241024223530788.png)
+
+
+
+#### Example
+
+$$F_{XY}(x,y)=\begin{cases} (1-e^{-\alpha x})(1-e^{-\beta y})& \text{if\:} x \geq 0, y \geq 0\\ 0 & \text{otherwise}\end{cases}$$
+
+![image-20241024224147353](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241024224147353.png)
+
+$$P(1<X\leq 2, 2<Y \leq 5)=F_{XY}(2,5)+F_{XY}(1,2)-F_{XY}(1,5)-F_{XY}(2,2)$$
+
+$$C=\{X > x, Y >y\}$$
+
+$$P(X>x, Y>y)=1-P(X\leq x, Y\leq y)$$
+
+$$P(X> x, Y>y)=P(\{X >x\}\bigcap \{Y>y\})$$ where $$A=\{X >x\}$$ $$B= \{Y>y\}$$
+
+$$P(A \bigcap B)=1-P(A^c \bigcup B^c)$$
+
+$$=1-P(\{X \leq x\}\bigcup \{Y\leq y\})$$
+
+$$=1-(P(X \leq x) +P(Y \leq y)-P(X\leq x, Y \leq y))$$
+
+$$=1-F_X(x)-F_Y(y)+F_{XY}(x,y)$$
+
+------
+
+#### Example
+
+![image-20241024224621991](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241024224621991.png)
+
+$$X$$ takes when $$+1$$ or $$-1$$ with equal probability
+
+$$N \sim \text{Uniform}[-2,2]$$
+$$f_N(n)=\begin{cases} 1/4 & -2 \leq n \leq2 \\ 0 &\text{otherwise}\end{cases}$$
+
+For any 2 numbers $$a,b$$, $$\{N \leq a\}$$ and $$\{X=b\}$$ are independent events
+
+$$P(\{N \leq a\} \bigcap \{X=b\})=P(N\leq a)P(X=b)$$
+
+
+
+$$F_N(n)=\int_{-\infty}^{n}f_N(t)dt$$
+
+$$=\begin{cases} 0 & \text{if\:} n <-2 \\ \frac{n+2}{4} & \text{if\:} -2 \leq n \leq 2 \\ 1 & \text{if\:} n \geq 2\end{cases}$$
+
+$$F_{XN}(-1,n)=P(X \leq -1, N \leq n)$$
+
+$$=P(X=-1,N \leq n)$$
+
+$$=P(X=-1)P(N \leq n)$$
+$$=\frac{1}{2}F_N(n)$$
+
+
+
+$$F_{XN}(1,n)=P(X \leq 1, N \leq n)$$
+
+$$=P(\{X\leq 1\} \bigcap \{ N \leq n\})$$
+
+$$=P(N\leq n)$$
+
+$$=F_N(n)$$
+
+
+
+$$P(X\leq 1, N\leq n)=P(\{X=-1, N \leq n\} \bigcup \{X=+1, N\leq n \})$$
+
+$$=P(X=-1,N \leq n)+P(X=+1, N \leq n)$$
+
+$$=\frac{1}{2}F_N(n)+\frac{1}{2}F_N(n)=F_N(n)$$
+
+
+
+$$P(X=+1,Y \leq 0)=P(X=+1,X+N \leq 0)$$
+
+$$=P(X=+1, 1+N \leq 0)$$
+
+$$=P(X=+1,N \leq -1)$$
+
+$$=P(X=+1)P(N \leq -1)$$
+
+$$=\frac{1}{2}F_N(-1)$$
+
+
+
+$$P(X=+1, Y\leq 0)=P(Y \leq 0|X=+1)P(X=+1)$$
+
+$$=P(X+N \leq 0|X=+1)\frac{1}{2}$$
+
+$$=P(N\leq -1|X=+1)\frac{1}{2}$$
+
+$$=P(N\leq -1) \frac{1}{2}$$
+
+$$=F_N(-1) \frac{1}{2}$$
+
+## Discussion 9
+
+### Topics
+
+1. Key formulas for discrete and continuous random variables
+2. Characteristic functions
+   1. Definition
+   2. Properties
+   3. Some problems
+3. Problems
+
+### Overview of discrete and continuous RV's
+
+|                | Discrete                                    | Continuous                                      |
+| -------------- | ------------------------------------------- | ----------------------------------------------- |
+| $$P_X(x)/S_X$$ | $$P(\{\omega: \forall X(\omega)=x\})$$      | $$P(\{\omega: a \leq X(\omega) < b\})$$         |
+| $$E[X]$$       | $$\sum_{x \in S_X} xP_X(x)$$                | $$\int_{-\infty}^{\infty}x f_X(x)dx$$           |
+| $$Var[X]$$     | $$\sum_{x \in S_X}(x-\mu_X)^2 P_X(x)$$      | $$\int_{-\infty}^{\infty}(x-\mu_X)^2 f_X(x)dx$$ |
+| $$E[X^n]$$     | $$\sum_{x \in S_X} x^nP_X(x)$$              | $$\int_{-\infty}^{\infty}x^n f_X(x)dx$$         |
+| $$F_X(x)$$     | $$F_X(x)=P(X \leq x)=\sum_{k=0}^{x}P[X=k]$$ | $$F_X(x)=\int_{0}^{x}f_X(x)dx$$                 |
+| $$E[g(x)]$$    | $$\sum_{x \in S_X} g(x)P_X(x)$$             | $$\int_{-\infty}^{\infty}g(x)f_X(x)dx$$         |
+
+### Characteristic functions
+
+![image-20241026203533633](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241026203533633.png)
+
+1. PMF/ PDF
+2. $$E[X],E[X^n]$$
+3. CDF
+
+1. Transform RV to a different space
+2. Prove in transform domain
+
+Each type of RV (continuous/ discrete) has its own unique characteristic function
+
+![image-20241026203652397](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241026203652397.png)
+
+### Definition
+
+$$\phi_X(\omega) := E[e^{j \omega X}]=\int_{-infty}^{\infty}e^{j \omega X }f_X(x)dx$$ where $$j=\sqrt{-1}$$
+
+Note:
+
+$$\phi_X(x)$$ is simply the Fourier transform of the PDF of a RV $$X$$
+
+$$f_X(x)=\frac{1}{2 \pi}\int_{\omega} \phi_X(\omega)e^{-j \omega X}d \omega$$
+
+### Properties
+
+1. Characteristic function of a RV always exists
+
+2. $$\phi_X(0)=1, |\phi_X(\omega) \leq 1|, \forall \omega \in \R$$ 
+
+3. Let $$X_1,X_2,...X_n$$ are independent RVs
+
+   If $$Y=a_1X_1+a_2X_2+...+a_nX_n$$
+
+   $$a_1:$$ constant
+
+   $$\phi_Y(\omega)=\phi_{a_1X_1+...+a_nX_n}(\omega)=\phi_{X_1}(a_1\omega) \phi_{X_2}(a_2\omega)...\phi_{X_n}(a_n \omega)$$
+
+4. Two RVs $$X,Y$$ are independent if and only if
+
+   $$\phi_{X,Y}(\omega,t)=\phi_{X}(\omega)\phi_Y(t)$$
+
+### Moment theorem
+
+The $$n^{th}$$ moment of a RV $$X$$ is given by
+
+$$E[X^n]=\frac{1}{j^n} \frac{d^n}{d\omega^n} \phi_X(\omega)|_{\omega=0}$$
+
+Proof Sketch:
+
+$$\phi_X(\omega)=\int_{-\infty}^{\infty}e^{j \omega X}f_X(x)dx$$
+
+where $$e^{j\omega X}$$ is the Taylor series expansion
+
+$$\phi_X(\omega)=\int_{-\infty}^{\infty}f_X(x) [1+j\omega X + \frac{(j \omega)^2 X^2}{2!}+ ... + \frac{(j \omega)^n(X)^n}{n!}] dx$$
+
+$$=1+j \omega E[X]+ \frac{(j \omega)^2}{2!}E[X^2]+...+\frac{(j \omega)^n}{n!}E[X^n]$$
+
+$$\frac{d}{d\omega}\phi_X(\omega)|_{\omega =0} =j E[X]$$
+
+$$E[X]=\frac{1}{j}\frac{d}{d \omega}\phi_{X} (\omega)|_{\omega=0}$$
+
+$$\frac{d^n}{d\omega^n}\phi_X(\omega)|_{\omega =0} =j^n E[X^n]$$
+
+### Problems
+
+1. Find characteristic function of geometric RV
+
+   $$P_X(x=k)=\begin{cases} (1-p)^k p & k \geq 1\\ 0 & \text{otherwise}\end{cases}$$
+
+   $$\phi_X(\omega)=\sum_{k=0}^{\infty}(1-p)^k p e^{j \omega k}$$
+
+   $$=p \sum_{k=0}^\infty ((1-p)e^{j \omega})^k$$
+
+   $$\phi_X(\omega)=\frac{p}{1-(1-p)e^{j \omega}}$$
+
+2. Find mean, variance and $$n^{th}$$ moment of exponential RV
+
+   $$X \sim \text{exp}(\lambda)$$
+
+   Find characterize function
+
+   $$\phi_X(\omega)=\int_{0}^{\infty}e^{j \omega x} \lambda e^{-\lambda x}dx$$
+
+   $$\phi_X(\omega)=\lambda \int_{0}^{\infty} e^{-(\lambda -j \omega)x}dx$$
+
+   $$\phi_X(\omega)=\frac{\lambda}{\lambda-j\omega}$$
+
+   From moment theorem
+
+   $$E[X]=\frac{1}{j} \frac{d}{d\omega} \phi_X(\omega)|_{\omega=0}$$
+
+   $$=\frac{1}{j}\frac{d}{d\omega} \frac{\lambda}{\lambda-j\omega}|_{\omega=0}$$
+
+   $$=\frac{1}{j} \frac{\lambda j}{(\lambda-j\omega)^2}|_{\omega=0}=\frac{1}{\lambda}$$
+
+   $$E[X]=\frac{1}{\lambda}$$
+
+   $$E[X^2]=\frac{1}{j^2} \frac{d^2}{d \omega^2} \phi_X(\omega)|_{\omega =0}$$
+
+   $$=\frac{1}{j^2} \frac{-2\lambda}{(X-j\omega)^3}|_{\omega=0}$$
+
+   $$E[X^2]=\frac{2}{\lambda^2}$$
+
+   $$Var[X]=E[X^2]-(E[X])^2$$
+
+   $$=\frac{2}{\lambda^2}-(\frac{1}{\lambda})^2$$
+
+   $$=\frac{1}{\lambda^2}$$
+
+   $$Var[X]=\frac{1}{\lambda^2}$$
+
+   $$n^{th}$$ moment
+
+   $$E[X^n]=\frac{1}{j^n} \frac{d^n}{d\omega^n} \phi_X(\omega)|_{\omega=0}$$
+
+   $$E[X^n]=\frac{n!}{\lambda^n}$$
+
+### Problems
+
+1. Find the CDF and PDF of $$Y=g(X)$$ if $$X \sim \text{Uniform}[0,4]$$ and 
+
+   $$g(X)=\begin{cases} x & 0 \leq x <1 \\ 1 & 1 \leq x < 2\\ 3-x & 2 \leq x < 3\\0 & \text{otherwise}\end{cases}$$
+
+   ![image-20241026210113406](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241026210113406.png)
+
+   CDF of $$Y$$
+
+   $$P[Y \leq y]=P[g(X) \leq y]$$
+
+   $$=P[X \leq g^{-1}(y)]$$
+
+   For $$y<0$$, $$P[Y \leq y]=0$$
+
+   For $$y \geq 1$$, $$P[Y \leq y]=1$$
+
+   For $$0 \leq y \leq 1$$
+
+   $$P[Y \leq y]=P[X \leq g^{-1}(y)]$$
+
+   $$=P[\{X \leq u\} \bigcup \{X \geq u\}]$$
+
+   $$=P[X \leq y] +P[X \geq 3-y]$$
+
+   Note that $$X \sim \text{Uni}[0,4]$$
+
+   $$F_X(x)=\frac{x-a}{b-a}$$
+
+   $$=\frac{y}{4}+ 1- P[X \leq 3-y]$$
+
+   $$=\frac{y}{4} + 1 - \frac{3-y}{4}$$
+
+   $$F_Y(y)=\frac {y}{2}+\frac{1}{4}, 0\leq y <1$$
+
+   ![image-20241026221349259](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241026221349259.png)
+
+   Note that CDF has discontinuous
+
+   Find PDF
+
+   We can still differentiate the CDF and represent discontinuities as delta functions
+
+   $$f_Y(y)=\frac{d}{dy} (\frac {y}{2}+\frac{1}{4}) + \frac{1}{4} \delta(y) + \frac{1}{4} \delta(y-1)$$
+
+   ### Problem 6.4
+
+   RV $$X,Y$$ have the joint PDF
+
+   $$f_{X,Y}(x,y)=\begin{cases} c & 0 \leq y < x <4 \\ 0 & \text{otherwise}\end{cases}$$
+
+   Let $$A$$ be the event $$\{X \leq 1\}$$ and let $$B$$ be the event $$\{Y< 2-X\}$$
+
+   (a) Are $$X$$ and $$Y$$ independent?
+
+   ​       ![image-20241026222654298](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241026222654298.png)
+
+   $$A \subset B$$
+
+   $$f_{X,Y}(x,y) = f_X(x)f_Y(x)$$ if independent 
+
+   Notice the range is not a rectangular region. So we cannot decompose $$f_{X,Y}(x,y)$$ into product of marginals
+
+   $$f_Y(y)=\int_{y}^{4} f_{X,Y}(x,y)dy=\int_{y}^{4} c dy$$
+
+   $$=c[4-y]$$
+
+   $$f_X(x)=\int_{0}^{x}cdx=cx$$
+
+   $$f_X(x)f_Y(y)=c^2 x [4-y] \neq f_{X,Y}(x,y)$$ 
+
+   Therefore $$X,Y$$ are not independent
+
+   (b) Calculate the appropriate value for the constant $$c$$. Set it to this values for the remainder of the problem
+
+   $$\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} f_{X,Y}(x,y) dxdy=1$$
+
+   where $$f_{X,Y}(x,y)=c$$
+
+   $$c\int_{-\infty}^{\infty} \int_{-\infty}^{\infty}  dxdy=c (\frac{1}{2} \times 4 \times 4)=8c=1$$
+
+   $$c=\frac{1}{8}$$
+
+   (c) Calculate the probability $$P[B|A]$$
+
+   $$P[B|A]=\frac{P[A \bigcap B]}{P[A]}=\frac{P[A]}{P[A]}=1$$
+
+   (d) Make a clearly labeled sketch of the conditional PDF $$f_{X|Y}(x|0.5)$$
+
+   $$f_{X|Y}(x|0.5)=f_{X|Y}(x|y=0.5)$$
+
+   $$f_{X|Y}(x|y)=\begin{cases} \frac{f_{X,Y}(x,y)}{f_Y(y)} & f_Y(y) >0\\0&\text{otherwise}\end{cases}$$
+
+   $$f_{X|Y}(x|y)=\begin{cases} \frac{1}{4-y} & 0 \leq y<x<4 \\ 0 & \text{otherwise}\end{cases}$$
+
+   $$f_{X|Y}(x|0.5)=\begin{cases} \frac{1}{4-\frac{1}{2}}=\frac{2}{7} & 0 \leq y<x<4 \\ 0 & \text{otherwise}\end{cases}$$
+
+   ![image-20241027110149950](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241027110149950.png)
+
+   (e) Evaluate the conditional expectation $$E[X|Y=0.5]$$ and the conditional variance $$Var[X|Y=0.5]$$
+
+   $$f_{X|Y}(x|0.5)$$ is uniform
+
+   $$E=\frac{a+b}{2}, Var=\frac{(b-a)^2}{12}$$
+
+   $$E_{X|Y}(x|0.5)=\frac{0.5+4}{2}=\frac{9}{4}$$
+
+   $$Var_{X|Y}(x|0.5)=\frac{(4-\frac{1}{2})^2}{12}=\frac{49}{48}$$
+
+## Week 10 Session 1
+
+### Two discrete RVs
+
+$$X, S_X=\{x_1,x_2,...x_m\}$$
+
+$$Y,S_Y=\{y_1,...,y_n\}$$
+
+Joint PMF of $$X$$ and $$Y$$
+$$P_{XY}(x,y)=P(X=x,Y=y)$$
+
+------
+
+$$P(a \leq X \leq b, c \leq Y \leq D)$$
+
+![image-20241030145147925](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241030145147925.png)
+
+$$\sum_{a \leq X \leq b} \sum_{c \leq Y \leq d}P_{XY}(x,y)$$
+
+![image-20241030145156936](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241030145156936.png)
+
+$$P((X,Y) \in B)=\sum_{(X,Y) \in B}P_{XY}(x,y)$$
+
+------
+
+Joint CDF of $$X$$ and $$Y$$ (any kind of RVs)
+
+$$F_{XY}(x,y)=P(X\leq x, Y \leq y)$$
+
+Probability of $$(X,Y)\in$$ Rectangle
+
+$$P(x_1 < X \leq x_2, y_1 < Y \leq y_2)=F_{XY}(x_2,y_2)+F_{XY}(x_1,y_1)-F_{XY}(x_1,y_2)-F_{XY}(x_2,y_1)$$
+
+------
+
+### Jointly continuous RVs
+
+Recall $$X$$ is continuous if
+
+1. $$F_X$$ is continuous function
+2. $$F_X(x)=\int_{-\infty}^{x}f_X(s)ds$$
+
+Definition: $$X$$ and $$Y$$ are jointly continuous if
+
+1. $$F_{XY}$$ is continuous function
+2. $$F_{XY}(x,y)=\int_{-\infty}^x \int_{-\infty}^y f_{XY} (s,t)dtds$$
+
+Joint probability density function of $$X$$ and $$Y$$
+
+Properties
+
+1. $$f_{XY}(x,y)=\frac{d}{dx}(\frac{d}{dy}F_{XY}(x,y))$$
+
+   $$=\frac{d}{dy}(\frac{d}{dx}F_{XY}(x,y))$$
+
+   whenever the derivative exist
+
+2. Recall $$P(a < X \leq b)=\int_{a}^{b}f_X(s)ds$$
+
+   $$P(a<X \leq b, c<Y \leq d)=\int_{c}^{d}\int_{a}^{b}f_{XY}(s,t)dsdt$$
+
+   $$= \int_{a}^{b} \int_{c}^{d} f_{XY}(s,t)dtds$$
+
+3. $$P((X,Y) \in B)=\int \int_{B} f_{XY}(s,t)dsdt$$
+
+   ![image-20241030150032857](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241030150032857.png)
+
+4. $$\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} f_{XY}(s,t)dsdt=P((X,Y)\in \R^n)=1$$
+
+5. $$P(x<X \leq x+h,y<Y \leq y+h)$$
+
+   ![image-20241030155311026](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241030155311026.png)
+
+   $$\int_{x}^{x+h}\int_{y}^{y+h} f_{XY}(s,t)dtds$$
+
+   $$\approx \int_{x}^{x+h}f_{XY}(s,y)hds$$
+
+   $$\approx f_{XY (x,y)} h \cdot h$$
+
+   ==$$P(x <X \leq x+h, y<Y \leq y+h)\approx f_{XY}(x,y)h^2$$==
+
+6. $$f_{XY}(x,y)$$
+
+   PDF of $$X,f_X(x)$$ from the joint PDF
+
+   $$P(x <X \leq x+h) \approx f_X(x)h$$
+
+   $$P(x < X \leq x+h)=P(x<X \leq x+h, -\infty < Y<\infty)$$
+
+   ![image-20241030183622075](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241030183622075.png)
+
+   $$\int_{x}^{x+h} \int_{-\infty}^{\infty}f_{XY}(s,t)dtds$$
+
+   $$=\int_{-\infty}^{\infty}\int_{x}^{x+h}f_{XY}(s,t)dsdt$$
+
+   $$\approx f_{XY}(x,t)h dt$$
+
+   $$f_X(x)h=\int_{-\infty}^{\infty}f_{XY}(x,t)hdt$$
+
+   ==$$f_X(x)=\int_{-\infty}^{\infty}f_{XY}(x,t)dt$$==
+
+   
+
+   Discrete Case
+
+   $$P_X(x)=\sum_yP_{XY}(x,y)$$
+
+   
+
+   $$f_Y(y)=\int_{-\infty}^{\infty}f_{XY}(s,y)ds$$
+
+   $$f_X(x)=\int_{-\infty}^{\infty}f_{XY}(x,t)dt$$
+
+   $$f_Y(y)=\int_{-\infty}^{\infty}f_{XY}(s,y)ds$$
+
+------
+
+#### Example
+
+$$X,Y$$ jointly continuous
+
+$$f_{XY}(x,y)=\begin{cases} 1 & \text{if\:} 0 \leq x \leq 1, 0 \leq y \leq 1\\0 & \text{otherwise}\end{cases}$$
+
+![image-20241030220341364](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241030220341364.png)
+
+$$F_{XY}(-2,-2)=\int_{-\infty}^{-2} \int_{-\infty}^{-2}f_{XY}(s,t)dsdt=0$$
+
+$$F_{XY}(7,-1)=\int_{-\infty}^{7} \int_{-\infty}^{-1} f_{XY}(s,t)dtds=0$$
+
+$$F_{XY}(x,y)=0$$ if $$x<0$$ or $$y<0$$
+
+If $$0\leq x \leq 1, 0 \leq y \leq 1$$
+$$F_{XY}(x,y)=\int_{-\infty}^{x} \int_{-\infty}^{y} f_{XY}(s,t)dtds$$
+
+$$=\int_{0}^{x} \int_{0}^{y} f_{XY}(s,t)dtds$$
+
+$$=\int_{0}^{x} \int_{0}^{y} 1 dtds$$
+
+$$=xy$$
+
+$$x=1/3, y=2$$
+$$F_{XY}(1/3,2)=\int_{-\infty}^{1/3} \int_{-\infty}^{2}f_{XY}(s,t)dtds$$
+
+$$=\int_{0}^{1/3} \int_{0}^{2}f_{XY}(s,t)dtds$$
+
+$$=\int_{0}^{1/3} \int_{0}^{1}f_{XY}(s,t)dtds+\int_{0}^{1/3} \int_{1}^{2}f_{XY}(s,t)dtds$$
+
+$$=\int_{0}^{1/3}\int_{0}^{1}1dtds +0$$
+$$=1/3$$
+
+If $$0 \leq x\leq 1$$ and $$y>1$$
+
+$$F_{XY}(x,y)=x$$
+
+If $$0 \leq y \leq 1$$ and $$x>1$$
+
+$$F_{XY}(x,y)=\int_{-\infty}^{y} \int_{-\infty}^{x} f_{XY}(s,t)dsdt$$
+
+$$=\int_{0}^{y} \int_{0}^{x} f_{XY} (s,t) dsdt$$
+$$=\int_{0}^{y} \int_{0}^{1} f_{XY} (s,t) dsdt + \int_{0}^{y} \int_{1}^{x} f_{XY} (s,t) dsdt$$
+
+$$=\int_{0}^{y} \int_{0}^{1} dsdt+0$$
+
+$$=y$$
+If $$x>1, y>1$$
+
+$$F_{XY}(x,y)=\int_{-\infty}^{x} \int_{-\infty}^{y} f_{XY}(s,t) dtds$$
+
+$$=\int_{0}^{x} \int_{0}^{y} f_{XY}(s,t)dtds$$
+
+$$=\int_{0}^{x} \int_{0}^{1} f_{XY}(s,t)dtds+\int_{0}^{x} \int_{1}^{y} f_{XY}(s,t)dtds$$
+$$=\int_{0}^{1} \int_{0}^{x} f_{XY}(s,t)dsdt$$
+
+$$=\int_{0}^{1} \int_{0}^{1} 1dtds$$
+
+$$=1$$
+
+$$P(X \leq x, Y \leq y)=1$$
+
+#### Example
+
+$$f_{XY}(x,y)=\begin{cases} c &\text{if\:} 0 \leq y \leq x \leq 1\\0 & \text{otherwise}\end{cases}$$
+
+![image-20241030221454225](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241030221454225.png)
+
+$$\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} f_{XY}(s,t)dtds=\frac{1}{2}c=1$$
+
+$$c=2$$
+$$\int_{0}^{1} \int_{0}^{s} f_{XY}(s,t)dtds=\int_{0}^{1} \int_{0} ^{s} c dtds$$
+
+$$=\int_{0}^{1}csds$$
+
+$$=c \frac{s^2}{2}|_0^1=1$$
+
+$$c=2$$
+
+
+
+Marginal PDF of $$X$$
+$$f_X(x)=\int_{-\infty}^{\infty}f_{XY}(x,t)dt$$
+
+If $$0\leq x \leq 1$$
+
+$$f_X(x)=\int_{-\infty}^{\infty}f_{XY}(x,t)dt$$
+
+$$=\int_{0}^{x}2dt=2x$$
+
+![image-20241030221945849](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241030221945849.png)
+
+If $$x>1$$
+
+$$f_X(x)=\int_{-\infty}^{\infty} f_{XY} (x,t)dt=0$$
+
+$$f_X(x)= \begin{cases}2x & 0 \leq x \leq 1 \\ 0 & \text{otherwise}\end{cases}$$ 
+
+$$f_Y(y)=\int_{-\infty}^{\infty} f_{XY}(s,y)ds$$
+
+If $$0 \leq y \leq 1$$
+$$f_Y(y)=\int_{-\infty}^{\infty}f_{XY}(s,y)ds$$
+
+$$=\int_{y}^{1}2ds=2(1-y)$$
+
+$$f_Y(y)=\begin{cases} 2(1-y) & 0 \leq y \leq 1\\ 0 & \text{otherwise}\end{cases}$$
+
+
+
+#### Example
+
+$$f_{XY}(x,y)=\begin{cases} ce^{-x}e^{-y} & 0 \leq y \leq x < \infty \\ 0 & \text{otherwise}\end{cases}$$
+
+![image-20241030222355902](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241030222355902.png)
+
+$$\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} f_{XY}(s,t)dsdt=1$$
+
+$$=\int_{0}^{\infty} \int_{0}^{s} f_{XY}(s,t) dtds$$
+
+$$=\int_{0}^{\infty}\int_{0}^{s} ce^{-s}e^{-t}dtds$$
+
+$$=c/2$$
+
+$$c=2$$
+
+$$f_X(x)=\int_{-\infty}^{\infty}f_{XY}(x,t)dt$$
+
+$$=\int_{0}^{x }2e^{-x}e^{-t}dt $$       - if $$x \geq 0$$
+
+$$=2e^{-x} \int_{0}^{x} e^{-t}dt$$
+
+$$=2e^{-x} (1-e^{-x})$$
+
+$$f_X(x)=\begin{cases} 2e^{-x}(1-e^{-x}) & x \geq 0 \\ 0 & \text{otherwise}\end{cases}$$
+
+$$f_Y(y)=\int_{-\infty}^{\infty}f_{XY}(s,y)ds$$
+
+$$=\begin{cases} \int_{y}^{\infty} 2e^{-s }e^{-y} ds=2e^{-2y} &  y \geq 0 \\0 & y<0 \end{cases}$$
+
+$$P(X>10,Y>10)=\int_{10}^{\infty} \int_{10}^{\infty}f_{XY}(s,t)dtds$$
+
+$$=\int_{10}^{\infty} \int_{10}^{\infty}2e^{-s}e^{-t} dtds$$
+
+$$P(X^2+Y^2 \leq 1)=\int \int_{circle} f_{XY}(s,t)dtds$$
+
+![image-20241030222946414](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241030222946414.png)
+
+$$f_{XY}(x,y)=\begin{cases} 2e^{-x}e^{-y} & 0\leq y \leq x < \infty\\0 & \text{otherwise}\end{cases}$$
+
+![image-20241030223048642](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241030223048642.png)
+
+$$P(X+Y \leq 1)=\int\int f_{XY} (s,t)dtds$$
+
+$$=\int\int f_{XY}(s,t) dsdt$$
+
+$$=\int_{0}^{1/2} \int_{t}^{1-t} 2e^{-s} e^{-t} dsdt$$
+
+$$=\int\int_{triangle}f_{XY}(s,t)dtds$$
+
+$$=\int_{0}^{1/2} \int_{0}^{s} f_{XY}(s,t)dtds+\int_{1/2}^{1} \int_{0}^{1-s} f_{XY}(s,t)dtds$$
+
+------
+
+Recall that every event $$C$$ and $$D$$ are independent if
+
+$$P(C \bigcap D)=P(C)P(D)$$
+
+Independent RVs:
+
+Definition: Two RVs $$X$$ and $$Y$$ are independent if for all subset $$B_1,B_2$$ of $$\R$$ the events $$C=\{X \in B_1\}$$ and $$D=\{Y \in B_2\}$$ are independent 
+
+$$P(X \in B_1, X \in B_2)=P(X \in B_1)P(Y \in B_2)$$ for all $$B_1,B_2$$ which hare subset of $$\R$$
+
+Suppose $$X,Y$$ are independent RV
+
+$$P(X \in (-\infty,a), Y\in (-\infty,b))=P(X \in (-\infty,a))P(Y \in (-\infty,b))$$
+
+$$P(a < X \leq b, Y>d)=P(a<X \leq b)P(Y >d)$$
+
+------
+
+Two discrete RVs
+
+Thm:
+
+Two discrete RVs $$X$$ and $$Y$$ are independent if and only if 
+
+$$P_{XY}(x,y)=P_X(x)P_Y(y)$$ for all $$x \in S_x, y \in S_y$$
+
+Proof: 
+
+Suppose $$X$$ and $$Y$$ are independent 
+
+$$B_1=\{x\}, B_2=\{y\}$$
+
+$$P(X\in B_1, Y \in B_2)=P(X \in B_1)P(Y \in B_2)$$
+
+$$P(X=x,Y=y)=P(X=x)P(Y=y)$$
+
+$$P_{XY}(x,y)=P_X(x)P_Y(y)$$
+
+Suppose the joint PMF factorizes into individual PMF
+
+Consider any subsets $$B_1,B_2$$ of $$\R$$
+
+$$P(X \in B_1,Y\in B_2)=\sum_{x\in B_1, y \in B_2} P_{XY}(x,y)$$
+
+$$=\sum_{y\in B_2} \sum_{x \in B_1}P_X(x)P_Y(y)$$
+
+$$=\sum_{y\in B_2} P(X \in B_1)P_Y(y)$$
+
+$$=P(X \in B_1)P(Y \in B_2)$$
+
+## Week 10 Session 2
+
+### Jointly Continuous RVs
+
+Definition: $$X$$ and $$Y$$ are jointly continuous if:
+
+1. $$F_{XY}$$ is continuous function
+
+2. $$F_{XY}(x,y)= \int_{-\infty}^{x}\int_{-\infty}^{y} f_{XY}(s,t)dtds$$
+
+   ![image-20241101212408325](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241101212408325.png)
+
+   where $$f_{XY}(s,t)$$ is the joint probability density function of $$X$$ and $$Y$$
+
+$$P((X,Y)\in B)=\int \int_{B}f_{XY}(s,t)dsdt$$
+
+![image-20241101212356394](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241101212356394.png)
+
+$$P(a<X \leq b, c <Y \leq d)=\int_{c}^{d} \int_{a}^{b} f_{XY}(s,t)dsdt$$
+
+### Independent RVs
+
+$$P(X \in B_1, Y \in B_2)=P(X \in B_1) P(Y \in B_2)$$ for all $$B_1, B_2$$ which are subsets of $$\R$$
+
+Thm1:
+
+Two discrete RVs $$X$$ and $$Y$$ are independent if and only if 
+
+$$P_{XY}(x,y)=P_X(x)P_Y(y)$$ for all $$x \in S_X, y \in S_Y$$
+
+------
+
+$$X,Y$$ are independent
+
+$$P(X =x|Y=y)=\frac{P(X=x,Y=y)}{P(Y=y)}$$
+
+$$=\frac{P(X=x)P(Y=y)}{P(Y=y)}$$
+
+$$=P(X=x)$$
+
+$$P(X \leq 10 | 2 \leq Y \leq 4)=\frac{P(X \leq 10, 2 \leq Y \leq 4)}{P(2 \leq Y \leq 4)}$$
+
+$$=P(X \leq 10)$$
+
+------
+
+#### Example
+
+$$Q,R$$
+
+$$S_Q=\{0,1,2,...\}$$
+
+$$S_R=\{0,1\}$$
+
+$$P_{QR}(q,r)=(1-p)p^{2q+r}$$
+
+Are $$Q$$ and $$R$$ independent?
+
+$$P_Q(q)=(1-p) (p^{2q+0}+p^{2q+1})$$
+
+$$=(1-p)p^{2q}(1+p)$$
+
+$$P_R(r)=\sum_{q \geq 0} (1-p) p^r p^{2q}$$
+
+$$=(1-p) p^r \frac{1}{1-p^2}$$
+
+$$=\frac{p^r}{1+p}$$
+
+$$P_Q(q) P_R(r)=(1-p)p^{2q}(1+p) \frac{p^r}{1+p}$$
+
+$$=(1-p)p^{2q+r}$$
+
+$$=P_{QR}(q,r)$$
+
+Therefore $$Q$$ and $$R$$ are independent
+
+------
+
+Thm 2:
+
+For any RVs $$X,Y$$, two RVs are independent if and only if 
+
+$$F_{XY}(x,y)=F_X(x)F_Y(y)$$ for all $$x \in \R, y \in \R$$
+
+------
+
+Thm 3:
+
+Suppose $$X,Y$$ are jointly continuous RVs. $$X,Y$$ are independent if and only if
+
+$$f_{XY}(x,y)=f_X(x) f_Y(y)$$ for all $$x\in \R, y \in \R$$
+
+Proof of Thm3:
+
+Suppose $$X,Y$$ are independent, jointly continuous RVs
+
+$$F_{XY}(x,y)=F_X(x)F_Y(y)$$
+
+$$f_{XY}(x,y)=\frac{d}{dx} (\frac{d}{dy} F_{XY}(x,y))$$
+
+$$=\frac{d}{dx} \frac{d}{dy} F_X(x) F_Y(y)$$
+
+$$=\frac{d}{dx} F_X(x) \frac{d}{dy} F_Y(y)$$
+
+$$=f_X(x) f_Y(y)$$
+
+Then, $$f_{XY}(x,y)=f_X(x) f_Y(y)$$
+
+
+
+Suppose $$f_{XY}(x,y)=f_X(x) f_Y(y)$$ is true
+
+$$F_{XY}(x,y)=\int_{-\infty}^{x} \int_{-\infty}^{y} f_{XY} (s,t)dtds$$
+
+$$=\int_{-\infty}^{x} \int_{-\infty}^{y} f_X(s)f_Y(t)dtds$$
+
+$$=\int_{-\infty}^{x}f_X(s)ds \int_{-\infty}^{y}f_Y(t)dt$$
+$$=F_X(x)F_Y(y)$$
+
+Therefore, $$X,Y$$ are independent
+
+------
+
+#### Example
+
+$$f_{XY}(x,y)=\frac{1}{2 \pi} e^{-\frac{x^2+y^2}{2}}$$ for $$x \in \R, y \in \R$$
+
+Are $$X,Y$$ independent?
+
+$$f_X(x)=\int_{-\infty}^{\infty}f_{XY}(x,t)dt$$
+
+$$=\frac{1}{2 \pi} \int_{-\infty}^{\infty}e^{-\frac{x^2}{2}} e^{-\frac{y^2}{2}} dt$$
+
+Note that:
+
+$$\mathcal{N}(0,1)$$
+
+$$f_Y(y)=\frac{e^{-\frac{y^2}{x}}}{\sqrt{2 \pi}}=1$$
+
+$$=\frac{1}{2 \pi} e^{-\frac{x^2}{2}}  \sqrt{2 \pi} \int_{-\infty}^{\infty} \frac{1}{\sqrt{2 \pi}}e^{-\frac{y^2}{2}} dt$$
+
+$$=\frac{1}{\sqrt{2 \pi}} e^{-\frac{x^2}{2}} $$
+
+$$f_Y(y)=\frac{1}{\sqrt{2 \pi}} e^{-\frac{y^2}{2}} $$
+
+$$f_X(x) f_Y(y)=\frac{1}{2 \pi} e^{-\frac{x^2}{2}} e^{-\frac{y^2}{2}}=f_{XY}(x,y)$$
+
+$$X,Y$$ are independent
+
+$$X \sim \mathcal{N}(0,1)$$
+$$Y \sim \mathcal{N}(0,1)$$
+
+IID RVs (intendent and identically distributed RVs)
+
+$$f_{XY}(x,y)=\frac{1}{2 \pi} e^{-\frac{x^2+y^2}{2}}$$
+
+
+
+$$P(X > 0, Y < 0)$$
+
+![image-20241101215656721](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241101215656721.png)
+
+As $$X \sim \mathcal{N}(0,1)$$
+
+![image-20241101215719437](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241101215719437.png)
+
+$$P(X>0)=\frac{1}{2}$$
+
+$$P(X > 0, Y < 0)=P(X>0)P(Y<0)=\frac{1}{2}\cdot \frac{1}{2}=\frac{1}{4}$$
+
+#### Example
+
+$$F_{XY}(x,y)=(1-e^{-\alpha x})(1-e^{-\beta y}), x, y \in \R, \alpha>0, \beta>0$$ and they are constants
+
+Are $$X,Y$$ independent?
+
+$$F_X(x)=\lim_{y \rightarrow \infty}F_{XY}(x,y)=1-e^{-\alpha x}$$
+
+$$F_Y(y)=\lim_{x \rightarrow \infty}F_{XY}(x,y)=1-e^{-\beta y}$$
+
+Note:
+
+$$F_{XY}(x,y)=P(X \leq x, Y \leq y)$$
+
+$$\lim_{y \rightarrow \infty}$$
+
+$$F_X(x)=P(X \leq x)$$
+
+$$F_{XY}(x,y)=F_X(x)F_Y(y)$$
+
+------
+
+#### Example
+
+$$H, \Theta$$ are independent RVs
+
+$$H \sim \text{Uniform}[0,\frac{1}{2}] \rightarrow f_{H}(h)=\begin{cases}2 & 0 \leq h \leq \frac{1}{2}\\ 0 & \text{otherwise}\end{cases}$$
+
+$$\Theta \sim \text{Uniform}[0, \frac{\pi}{2}]\rightarrow f_{\Theta}(\theta)=\begin{cases}\frac{2}{\pi} & 0 \leq \theta \leq \frac{\pi}{2}\\ 0 & \text{otherwise}\end{cases}$$
+
+$$f_{H \Theta}(h,\theta)=\begin{cases} \frac{4}{\pi} & 0\leq h \leq \frac{1}{2}, 0 \leq \theta \leq \frac{2}{\pi} \\ 0 & \text{otherwise}\end{cases}$$
+
+$$P(H \leq \frac{\sin(\theta)}{2})=\int_{0}^{\frac{\pi}{2}} \int_{0}^{\frac{\sin{\theta}}{2}}f_{H\Theta}(h,\theta)dh d\theta$$
+
+$$=\int_{0}^{\frac{\pi}{2}} \int_{0}^{\frac{\sin{\theta}}{2}}\frac{4}{\pi}dh d\theta$$
+
+$$=\frac{4}{\pi} \int_{0}^{\frac{\pi}{2}} \frac{\sin{\theta}}{2}d\theta$$
+
+$$=\frac{2}{\pi} (-\cos{\theta})|_0^{\frac{\pi}{2}}$$
+
+$$=\frac{2}{\pi}$$
+
+------
+
+Theorem:
+
+Suppose $$X,Y$$ are independent
+
+$$Z=g(X)$$ and $$W=h(Y)$$
+
+Then, $$Z,W$$ are independent
+
+Proof:
+$$P(Z \in B_1, W \in B_2)=P(g(X) \in B_1, h(Y) \in B_2)$$
+
+$$g^{-1}(B_1)=\{x:g(x) \in B_1\}$$
+
+$$h^{-1}(B_2)=\{y:g(y) \in B_2\}$$
+
+$$=P(X \in g^{-1}(B_1), Y \in h^{-1}(B_2))$$
+
+$$=P(X \in g^{-1}(B_1))P( Y \in h^{-1}(B_2))$$
+
+$$=P(g(X)\in B_1)P(h(Y) \in B_2)$$
+
+$$=P(Z \in B_1)P(H \in B_2)$$
+
+Therefore, $$Z,W$$ are independent
+
+Previous example
+
+$$H, \Theta$$ are independent
+
+$$W=\sin{\theta}$$
+
+$$H,W$$ are independent
+
+------
+
+### Expected Value of functions of RVs
+
+1. If $$X$$ is a discrete RV
+
+   $$Z=g(X)$$
+
+   $$E[Z]=\sum_{x \in S_X} g(X) P_X(x)$$
+
+2. If $$X$$ is a continuous RV
+
+   $$Z=g(X)$$
+
+   $$E[Z]=\int_{-\infty}^{\infty}g(x)f_X(x)dx$$
+
+3. $$X,Y$$ are discrete RVs
+
+   $$Z=g(X,Y)$$
+
+   $$E[Z]=\sum_{x \in S_X} \sum_{y \in S_Y} g(x,y) P_{XY} (x,y)$$
+
+4. $$X,Y$$ are jointly continuous
+
+   $$Z=g(X,Y)$$
+
+   $$E[Z]=\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} g(x,y)f_{XY}(x,y)dxdy$$
+
+#### Example
+
+$$X,Y \rightarrow f_{XY}$$
+
+$$Z=aX+bY, a\in \R, b \in \R$$
+
+$$E[Z]=\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} (ax+by) f_{XY}(x,y) dxdy$$
+
+$$=\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} axf_{XY}(x,y)dydx + \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} byf_{XY}(x,y)dxdy$$
+
+$$=\int_{-\infty}^{\infty} axf_X(x)dx+ \int_{-\infty}^{\infty}by f_Y(y)dy$$
+
+$$=aE[X]+bE[Y]$$
+
+$$E[aX+bY]=E[aX]+E[bY]=aE[X]+bE[Y]$$
+
+Linearity Property
+
+$$E[X^3+Y^2]=E[X^3]+E[Y^2]$$
+
+$$E[g(X)+h(y)]=E[g(X)]+E[h(Y)]$$
+
+------
+
+### Independence and expectation
+
+#### Example
+
+$$X,Y$$ are independent 
+
+$$f_{XY}$$
+$$Z=XY$$
+$$E[Z]=\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} xy f_{XY}(x,y)dxdy$$
+
+$$=\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} xy f_X(x) f_Y(y)dxdy$$
+
+$$=\int_{-\infty}^{\infty}y f_Y(y)E[X]dy$$
+
+$$=E[X]E[Y]$$
+
+
+
+Thm:
+
+If $$X,Y$$ are independent RVs
+
+1. $$E[XY]=E[X]E[Y]$$
+2. $$E[g(X)h(Y)]=E[g(X)]E[h(Y)]$$
+
+------
+
+#### Example
+
+$$X=R, Y=R+1$$
+
+$$R \sim \mathcal{N}(0,1)$$
+
+$$X,Y$$ not independent RVs
+
+$$E[XY]=E[R(R+1)]=E[R^2+R]=E[R^2]+E[R]=1+0$$
+
+$$E[X]=0,E[Y]=1$$
+
+$$E[XY] \neq E[X]E[Y]$$
+
+------
+
+$$n^{th}$$ moment of $$X$$ : $$E[X^n]$$
+
+$$(n,k)$$ moment of $$X,Y$$ : $$E[X^n \cdot Y^k]$$
+
+Suppose $$X,Y$$ are discrete
+
+$$E[X^n \cdot Y^k]=\sum_{x \in S_X} \sum_{y \in S_Y} x^n y^k P_{XY}(x,y)$$
+
+If $$X,Y$$ are jointly continuous
+
+$$E[X^n \cdot Y^k]=\int \int x^ny^k f_{XY}(x,y)dxdy$$
+
+------
+
+Definition: 
+
+Correlation, Covariance, and Correlation Coefficient
+
+correlation between $$X \&Y=E[XY]$$
+
+Covariance between $$X\&Y=Cov(X,Y)=E[(X-m_X)(Y-m_Y)]$$
+
+Correlation coefficient between $$X\&Y=\rho_{XY}=\frac{Cov(X,Y)}{\sigma_X \sigma_Y}$$
+
+------
+
+$$Cov(X,X)=Var(X)$$
+
+$$E[(X-m_X)(Y-m_Y)]=E[XY-m_XY-m_YX+m_Xm_Y]$$
+
+$$=E[XY]-m_XE[Y]-m_YE[X]+m_Xm_Y$$
+
+$$=E[XY]-m_Xm_Y$$
+
+$$Cov(X,Y)=E[XY]-m_Xm_Y$$
+
+#### Example
+
+$$X,Y$$ are independent
+
+$$Cov(X,Y)=E[XY]-m_Xm_Y$$
+
+$$=E[X]E[Y]-m_Xm_Y=0$$
+
+If $$X,Y$$ are independent $$\implies Cov(X,Y)=0$$
+
+#### Example
+
+$$X - m_X, \sigma_X^2$$
+
+$$Y=aX+b$$ where $$a \neq 0, b \in \R$$
+
+Find $$Cov(X,Y), \rho_{XY}=\frac{Cov(X,Y)}{\sigma_X \sigma_Y}$$
+
+Case 1: $$a>0$$
+
+$$Var(Y)=\sigma_Y^2=E[(Y-m_Y)^2]$$
+
+$$=E[(aX+b-am_X-b)^2]$$
+$$=a^2 \sigma_X^2$$
+
+$$Cov(X,Y)=E[(X-m_X)(Y-m_Y)]=E[(X-m_X)(aX-am_X)]$$
+
+$$=a \sigma_X^2$$
+
+$$\rho_{XY}=\frac{a \sigma_X^2}{\sigma_X \sigma_Y}=\frac{a \sigma_X^2}{\sigma_X a\sigma_X}=1$$
+
+Case 2: $$a<0$$
+$$\sigma_Y^2=a^2 \sigma_X^2$$
+
+$$\sigma_Y=(-a)\sigma_X$$
+
+Standard deviation = positive square root of variance
+
+$$m_Y=am_X+b$$
+
+$$\rho_{XY}=\frac{a \sigma_X^2}{\sigma_X \sigma_Y}=\frac{a \sigma_X^2}{\sigma_X (-a)\sigma_X}=-1$$
+
+#### Example
+
+$$X,Y$$
+
+$$m_X=m_Y=0$$
+
+$$\sigma_X^2=4, \sigma_Y^2=9$$
+
+$$Z=2X-Y, W=X+Y$$
+
+$$m_Z=m_W=0$$
+
+$$Cov(Z,W)=0$$
+
+$$E[ZW]=E[(2X-Y)(X+Y)]$$
+
+$$=E[2X^2-YX+2XY-Y^2]$$
+
+$$=2E[X^2]+E[XY]-E[Y^2]$$
+
+$$0=2 \cdot 2^2 +E[XY]- 3^2$$
+
+$$E[XY]=1$$
+
+$$Cov(X,Y)=E[XY]=1$$
+
+## Discussion 10
+
+### Continuous Random Variable
+
+1. Beta
+   1. Uniform (Special Case) $$\alpha_1 \beta=1$$
+
+2. Gaussian (Normal) Distribution
+3. Gamma $$(\alpha, \gamma)$$
+   1. Exponential $$(\lambda)$$ when $$\alpha=1$$
+   2. Chi-squared
+   3. Erlang
+
+4. Cauchy [expectation and variance is not defined]
+
+Conditional Probability Models:
+
+1. Conditional PDF of $$X$$ (continuous RV) given event $$B$$
+
+   Memoryless property of exponential RV 
+
+   $$f_{X|B}(x)=\begin{cases} \frac{f_X(x)}{P[B]} & x \in B \\ 0 & \text{otherwise}\end{cases}$$
+
+2. $$E[X|B]=\int_{-\infty}^{\infty} x f_{X|B}(x)dx$$
+
+   $$E[g(X)|B]=\int_{-\infty}^{\infty}g(x)f_{X|B}(x)dx$$
+
+### Functions of a continuous RV
+
+$$Y:=g(X)$$ where $$X$$ is a continuous RV
+
+$$Y$$ can be continuous, discrete or mixed RV depending on the properties of $$g(\cdot)$$
+
+Case 1: When $$g(\cdot)$$ is a piecewise constant function
+
+![image-20241102104958096](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241102104958096.png)
+
+- $$Y$$ is a discrete RV
+
+- $$S_Y(\text{range})$$ is a list of values
+
+- PMF of $$Y$$ for each $$Y \in S_Y$$
+
+  $$P_Y(y)=\int_{A_Y}f_X(x)dx$$
+
+  where $$A_Y=\{x:g(x)=y\}$$ 
+
+Case 2: $$g(\cdot)$$ is continuous and its derivative $$g'(\cdot)$$ is not zero on any interval
+
+![image-20241102105050076](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241102105050076.png)
+
+- $$Y$$ is a continuous RV
+
+  $$P[g(x) \leq y]$$
+
+  $$P[x \leq g^{-1}(y)]$$
+
+- CDF
+
+  $$F_Y(y)=P[Y \leq y]=P[g(X) \leq y]=\int_{B_Y}f_X(x)dx$$
+
+  where $$B_Y=\{x:g(x) \leq y\}$$
+
+  $$f_Y(y)=\frac{d}{dy}F_Y(y)$$
+
+Case 2*: $$g(\cdot)$$ is strictly monotonically increasing or decreasing function
+
+$$f_Y(y)=f_X(h(x))|\frac{d}{dy}h(y)|$$
+
+$$h(y)=g^{-1}(y)$$
+
+### Concentration inequalities
+
+1. Markov's Inequality
+
+   For any non-negative RV $$X$$ and constant $$a$$
+
+   $$P[X \geq a] \leq \frac{E[X]}{a}$$
+
+2. Chebyshev's Inequality
+
+   For any RV $$X$$ and constant $$a$$
+   $$P[|X-E[X]| \geq a] \leq \frac{Var[X]}{a^2}$$
+
+### Problem 1
+
+![image-20241102105715772](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241102105715772.png)
+
+$$X: $$ weight of almond
+
+$$Y:$$ weight of cashew
+
+![image-20241102105824197](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241102105824197.png)
+
+$$P[X + Y \leq 0.5] =\int_{y=0}^{1/2} \int_{x=0}^{1/2-y} f_{XY}(x,y)dxdy$$
+
+$$=\int_{y=0}^{1/2} \int_{x=0}^{1/2-y} 24xy dxdy$$
+
+$$=\frac{1}{16}$$
+
+$$f_Y(y)=\int_{x=0}^{1-y} 24xy dx$$
+
+$$=24y \frac{x^2}{2}|_{0}^{1-y}$$
+
+$$=12y(1-y)^2, 0 \leq y \leq 1$$
+
+### Problem 2
+
+If $$X$$ is a RV such that $$E[X]=3,E[X^2]=13$$. Given lower bond for $$P(-2 < x <8)$$
+
+$$P[-2 <x <8]=P[-2-3<x-3<8-3]$$
+
+$$=P[-5<x-3<5]$$
+
+$$=P[|x-3|<5]$$
+
+$$=1-P[|x-3| \geq 5]$$
+
+$$=1-P[|x-E[X]|\geq a]$$
+
+$$\leq 1- \frac{Var[X]}{5^2}=\frac{21}{25}$$
+
+$$Var[X]=E[X^2]-(E[X])^2=13-3^2=4$$
+
+### Problem 3
+
+If $$X$$ is an exponential RV with parameter $$\lambda=1$$ Compute the PDF of RV $$Y$$ defined by $$Y:=\log{X}$$
+
+$$X \sim \text{exp}( \lambda=1)$$
+
+$$f_X(x)=\begin{cases} e^{-x} & x>0 \\ 0 & \text{otherwise}\end{cases}$$
+
+$$F_Y(y)=P[Y \leq y]=P[\log{X} \leq y]$$
+
+$$=P[x \leq e^y]$$
+
+$$F_Y(y)=F_X(e^y)$$
+
+
+
+Find CDF of $$X$$
+
+$$F_X(x)=\int_{0}^{x}f_X(x)dx=\int_{0}^{x}e^{-x}dx$$
+
+$$F_X(x)=1-e^{-x}$$
+
+$$F_Y(y)=1-e^{-e^y}$$
+
+$$f_Y(y)=\frac{d}{dy}[1-e^{-e^{y}}]=e^ye^{-e^y}$$
+
+$$f_Y(y)=e^ye^{-e^y}, -\infty \leq y \leq \infty$$
+
+### Problem 4
+
+![image-20241102111508466](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241102111508466.png)
+
+$$X \sim \text{Uniform}(15,45)$$ is a RV for man's arrival
+
+$$Y \sim \text{Uniform}(0,60)$$$ is a RV for women's arrival
+
+$$f_X(x)=\begin{cases} \frac{1}{30} & 15 \leq x \leq 45\\0 & \text{otherwise}\end{cases}$$
+
+$$f_Y(y)=\begin{cases} \frac{1}{60} & 0 \leq x \leq 60\\0 & \text{otherwise}\end{cases}$$
+
+$$P[|X-Y|<5]$$ - Joint PDF
+
+$$f_{XY}(x,y)=f_X(x) f_Y(y)=\frac{1}{1800}$$
+
+$$f_{XY}(x,y)=\begin{cases} \frac{1}{1800} & 16 \leq x \leq 45, 0 \leq y \leq 60 \\ 0 & \text{otherwise}\end{cases}$$
+
+$$P[|X-Y|<5]=P[-5<x-y <5]$$
+
+$$=P[x-5 < y < x+5]$$
+
+$$=\int_{x=15}^{45} \int_{y=x-5}^{x+5} f_{XY}(x,y)dxdy$$
+
+$$=\frac{1}{6}$$
+
+$$P[|X-Y|<5]=\frac{1}{6}$$
+
+Probability that man arrives first
+
+$$P[X <Y]=\int_{-\infty}^{\infty} \int_{x}^{\infty} f_{XY}(x,y)dxdy$$
+
+$$=\int_{x=15}^{45} \int_{y=x}^{60} \frac{1}{1800} dxdy$$
+
+$$=\frac{1}{2}$$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
