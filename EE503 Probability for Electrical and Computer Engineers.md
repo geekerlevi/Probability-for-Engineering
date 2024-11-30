@@ -8006,11 +8006,2972 @@ $$=\int_{x=15}^{45} \int_{y=x}^{60} \frac{1}{1800} dxdy$$
 
 $$=\frac{1}{2}$$
 
+## Week 11 Session 1 (Only 1)
+
+### Expected value of functions of RVs
+
+$$X,Y$$ are discrete RVs
+
+$$Z=g(X,Y)$$
+$$E[Z]=\sum_{x \in S_X} \sum_{y \in S_Y}P_{XY}(x,y)$$
+
+$$X,Y$$ are jointly continuous
+
+$$Z=g(X,Y)$$
+
+$$E[Z]=\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} g(x,y)f_{XY}(x,y)dxdy$$
+
+Thm: If $$X,Y$$ are independent RVs
+
+1. $$E[XY]=E[X]E[Y]$$
+2. $$E[g(X)h(Y)]=E[g(X)]E[h(Y)]$$
+
+### Correlation, Covariance and Correlation coefficient
+
+Correlation between $$X$$ and $$Y$$ : $$E[XY]$$
+
+Covariance between $$X$$ and $$Y$$ : $$E[(X-m_X)(Y-m_Y)]=E[XY]-m_Xm_y$$
+
+Correlation coefficient between $$X$$ and $$Y$$ : $$\rho_{XY}=\frac{\text{Cov}(X,Y)}{\sigma_X \sigma_Y}$$
+
+------
+
+#### Example
+
+$$X - m_X, \sigma_X^2$$
+
+$$Y - m_Y, \sigma_Y^2$$ 
+
+$$\rho_{XY}$$
+
+$$Z=(\frac{X-m_X}{\sigma_X})+(\frac{Y-m_Y}{\sigma_Y})$$
+
+$$E[Z]=E[\frac{X-m_X}{\sigma_X}]+E[\frac{Y-m_Y}{\sigma_Y}]=0$$
+
+$$E[Z^2]=Var[Z]$$
+
+$$=E[(\frac{X-m_X}{\sigma_X}+\frac{Y-m_Y}{\sigma_Y})^2]$$
+
+$$=E[(\frac{X-m_X}{\sigma_X})^2+(\frac{Y-m_Y}{\sigma_Y})^2+2\frac{X-m_X}{\sigma_X}\frac{Y-m_Y}{\sigma_Y}]$$
+
+$$=E[\frac{(X-m_X)^2}{\sigma_X^2}]+E[\frac{(Y-m_Y)^2}{\sigma_Y^2}]+2E[\frac{(X-m_X)(Y-m_Y)}{\sigma_X\sigma_Y}]$$
+
+$$=1+1+2 \rho_{XY}$$
+
+$$=2+2 \rho_{XY}$$
+
+$$=E[Z^2] \geq 0$$
+==$$\rho_{XY} \geq -1$$==
+
+$$W=(\frac{X-m_X}{\sigma_X})-(\frac{Y-m_Y}{\sigma_Y})$$
+
+$$E[W^2] \geq 0$$
+==$$\rho_{XY} \leq 1$$==
+
+==For any 2 RVs $$X$$ and $$Y$$, $$-1 \leq \rho_{XY} \leq 1$$==
+
+#### Example
+
+$$X,Y$$ are independent
+
+$$\rho_{XY}=\frac{\text{Cov}(X,Y)}{\sigma_X \sigma_Y}=\frac{E[XY]-m_Xm_Y}{\sigma_X \sigma_Y}=0$$
+
+For independent RVs, $$\rho_{XY}=0$$
+
+#### Example
+
+$$\Theta \sim \text{Uniform} (0,2 \pi)$$
+
+$$X= \cos{\theta}, Y=\sin{\theta}$$
+
+$$\rho_{XY}=\frac{\text{Cov}(x,y)}{\sigma_X \sigma_Y}$$
+
+$$\text{Cov} (X,Y)=E[XY]-m_Xm_Y$$
+
+$$m_X=E[X]=E[\cos{\theta}]=\int_{0}^{2\pi} \cos{\theta} \frac{1}{2 \pi}d \theta=0$$
+
+$$m_Y=E[Y]=E[\sin{\theta}]=\int_{0}^{2\pi} \sin{\theta} \frac{1}{2 \pi}d \theta=0$$
+
+$$E[XY]=E[\cos{\theta}\sin{\theta}]$$
+
+$$=\int_{0}^{2\pi} \cos{\theta} \sin{\theta} \frac{1}{2 \pi} d \theta$$
+
+$$=\frac{1}{2} \int_{0}^{2 \pi} \sin{2 \theta} \frac{1}{2 \pi}d \theta$$
+$$=\frac{1}{2} \frac{1}{2 \pi} \frac{-\cos{2 \theta}}{2}|_{0}^{2 \pi}=0$$
+
+$$\implies \text{Cov}(X,Y)=0$$
+
+$$\implies \rho_{XY}=0$$
+
+$$X= \cos{\theta}, Y=\sin{\theta}$$
+
+![image-20241122181439348](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241122181439348.png)
+
+$$P(X>0.9, Y>0.9)=0$$
+
+$$P(X>0.9) >0 , P(Y>0.9)>0$$
+
+$$X^2+Y^2=1$$
+
+$$\implies P(X>0.9,Y>0.9) \neq P(X>0.9)P(Y>0.9)$$
+
+$$\implies$$ not indepdent!
+
+Thm: If $$X,Y$$ are independent $$\rho_{XY}=0$$
+But converse is not true
+
+Definition: If $$X,Y$$ have $$\rho_{XY}=0$$, then we say they are uncorrelated.
+
+### Conditional Probability
+
+Case 1. $$X$$ is a discrete RV
+
+$$P(Y \in B|X=x)=\frac{P(Y \in B, X=x)}{P(X=x)}$$ if $$P(X=x) \neq 0$$
+Suppose $$Y$$ is also discrete RV
+
+$$P(Y=y|X=x)=\frac{P(Y=y, X=x)}{P(X=x)}$$
+
+$$=\frac{P_{XY}(x,y)}{P_X(x)}$$
+
+$$=P_{Y|X}(y|x)$$  - conditional PMF of $$Y$$ given $$X=x$$
+
+Conditional PMF behaves like regular PMF 
+
+For example
+
+$$\sum_{y \in S_Y}P_{Y|X}(y|x)=1$$
+
+$$P(Y \in B|X=x)=\sum_{y \in B} P_{Y|X}(y|x)$$
+
+$$\sum_{y \in S_Y} P_Y(y)=1$$
+$$P(Y \in B)=\sum_{y \in B}P_Y(y)$$
 
 
 
+Law of total probability
 
+$$S_X=\{x_1,...,x_n\}$$
 
+$$P(Y\in B)=\sum_{i=1}^{n} P(Y \in B, X=x_i)$$
+
+$$=\sum_{i=1}^{n} P(Y \in B|X=x_i)P(X=x_i)$$
+
+Chain Rule
+
+$$P(A \bigcap B)=P(A|B)P(B)$$
+
+$$P(Y=y)=\sum_{i=1}^{n}P(Y=y|X=x_i)P(X=x_i)$$
+
+==$$P_Y(y)=\sum_{i=1}^{n} P_{Y|X}(y|x_i)P_X(x_i)$$==
+
+Chain Rule
+
+$$P_{XY}(x,y)=P(Y=y, X=x)$$
+
+$$=P(Y=y|X=x)P(X=x)$$
+
+==$$P_{XY}(x,y)=P_{Y|X}(y|x)P_X(x)$$==
+
+$$P_Y(y)=\sum_{i=1}^{n}P_{XY}(x_i,y)$$
+
+------
+
+If $$X,Y$$ are independent
+
+$$P_{Y|X}(y|x)=\frac{P_{XY}(x,y)}{P_X(x)}=\frac{P_X(x)P_Y(y)}{P_X(x)}=P_Y(y)$$
+
+#### Example
+
+Memory chip with a random number of defects
+
+$$X=$$ Number of defects
+
+$$X \sim \text{Poisson} (\alpha)$$
+$$P_X(k)=\frac{e^{-\alpha}\alpha^k}{k!}, k=0,1,2...$$
+
+Each defect has a probability of $$p$$ of failing in the region $$R$$ of the chip. The location of each defect is independent from the location of other defects.
+
+![image-20241122182705576](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241122182705576.png)
+
+$$Y=$$ Number of defects in region $$R$$
+
+1. Given $$X=k$$, what is the conditional PMF of $$Y$$?
+
+   $$P(Y=0|X=k)=(1-p)^{k}$$
+
+   $$P(Y=k|X=k)=p^k$$
+
+   $$P(Y=j|X=k)=\binom{k}{j}p^j (1-p)^{k-j}$$
+
+   $$0 \leq j \leq k$$
+   $$P_{Y|X}(j|k)=\binom{k}{j} p^j (1-p)^{k-j}, 0\leq j\leq k$$
+
+   $$P(Y=k+5|X=k)=0$$
+
+2. PMF of $$Y$$
+
+   $$P_Y(y)=\sum_{x=0}^{\infty} P_{Y|X}(y|x)P_X(x)$$
+   Consider $$y \geq 1$$
+   $$=\sum_{x=0}^{y-1} P_{Y|X}(y|x)P_X(x)+ \sum_{x=y}^{\infty}P_{Y|X}(y|x)P_X(x)$$
+
+   $$=0+ \sum_{x=y}^{\infty} \binom{x}{y} p^y (1-p)^{x-y} e^{-\alpha} \frac{\alpha_x}{x!}$$
+
+   $$=\sum_{x=y}^{\infty} \frac{x!}{y! (x-y)!} p^y (1-p)^{x-y} e^{-\alpha} \frac{\alpha_x}{x!}$$
+
+   $$=\frac{\alpha^x}{y!} p^y \alpha^y \sum_{x=y}^{\infty} \frac{(1-p)^{x-y}}{(x-y)!} \alpha^{x-y}$$
+
+   $$m=x-y$$
+
+   $$=\frac{e^{-\alpha}(\alpha p)^y}{y!} \sum_{m=0}^{\infty} \frac{(1-p)^{m}\alpha^m}{n!}$$
+
+   Note:: $$e^x=\sum_{m=0}^{\infty} \frac{x^m}{m!}$$
+
+   $$=\frac{e^{-\alpha}(\alpha p)^y}{y!} e^{\alpha (1-p)}$$
+
+   $$=e^{-\alpha p} \frac{(\alpha p)^y}{y!}$$
+
+   $$P(Y=y)=e^{-\alpha p} \frac{(\alpha p)^y}{y!}, y \geq 1$$
+
+   $$P(Y=0)=\sum_{x=0}^{\infty} P_{Y|X}(0|x)P_X(x)$$
+
+   $$=\sum_{x=0}^{\infty}(1-p)^{x} e^{-\alpha} \frac{\alpha^x}{x!}$$
+
+   $$=e^{-\alpha p}$$
+
+   $$P(Y=y)=e^{-\alpha p} \frac{(\alpha p)^y}{y!}, y=0,1,2,...$$
+
+   $$Y \sim \text{Poisson} (\alpha p)$$
+
+   $$P_Y(y)=\sum_{x \in S_X} P_{Y|X}(y|x) P_X(x)$$
+
+   $$\sum_{x \in S_X} P_{XY}(x,y)=\sum_{x \in S_X}P_{Y|X}(y|x)P_X(x)$$
+
+3. Are $$X$$ and $$Y$$ independent?
+
+   $$P_{XY}(x,y)=P_X(x)P_Y(y)$$?
+
+   $$P_{Y|X}(y|x), P_Y(y)$$
+
+   $$y=x+5$$
+   $$P_Y(x+5)>0$$
+
+   $$P_{Y|X}(y=x+5|x)=0$$
+
+   $$P_{Y|X}(y|x)\neq P_Y(y)$$
+
+   $$\implies X,Y$$ are not independent
+
+------
+
+ Suppose $$X$$ is a discrete RV
+
+Conditional CDF of $$Y$$ given $$X=x$$
+
+$$F_{Y|X}(y|x)=P(Y \leq y|X=x)$$
+
+$$Y$$ can be discrete / continuous
+
+Conditional CDF with fixed $$x$$ have properties of CDF
+
+E.g.
+
+$$F_{Y|X}(5|x) \leq F_{Y|X}(10|x)$$
+
+$$F_{Y|X}(y|x)$$ is non-decreasing function of $$y$$
+
+$$\lim_{y \rightarrow \infty}F_{Y|X}(y|x)=1$$
+
+------
+
+Suppose $$F_{Y|X}(y|x)$$ is differentiable in $$y$$
+
+$$f_{Y|X}(y|x)=\frac{dF_{Y|X}(y|x)}{dy}$$
+
+conditional density of $$Y$$ given $$X=x$$
+
+$$f_Y(y)=\frac{dF_Y(y)}{dy}$$
+
+Recall that: $$f_Y(y) h  \approx P(y <Y \leq y+h)$$ for small $$h$$
+
+$$f_{Y|X}(y|x) h \approx P(y< Y \leq y+h|X=x)$$
+
+Conditional densities of $$Y$$ with a fixed $$X=x$$ behave like regular densities
+
+$$\int_{-\infty}^{\infty}f_{Y|X}(y|x)dy=1$$
+
+$$\int_{-\infty}^{\infty}f_Y(y)dy=1$$
+
+$$P(Y\in B|X=x)=\int_{B}f_{Y|X}(y|x)dy$$
+
+$$P(Y \in B)=\int_{B} f_Y(y)dy$$
+
+#### Example
+
+![image-20241123152908745](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241123152908745.png)
+
+$$Y=X+N$$
+
+$$N \sim \mathcal{N}(0,1)$$
+
+$$X=+1$$ or $$-1$$ 
+
+$$X,N$$ are independent RVs
+
+Conditional CDF of $$Y$$ given $$X=+1$$
+
+$$F_{Y|X}(y|+1)=P(Y \leq y|X=+1)$$
+$$=P(X+N \leq y |X=+1)$$
+
+$$=P(N \leq y-1|X=+1)$$
+
+$$=P(N \leq y-1)$$
+
+$$=\phi(y-1)$$
+
+$$f_{Y|X}(y|+1)=\frac{d}{dy} F_{Y|X}(y|+1)=\frac{d}{dy} \phi (y-1)$$
+$$=\phi'(y-1)=\frac{1}{\sqrt{2 \pi}} e^{-\frac{(y-1)^2}{2}}$$
+
+where $$\phi'=\frac{d\phi}{dy}=$$ standard normal density
+
+#### Example
+
+Two fair, 6-sided dice are rolled. Each roll is independent of other roll.
+
+$$X=$$ minimum of the number on 2 dice
+
+$$Y=$$ maximum of the number on 2 dice
+
+Conditional PMF of $$Y$$ given that $$X=4$$
+$$P_{Y|X}(y|4)=P(Y=y|X=4)=\begin{cases} 0 & y=1,2,3\\ \frac{P(Y=4,X=4)}{P(X=4)}=\frac{1/36}{P(X=4)} & y=4 \\ \frac{P(Y=5,X=4)}{P(X=4)}=\frac{2/36}{P(X=4)} & y=5 \\ \frac{2/36}{P(X=4)} & y=6 \end{cases}$$
+
+$$\sum_{y=1}^{6}P_{Y|X}(y|4)=1$$
+
+$$\implies P(X=4)=5/36$$
+
+## Discussion 11
+
+### Outlines
+
+1. Midterm problems
+2. Covariance, correlation and correlation coefficient
+
+------
+
+### Question 2
+
+The CDF of $$Y$$ is given as follows:
+
+$$F_{Y}(y)=\begin{cases} \frac{7-2e^{-2y} -5e^{-3y}}{7} & \text{if\:} y \geq 0 \\ 0 & \text{otherwise}\end{cases}$$
+
+and joint CDF of $$X$$ and $$Y$$ is given as follows
+
+$$F_{XY}(x,y)=\begin{cases} \frac{2}{7}(1-e^{-2y}) & \text{if\:} 2 \leq x< 3, y \geq 0 \\ \frac{7-2e^{-2y} -5e^{-3y}}{7} & \text{if\:} x\geq 3, y \geq 0 \\ 0 & \text{otherwise}\end{cases}$$
+
+(a) Find the expected value of $$e^Y$$
+
+Find $$E[e^{Y}]$$
+
+$$f_{Y}(y)=\frac{d}{dy}F_{Y}(y)=\begin{cases} \frac{1}{7} (4e^{-2y}+15e^{-3y}) & y \geq 0 \\ 0 & \text{otherwise}\end{cases}$$
+
+$$E[e^Y]=\int_{y=0}^{\infty} e^{y} f_Y(y)dy$$
+
+$$=\int_{y=0}^{\infty} \frac{e^{Y}}{7} (4e^{-2y}+15e^{-3y}) dy$$
+
+$$=\frac{1}{7} [-4e^{-y}-\frac{15}{2} e^{-2y}]|_{y=0}^{\infty}$$
+
+$$=\frac{23}{14}$$
+
+(b) What is the PDF of $$e^{Y}$$
+
+$$Z=e^{Y}$$
+
+Find $$f_{Z}(z)$$
+
+$$g(\cdot)$$ is continuous function and derivative $$g'(\cdot)$$ exists
+
+$$Z$$ is also a continuous RV
+
+$$P(Z \leq z)=P(e^{Y}\leq z)=P(Y \leq \ln(z))$$
+
+$$P(Z \leq z)=F_{Y}(\ln(z))$$
+
+Take the derivative with respect to $$z$$
+
+$$f_{Z}(z)=\frac{d}{dz} F_{Y}(\ln(z)) \frac{d}{dz} \ln(z)$$
+
+$$=f_{Y}(\ln(z))\frac{1}{z}$$
+
+$$=\begin{cases} \frac{1}{7} (4e^{-2\ln(z)}+15e^{-3\ln(z)})\frac{1}{z} & \ln(z) \geq 0 \\ 0 & \text{otherwise}\end{cases}$$
+
+$$f_{Z}(z)=\begin{cases} \frac{1}{7z} (4e^{-2\ln(z)}+15e^{-3\ln(z)}) & z \geq 1 \\ 0 & \text{otherwise}\end{cases}$$
+
+$$f_{Z}(z)=\begin{cases} \frac{4z^{-3}+15z^{-4}}{7}  & z \geq 1 \\ 0 & \text{otherwise}\end{cases}$$
+
+(c) Find the CDF of $$X$$. What kind of random variable is $$X$$? If it is discrete, find its PMF. If it is continuous, find its PDF.
+
+ $$F_{X}(x)=\lim_{y \rightarrow \infty} F_{XY}(x,y)$$
+
+$$=P(X \leq x, Y \leq y)$$
+
+$$=P(X\leq x, Y \leq \infty)$$
+
+$$=P(X \leq x)$$
+
+$$F_{X}(x)=\begin{cases} 2/7 & 2 \leq x < 3 \\ 1 & x \geq 3 \\ 0 & \text{otherwise}\end{cases}$$
+
+Note: CDF is piecewise constant function
+
+$$X$$ is a discrete RV
+
+![image-20241127215643405](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241127215643405.png)
+
+$$P_{X}(x)=\begin{cases} 2/7 & x=2  \\ 5/7 & x = 3 \\ 0 & \text{otherwise}\end{cases}$$
+
+### Question 3
+
+$$X$$ is the input to a communication channel. $$X$$ takes values $$+1$$ or $$-1$$ with probability $$p$$ and $$1-p$$, respectively. The received signal $$Y$$ is the sum of $$X$$ and noise $$N$$ which has a Gaussian distribution with zero mean and variance $$\sigma^2=0.25$$. $$X$$ and $$N$$ are independent random variables
+
+(a) Find the probability $$P(X=j, Y \leq y)$$. Your answer should be in terms of the standard Gaussian CDF.
+
+$$Y=X+N$$
+
+$$N \sim \mathcal{N}(0,0.25)$$
+
+$$X,N$$ are independent
+
+$$P(X=j,Y \leq y)$$
+
+Case: $$X=-1$$
+
+$$P(X=-1,Y \leq y)=P(X=-1, X+N \leq y)$$
+
+$$=P(X=-1,N\leq y+1)$$
+
+$$=P(X=-1)P(N\leq y+1)$$
+
+$$=(1-p)P(\frac{N-0}{2 \cdot 0.25} \leq \frac{y+1}{2 \cdot 0.25})$$
+
+$$=(1-p)\phi(\frac{y+1}{0.5})$$
+
+$$\phi:$$ CDF of standard normal
+
+$$=(1-p)\phi(2y+2)$$
+
+$$P(X=+1, Y \leq y)=p \phi(2y-2)$$
+
+$$P(X=-1,Y \leq y)=(1-p)\phi(2y+2)$$
+
+(b) Find the PDF of $$Y$$. 
+
+Find $$f_{Y}(y)$$
+
+$$Y=X+N$$
+
+$$F_{Y}(y)=P(Y \leq y)$$
+
+$$=P(Y \leq y|X=-1)P(X=-1)+P(Y \leq y|X=+1)P(X=+1)$$
+
+$$=P(Y \leq y|X=-1)+P(Y\leq y, X=+1)$$
+
+$$F_{Y}(y)=p\phi(2y-2)+(1-p)\phi(2y+2)$$
+
+Differentiate with respect to y
+
+$$f_{Y}(z)=2p \phi'(2y-2) +2(1-p)\phi'(2y+2)$$
+
+$$\phi'$$ is the standard Gaussian PDF
+
+(c) Let $$p=0.5$$. Find the conditional probability that $$X=+1$$ given that$$ Y>0$$. Your answer should be in terms of the standard Gaussian CDF. 
+
+$$P(X=+1|Y>0)=\frac{P(X=+1,Y>0)}{P(Y>0)}$$
+
+$$=\frac{P(X=+1,X+N>0)}{P(Y>0|X=+1)P(X=+1)+P(Y>0|X=-1)P(X=-1)}$$
+
+$$=\frac{P(X=+1)P(N>-1)}{P(Y>0,X=+1)+P(Y>0,X=-1)}$$
+
+$$=\frac{p P(\frac{N-0}{2 \cdot 0.25} >-2)}{p(1-\phi(-2)) +(1-p)(1-\phi(2))}$$
+
+where $$P(\frac{N-0}{2 \cdot 0.25} >-2)=1-\phi(-2)$$
+
+$$=\frac{1-\phi(-2)}{2-(\phi(-2)+\phi(2))}=\phi(2)$$
+
+### Question 5
+
+Let $$X, Y$$ be independent, non-negative random variables with the same mean $$m$$ and the same variance $$\sigma^2$$. Moreover, the two random variables have the same CDF, i.e., $$F_{X}(x)= F_Y(x)$$ for all $$x \in \R$$.
+
+(a) Let$$Z=\frac{X+Y}{2}$$, Find the mean and variance of $$Z$$. 
+
+$$E[Z]=\frac{1}{2} (E[X]+E[Y])$$
+
+$$E[Z]=m$$
+
+$$Var[Z]=E[Z^2]-(E[Z])^2$$
+
+$$=E[Z^2]-m^2$$
+
+$$=E[(\frac{X+Y}{2})^2]-m^2$$
+
+$$=\frac{1}{4}E[X^2+Y^2+2XY]-m^2$$
+
+$$E[X^2]=Var[X]+(E[X])^2=\sigma^2+m^2$$
+
+$$=\frac{1}{4}(2 \sigma^2 +2 m^2)-m^2$$
+
+$$=\frac{\sigma^2}{2}$$
+
+(b) Find upper bounds on the following probabilities:
+
+(i) $$P(Z>m+3\sigma)$$ 
+
+$$Z$$ is a non-negative RV, so we are using Markov inequality
+
+$$P[Z>m+3\sigma]\leq \frac{E[X]}{m+3 \sigma}=\frac{m}{m+3\sigma}$$
+
+(ii) $$P(|Z-m|>3\sigma)$$
+
+$$P(Z-m>3\sigma) \leq \frac{Var[Z]}{(3\sigma)^2}=\frac{\sigma^2}{2 \cdot 9 \sigma^2}=\frac{1}{18}$$
+
+$$P(Z-m > 3 \sigma) \leq \frac{1}{18}$$
+
+$$P(|Z-m|>3 \sigma)\leq \frac{1}{18}$$
+
+(c) Let us define $$M := \max(X,Y)$$. Find the CDF of $$M$$.
+
+$$F_{M}(m)=P(M \leq m)=P(\max(X,Y) \leq m)$$
+
+$$=P(\{X \leq m\} \bigcap \{Y \leq m\})$$
+
+$$=P(X \leq m)P(Y \leq m)$$
+
+$$F_M(m)=(F_X(m))^2$$
+
+------
+
+Covariance, Correlation and correlation coefficient
+
+$$X,Y$$ be two RVs
+
+1. Correlation
+
+   $$E[XY]$$
+
+2. Covariance
+
+   $$Cov(X,Y)=E[(X-E[X])(Y-E[Y])]$$
+
+   $$Cov(X,Y)=E[XY]-E[X]E[Y]$$
+
+   Intuition: capture how $$X,Y$$ vary together
+
+   Note:
+
+   $$Cov(aX+b,cY+d)=ac Cov(X,Y)$$
+
+   $$Var[X+Y]=Var[X]+Var[Y]+2Cov(X,Y)$$
+
+3. Correlation Coefficient
+
+   $$\rho_{XY}=\frac{Cov(X,Y)}{\sqrt{Var[X]Var[Y]}}$$
+
+   $$-1 \leq \rho_{XY} \leq 1$$
+
+   "scale invarion" version of covariance
+
+$$X,Y$$ are uncorrelated if $$Cov(X,Y)=0 (\rho_{XY}=0)$$
+
+If $$X,Y$$ are uncorrelated 
+
+$$Var[X+Y]=Var[X]+Var[Y]$$
+
+$$E[XY]=E[X]E[Y]$$
+
+Independence $$\implies$$ uncorrelotedness
+
+Uncorrelatedness does not implies independence
+
+$$X,Y$$ are orthogonal if $$E[XY]=0$$
+
+$$E[(X+Y)^2]=E[X^2]+E[Y^2]$$
+
+------
+
+#### Example
+
+$$X,Y$$ has joint PDF
+
+$$f_{X,Y}(x,y)=12x(1-x)y, 0<x<1,0<y<1$$
+
+Find correlation and covariance of $$X,Y$$ Determine whether $$X,Y$$ are independent or uncorrelated or orthogonal.
+
+$$E[XY]=\int_{x=0}^{1} \int_{y=0}^{1}xy 12x(1-x)ydxdy$$
+
+$$=\int_{x=0}^{1} \int_{y=0}^{1} 12x^2(1-x)y^2dydx$$
+
+$$=\int_{x=0}^{1} 12x^2 (1-x) \frac{y^3}{3}|_{y=0}^{1}dx$$
+
+$$=\frac{1}{3}$$
+
+which is not orthogonal
+
+$$Cov(X,Y)=E[XY]-E[X]E[Y]$$
+
+$$f_{X}(x)=\int_{y=0}^{1} f_{XY}(x,y)dy$$
+
+$$=6x(1-x)$$
+$$f_{Y}(y)=\int_{x=0}^{1}12x(1-x)ydx$$
+$$=2y$$
+
+$$E[X]=\int_{0}^{1} 6x^2(1-x)dx=1/2$$
+
+$$E[Y]=\int_{0}^{1}2y^2dy=2/3$$
+
+$$Cov(X,Y)=1/3-1/2 \cdot 2/3=0$$
+
+Therefore, they are uncorrelated
+
+Notice, $$f_{XY}(x,y)=f_{X}(x)f_{Y}(y)$$
+
+So they are independent
+
+## Week 12 Session 1
+
+### Conditional PMF
+
+$$X,Y$$ - Discrete RVs
+
+$$P_{Y|X}(y|x)=P(Y=y|X=x)$$
+
+Other notation: $$P_{Y}(y|x)$$
+
+Conditional PMF behaves like regular PMF
+
+For example
+
+$$\sum_{y \in S_Y}P_{Y|X}(y|x)=1$$
+
+$$P(Y \in B |X=x)=\sum_{y \in B}P_{Y|X}(y|x)$$
+
+Law of total probability
+
+$$P_Y(y)=\sum_{x_i \in S_X} P_{Y | X} (y|x_i) P(x_i)$$
+
+### Conditional CDF
+
+Suppose $$X$$ is a discrete RV
+
+Conditional CDF of $$Y$$ given $$X=x$$
+
+$$F_{Y|X}(y|x)=P(Y \leq y | X=x)$$
+
+$$Y$$ can be discrete/ continuous
+
+------
+
+Conditioning on a continuous RV $$X$$
+$$P(Y \leq y|X=x)=\frac{P(Y \leq y,X=x)}{P(X=x)}$$
+
+$$P(X=x)=0=\int_{x}^{x}f_X(t)dt$$ 
+
+the previous equation is not well-defined as $$X$$ is continuous
+
+Conditional CDF by a limiting procedure $$X,Y$$ are jointly continuous $$f_{XY}(x,y) \rightarrow $$Joint PDF
+
+$$F_{Y|X}(y|x)=\lim_{h \downarrow 0} P(Y \leq y|x<X\leq x+h)$$
+
+$$=\lim_{h \downarrow 0} \frac{P(Y \leq y, x<X \leq x+h)}{P(x<X \leq x+h)}$$
+
+$$=\lim_{h \downarrow 0} \frac{\int_{-\infty}^{y} \int_{x}^{x+h} f_{XY}(s,t)dsdt}{\int_{x}^{x+h} f_X(s)ds}$$
+
+$$=\lim_{h \downarrow 0} \frac{\int_{-\infty}^{y} f_{XY}(x,t)h dt}{f_X(x) h}$$
+
+$$=\int_{-\infty}^{y} \frac{f_{XY}(x,t)}{f_X(x)}dt$$
+
+where it is $$F_{Y|X}(y|x)$$ is the conditional PDF of $$Y$$given $$X$$
+==$$F_Y(y)=\int_{-\infty}^{y}f_Y(t)dt$$==
+
+$$f_{Y|X}(y|x)=\frac{f_{XY}(x,y)}{f_X(x)}$$
+
+------
+
+$$F_{Y|X}(y)=\int_{-\infty}^{y} \frac{f_{XY}(x,t)dt}{f_X(x)}$$
+
+$$f_{Y|X}(y)=\frac{d F_{Y|X}(y)}{dy}=\frac{f_{XY}(x,y)}{f_X(x)}$$
+
+Conditional PMF
+
+$$P_{Y|X}(y|x)=\frac{P(X=x,Y=y)}{P(X=x)}=\frac{P_{XY}(x,y)}{P_X(x)}$$
+
+------
+
+$$f_{Y|X}(y|x)dy \approx P(y < Y \leq y+dy | X \approx x)$$
+
+$$f_Y(y)dy \approx P(y <Y \leq y+dy)$$
+
+Conditional densities have properties of regular PDF
+
+$$\int_{-\infty}^{\infty}f_Y(y)dy=1$$
+
+$$\int_{-\infty}^{\infty}f_{Y|X}(y|x)dy=1$$
+
+$$P(Y \in B)= \int_{B} f_Y(t)dt$$
+
+$$P(Y \in B|X=x)=\int_{B} f_{Y|X}(y|x)dy$$
+
+------
+
+$$f_{Y|X}(y|x)=\frac{f_{XY}(x,y)}{f_X(x)}$$ where $$f_X(x) >0$$
+
+$$f_{X|Y}(x|y)=\frac{f_{XY}(x,y)}{f_Y(y)}$$ where $$f_Y(y)>0$$
+
+Chain Rule for densities
+
+$$f_{XY}(x,y)=f_{Y|X}(y|x)f_X(x)=f_{X|Y}(x|y)f_Y(y)$$
+
+$$P_{XY}(x,y)=P_{Y|X}(y|x)P_X(x)$$
+
+------
+
+#### Example
+
+$$f_{XY}(x,y)=\begin{cases} \frac{e^{-y} e^{-\frac{x}{y}}}{y} & \text{if\:} 0<x< \infty, 0 <y< \infty \\ 0 & \text{otherwise\:} \end{cases}$$
+
+$$f_Y(y)=\int_{-\infty}^{\infty} f_{XY}(x,y)dx$$
+
+$$=\int_{0}^{\infty}\frac{e^{-\frac{x}{y}e^{-y}}}{y}dx $$    if $$y>0$$
+$$=e^{-y}$$
+
+$$f_Y(y)=\begin{cases} e^{-y} & \text{if\:} y>0 \\ 0 & \text{otherwise}\end{cases}$$
+
+Fix $$y>0$$
+
+$$f_{X|Y}(x|y)=\frac{f_{XY}(x,y)}{f_Y(y)}$$
+
+$$=\begin{cases} \frac{e^{-y} e^{-\frac{x}{y}}}{y e^{-y}}=\frac{e^{-\frac{x}{y}}}{y} & \text{if\:} x> 0\\ 0 & \text{if\:} x \leq 0\end{cases}$$
+
+Fix $$y>0$$
+
+$$P(X>1|Y=y)=\int_{1}^{\infty} f_{X|Y}(x|y)dx$$
+
+$$=\int_{1}^{\infty} \frac{1}{y} e^{-\frac{x}{y}}dx$$
+
+$$=e^{-\frac{1}{y}}$$
+
+$$\text{exp} (\lambda)$$
+
+$$P(X>1)=e^{-\lambda}$$
+
+#### Example
+
+Stick of length $$l$$
+Break it at a point $$X \sim \text{uniform} (0,l)$$
+
+Suppose $$X=x$$
+
+![image-20241115190117956](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241115190117956.png)
+
+Take the left part
+
+Break it at point $$Y \sim \text{uniform}(0,x)$$
+
+![image-20241115190157667](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241115190157667.png)
+
+$$f_X(x)=\begin{cases} \frac{1}{l} & 0< x < l \\ 0 & \text{otherwise}\end{cases}$$
+
+Suppose $$0<x < l$$
+
+$$f_{Y|X}(y|x)=\begin{cases} \frac{1}{x} & 0<y<x \\ 0 & \text{otherwise}\end{cases}$$
+
+$$f_{XY}(x,y)=f_{Y|X}(y|x)f_X(x)$$
+
+$$=\begin{cases} \frac{1}{lx} & 0<y<x<l \\ 0 & \text{otherwise}\end{cases}$$
+
+Density of $$Y$$
+
+$$S_Y=(0,l)$$
+
+$$0<y<l$$
+$$f_Y(y)=\int_{-\infty}^{\infty} f_{XY}(x,y)dx =\int_{y}^{l} \frac{1}{lx} dx$$
+
+$$=\frac{1}{l} (\log(l)-\log(y))$$
+
+$$f_Y(y)=\begin{cases} \frac{1}{l} (\log(l)-\log(y)) & 0<y<l \\ 0 & \text{otherwise} \end{cases}$$
+Fix $$0<y<l$$
+
+$$f_{X|Y}(x|y)=\frac{f_{XY}(x,y)}{f_Y(y)}$$
+
+$$=\begin{cases} \frac{1}{x(\log(l)-\log(y))} & 0<y<x<l \\ 0 & \text{otherwise}\end{cases}$$
+
+------
+
+Thm: $$X,Y$$ are jointly continuous $$f_{XY}(x,y)$$
+
+$$P(Y \in (a,b))=\int_{-\infty}^{\infty} P(Y \in (a,b)|X=x)f_X(x)dx$$
+
+$$P(Y \in B)=\int_{-\infty}^{\infty} P(Y \in B|X=x)f_X(x)dx$$
+
+Discrete
+
+$$P(Y \in (a,b)=\sum_{x_i \in S_X} P(Y \in (a,b)|X=x_i)P(X=x_i))$$
+
+Proof:
+
+$$P(Y \in (a,b))=P(a<Y< b, -\infty < X < \infty)$$
+
+$$=\int_{-\infty}^{\infty} \int_{a}^{b} f_{XY}(s,t)dtds$$
+
+$$=\int_{-\infty}^{\infty} \int_{a}^{b} f_{Y|X}(t|s)f_X(s)dtds$$
+
+$$=\int_{-\infty}^{\infty} (\int_{a}^{b} f_{Y|X}(t|s)dt) f_X(s)ds$$
+
+$$=\int_{-\infty}^{\infty} (P(a<Y<b|X=s)) f_X(s)ds$$
+
+$$=\int_{-\infty}^{\infty} (P(Y\in(a,b)|X=s)) f_X(s)ds$$
+
+------
+
+### Corollary
+
+$$F_Y(y)=P(Y \leq y)=\int_{-\infty}^{\infty} P(Y \leq y |X=x)f_X(x)dx$$
+
+$$=\int_{-\infty}^{\infty} F_{Y|X}(y|x)f_X(x)dx$$
+
+#### Example
+
+$$f_{XY}(x,y)=\begin{cases} 2e^{-x}e^{-y} & 0 \leq y \leq x \\ 0 & \text{otherwise}\end{cases}$$
+
+$$f_X(x)=\begin{cases} 2e^{-x} (1-e^{-x}) & \text{if\:} x \geq 0 \\ 0 & \text{otherwise}\end{cases}$$
+
+$$f_Y(y)=\begin{cases} 2 e^{-2y} & \text{if\:} y \geq 0 \\ 0 & \text{otherwise}\end{cases}$$
+
+Fix $$y \geq 0$$
+
+$$f_{X|Y}(x|y)=\frac{f_{XY}(x,y)}{f_Y(y)}$$
+
+$$=\begin{cases} \frac{2e^{-x} e^{-y} }{2e^{-2y}}=e^{-(x-y)} & \text{if\:} x \geq y\\ 0 & \text{otherwise}\end{cases}$$
+
+Fix $$x \geq 0$$
+$$f_{Y|X}(y|x)=\frac{f_{XY}(x,y)}{f_X(x)}$$
+
+$$=\begin{cases} \frac{2e^{-x} e^{-y} }{2e^{-x}(1-e^{-x})} & \text{if\:} x \geq y\\ 0 & \text{otherwise}\end{cases}$$
+
+$$f_{X|Y}(x|y)=\frac{f_{XY}(x,y)}{f_Y(y)}=\begin{cases} \frac{2e^{-x} e^{-y} }{2e^{-2y}}=e^{-(x-y)} & x\geq y\\ 0 & \text{otherwise}\end{cases}$$
+
+$$P(X \geq 2 | Y=1)=\int_{2}^{\infty}f_{X|Y}(x|1)dx$$
+
+$$=\int_{2}^{\infty} e^{-(x-1)}dx$$
+
+$$P(X \geq 2 |Y=3)=\int_{2}^{\infty} f_{X|Y} (x|3)dx$$
+
+$$=\int_{2}^{\infty} e^{-(x-3)}dx$$
+
+#### Example
+
+$$X \sim \text{Uniform}(0,1)$$
+
+Given that $$X=x, 0<x<1, Y \sim \text{Uniform}(0,x)$$
+
+Find CDF of $$Y$$
+
+$$0<y<1$$
+
+$$S_Y=(0,1)$$
+
+$$F_Y(y)=\begin{cases} 0 & y< 0\\ 1 & y \geq 1\end{cases}$$
+
+$$F_Y(y)=P(Y \leq y)$$
+
+$$=\int_{-\infty}^{\infty}P(Y \leq y|X=x)f_X(x)dx$$
+
+$$=\int_{0}^{1}P(Y \leq y|X=x)dx$$
+
+$$P(Y \leq y|X=x)$$
+
+$$0<x<1$$
+$$f_{Y|X}(y|x)=\begin{cases} \frac{1}{x} & 0< y< x \\ 0 & \text{otherwise}\end{cases}$$
+
+$$P(Y \leq y|X=x)=\int_{-\infty}^{y} f_{Y|X}(t|x)dt$$
+
+$$=\begin{cases} 0 & y\leq 0 \\ \frac{y}{x} & 0<y<x \\ \int_{0}^{x}f_{Y|X}(t|x)dt + \int_{x}^{y}f_{Y|X}(t|x)dt & y \geq x\end{cases}$$
+
+$$0<y<1$$
+
+$$F_Y(y)=\int_{0}^{1} P(Y \leq y|X=x)dx$$
+
+$$=\int_{0}^{y}1dx+\int_{0}^{1}\frac{y}{x}dx$$
+
+$$=y-y \log(y)$$            - $$0<y<1$$
+
+$$F_Y(y)=\begin{cases} 0 & y\leq 0 \\ y-y \log(y) &0<y<1 \\ 1 & y \geq 1\end{cases}$$
+
+$$f_Y(y)=\frac{dF_Y(y)}{dy}=\begin{cases} -\log(y) & 0<y<1 \\ 0 & \text{otherwise}\end{cases}$$
+
+------
+
+$$Y$$ - Continuous RV
+
+$$E[Y]=\int_{-\infty}^{\infty}y f_Y(y)dy$$
+
+$$X,Y$$ jointly continuous RV
+
+$$f_{Y|X}(y|x)$$
+
+Conditional expectation of $$Y$$ given $$X=x$$
+$$E[Y|X=x]=\int_{-\infty}^{\infty} y f_{Y|X}(y|x)dy$$
+
+Discrete case
+
+$$E[Y]=\sum_{y \in S_Y} y P_Y(y)$$
+
+$$E[Y|X=x]=\sum_{y \in S_Y}y P_{Y|X}(y|x)$$
+
+------
+
+Thm: Law of total expectatation
+
+$$X,Y$$ are jointly continuous
+
+$$E[Y]=\int_{-\infty}^{\infty} E[Y|X=x]f_X(x)dx$$
+
+Proof: 
+
+$$\int_{-\infty}^{\infty} E[Y|X=x]f_X(x)dx$$
+
+$$=\int_{-\infty}^{\infty} (\int_{-\infty}^{\infty}yf_{Y|X}(y|x)dy) f_X(x)dx$$
+
+$$=\int_{-\infty}^{\infty} \int_{\infty}^{\infty} y f_{Y|X}(y|x)f_X(x)dxdy$$
+
+$$=\int_{-\infty}^{\infty} \int_{-\infty}^{\infty}y f_{XY}(x,y)dxdy$$
+
+$$=\int_{-\infty}^{\infty}y f_Y(y)dy$$
+$$=E[Y]$$
+
+Thm: $$X,Y$$ discrete
+
+$$E[Y]=\sum_{x\in S_X}E[Y|X=x]P_X(x)$$
+
+------
+
+#### Example
+
+Discrete $$X,Y$$
+
+Joint PMF
+
+| Y\X  | -1   | 0    | 1    |
+| ---- | ---- | ---- | ---- |
+| -1   | 0    | p    | 0    |
+| 0    | p    | 0    | p    |
+| 1    | 0    | p    | 0    |
+
+$$p=\frac{1}{4}$$
+
+$$E[Y|X=-1]=\sum_{y \in S_Y} y P_{Y|X}(y|-1)$$
+
+$$P_{Y|X}(y|-1)=\frac{P_{XY}(-1,y)}{P_X(-1)}$$
+
+$$=\begin{cases} 1 & y=0 \\ 0 & \text{otherwise}\end{cases}$$
+
+$$E[Y|X=-1]=0$$
+$$E[Y|X=0]=\sum_{y \in S_Y}y P_{Y|X}(y|0)$$
+
+$$=(-1)P_{Y|X}(-1|0) + (0) P_{Y|X}(0|0)+(1)P_{Y|X}(1|0)$$
+
+$$=0$$
+
+#### Example
+
+$$x>0$$
+$$f_{Y|X}(y|x)=\begin{cases} \frac{1}{x} & 0<y<x \\ 0 & \text{otherwise}\end{cases}$$
+
+$$E[Y|X=x]=\int_{-\infty}^{\infty} y f_{Y|X}(y|x)dy$$
+
+$$=\int_{0}^{x} y \frac{1}{x}dy=\frac{x}{2}$$
+
+$$f_X(x)=\begin{cases} 1 & 0< x<1 \\ 0 & \text{otherwise}\end{cases}$$
+
+$$E[Y]=\int_{-\infty}^{\infty}E[Y|X=x]f_X(x)dx$$
+
+$$=\int_{0}^{1}\frac{x}{2}dx=\frac{1}{4}$$
+
+#### Example
+
+$$X \sim \text{Posson} (\alpha)$$
+
+$$E[Z]=\alpha$$
+
+Given $$X=k, (k=0,1,2,...)$$
+
+$$Y \sim \text{Binomial}(k,p)$$
+
+Recall: $$E[Z]=np$$
+
+$$E[Y]=\sum_{k \geq 0}E[Y|X=k]P_X(k)$$
+
+$$=\sum_{k \geq 0} kp P_X(k)$$
+$$=p \sum_{k \geq 0} k P_X(k)$$
+
+$$=p \alpha$$
+
+#### Example
+
+$$X=+1 \rightarrow p=1/3$$
+
+$$X=-1 \rightarrow p = 2/3$$
+
+Given $$X=+1, Y \sim \mathcal{N}(1,1)$$
+
+Given $$X=-1, Y \sim \mathcal{N}(-1,1)$$
+
+$$E[Y]=\sum_{x \in S_X}E[Y|X=x]P_X(x)$$
+$$=(1) \frac{1}{3} + (-1) \frac{2}{3}$$
+
+## Week 12 Session 2
+
+### Conditional PDF
+
+$$f_{Y|X}(y|x)=\frac{f_{XY}(x,y)}{f_X(x)}$$ where $$f_X(x)>0$$
+
+$$f_{X|Y}(x|y)=\frac{f_{XY}(x,y)}{f_Y(y)}$$ where $$f_Y(y)>0$$
+
+------
+
+Thm:
+
+$$X,Y$$ are jointly continuous with $$f_{XY}(x,y)$$
+
+$$P(Y \in (a,b))=\int_{-\infty}^{\infty}P(Y \in (a,b)|X=x)f_X(x)dx$$
+
+$$P(Y \in B)=\int_{-\infty}^{\infty}P(Y \in B|X=x)f_X(x)dx$$
+
+------
+
+Thm: Law of total expectation
+
+$$X,Y$$ are jointly continuous
+
+$$E[Y]=\int_{-\infty}^{\infty}E[Y|X=x]f_X(x)dx$$
+
+$$X$$ is continuous, $$Y$$ is discrete
+
+$$E[Y]=\int_{-\infty}^{\infty}E[Y|X=x]f_X(x)dx$$
+
+------
+
+Thm:
+
+$$X,Y$$ discrete
+
+$$E[Y]=\sum_{x\in S_X} E[Y|X=x]P_X(x)$$
+$$X$$ discrete, $$Y$$ continuous
+
+$$E[Y]=\sum_{x \in S_X}E[Y|X=x]P_X(x)$$
+
+------
+
+### Functions of 2 RVs
+
+$$Z=X+Y$$
+
+$$E[Z]=E[X]+E[Y]$$
+
+$$Z=g(X,Y)$$
+
+$$E[Z]=\int_{-\infty}^{\infty} \int_{\infty}^{\infty} g(x,y)f_{XY}(x,y)dxdy$$
+$$Z=X+Y$$
+
+$$F_Z(z)=P(Z \leq z)=P(X+Y \leq z)$$
+
+$$=\int_{\infty}^{\infty} \int_{-\infty}^{z-s}f_{XY}(s,t)dtds$$
+
+![image-20241116163202929](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241116163202929.png)
+
+------
+
+$$Z=X+Y$$
+
+$$F_Z(z)=P(Z \leq z)$$
+
+$$=\int_{-\infty}^{\infty}P(Z \leq z | X=x)f_X(x)dx$$
+$$=\int_{-\infty}^{\infty}F_{Z|X}(z|x)f_X(x)dx$$
+
+$$F_{Z|X}(z|x)=P(Z \leq z | X=x)$$
+$$=P(X+Y \leq z | X=x)$$
+
+$$=P(Y \leq z-x|X=x)$$
+
+$$=\int_{-\infty}^{z-x}f_{Y|X}(t|x)dt$$
+
+==$$F_{Z}(z)=\int_{-\infty}^{\infty} \int_{-\infty}^{z-x}f_{Y|X}(t|x)dt f_X(x)dx$$==
+
+------
+
+$$Z=g(X,Y)$$
+
+$$F_{Z}(z)=P(g(X,Y) \leq z)$$
+![image-20241116163602580](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241116163602580.png)
+
+$$F_Z(z)=\int_{-\infty}^{\infty}F_{Z|X}(z|x)f_X(x)dx$$
+
+Differentiate with respect to $$z$$
+
+$$f_{Z}(z)=\int_{-\infty}^{\infty}f_{Z|X}(z|x)f_X(x)dx$$
+Lemma: If $$X,Y,Z$$ are jointly continuous RVs and $$Z=g(X,Y)$$
+
+==$$f_{Z}(z)=\int_{-\infty}^{\infty} f_{Z|X}(z|x)f_X(x)dx$$==
+
+------
+
+#### Example
+
+$$X,Y$$ are independent exponential RVs with parameter $$\lambda=1$$
+$$f_{X}(x)=\begin{cases} e^{-x} & x>0 \\ 0 & \text{otherwise}\end{cases}$$
+
+$$f_{Y}(y)=\begin{cases} e^{-y} & y>0 \\ 0 & \text{otherwise}\end{cases}$$
+
+$$f_{XY}(x,y)=f_X(x)f_Y(y)$$        - independence
+
+$$=\begin{cases} e^{-x}e^{-y} & x>0,y>0 \\ 0 & \text{otherwise}\end{cases}$$
+
+1. $$W=\frac{X}{3}=g(X)$$
+
+   $$w=g(x)=\frac{x}{3}$$
+
+   $$g^{-1}(w)=3w$$
+
+   $$f_W(w)=\frac{f_X(g^{-1}(w))}{|\frac{dg(x)}{dx}|_{x=g^{-1}(w)}}$$
+
+   ==$$f_W(w)=3f_X(3w)$$==
+
+2. $$Z=\frac{X}{Y}$$
+
+   $$f_Z(z)=\int_{-\infty}^{\infty}f_{Z|Y}(z|y)f_Y(y)dy$$
+
+   ==$$f_Z(z)=\int_{0}^{\infty}f_{Z|Y}(z|y)e^{-y}dy$$==
+
+Consider$$Y=y, 0< y < \infty$$
+
+$$Z=\frac{X}{Y}=\frac{x}{y}$$
+Given $$Y=y, Z=\frac{x}{y}$$ which is a linear function of $$X$$
+
+$$f_{Z|Y}(z|y)=\frac{f_X(g^{-1}(z))}{|\frac{dg(x)}{dx}|_{x=g^{-1}(z)}}$$
+
+$$Z=\frac{x}{y}$$
+
+$$z=g(x)=\frac{x}{y}$$
+
+$$g^{-1}(z)=yz$$
+
+$$\frac{dg(x)}{dx}=\frac{1}{y}$$
+$$f_{Z|Y}(z|y)=yf_X(yz)$$
+
+$$f_Z(z)=\int_{0}^{\infty}yf_X(yz)e^{-y}dy$$
+
+$$=\begin{cases} \int_{0}^{\infty}y e^{-yz}e^{-y}dy & z>0 \\ 0 & z\leq 0\end{cases}$$
+
+------
+
+$$Z_1=g_1(X,Y),Z_2=g_2(X,Y)$$
+
+$$F_{Z_1Z_2}(z_1,z_2)=P(Z_1 \leq z_1, Z_2 \leq z_2)$$
+
+$$=P(g_1(X,Y) \leq z_1, g_2(X,Y) \leq z_2)$$
+
+$$=\int\int_{A}f_{XY}(s,t)dsdt$$
+
+![image-20241116165146641](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241116165146641.png)
+
+$$A=\{(x,y):g_1(x,y) \leq z_1, g_2(x,y) \leq z_2\}$$
+
+------
+
+#### Example
+
+$$X,Y \rightarrow F_{XY}$$
+
+$$Z= \max(X,Y), W=\min(x,y)$$
+
+$$F_{ZW}(2,1)=P(Z \leq 2, W \leq 1)$$
+
+$$=P(\max(X,Y) \leq 2, \min(X,Y) \leq 1)$$
+
+![image-20241116165512237](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241116165512237.png)
+
+$$P(\text{Red region})=F_{XY}(2,2)-P(R)$$
+
+$$=F_{XY}(2,2)-[F_{XY}(2,2)+F_{XY}(1,1)-F_{XY}(2,1)-F_{XY}(1,2)]$$
+$$=F_{XY}(2,1)+F_{XY}(1,2)-F_{XY}(1,1)$$
+
+$$Z=\max(X,Y), W=\min(X,Y)$$
+
+$$F_{ZW}(1,2)=P(Z \leq 1, W \leq 2)$$
+
+$$=P(\max(X,Y)\leq 1, \min(X,Y)\leq 2)$$
+
+$$=P(\max(X,Y) \leq 1)$$
+
+$$=P(X\leq 1, Y \leq 1)= F_{XY}(1,1)$$
+
+------
+
+Linear function of 2 RVs
+
+$$X,Y \rightarrow f_{XY}(x,y)$$
+$$V=aX+bY, W=cX+dY$$
+
+$$\begin{bmatrix} V \\ W \end{bmatrix}=\begin{bmatrix} a & b \\ c& d\end{bmatrix}\begin{bmatrix} X \\ Y \end{bmatrix}$$
+
+$$\begin{bmatrix} V \\ W \end{bmatrix}=A\begin{bmatrix} X \\ Y \end{bmatrix}$$
+
+Thm: Assume that $$A$$ is invertible
+
+The joint PDF of $$V$$ and $$W$$ is given as
+
+==$$f_{VW}=\frac{f_{XY}(A^{-1}\begin{bmatrix} V \\ W \end{bmatrix})}{|A|}$$==
+
+------
+
+#### Example
+
+$$X,Y$$ independent and standard normal
+
+$$V=X+Y, W=X$$
+$$\begin{bmatrix} V \\ W \end{bmatrix}=\begin{bmatrix} 1 & 1 \\ 1& 0\end{bmatrix}\begin{bmatrix} X \\ Y \end{bmatrix}$$
+
+$$A^{-1}=\begin{bmatrix} 0 & 1 \\ 1& -1\end{bmatrix}$$
+
+$$f_{VW}(v,w)==\frac{f_{XY}(A^{-1}\begin{bmatrix} V \\ W \end{bmatrix})}{|A|}$$
+
+$$=f_{XY}(w,v-w)$$
+
+$$=f_X(w)f_Y(v-w)$$
+
+$$=\frac{1}{\sqrt{2 \pi}} e^{-\frac{w^2}{2}} \cdot \frac{1}{\sqrt{2 \pi}} e^{-\frac{(v-w)^2}{2}}$$
+
+#### Example
+
+$$V=X+Y,W=X-Y$$
+
+Find $$f_{VW}(v,w)$$
+
+------
+
+### Random Vector
+
+$$\underline{X}=\begin{bmatrix}X_1 \\X_2 \\... \\X_n \end{bmatrix} $$ is a random vector
+
+$$\underline{X}=\begin{bmatrix}X_1 \\X_2 \end{bmatrix}$$
+
+![image-20241116170551843](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241116170551843.png)
+
+$$P(\max(X_1, ... X_n)\leq 1)$$
+
+$$P(X_1^2+X_2^2+... +X_n^2 \leq 1)$$
+
+------
+
+Joint CDF of $$\underline{X}=\begin{bmatrix}X_1 \\X_2 \\... \\X_n \end{bmatrix} $$
+
+$$F_{XY}(x,y)=P(X \leq x ,Y \leq y)$$
+
+$$F_{X_1,X_2,...,X_n}(x_1,...x_n)$$
+
+$$F_{\underline{X}}(x_1, ..., x_n)=P(X_1 \leq x_n ... X_n \leq x_n)$$
+$$\lim_{x_n \rightarrow \infty}F_{X_1...X_n}(x_1, ...x_n)$$
+
+$$=\lim_{x_n \rightarrow \infty}P(X_1 \leq x_1, ... X_n \leq x_n)$$
+
+$$=P(X_1 \leq x_1 ... X_{n-1}\leq x_{n-1}, X_n < \infty)$$
+
+$$=P(X_1 \leq x_1 ... X_{n-1} \leq x_{n-1})$$
+
+$$=F_{X_1...X_{N-1}} (x_1...x_{n-1})$$
+
+$$\lim_{y \rightarrow \infty} F_{XY}(x,y)=P(X \leq x, Y < \infty)$$
+
+$$=P(X \leq x)$$
+
+$$=F_X(x)$$
+$$\lim_{x_2, x_3, x_n \rightarrow \infty} F_{X_1...X_n}(x_1... x_n)=F_{X_1}(x_1)$$
+
+$$\lim_{x_1\rightarrow \infty, x_4 \rightarrow \infty}F_{X_1X_2X_3X_4}(x_1,x_2,x_3,x_4)=F_{X_2X_3}(x_2, x_3)$$
+
+------
+
+### Joint PMF
+
+$$X_1,...X_n$$ discrete RVs
+
+$$P_{X_1...X_n}(x_1...x_n)=P(X_1=x_1...X_n=x_n)$$
+
+$$P_{XY}(x,y)=P(X=x,Y=y)$$
+
+$$\sum_{x_1 \in S_{X_1}} \sum_{x_2 \in S_{X_2}} ...\sum_{x_n \in S_{X_n}}  P_{X_1...X_n}(x_1...x_n)=1$$
+
+$$P(\underline{X} \in B)=\sum_{(x_1...x_n)\in B}P_{X_1...X_n}(x_1...x_n)$$
+
+$$B$$ is a subset of $$\R^n$$
+
+#### Example
+
+3 fair 6-sided dice
+
+$$X_i=$$ Number obtained when I throw the $$i^{th}$$ dice
+
+$$P_{X_1X_2X_3}(x_1,x_2,x_3)=\frac{1}{216}$$
+
+$$P_{X_2X_3}(x_2,x_3)=P(X_2=x_2,X_3=x_3)$$
+
+$$=P(X_1 \in S_X, X_2=x_2, X_3=x_3)$$
+
+$$=\sum_{x_1 \in S_{X_1}}P_{X1X2X3}(x_1,x_2,x_3)$$
+
+------
+
+### Properties of Joint PMF
+
+1. $$P_X(x)=\sum_{y \in S_Y} P_{XY}(x,y)$$
+
+   $$P_{X_2...X_n}(x_2...x_n)=\sum_{x_1 \in S_{X_1}}P_{X_1X_2...X_n}(x_1,...,x_n)$$
+
+2. $$P_{X_n}(x_n)=\sum_{x_1 \in S_{X_1}} ... \sum_{x_n \in S_{X_n}} P_{X_1...X_n}(x_1,...,x_n)$$
+
+3. $$P_{X|Y}(x|y)=P(X=x|Y=y)$$
+
+   $$P_{X_n|X_{n-1}...X_n}(x_n|x_{n-1}...x_1)=P(X_n=x_n|X_{n-1}...X_1=x_1)$$
+
+   $$=\frac{P(X_n=x_n...X_1=x_1)}{P(X_{n-1}=x_{n-1}...X_1=x_1)}$$
+
+   $$=\frac{P_{X_1...X_n}(x_1...x_n)}{P_{X_1...X_{n-1}(x_1...x_{n-1})}}$$
+
+4. $$P(X_2=x_2,X_1=x_1)=P(X_2=x_2|X_1=x_1)P(X_1=x_1)$$
+   $$P(X_3=x_3,X_2=x_2,X_1=x_1)=P(X_3=x_3|X_2=x_2,X_1=x_1)P(X_2=x_2|X_1=x_1)$$
+
+   $$=P_{X_3|X_2X_1}(x_3|x_2x_1)P_{X_2|X_1}(x_2|x_1)P_X(x_1)$$
+
+------
+
+#### Example
+
+$$P_{X_1X_2X_3}(x_1,x_2,x_3)$$
+
+$$x_i \in \{1,2,...n\}$$
+
+$$P(X_1>X_3)=\sum_{x_1,x_3=1, x_1>x_3}P_{X_1X_3}(x_1,x_3)$$
+
+$$P_{X_1X_2X_3}(x_1,x_2,x_3)=\frac{1}{216}$$ for all $$x_i \in \{1,2,...6\}$$
+
+$$P_{X_2|X_1X_3}(6|1,1)=P(X_2=6|X_1=1,X_3=1)$$
+
+$$=\frac{P(X_2=6,X_1=1,X_3=1)}{P(X_1=1,X_3=1}$$
+
+$$=\frac{\frac{1}{216}}{\sum_{x_2=1}^6P_{X_1X_2X_3}(1,x_2,1)}=\frac{\frac{1}{216}}{\frac{1}{36}}=\frac{1}{6}$$
+
+------
+
+### Jointly continuous Random vector
+
+$$\underline{X}$$ is jointly continuous if 
+
+$$P(\underline{X}\in B)=\int\int_{B} f_{X_1...X_n}(x_1...x_n)dx_1...dx_n$$
+
+where $$B \subset \R^n$$, $$f_{X_1...X_n}(x_1...x_n)$$ is the joint density of $$X_1,...X_n$$
+
+$$F_{X_1...X_n}(x_1...x_n)=P(X_1 \leq x_1 ... X_n \leq x_n)$$
+
+$$=\int_{-\infty}^{x_n} ... \int_{-\infty}^{x_1}  f_{X_1...X_n}(s_1...s_n)ds_1...ds_n$$
+
+$$f_{X|Y}(x|y)=\frac{f_{XY}(x,y)}{f_Y(y)}$$
+
+$$f_{X_n|X_{n-1}...X_1}(x_n|x_{n-1}...x_1)=\frac{f_{X_1...X_n}(x_1...x_n)}{f_{X_1...X_{n-1}(x_1...x_{n-1})}}$$
+
+#### Example
+
+$$X_1 \sim \text{Uniform} (0,1)$$
+Given $$X_1=X_2$$ 
+
+$$X_2 \sim \text{Uniform} (0,X_1)$$
+
+$$0<x_1<1$$
+
+Given $$X_2=x_2,X_1=x_1$$
+
+$$X_3 \sim \text{Uniform} (0,X_2)$$
+
+$$0<x_2<1$$
+
+$$f_{X_1}(x_1)=\begin{cases}1 & 0< x_1<1 \\ 0 & \text{otherwise}\end{cases}$$
+
+$$f_{X_2|X_1}(x_2|x_1)=\begin{cases} \frac{1}{x_1} & 0< x_2 < x_1\\ 0 & \text{otherwise}\end{cases}$$
+
+$$f_{X_3|X_2X_1}(x_3|x_2x_1)=\begin{cases} \frac{1}{x_2} & 0< x_3 < x_2\\ 0 & \text{otherwise}\end{cases}$$
+
+$$f_{X_1X_2X_3}(x_1,x_2,x_3)=f_{X_3|X_2X_1}(x_3|x_2x_1)f_{X_2|X_1}(x_2|x_1)f_{X_1}(x_1)$$
+
+$$=\begin{cases} \frac{1}{x_2} \frac{1}{x_1} 1 & 0<x_1<1, 0<x_2<x_1, 0<x_3<x_3 \\ 0 & \text{otherwise}\end{cases}$$
+
+$$f_{X_2X_3}(x_2,x_3)=\int_{-\infty}^{\infty}f_{X_1X_2X_3}(x_1,x_2,x_3)dx_1$$
+
+where $$0<x_3<x_2<x_1<1$$
+$$=\int_{x_2}^{1}\frac{1}{x_2} \frac{1}{x_1} dx_1$$
+
+## Discussion 12
+
+### Outlines
+
+Problems
+
+1. Joint PMF, PDF
+2. Uncorreloteness of RVs
+
+------
+
+### Question 1
+
+$$X,Y$$ are independent Poisson RV's with parameters $$\lambda_1, \lambda_2$$
+
+Define $$Z:=X+Y$$
+
+(a) Joint PMF of $$X$$ and $$Z$$
+
+$$X \sim \text{Poisson} (\lambda_1), Y \sim \text{Poisson} (\lambda_2)$$
+
+$$P(X=k)=\frac{e^{-\lambda_1} \lambda_1^k}{k!}, P(Y=k)=\frac{e^{-\lambda_2} \lambda_2^k}{k!}$$
+
+$$Z:=X+Y$$
+
+For (a), we want to get $$P_{XZ}(x,z)$$
+
+$$P(X=x, Z=z)=P(X=x, X+Y=z)$$
+
+$$=P(X=x, Y=z-X)$$
+
+$$=P(X=x)P(Y=z-X)$$     - Independence
+
+For $$X>z$$
+
+$$P(X=x, Z=z)=0$$
+For $$X \leq z$$
+
+$$P(X=x,Z=z)=\frac{e^{-\lambda_1} \lambda_1^x}{x!} \frac{e^{-\lambda_2} \lambda_2^{(z-x)}}{(z-x)!}$$
+
+$$P(X=x,Z=z)=\begin{cases} 0 & x>z \\ \frac{e^{-\lambda_1} \lambda_1^x}{x!} \frac{e^{-\lambda_2} \lambda_2^{(z-x)}}{(z-x)!} & z \geq x\end{cases}$$
+
+(b) Marginal PMF of $$Z$$
+
+For (b), we want to $$P_{Z}(z)$$
+
+we know that joint PMF of $$X, Z$$ and PMF of $$X$$
+
+$$P_{Z}(z)=\sum_{x \in S_X} P(Z|X)P(X=x)$$       - Total Probability
+
+$$=\sum_{x \in S_X} P(X=x,Z=z)$$
+
+$$=\sum_{0}^{z} P(X=x,Z=z)$$
+
+$$P_{Z}(z)=\sum_{x=0}^{z} \frac{e^{-\lambda_1} \lambda_1^x}{x!} \frac{e^{-\lambda_2} \lambda_2^{(z-x)}}{(z-x)!}$$
+
+(c) Show that $$Z \sim \text{Poisson} (\lambda_1+\lambda_2)$$
+
+$$Z:=X+Y$$
+
+$$X \sim \text{Poisson} (\lambda_1), Y \sim \text{Poisson} (\lambda_2)$$
+
+$$P(Z=k)=P(X+Y = k)$$
+
+$$=\sum_{i=0}^{k}P(X+Y=k |X) P(X=i)$$
+
+$$=\sum_{i=0}^{k} P(Y=k-i, X=i)$$
+
+since $$X,Y$$ are independent
+
+$$=\sum_{i=0}^{k}P(Y=k-i)P(X=i)$$
+
+$$=\sum_{i=0}^{k} \frac{e^{-\lambda_2} \lambda_2^{(k-i)}}{(k-i)!} \frac{e^{-\lambda_1} \lambda_1^i}{i!}$$
+
+$$=e^{- (\lambda_1+\lambda_2)} \sum_{i=0}^{k} \frac{\lambda^{k-i} \lambda_1^i}{(k-i)! i!}$$
+
+$$=\frac{e^{- (\lambda_1+\lambda_2)}}{k!} \sum_{i=0}^{k} \frac{k!}{(k-i)! i!} \lambda^{k-i} \lambda_1^i$$ 
+
+where $$\frac{k!}{(k-i)! i!}=\binom{k}{i}$$
+
+$$=\frac{e^{- (\lambda_1+\lambda_2)}}{k!} \sum_{i=0}^{k} \binom{k}{i} \lambda^{k-i} \lambda_1^i$$
+
+where $$\sum_{i=0}^{k} \binom{k}{i} \lambda^{k-i} \lambda_1^i = (\lambda_1+\lambda_2)^k$$
+
+$$=\frac{e^{- (\lambda_1+\lambda_2)}}{k!} (\lambda_1+\lambda_2)^k $$
+
+$$P(Z=k)=\frac{e^{- (\lambda_1+\lambda_2)}(\lambda_1+\lambda_2)^k}{k!}$$
+
+$$\implies Z \sim \text{Poisson} (\lambda_1+\lambda_2)$$  
+
+### Question 2
+
+Let $$X$$ and $$Y$$ be the jointly Gaussian random variables with $$X \sim \mathcal{N}(m_1, \sigma_1),Y \sim \mathcal{N}(m_2, \sigma_2)$$
+
+(a) Show that $$X$$ and $$Y$$ are independent if and only if $$\rho=0$$
+
+Independence $$\implies$$ Uncorrelatedness 
+
+Uncorrelatedness $$\implies$$ Independence (True only for Gaussian RVs)
+
+$$f_{XY}(x,y)=\frac{exp(\frac{-1}{2 (1-\rho_{XY}^2)}((\frac{x-m_1}{\sigma_1})^2+(\frac{y-m_2}{\sigma_2})^2-2\rho_{XY}(\frac{x-m_1}{\sigma_1})(\frac{y-m_2}{\sigma_2})))}{2 \pi \sigma_1 \sigma_2 \sqrt{1-\rho_{XY}^2}}$$
+
+If uncorrelated, i.e., $$\rho_{XY}=0$$
+
+$$f_{XY}(x,y)=\frac{exp(\frac{-1}{2}((\frac{x-m_1}{\sigma_1})^2+(\frac{y-m_2}{\sigma_2})^2)))}{2 \pi \sigma_1 \sigma_2 }$$
+
+$$e^{-(a+b)}=e^{-a}e^{-b}$$
+
+$$=\frac{1}{\sqrt{2 \pi \sigma_1}}  exp(\frac{-1}{2} (\frac{x-m_1}{\sigma_1})^2)   \frac{1}{\sqrt{2 \pi \sigma_2}}exp(\frac{-1}{2} (\frac{y-m_2}{\sigma_2})^2)$$
+
+where $$f_{X}(x)=\frac{1}{\sqrt{2 \pi \sigma_1}}  exp(\frac{-1}{2} (\frac{x-m_1}{\sigma_1})^2), f_{Y}(y)=\frac{1}{\sqrt{2 \pi \sigma_2}}exp(\frac{-1}{2} (\frac{y-m_2}{\sigma_2})^2)$$
+
+$$f_{XY}(x,y)=f_{X}(x)f_{Y}(y)$$
+
+(b) Suppose $$\rho=0$$, find $$P(XY>0)$$
+
+$$-\infty \leq x \leq \infty, -\infty \leq y \leq \infty$$
+
+![image-20241125220732812](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241125220732812.png)
+
+$$P(XY>0)=P(X,Y \text{have the same sign})$$
+
+$$P(XY>0)=\int_{x^{+}} \int_{y^{+}} f_{XY}(x,y)dxdy + \int_{x^{-}} \int_{y^{-}} f_{XY}(x,y)dxdy$$
+
+Since $$\rho_{XY}=0$$
+
+$$X,Y$$ are independent
+
+$$X,Y$$ are Gaussian RVs
+
+$$=\int_{x=0}^{\infty} f_{X}(x)dx \int_{y=0}^{\infty} f_{Y}(y)dy + \int_{-\infty}^{0} f_{X}(x)dx \int_{-\infty}^{0} f_Y(y)dy$$
+
+Observe
+
+$$\int_{0}^{\infty} \frac{1}{\sqrt{2 \pi}} exp(-\frac{(x-m_1)^2}{2 \sigma_1^2}) dx = \int_{x=-\frac{m_1}{\sigma_1}}^{\infty} exp(-\frac{t^2}{2}) dt =Q(-\frac{m_1}{\sigma_1})$$
+
+Then
+
+$$P(XY>0)=Q(-\frac{m_1}{\sigma_1}) Q(-\frac{m_2}{\sigma_2}) +(1-Q(-\frac{m_1}{\sigma_1}))(1-Q(-\frac{m_2}{\sigma_2}))$$
+
+### Question 3
+
+ Show that $$Var[X+Y]=Var[X]+Var[Y]$$ if $$X$$ and $$Y$$ are independent
+
+$$Var[X+Y]=E[(X+Y)^2]-(E[X+Y])^2$$
+
+Consider
+
+$$(E[X+Y])^2=E[X+Y]E[X+Y]$$
+
+$$=E[X]E[X+Y]+E[Y]E[X+Y]$$         - Linearity property
+
+$$=E[E[X](X+Y)]+E[E[Y](X+Y)]$$        - $$E[a(X+Y)]=aE[X+Y]$$
+
+Here $$E[X]$$ is a constant
+
+$$=E[XE[X]+YE[X]]+E[XE[Y]+YE[Y]]$$
+
+where $$E[XE[X]]=E[X]E[X]$$
+
+$$=(E[X])^2+2E[X]E[Y]+(E[Y])^2$$
+
+$$Var[X+Y]=E[X^2]+E[Y^2]+2E[XY]-(E[X])^2-(E[Y])^2-2E[X]E[Y]$$
+
+$$=Var[X]+Var[Y]$$
+
+Due to independence, $$E[XY]=E[X]E[Y]=0$$
+
+### Question 4
+
+A dart is equally likely to land at any point $$(X,Y)$$ inside a circular target of unit radius. Let $$R,\theta$$ be radius and angle of the point $$(X,Y)$$ from origin.
+
+If $$(X,Y)$$ are jointly Gaussian RVs. Find $$P(X^2+Y^2 < R^2)$$ when $$\rho=0$$
+
+![image-20241127191817501](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241127191817501.png)
+
+$$P(X^2+Y^2 < R^2)=\int\int_{x^2+y^2 < r^2} f_{XY}(x,y)$$
+
+$$=\int\int_{x^2+y^2 < r^2} \frac{1}{ 2 \pi \sigma^2} exp(-\frac{(x^2+y^2)}{2 \sigma^2}) dxdy$$
+
+$$r^2 \cos^2(\theta) +r^2 \sin^2(\theta)=r^2$$
+
+$$x=r\cos(\theta), y=r \sin(\theta)$$
+
+$$=\int_{\theta=0}^{2 \pi} \int_{r=0}^{R} \frac{1}{2 \pi \sigma^2} exp(-\frac{r^2}{2 \sigma^2}) dr \cdot rd \theta$$
+
+$$=\frac{1}{2 \pi \sigma^2} 2 \pi \int_{r=0}^{R} r exp(-\frac{r^2}{2 \sigma^2}) dr d \theta$$
+
+$$=1-exp(-\frac{R}{2\sigma^2})$$
+
+$$P(X^2+Y^2<R^2)=1-exp(-\frac{R}{2\sigma^2})$$
+
+### Question 5
+
+At even time instants, a robot moves either $$+\Delta$$ cm or $$-\Delta$$ cm in the x-direction according to the outcome of a coin flip; at odd time instants, a robot moves similarly according to another coin flip in the y-direction. Assuming that the robot begins at the origin, let $$X$$ and $$Y$$ be the coordinates of the location of the robot after $$2n$$ time instants. Determine whether $$X$$ and $$Y$$ are independent RVs
+
+$$S_{X,Y}=\{(k_1,k_2):0 \leq k_1\leq n, 0 \leq k_2 \leq n\}$$
+
+where
+
+$$(N_1=k_1):\#$$ of heads in even time instants
+
+$$(N_2=k_2):\#$$ of heads in odd time instants
+
+$$X= \Delta N_1-\Delta(n-N_1)=2 \Delta N_1-n \Delta$$
+
+$$Y= \Delta N_2-\Delta(n-N_2)=2 \Delta N_2-n \Delta$$
+
+![image-20241127193319782](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241127193319782.png)
+
+$$P_{X,Y}(x,y)=P(X=(2k-n)\Delta, Y=(2j-n)\Delta)$$
+
+Since $$X,Y$$ depend on coin flip and assuming same coin (pair) is used for both directions
+
+$$=P(X=(2k-n)\Delta)P(Y=(2j-n)\Delta)$$
+
+$$=\binom{n}{2k-n} p^k (1-p)^{n-k} \binom{n}{2j-n}p^j (1-p)^{n-j}$$
+
+$$X,Y$$ are independent
+
+## Week 13 Session 1
+
+### Random Vector
+
+$$X_1,X_2, X_3...X_n$$
+
+$$\underline{X}=\begin{bmatrix} X_1 \\ X_2 \\ ... \\X_n \end{bmatrix} \rightarrow $$ Random Vector
+
+### Joint CDF
+
+$$F_{\underline{X}}(x_1,...x_n)=P(X_1 \leq x_1, ... X_n \leq x_n)$$
+
+$$\lim_{x_n \rightarrow \infty}F_{X_1... X_n}(x_1, ..., x_n)=F_{X_1,...,X_{n-1}}(x_1...x_{n-1})$$
+
+### Joint PMF
+
+$$X_1,...X_n$$ discrete RVs
+
+$$P_{X_1...X_n}(x_1...x_n)=P(X_1=x_1...X_n=x_n)$$
+
+$$\sum_{x_1 \in S_{X_1}} \sum_{x_2 \in S_{X_2}} ... \sum_{x_n \in S_{X_n}} P_{X_1 ... X_n}(x_1 ... x_n)=1$$
+
+$$P(\underline{X} \in B)=\sum_{(x_1 ... x_n) \in B}P_{X_1 ... X_n}(x_1 ... x_n)$$
+
+$$B$$ is a subset of $$\R^n$$
+
+$$P_{X_2...X_n}(x_2 ... x_n)=\sum_{x_1 \in S_{X_1}}P_{X_1 ... X_n}(x_1 ... x_n)$$
+
+### Jointly Continuous Random Vector
+
+$$P(\underline{X} \in B)=\int ... \int_{B} f_{X_1 ... X_n}(x_1 ... x_n) dx_1...dx_n$$
+
+where $$B \subset \R^n$$ , $$f_{X_1 ... X_n}(x_1 ... x_n)$$ is the joint density of $$X_1...X_n$$
+
+$$\int_{-\infty}^{\infty} ... \int_{-\infty}^{\infty} f_{X_1X_2...X_n}dx_1 dx_2 ...dx_n=1$$
+
+$$\int_{-\infty}^{\infty} f_{X_1 ... X_n}(x_1 ... x_n)dx_1=f_{X_2...X_n}(x_2 ... x_n)$$
+
+------
+
+### Conditional density
+
+$$f_{X_n|X_1... X_{n-1}}(x_n|x_1 ... x_{n-1})=\frac{f_{X_1 ... X_n(x_1 ... x_n)}}{f_{X_1 ... X_{n-1}(x_1 ... x_{n-1})}}$$
+
+$$f_{X|Y}(x|y)=\frac{f_{XY}(x,y)}{f_Y(y)}$$
+
+$$f_{X_1X_2|X_3X_4}(x_1,x_2|x_3,x_4)=\frac{f_{X_1X_2X_3X_4(x_1 ... x_4)}}{f_{X_3X_4}(x_3,x_4)}$$
+
+Chain Rule
+
+$$f_{X_1...X_n}(x_1 ... x_n)=f_{X_n|X_1 ... X_{n-1}}(x_n|x_1 ... x_{n-1})f_{X_1 ... X_{n-1}}(x_1 ... x_{n-1})$$
+
+------
+
+Gaussian density $$m,\sigma^2$$
+
+$$\frac{1}{\sqrt{2 \pi \sigma^2}} e^{-\frac{(x-m)^2}{2 \sigma^2}}$$
+
+#### Example
+
+$$f_{X_1X_2X_3}(x_1, x_2,x_3) =\frac{e^{(-x_1^2+x_2^2-\sqrt{2}x_1x_2+\frac{x_3^2}{2})}}{2 \pi \sqrt{\pi}}$$
+
+$$x_1,x_2,x_3 \in \R$$
+
+Joint PDF of $$X_1$$ and $$X_3$$
+
+$$f_{X_1X_3}(x_1,x_3)=\int_{-\infty}^{\infty} f_{X_1X_2X_3}(x_1x_2x_3)dx_2$$
+
+$$=\frac{e^{-x_1^2 }e^{-\frac{x_3^2}{2}}} {2 \pi \sqrt{\pi}} \int_{-\infty}^{\infty} e^{-(x_2^2-\sqrt{2}x_1x_2)}dx_2$$
+
+$$x_2^2 -\frac{2\sqrt{2}}{2}x_1x_2+\frac{x_1^2}{2}-\frac{x_1^2}{2}$$
+
+$$=\frac{e^{-x_1^2 }e^{-\frac{x_3^2}{2}}} {2 \pi \sqrt{\pi}} \int_{-\infty}^{\infty} e^{-(x_2-\frac{x_1}{\sqrt{2}})^2} e^{\frac{x_1^2}{2}}dx_2$$
+
+$$=\frac{e^{-x_1^2 }e^{-\frac{x_3^2}{2}}} {2 \pi \sqrt{\pi}} \sqrt{2 \pi \frac{1}{2}}\int_{-\infty}^{\infty}  \frac{1}{\sqrt{2 \pi \frac{1}{2}}}e^{-\frac{(x_2-\frac{x_1}{\sqrt{2}})^2}{2 \cdot \frac{1}{2}}}dx_2$$
+
+$$\int_{-\infty}^{\infty}  \frac{1}{\sqrt{2 \pi \frac{1}{2}}}e^{-\frac{(x_2-\frac{x_1}{\sqrt{2}})^2}{2 \cdot \frac{1}{2}}}dx_2=1$$
+
+$$\int_{-\infty}^{\infty} \frac{e^{-\frac{(x_2-m)^2}{2\sigma^2}}}{\sqrt{2 \pi \sigma^2}}dx_2$$
+
+$$=\frac{e^{-\frac{x_1^2}{2} }e^{-\frac{x_3^2}{2}}} {\sqrt{2\pi} \sqrt{2\pi}} $$
+
+$$f_{X_1X_3}(x_1x_3)=\frac{e^{-\frac{x_1^2}{2}} }{\sqrt{2\pi}} \frac{e^{-\frac{x_3^2}{2}}}{\sqrt{2\pi}}$$
+
+$$f_{X_1}(x_1)=\frac{e^{-\frac{x_1^2}{2}} }{\sqrt{2\pi}}, f_{X_3}(x_3)=\frac{e^{-\frac{x_3^2}{2}} }{\sqrt{2\pi}}$$
+
+Independent $$X_1$$ and $$X_3$$
+
+$$f_{X_1}(x_1)=\frac{e^{-\frac{x_1^2}{2}} }{\sqrt{2\pi}}\int_{-\infty}^{\infty} \frac{e^{-\frac{x_3^2}{2}} }{\sqrt{2\pi}} dx_3$$
+
+$$=\frac{e^{-\frac{x_1^2}{2}} }{\sqrt{2\pi}}$$
+
+$$X_1 \sim \mathcal{N}(0,1)$$
+
+$$X_3 \sim \mathcal{N}(0,1)$$
+
+------
+
+#### Example
+
+$$X,Y,Z$$
+
+$$f_{XYZ}(x,y,z)=\begin{cases} \frac{3 z^2}{7 \sqrt{2 \pi}} e^{-2y} e^{-\frac{(x-y)^2}{2z^2}} & y \geq 0, 1 \leq z \leq 2, x \in \R \\ 0 & \text{otherwise}\end{cases}$$
+
+For $$y \geq 0, 1 \leq z \leq 2$$
+
+$$f_{YZ}(y,z)=\int_{-\infty}^{\infty} f_{XYZ}(xyz)dx$$
+
+$$=\frac{3 z^2}{7 \sqrt{2 \pi}}  e^{-2y} \sqrt{2 \pi z^2} \int_{-\infty}^{\infty} \frac{1}{\sqrt{2 \pi z^2}}e^{-\frac{(x-y)^2}{2z^2}}dx$$
+
+$$\int_{-\infty}^{\infty} \frac{1}{\sqrt{2 \pi z^2}}e^{-\frac{(x-y)^2}{2z^2}}dx$$ is $$\mathcal{N}(y,z^2)$$
+
+$$f_{YZ}(y,z)=\begin{cases} \frac{3}{7} z^3 e^{-2y} & y \geq 0, 1 \leq z \leq 2 \\ 0 & \text{otherwise}\end{cases}$$
+
+$$f_{Z}(z)=\begin{cases} \int_{0}^{\infty} \frac{3}{7} z^3 e^{-2y}dy & 1\leq z \leq 2 \\ 0 & \text{otherwise}\end{cases}$$
+
+$$\frac{3}{7} z^2 \int_{0}^{\infty} z e^{-2y}dy$$
+
+$$f_Z(z)=\begin{cases} \frac{3}{7} z^2 & 1 \leq z \leq 2\\ 0 & \text{otherwise}\end{cases}$$
+
+------
+
+$$y \geq0, 1 \leq z \leq 2$$
+
+$$f_{X|Y,Z}(x|y,z)=\frac{f_{XYZ}(x,y,z)}{f_{YZ}(y,z)}$$
+
+$$=\frac{1}{\sqrt{2 \pi z^2}} e^{-\frac{(x-y)^2}{2z^2}}$$
+
+$$\mathcal{N}(y,z^2)$$
+
+Conditioned on $$Y=y,Z=z ,(y \geq 0, 1 \leq z \leq 2), X \sim \mathcal(y,z^2)$$
+
+$$E[X|Y=y,Z=z]=y$$
+
+$$E[X^2|Y=y,Z=z]=z^2+y^2$$
+
+$$X \sim \mathcal{N}(m,\sigma^2)$$
+
+$$E[X^2]=m^2+\sigma^2$$
+
+$$P(X \leq 0|Y=y, Z=z)=\phi(-\frac{y}{z})$$
+
+$$X \sim \mathcal{N} (m,\sigma^2)$$
+
+$$P(X \leq 0)=P(\frac{X-m}{\sigma} \leq \frac{-m}{\sigma})=\phi(\frac{-m}{\sigma})$$
+
+------
+
+Independence of $$X_1,...X_n$$
+
+Definition: $$X_1, ... X_n$$ are independent if
+
+$$P(X_1 \in B_1, X_2 \in B_2... X_n \in B_n)=P(X_1 \in B_1) P(X_2 \in B_2) ... P(X_n \in B_n)$$ for all $$B_1, B_2, ... , B_n$$ which are subsets of $$\R$$
+
+Thm: 
+
+1. $$X_1, ... , X_n$$ are independent if and only if $$F_{X_1 ... X_n}(x_1 ... x_n)=F_{X_1}(x_1) ... F_{X_n}(x_n)$$ for all $$x_i \in \R, i= 1, ... , n$$
+
+2. If $$X_1 ... X_n$$ are discrete RVs, then $$X_1, ... , X_n$$ are independent if and only if 
+
+   $$P_{X_1 ... X_n}(x_1 ... x_n)=P_{X_1}(x_1) ... P_{X_n}(x_n)$$ for all $$x_i \in \R, i=1, ... ,n$$
+
+3. If $$X_1 ... X_n$$ are jointly continuous RVs, then $$X_1 ... X_n$$ are independent if and only if
+
+   $$f_{X_1 ... X_n}(x_1 ... x_n)=f_{X_1}(x_1) ... f_{X_n}(x_n)$$ for all $$x_i \in \R, i=1,...,n$$
+
+#### Example
+
+$$f_{X_1 ... X_n} (x_1, ... , x_n)=\frac{e^{- \frac{(x_1^2 + x_2^2 + ... + x_n^2)}{2}}}{(2\pi)^{\frac{n}{2}}}$$ for all $$x_i \in \R, i=1,... ,n$$
+
+$$f_{X_1}(x_1)=\int ... \int f_{X_1, ..., X_n}(x_1 , ... , x_n)dx_2 dx_3 ... dx_n$$
+
+$$=\int...\int \frac{e^{- \frac{(x_1^2 + x_3^2 + ... + x_n^2)}{2}}}{(2\pi)^{\frac{n-1}{2}}} \int_{-\infty}^{\infty}\frac{e^{- \frac{x_2^2}{2}}}{\sqrt{2 \pi}} dx_2 dx_3 ... dx_n$$
+
+$$f_{X_1}(x_1)=\frac{e^{- \frac{x_1^2}{2}}}{\sqrt{2 \pi}}$$
+
+$$f_{X_i}(x_i)=\frac{e^{- \frac{x_i^2}{2}}}{\sqrt{2 \pi}}, i=1,...,n$$
+
+$$f_{X_1...X_n}(x_1 ... x_n)=f_{X_1}(x_1)...f_{X_n}(x_n)$$
+
+$$\implies$$ Independent
+
+$$X_i \sim \mathcal{N}(0,1)$$
+
+IID RVs (Independent and identically distributed)
+
+$$P(X_1 > 2|X_3 > 10)=\frac{P(X_1 > 2, X_3>10)}{P(X_3 > 10)}$$
+
+Independence
+
+$$=\frac{P(X_1>2)P(X_3>10)}{P(X_3>10)}=P(X_1 >2)=1-\phi(2)$$
+
+For event, pairwise does not imply mutual independence
+
+$$X_1, X_2$$ - Independence
+
+$$X_2, X_3$$ - Independence
+
+$$P(X_1 \in B_1, X_2 \in B_2)=P(X_1 \in B_1)P(X_2 \in B_2)$$
+
+$$P(X_2 \in B_2, X_3 \in B_3)=P(X_2 \in B_2)P(X_3 \in B_3)$$
+
+Does not imply
+
+$$X_1 \in B_1, X_2 \in B_2, X_3 \in B_3$$ are mutually independent
+
+Pairwise independent of RVs does not imply mutual independence
+
+------
+
+#### Example
+
+$$X_1, ... X_n, f_{X_1... X_n}$$ 
+
+$$Z_i=a_i X_i + b_i, i=1,...,n$$
+
+Joint CDF of $$Z_1, ... Z_n$$
+
+$$F_{Z_1, ... Z_n}(z_1 ... z_n)=P(Z_1 \leq z_1, ... Z_n \leq z_n)$$
+
+$$=P(a_1X_1+b_1 \leq z_1, ... a_nX_n+b_n \leq z_n)$$
+
+$$=P(X_1 \leq \frac{z_1-b_1}{a_1} ... X_n \leq \frac{z_n-b_n}{a_n})$$
+
+$$=F_{X_1 ... X_n}(\frac{z_1-b_1}{a_1} ...  \frac{z_n-b_n}{a_n})$$
+
+$$f_{Z_1 ... Z_n}(z_1 ... z_n)=\frac{\partial}{\partial z_1} \frac{\partial}{\partial z_2} ... \frac{\partial}{\partial z_n} F_{X_1 ... X_n}(x_1... x_n)$$
+
+$$f_{XY}(x,y)=\frac{\partial^2}{\partial x \partial y}F_{XY}(x,y)$$
+
+$$=\frac{\partial}{\partial z_1} \frac{\partial}{\partial z_2} ... (\frac{\partial F_{X_1...X_n}}{\partial x_n}|_{x_n = \frac{z_n-b_n}{a_n}} \frac{1}{a_n})$$
+
+$$=\frac{1}{a_1 ... a_n} f_{X_1... X_n} (\frac{z_1-b_1}{a_1}, ... \frac{z_n-b_n}{a_n})$$
+
+$$\frac{d}{dx} F(g(x))=\frac{dF}{dy}|_{y=g(x)}\frac{dg(x)}{dx}$$
+
+$$\frac{\partial}{\partial z_1} \frac{\partial}{\partial z_2} ... \frac{\partial}{\partial z_n}  F_{X_1...X_n}()=f_{X_1 ... X_n}()$$
+
+$$F_Z(z)=F_X(\frac{z-b}{a})$$
+
+$$\frac{dF_Z(z)}{dz}=\frac{dF_X}{dz}(\frac{z-b}{a})$$
+
+$$=\frac{dF_X}{dz}|_{x=\frac{z-b}{a}} \frac{d}{dz}(\frac{z-b}{a})$$
+
+$$=\frac{dF_X}{dx}|_{x=\frac{z-b}{a}} \frac{1}{a}$$
+
+$$=f_{X}(\frac{z-b}{a})\frac{1}{a}$$
+
+$$F_{Z_1 ... Z_n}(z_1 ... z_n)=F_{X_1 ... X_n}(\frac{z_1 - b_1}{a_1} ... \frac{z_n-b_n}{a_n})$$
+
+$$\frac{d}{dz_n}F_{Z_1 ... Z_n}(z_1 ... z_n)=\frac{d}{dz_n}F_{X_1 ... X_n}(\frac{z_1 - b_1}{a_1} ... \frac{z_n-b_n}{a_n})$$
+
+$$=\frac{d}{dz_n}F_{X_1 ... X_n}(\frac{z_1 - b_1}{a_1} ... x_n)|_{x_n=\frac{z_n-b_n}{a_n}} \frac{d}{dz_n}(\frac{z_n-b_n}{a_n})$$
+
+$$=\frac{d}{dx_n}F_{X_1 ... X_n}(\frac{z_1 - b_1}{a_1} ... x_n)|_{x_n=\frac{z_n-b_n}{a_n}} \frac{1}{a_n}$$
+
+after $$n$$ fold differentiation
+
+$$=\frac{d}{dx_1} \frac{d}{dx_2} ... \frac{d}{dx_n} F_{X_1, ..., X_n}(x_1, ... x_n)|_{x_i =\frac{z_i-b_i}{a_i}} \frac{1}{a_1 ... a_n}$$
+
+$$=f_{X_1, ..., X_n}(x_1, ... x_n)|_{x_i =\frac{z_i-b_i}{a_i}} \frac{1}{a_1 ... a_n}$$
+
+$$=f_{X_1, ..., X_n}(\frac{z_1-b_1}{a_1}, ... \frac{z_n-b_n}{a_n}) \frac{1}{a_1 ... a_n}$$
+
+------
+
+#### Example
+
+IID RVs $$X_1, ... X_n \rightarrow f_{X_i}$$
+
+$$Z=\min{(X_1, ... X_n)}$$
+
+$$F_Z(z)=P(Z \leq z)$$
+
+$$=P(\min{(X_1, ... X_n)} \leq z)$$
+
+$$=1- P(\min{(X_1, ... X_n)} > z)$$
+
+$$=1-P(X_1> z, X_2> z... X_n > z)$$
+
+$$=1- P(X_1 >z)P(X_2 > z) ... P(X_n >z)$$
+
+$$=1-[(1-F_{X_1}(z)) (1-F_{X_2}(z)) ... (1-F_{X_n}(z))]$$
+
+differentiate with respect to $$z$$
+
+$$X_i \sim \text{exp}(1)$$
+
+$$F_{X_i}(z)=1-e^{-z}$$
+
+------
+
+### PDF of Transformation of RV
+
+$$X_1, X_2$$
+
+$$Z_1 =g_1(X_1, X_2)$$
+
+$$Z_2=g_2(X_1, X_2)$$
+
+$$\underline{Z}=\underline{g}(\underline{X})$$
+
+Assumptions
+
+1. $$g_1, g_2$$ are differentiable
+2. For each $$\binom{z_1}{z_2}$$, there is at most one vector $$\binom{x_1}{x_2}$$ such that $$\underline{g} \binom{x_1}{x_2} = \binom{z_1}{z_2}$$
+
+Under these assumptions
+
+$$f_{Z_1Z_2}(z_1,z_2)=\frac{f_{X_1X_2}(x_1,x_2)}{|J(x_1, x_2)|}|_{ \binom{x_1}{x_2} |_\underline{g}^{-1} \binom{z_1}{z_2}}$$
+
+Absolute value of determinant of the denominator is the Jacobian of the transformation
+
+$$J(x_1, x_2)=\begin{bmatrix} \frac{\partial g_1}{\partial x_1} &  \frac{\partial g_1}{\partial x_2} \\  \frac{\partial g_2}{\partial x_1} &  \frac{\partial g_2}{\partial x_2}\end{bmatrix}$$
+
+------
+
+#### Example
+
+$$X_1, X_2, f_{X_1X_2}$$
+
+$$Z_1=X_1+X_2$$
+$$Z_2=\frac{X_1}{X_1+X_2}$$
+
+$$z_1=x_1+x_2$$
+
+$$z_2=\frac{x_1}{x_1+x_2}$$
+
+$$\underline{g}^{-1} \binom{z_1}{z_2}=\binom{z_1z_2}{z_1-z_1z_2}$$
+
+$$J(x_1, x_2)=\begin{bmatrix} \frac{\partial g_1}{\partial x_1} &  \frac{\partial g_1}{\partial x_2} \\  \frac{\partial g_2}{\partial x_1} &  \frac{\partial g_2}{\partial x_2}\end{bmatrix}$$
+
+$$=\begin{bmatrix} 1 &  1\\  \frac{x_2}{(x_1+x_2)^2} &  \frac{-x_1}{(x_1+x_2)^2}\end{bmatrix}$$
+
+$$|J(x_1,x_2)|=\frac{1}{|x_1+x_2|}$$
+
+$$f_{Z_1Z_2}(z_1,z_2)=\frac{f_{X_1X_2}(x_1,x_2}{|J(x_1,x_2)|}|_ { \binom{x_1}{x_2} = \binom{z_1z_2}{z_1-z_1z_2}}$$
+
+$$=\frac{f_{X_1X_2(z_1z_2, z_1-z_1z_2)}}{|\frac{1}{z_1}|}$$
+
+#### Example
+
+$$X_1,X_2,X_3, f_{X_1X_2X_3}$$
+
+$$Z_1=X_1$$
+
+$$Z_2=X_1+X_2$$
+
+$$Z_3=X_1+X_2+X_3$$
+
+$$z_1=x_1$$
+
+$$z_2=x_1+x_2$$
+
+$$z_3=x_1+x_2+x_3$$
+
+$$\underline{g}^{-1} \pmatrix{z_1\\z_2\\z_3}=\pmatrix{z_1\\z_2-z_1\\z_3-z_2}$$
+
+$$J(x_1 x_2 x_3)=\begin{bmatrix} \frac{\partial z_1}{\partial x_1} &  \frac{\partial z_1}{\partial x_2} & \frac{\partial z_1}{\partial x_3} \\  \frac{\partial z_2}{\partial x_1} &  \frac{\partial z_2}{\partial x_2} & \frac{\partial z_2}{\partial x_3} \\ \frac{\partial z_3}{\partial x_1} &  \frac{\partial z_3}{\partial x_2} & \frac{\partial z_3}{\partial x_3} \end{bmatrix}= \begin{bmatrix} 1 & 0 & 0 \\ 1 & 1 & 0 \\ 1 & 1 & 1\end{bmatrix}$$
+
+$$|J(x_1 x_2x_3)|=1$$
+
+$$f_{Z_1Z_2Z_3}(z_1 z_2 z_3)=\frac{f_{X_1X_2X_3}(x_1x_2x_3)}{1}|_{\pmatrix{x_1\\x_2\\x_3}=\underline{g}^{-1} \pmatrix{z_1\\z_2\\z_3}}$$
+
+$$=f_{X_1X_2X_3}(z_1,z_2-z_1,z_3-z_2)$$
+
+------
+
+### Expectation
+
+1. $$z=g(X,Y)$$
+
+   $$E[Z]=\begin{cases} \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} g(x,y)f_{XY}(x,y)dxdx & \text{Continuous} \\ \sum_{x \in S_X} \sum_{y \in S_Y} g(x,y)P_{XY}(x,y) & \text{Discrete} \end{cases}$$
+
+   $$Z=g(X_1,...,X_n)$$
+
+   $$E[Z]=\begin{cases} \int_{-\infty}^{\infty} ... \int_{-\infty}^{\infty} g(x_1 ... x_n) f_{X_1... X_n}(x_1 ... x_n)dx_1 ... dx_n\\ \sum ... \sum g(x_1 ... x_n)P_{X_1 ... X_n}(x_1 ... x_n)\end{cases}$$
+
+2. Recall that if $$X,Y$$ are independent
+
+   $$E[XY]=E[X]E[Y]$$
+
+   Similarly, if $$X_1, ... X_n$$ are independent, then
+
+   $$E[X_1... X_n]=E[X_1] ... E[X_n]$$
+
+3. $$X_1, X_2 , ... X_n$$ are independent
+
+   $$Z_1=g_1(X_1)$$
+
+   $$Z_2=g_2(X_2)$$
+
+   $$...$$
+
+   $$Z_n=g_n(X_n)$$
+
+   Then, $$Z_1, ... Z_n$$ are also independent
+
+## Week 13 Session 2
+
+1. $$Var(aX)=a^2 Var(X)$$
+
+2. $$Var(X+a)=Var(X)$$
+
+3. Independent $$X,Y, Cov(X,Y)=0$$
+
+   $$Cov(X,Y)=E[XY]-m_Xm_Y$$
+
+   $$=m_Xm_Y-m_Xm_Y=0$$
+
+4. Independent $$X,Y$$
+
+   $$Var(X+Y)=Var(X)+Var(Y)$$
+
+   $$E[X+Y]=m_Xm_Y$$
+
+   $$Var(X+Y)=E[(X+Y-m_X-m_Y)^2]$$
+
+   $$=E[(X-m_X)^2+ (Y-m_Y)^2+2(X-m_X)(Y-m_Y)]$$
+
+   $$=Var(X)+Var(Y)+2Cov(X,Y)$$
+
+   $$=Var(X)+Var(Y)$$
+
+------
+
+### Random Vectors
+
+$$\underline{X}=\pmatrix{X_1\\X_2\\...\\X_n}$$
+
+Mean Vector
+
+$$E[\underline{X}]=\pmatrix{E[X_1]\\E[X_2]\\...\\E[X_n]}$$
+
+$$E[\underline{X}]$$ is the same notation as $$m_{\underline{X}}$$
+
+$$\underline{X} \cdot \underline{X}^T= \pmatrix{X_1\\X_2\\...\\X_n} \pmatrix{X_1 & X_2 & ...&X_n}$$
+
+$$\underline{X} \cdot \underline{X}^T= \begin{bmatrix} X_1^2 & X_1X_2 & X_1X_3 & ... & X_1X_n \\ X_2X_1 & X_2^2 & ... & ... & ...\\ ... & ...& ... & ... & ...\\ X_nX_1 & ... & ... & ... & X_n^2  \end{bmatrix}$$
+
+### Correlation Matrix
+
+$$R_X=E[\underline{X} \cdot \underline{X}^T]=\begin{bmatrix} E[X_1^2] & E[X_1X_2] & E[X_1X_3] & ... & E[X_1X_n] \\ E[X_2X_1] & E[X_2^2] & ... & ... & ...\\ ... & ...& ... & ... & ...\\ E[X_nX_1] & ... & ... & ... & E[X_n^2]  \end{bmatrix}$$
+
+is a symmetric matrix
+
+$$(R_X)_{ij}=(R_X)_{ji}$$
+
+$$A$$ is $$n \times n$$ square matrix
+
+Covariance Matrix $$K_X$$
+
+$$K_{\underline{X}} = E[(\underline{X}-m_{\underline{X}})(\underline{X}-m_{\underline{X}})^T]$$
+
+$$=E\begin{bmatrix} (X_1-m_{X_1})^2 & (X_1-m_{X_1})(X_2-m_{X_2}) & ... & (X_1-m_{X_1})(X_n-m_{X_n})\\ ... & ... & ... & ...\\ (X_n-m_{X_n})(X_1-m_{X_1}) & ... & ... & (X_m-m_{X_m})^2  \end{bmatrix}$$
+
+$$=\begin{bmatrix} Var(X_1) & Cov(X_1X_2) & ... & Cov(X_1X_n)\\ ... & ... & ... & ...\\ Cov(X_nX_1) & ... & ... & Var(X_n)  \end{bmatrix}$$
+
+$$K_X$$ is a square $$n \times n$$, symmetric matrix
+
+------
+
+$$K_{\underline{X}} = E[(\underline{X}-m_{\underline{X}})(\underline{X}-m_{\underline{X}})^T]$$
+
+$$=E[(\underline{X}-m_{{X}})(\underline{X}^T-m_{{X}})^T]$$
+
+$$=E[\underline{X} \cdot \underline{X}^T-m_X\underline{X}^T-\underline{X}m_X^T+m_Xm_X^T]$$
+
+$$=R_X-m_XE[X^T]-E[X]m_X^T+m_Xm_X^T$$
+
+$$=R_X-m_Xm_X^T-m_Xm_X^T+m_Xm_X^T$$
+
+$$=R_X-m_Xm_X^T$$
+
+==$$K_X=R_X -m_Xm_X^T$$==
+
+$$Var(X)=E[X^2]-(m_X)^2$$
+
+$$Cov(X,Y)=E[XY]-m_Xm_Y$$
+
+#### Example
+
+$$X_1,X_2$$ are RV with mean 0, variance 1 and $$Cov(X_1,X_2)=\frac{-1}{\sqrt{2}}$$
+
+$$\underline{X}=\binom{X_1}{X_2}$$
+
+$$m_{\underline{X}}=\binom{0}{0}$$
+
+$$K_{\underline{X}}=\begin{pmatrix} Var(X_1) & Cov(X_1,X_2) \\ Cov(X_2, X_1) & Var(X_2)\end{pmatrix}$$
+
+$$=\begin{pmatrix} 1 & \frac{-1}{\sqrt{2}} \\ \frac{-1}{\sqrt{2}} & 1\end{pmatrix}$$
+
+$$X_3$$ which mean 0, variance 1, independent of $$X_1$$ and $$X_2$$
+
+$$\underline{Y}=\begin{pmatrix}X_1 \\ X_2 \\ X_3 \end{pmatrix}$$
+
+$$m_{\underline{Y}}=\begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}$$
+
+$$K_Y=\begin{pmatrix} 1 & \frac{-1}{\sqrt{2}} & 0 \\ \frac{-1}{\sqrt{2}} & 1 & 0 \\ 0 & 0& 1 \end{pmatrix}$$
+
+------
+
+$$\underline{X}=\begin{pmatrix} X_1 \\ ... \\X_n \end{pmatrix}$$
+
+$$A=\begin{pmatrix} a_{11} & a_{12 } & ... & a_{1n} \\ a_{21} & ... & ... & a_{2n} \\ ... & ... & ... & ... \\ a_{m_1} & ... & ... & a_{mm}\end{pmatrix}$$
+
+$$A$$ is fixed matrix (not random)
+
+$$\underline{Y}=A\underline{X}$$
+
+$$\underline{Y}=\begin{pmatrix} Y_1 \\ ... \\Y_n \end{pmatrix}=\begin{pmatrix} a_{11} & a_{12 } & ... & a_{1n} \\ a_{21} & ... & ... & a_{2n} \\ ... & ... & ... & ... \\ a_{m_1} & ... & ... & a_{mm}\end{pmatrix}\begin{pmatrix} X_1 \\ ... \\X_n \end{pmatrix}$$
+
+$$Y_1=\sum_{j=1}^{n}a_{ij}X_{j}$$
+
+$$Y_i=\sum_{j=1}^{n}a_{ij}X_j$$
+
+$$E[Y_i]=E[\sum_{j=1}^{n}a_{ij}X_j]$$
+
+$$=\sum_{j=1}^{n}a_{ij}E[X_j]$$
+
+==$$m_{Y_i}=\sum_{j=1}^{n}a_{ij}m_{X_j}$$==
+
+$$m_{\underline{Y}}= \begin{pmatrix} mY_1 \\ ... \\mY_n \end{pmatrix}=A\begin{pmatrix} mX_1 \\ ... \\mX_n \end{pmatrix}$$
+
+$$m_{\underline{Y}}=Am_{\underline{X}}$$
+
+Lemma: If $$\underline{Y}=A\underline{X}$$
+
+then $$m_{\underline{Y}}=A m_{\underline{X}}$$
+
+$$Y=aX$$
+
+$$E[Y]=aE[X]$$
+
+Linearity of Expectation
+
+1. $$E[aX]=aE[X]$$
+
+2. $$E[A\underline{X}]=A E[\underline{X}]$$
+
+3. $$E[\underline{X}^T B]=E[\underline{X}^T]B$$
+
+   $$B$$ is a constant matrix
+
+4. $$E[A \underline{X} B]=AE[\underline{X}]B$$
+
+------
+
+$$\underline{Y}=A \underline{X}$$
+
+$$m_{\underline{Y}}=A m_{\underline{X}}$$
+
+$$K_{\underline{Y}}=E[(\underline{Y}-m_{\underline{Y}})(\underline{Y}-m_{\underline{Y}})^T]$$
+
+$$=E[(AX-Am_X)(AX-Am_X)^T]$$
+
+$$=E[A(X-m_X)(X-m_X)^TA^T]$$
+
+$$=AE[(X-m_X)(X-m_X)^T]A^T$$
+
+$$=AK_XA^T$$
+
+Lemma: If $$\underline{Y}=A \underline{X}$$, then $$m_{\underline{Y}}=A m_{\underline{X}}$$
+
+$$K_Y=AK_XA^T$$
+
+Scalar Case:
+
+$$Y=aX$$
+
+$$m_Y=am_X$$
+
+$$Var(Y)=a^2Var(X)$$
+
+------
+
+Cross-covariance between $$\underline{X}$$ and $$\underline{Y}$$
+
+$$\underline{X} \in n$$ and $$\underline{Y} \in m$$
+
+$$K_{\underline{X} \underline{Y}}=E[(\underline{X}-m_{\underline{x}})(\underline{Y}-m_{\underline{Y}})^T]$$
+
+$$K_{\underline{X} \underline{Y}}$$ is $$n \times m$$ matrix
+
+$$K_{\underline{Y} \underline{X}}=E[(\underline{Y}-m_{\underline{y}})(\underline{X}-m_{\underline{x}})^T]$$
+
+$$K_{\underline{Y} \underline{X}}$$ is $$m \times n$$ matrix
+
+$$(K_{\underline{X} \underline{Y}})^T=(E[(\underline{X}-m_{\underline{x}})(\underline{Y}-m_{\underline{Y}})^T])^T$$
+
+$$=E[\{(\underline{X}-m_{\underline{x}})(\underline{Y}-m_{\underline{Y}})^T\}^T]$$
+
+$$=E[(Y-m_Y)(X-m_X)^T]$$
+
+$$=K_{\underline{Y} \underline{X}}$$
+
+#### Example
+
+$$\underline{Y}=A \underline{X}$$
+
+$$K_{XY}=E[(X-m_X)(Y-m_Y)^T]$$
+
+$$=E[(X-m_X)(AX-Am_X)^T]$$
+
+$$=E[(X-m_X)(A(X-m_X))^T]$$
+
+$$=E[(X-m_X)(X-m_X)^TA^T]$$
+
+$$=K_XA^T$$
+
+$$K_{\underline{Y} \underline{X}}= (K_X A^T)^T=A K_X^T=Ak_X$$
+
+#### Example
+
+$$\underline{X}=\begin{pmatrix}X_1 \\ X_2 \\X_3\end{pmatrix}$$
+
+$$K_X=\begin{pmatrix} 1 & \frac{-1}{\sqrt{2}} & 0 \\ \frac{-1}{\sqrt{2}} & 1 & 0 \\ 0 & 0 & 1\end{pmatrix}$$
+
+$$\underline{Y}= \begin{pmatrix} \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} & 0 \\ \frac{-1}{\sqrt{2}} & \frac{1}{\sqrt{2}} & 0 \end{pmatrix}\underline{X}$$
+
+$$Var(Y_1)$$
+
+$$Cov(Y_1,Y_2)$$
+
+------
+
+Jointly Gaussian Random Vector
+
+For a single Gaussian random variable
+
+$$f_X(x)=\frac{1}{\sqrt{2 \pi \sigma^2}} exp(-\frac{(x-m)^2}{2 \sigma^2})$$
+
+Definition: $$\underline{X}=\begin{pmatrix} X_1 \\ ... \\ X_n \end{pmatrix}$$ is a jointly Gaussian random vector if
+
+$$f_{X_1 ... X_n}(x_1 ... x_n) =\frac{exp(-\frac{1}{2} (\underline{x} - \underline{m})^T K^{-1} (\underline{x}-\underline{m}))}{(2 \pi)^{\frac{n}{2}} |K|^{\frac{1}{2}}}$$
+
+$$\underline{x}=\begin{pmatrix} x_1 \\ ... \\x_n\end{pmatrix}$$
+
+$$\underline{m}=$$ mean vector
+
+$$\underline{K}=$$ covariance matrix
+
+$$n=1$$
+
+$$\underline{m}=m$$
+
+$$K= \sigma^2$$
+
+$$\frac{exp(-\frac{1}{2} (\underline{x} - \underline{m})^T K^{-1} (\underline{x}-\underline{m}))}{(2 \pi)^{\frac{n}{2}} |K|^{\frac{1}{2}}}$$
+
+$$\frac{exp(-\frac{1}{2} \frac{(x-m)^2}{\sigma^2})}{\sqrt{2 \pi \sigma^2}}$$
+
+Properties of Gaussian Random vector
+
+1. The joint PDF of $$X_1 ... X_n$$ is completely determined by mean vector and covariance matrix
+
+2. $$\underline{x}=\begin{pmatrix} x_1 \\ ... \\x_n\end{pmatrix}$$ is Gaussian vector
+
+   $$f_{X_1X_2}(x_1,x_2) \rightarrow$$ is going to a jointly Gaussian density
+
+Lemma: Any marginal density of a jointly Gaussian density is itself a jointly Gaussian density
+
+#### Example
+
+$$\underline{X}=\begin{pmatrix}X_1 \\ X_2 \\X_3\end{pmatrix}$$
+
+Gaussian vector
+
+$$\underline{m}=\begin{pmatrix} 1 \\ 2 \\ 3 \end{pmatrix}$$
+
+$$K= \begin{pmatrix} 1 & a  & b \\ a & 1 & c \\ b & c & 1\end{pmatrix}$$
+
+$$f_{X_1X_2X_3}(x_1x_2x_3)=\frac{exp(-\frac{1}{2} (\underline{x} - \underline{m})^T K^{-1} (\underline{x}-\underline{m}))}{(2 \pi)^{\frac{3}{2}} |K|^{\frac{1}{2}}}$$
+
+Marginal density of $$X_1$$
+
+$$f_{X_1}(x_1)=\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} f_{X_1X_2X_3}(x_1x_2x_3)dx_2dx_3$$
+
+where $$f_{X_1}(x_1)$$ is a Gaussian density
+
+$$\frac{1}{\sqrt{2 \pi \sigma^2}}exp(-\frac{(x-m)^2}{2 \sigma^2})$$
+
+$$f_{X_1}(x_1)=\mathcal{N}(1,1)=\frac{1}{\sqrt{2 \pi}} exp(-\frac{(x-1)^2}{2})$$
+
+Joint density of $$X_1$$ and $$X_2$$
+
+$$f_{X_1X_2}(x_1x_2)=\int_{-\infty}^{\infty} f_{X_1X_2X_3}(x_1x_2x_3)dx_3$$
+
+$$\frac{exp(-\frac{1}{2} (\binom{x_1}{x_2}-\binom{m_1}{m_2})^T K^{-1} (\binom{x_1}{x_2}-\binom{m_1}{m_2})}{\text{constant}}$$
+
+$$\binom{m_1}{m_2}=\binom{1}{2}$$
+
+$$\hat{K}=\begin{pmatrix} Var(X_1) & Cov(X_1,X_2) \\ Cov(X_2, X_1) & Var(X_2)\end{pmatrix}=\begin{pmatrix} 1 & a \\ a & 1 \end{pmatrix}$$
+
+------
+
+#### Example
+
+$$\underline{X}=\begin{pmatrix}X_1 \\ X_2 \end{pmatrix}$$
+
+Gaussian vector
+
+$$\underline{m}=\begin{pmatrix} 0 \\ 0 \end{pmatrix}$$
+
+$$K=\begin{pmatrix} 1 & p \\ p & 1 \end{pmatrix}$$
+
+Correlation coefficient $$(X_1,X_2)=\frac{Cor(X_1,X_2)}{\sigma_{X_1} \sigma_{X_2}}=p$$
+
+$$|K|=1-p^2$$
+
+$$K^{-1}=\frac{1}{1-p^2} \begin{pmatrix} 1 & -p \\ -p & 1 \end{pmatrix}$$
+
+$$f_{X_1X_2}(x_1x_2)= \frac{exp(-\frac{1}{2} \begin{pmatrix}(x_1 & x_2)\end{pmatrix} K^{-1} \begin{pmatrix}x_1 \\x_2\end{pmatrix}}{(2 \pi) \sqrt{1-p^2}}$$
+
+$$=\frac{1}{2 \pi \sqrt{1-p^2}} exp(\frac{-1}{2 (1-p^2)} (x_1^2-2px_1x_2+x_2^2))$$
+
+------
+
+$$\underline{X}=\begin{pmatrix} X_1 \\ ... \\X_n\end{pmatrix}$$ is a Gaussian vector
+
+$$\underline{m} = \begin{pmatrix} m_1 \\ ... \\ m_n \end{pmatrix}$$
+
+$$K=\begin{pmatrix} \sigma_1^2 & 0 & ... & 0 \\ 0 & \sigma_2^2 & ... & 0 \\ ... & ... & ... & ... \\ 0 & ... & 0 & \sigma_n^2\end{pmatrix}$$
+
+$$|K|=\sigma_1^2 ... \sigma_n^2$$
+
+$$K^{-1}=\begin{pmatrix} \frac{1}{\sigma_1^2} & 0 & ... & 0 \\ 0 & \frac{1}{\sigma_2^2} & ... & 0 \\ ... & ... & ... & ... \\ 0 & ... & 0 & \frac{1}{\sigma_n^2}\end{pmatrix}$$
+
+$$Var(X_i)=\sigma_i^2$$
+
+$$Cov(X_i, X_j)=0, i \neq j$$
+
+Is is true that $$X_1... X_n$$ are independent? 
+
+i.e., $$f_{X_1 ... X_n} (x_1 ... x_n) =f_{X_1}(x_1) ... f_{X_n}(x_n)$$ ??? 
+
+$$exp(-\frac{1}{2} (\underline{x} - \underline{m})^T \begin{pmatrix} \frac{1}{\sigma_1^2} & 0 & ... & 0 \\ 0 & \frac{1}{\sigma_2^2} & ... & 0 \\ ... & ... & ... & ... \\ 0 & ... & 0 & \frac{1}{\sigma_n^2}\end{pmatrix} (\underline{x}-\underline{m}))$$
+
+$$exp(-\frac{1}{2} \begin{pmatrix}x_1-m_1 & x_2-m_2 & ... & x_n-m_n\end{pmatrix} \begin{pmatrix} \frac{1}{\sigma_1^2} & 0 & ... & 0 \\ 0 & \frac{1}{\sigma_2^2} & ... & 0 \\ ... & ... & ... & ... \\ 0 & ... & 0 & \frac{1}{\sigma_n^2}\end{pmatrix} \begin{pmatrix}x_1-m_1 \\ x_2-m_2 \\ ... \\ x_n-m_n\end{pmatrix}$$
+
+$$exp(-\frac{1}{2} (\frac{(x_1-m_1)^2}{\sigma_1^2})+\frac{(x_2-m_2)^2}{\sigma_2^2})+...+\frac{(x_n-m_n)^2}{\sigma_n^2}))$$
+
+$$exp(-\frac{1}{2} (\frac{(x_1-m_1)^2}{\sigma_1^2})) exp(-\frac{1}{2} (\frac{(x_2-m_2)^2}{\sigma_2^2}))+...+exp(-\frac{1}{2} (\frac{(x_n-m_n)^2}{\sigma_n^2}))$$
+
+$$f_{X_1 ... X_n} (x_1 ... x_n)=\prod_{i=1}^{n} f_{X_i}(x_i)$$
+
+$$f_{X_1}(x_1)...f_{X_n}(x_n)$$
+
+$$\implies X_1 ... X_n$$ are independent
+
+Lemma: $$\underline{X}$$ is Gaussian vector and $$K$$ is a diagonal matrix. Then, $$X_1 ... X_n$$ are independent random variables
+
+#### Example
+
+$$\underline{X}=\begin{pmatrix}X_1 \\ X_2 \end{pmatrix}$$ is a Gaussian vector
+
+$$Cov(X_1,X_2)=0$$
+
+$$K_X=\begin{pmatrix} Var(X_1) & 0 \\ 0 & Var(X_2)\end{pmatrix}$$
+
+$$\implies X_1,X_2$$ are independent
+
+Recall: 
+
+1. If $$X_1, X_2$$ are independent, then $$Cov(X_1,X_2)=0$$
+2. In general, $$Cov(X_1,X_2)=0$$ does not imply $$X_1,X_2$$ independent
+3. If $$\underline{X}=\begin{pmatrix}X_1 \\ X_2 \end{pmatrix}$$ is Gaussian vector, and $$Cov(X_1X_2)=0$$, then $$X_1,X_2$$ are independent
+
+Theorem: 
+
+If $$\underline{X}=\begin{pmatrix} X_1 \\ ... \\X_n\end{pmatrix}$$ is jointly Gaussian vector
+
+$$\underline{Y}=A \underline{X}$$
+
+Then $$\underline{Y}$$ is also a jointly Gaussian vector
+
+$$m_{\underline{Y}}=A m_{\underline{X}}$$
+
+$$K_Y=AK_XA^T$$
+
+#### Example
+
+$$X_1,X_2,X_3$$ are jointly Gaussian
+
+$$Y=a_1X_1+a_2X_2+a_3X_3$$
+
+$$Y=\begin{pmatrix} a_1 & a_2 & a_3 \end{pmatrix} \begin{pmatrix} X_1 \\ X_2 \\ X_3\end{pmatrix}$$
+
+$$\implies Y$$ is a Gaussian random variable
+
+$$m_Y=A \begin{pmatrix} m_1 \\ m_2 \\ m_3\end{pmatrix}=a_1m_1+a_2m_2+a_3m_3$$
+
+$$\sigma_Y^2=AK_XA^T$$
+
+$$=\begin{pmatrix} a_1 & a_2 & a_3 \end{pmatrix} K_X \begin{pmatrix} a_1 \\ a_2 \\ a_3 \end{pmatrix}$$
+
+## Discussion 13
+
+### Outlines
+
+1. Problems
+
+   Vector Random Variables
+
+   Transformation of vector RVs
+
+2. Application of Leibniz integral role
+
+------
+
+### Question 1
+
+The point $$\bold{X}=(X,Y, Z)$$is uniformly distributed inside a sphere of radius 1 about the origin. Find the probability of the following events:(a) $$\bold{X}$$ is inside a sphere of radius $$r,r>0$$
+
+![image-20241125143050610](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241125143050610.png)
+
+$$\underline{X}=(X,Y,Z)$$
+
+$$P(X^2+Y^2+Z^2 \leq r^2 |X^2+Y^2+Z^2 \leq 1)$$
+
+Event $$A: X^2+Y^2+Z^2\leq r^2$$
+
+Event $$B: X^2+Y^2+Z^2 \leq 1$$
+
+$$A \subset B$$
+
+$$P(B|A)=\frac{P(A \bigcap B)}{P(A)}$$
+
+$$=\frac{P(X^2+Y^2+Z^2 \leq r^2)}{P(X^2+Y^2+Z^2 \leq 1)}$$
+
+$$=\frac{4/3 \pi r^3}{ 4/3 \pi 1^3}=r^3$$
+
+(b) $$\bold{X}$$ is inside a cube of length $$2/\sqrt3$$ centered about the origin.
+
+![image-20241125143514031](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241125143514031.png)
+
+The cube is centered at the origin, with side length $$\frac{2}{\sqrt{3}}3$$, meaning each side extends from $$-\frac{1}{\sqrt{3}} \text{\:to\:} \frac{1}{\sqrt{3}}$$
+
+$$P(|X| \leq \frac{1}{\sqrt{3}}) \bigcap  |Y| \leq \frac{1}{\sqrt{3}}) \bigcap |Z| \leq \frac{1}{\sqrt{3}}) |X^2+Y^2+Z^3 <1)$$
+
+$$=\frac{\text{Volume of inner cube}}{\text{Volume of the sphere}}$$
+
+$$=\frac{ \frac{2}{\sqrt{3}} \frac{2}{\sqrt{3}} \frac{2}{\sqrt{3}} }{4/3 \pi r^3}$$
+
+$$=\frac{2}{\sqrt{3} \pi}$$
+
+(c) All components of $$\bold{X}$$ are positive.
+
+$$P(X>0 \bigcap Y>0 \bigcap Z>0 | X^2+Y^2+Z^2 \leq 1)$$
+
+$$=\frac{\text{Volume of positive octont}}{\text{Volume of the sphere}}$$
+
+| X    | Y    | Z    |
+| ---- | ---- | ---- |
+| +    | +    | +    |
+| +    | +    | -    |
+| +    | -    | +    |
+| +    | -    | -    |
+| -    | +    | +    |
+| -    | +    | -    |
+| -    | -    | +    |
+| -    | -    | -    |
+
+$$=\frac{1/8 \cdot 4/3 \pi 1^3}{4/3 \pi 1^3}=1/8$$
+
+(d) $$Z$$ is negative.
+
+$$P(Z<0|X^2+Y^2+Z^2 \leq 1)$$
+
+$$=\frac{\text{Volume of semisphere}}{\text{Volume of the sphere}}$$
+
+$$=\frac{1/2 (4/3 \pi 1^3)}{4/3 \pi 1^3}=1/2$$
+
+------
+
+### Question 2
+
+A random sinusoid signal is given by $$X(t)= A \sin(t)$$ where $$A$$ is a uniform random variable in the interval $$[0, 1]$$.Let $$\bold{X}=(X(t_1), X(t_2), X(t_3))$$ be samples of the signal taken attimes $$t_1 , t_2, \text{and\:} t_3$$.
+
+(a) Find the joint CDF of $$\bold{X}$$ in terms of the CDF of $$A$$ if $$t_1=0, t_2=\pi/2, t_3=\pi$$ Are $$X(t_1), X(t_2), X(t_3)$$ independent random variables?
+
+![image-20241125192827648](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241125192827648.png)
+
+$$X(t)= A \sin(t)$$
+
+$$A \sim \text{Uniform} [0,1]$$
+
+$$\underline{X}=(X(t_1), X(t_2), X(t_3))$$
+
+$$F_{\underline{X}}(X(t_1), X(t_2), X(t_3))=P(X(t_1) \leq x_1,  X(t_2) \leq x_2, X(t_3) \leq x_3)$$
+
+$$X(t_1)=X(0)=0, X(t_2)=X(\pi/2)=A, X(t_3)=X(\pi)=0$$
+
+$$\underline{X}=(0, A, 0)$$
+
+$$P(0 \leq x_1, A \leq x_2, 0 \leq x_3)$$
+
+the conditions $$x_1 \geq 0, x_3 \geq 0$$ is always true, because $$X(t_1)=X(t_3)=0$$
+
+$$A \sim \text{Uniform}[0,1]$$
+
+$$P(A \leq x_2) = \begin{cases} 0 & x_2< 0 \\ x_2 & 0 \leq x_2 \leq 1 \\ 1 & x_2> 1 \end{cases}$$
+
+------
+
+### Question 3
+
+A radio transmitter sends a signal $$s>0$$ to a receiver using three paths. The signals that arrive at the receiver along each path are:
+
+$$X_1=s+N_1$$ ,$$X_2=s+N_2$$, $$X_3=s+N_3$$ where $$N_1, N_2, N_3$$ are independent Gaussian random variables with zero mean and unit variance.
+
+(a) Find the joint pdf of $$\bold{X}=(X_1,X_2,X_3)$$.  Are $$X_1, X_2 \text{\:and\:} X_3$$ independent random variables?
+
+$$X_1, X_2, X_3$$
+
+$$N_1,N_2,N_3 \sim \mathcal{N}(0,1)$$
+
+Identically distributed and independent
+
+$$F_{\underline{X}}(x_1,x_2,x_3)=P(X_1 \leq x_1, X_2 \leq x_2, X_3 \leq x_3)$$
+$$=P(s+N_1 \leq x_1, s+N_2 \leq x_2,  s+N_3 \leq x_3)$$
+
+$$=P(N_1 \leq x_1-s, N_2 \leq x_2-s, N_3 \leq x_3-s)$$
+
+$$=P(N_1 \leq x_1-s)P(N_2 \leq x_2 -s )P(N_3 \leq x_3-s)$$
+
+Since $$N_1,N_2,N_3 \sim \mathcal{N}(0,1)$$
+
+$$f_{\underline{X}}(x_1,x_2,x_3)=f_{N_1}(x_1-s) f_{N_2}(x_2-s)f_{N_3}(x_3-s)$$
+
+$$=\frac{1}{\sqrt{2} \pi} exp(-\frac{(x_1-s)^2}{2}) \frac{1}{\sqrt{2} \pi} exp(-\frac{(x_2-s)^2}{2}) \frac{1}{\sqrt{2} \pi} exp(-\frac{(x_3-s)^2}{2}) $$
+
+(b) Find the probability that the minimum of all three signals is positive. 
+
+$$P(\min(X_1,X_2,X_3)>0)$$ since $$\min$$ is $$>0$$
+
+$$=P(X_1 >0, X_2>0, X_3>0)$$
+
+$$=P(N_1 \geq -s, N_2 \geq -s, N_3 \geq -s)$$
+
+Because of independence
+
+$$=P(N_1 \geq -s)P(N_2 \geq -s)P(N_3 \geq -s)$$
+
+$$N_1, N_2, N_3$$ are identically distributed
+
+$$=(P(N \geq -s))^3$$
+
+$$=(1-F_N(-s))^3$$
+
+(c) Find the probability that a majority of the signals are positive.
+
+Majority $$\implies $$ exactly 3 signals are positive or 2 signals are positve
+
+$$P(X_1 >0, X_2>0, X_3>0)+P(X_1 \leq 0, X_2 >0, X_3>0)+P(x_1 >0, X_2 \leq 0, X_3>0) +P(X_1>0, X_2>0, X_3 \leq 0)$$
+
+$$=(1-F_N(-s))^3+3 F_{N}(-s) (1-F_N(-s))^2$$
+
+------
+
+### Question 4
+
+Use auxiliary variables to find the pdf of $$Z=X_1X_2X_3$$ where the $$X_i$$ are independent random variables that are uniformly distributed in $$[0, 1]$$
+
+$$X_i \sim \text{Uniform}[0,1]$$
+
+$$Z =g(X_1,X_2,X_3) :=X_1X_2X_3$$
+
+$$f_{X_1X_2X_3}(x_1,x_2,x_3)=f_{X_1}(x_1) f_{X_2}(x_2) f_{X_3}(x_3)$$
+
+$$f_{X_i}(x_i)=\begin{cases} 1 & 0 \leq x_i \leq 1 \\ 0 & \text{otherwise}\end{cases}$$
+
+$$f_{X_1X_2X_3}(x_1,x_2,x_3)=\begin{cases} 1 & 0 \leq x_1, x_2 , x_3 \leq 1 \\ 0 & \text{otherwise}\end{cases}$$
+
+Transformation
+
+Let $$U=X_2, V=X_3$$ (auxiliary RVs)
+
+$$Z:= XUV$$
+
+Find PDF of $$Z$$
+
+$$f_{Z,U,V}(z,u,v)=\frac{f_{X,U,V}(x,u,v)}{J_{X_1X_2X_3}}$$
+
+$$J_{X_1X_2X_3}=det \begin{bmatrix} \frac{\partial Z}{\partial X_1} & \frac{\partial Z}{\partial X_2} & \frac{\partial Z}{\partial X_3} \\ \frac{\partial U}{\partial X_1} & \frac{\partial U}{\partial X_2} & \frac{\partial U}{\partial X_3} \\ \frac{\partial V}{\partial X_1} & \frac{\partial V}{\partial X_2} & \frac{\partial V}{\partial X_3}\end{bmatrix}$$
+
+$$=det \begin{bmatrix} x_2x_3 & x_1x_3 & x_1x_2 \\ 0 & 1 & 0 \\ 0 & 0 & 1\end{bmatrix}$$
+
+$$=x_2x_3$$
+
+$$f_{Z,U,V}(z,u,v)=\begin{cases} \frac{1}{UV} & 0 \leq \frac{Z}{UV} \leq 1, 0 \leq U \leq 1, 0 \leq V \leq 1 \\ 0 & \text{otherwise}\end{cases}$$
+
+$$V \geq \frac{Z}{U} \rightarrow \frac{Z}{UV} \leq 1, U \geq Z$$
+
+$$f_{Z}(z)=\int_{U=Z}^{1} \int_{V= \frac{Z}{U}}^{1} f_{Z,U,V}(z,u,v)dUdV$$
+
+ $$f_{Z}(z)=\int_{V=Z}^{1} \int_{V=\frac{Z}{U}}^{1} \frac{1}{UV} dUdV$$
+
+$$=\frac{1}{Z} (\ln(Z))^2$$
+
+------
+
+### Leibniz Integral Rule
+
+$$f_{U}(u)$$ marginal PDF
+
+$$F_{XY}(u,v)$$ Joint CDF
+
+Joint CDF $$\rightarrow$$ Marginal CDF $$\rightarrow$$ Marginal PDF
+
+$$F_{XY}(U,V)=\int_{y} \int_{x} f_{XY}(x,y)dydx$$
+
+$$=\int_{y} g(u,y) dy$$
+
+$$f_U(u)=\frac{d}{dU} \int_{y} g(u,y)dy$$
+
+Differential under integral sign
+
+$$\frac{d}{dU} \int_{y= P(U)}^{q(U)} g(u,y) dy= g(U, q(U)) \frac{d}{dU} q(U) - g(U,p(U))\frac{d}{dU}p(U)+\int_{P(U)}^{q(U)}\frac{\partial}{\partial U} g(U,y)dy$$
+
+If the integral limits are constants
+
+$$\frac{d}{dU} \int_{y=0}^{c} g(u,y)dy=\int_{y=0}^{c}\frac{\partial}{\partial U} g(U,y)dy$$
+
+## Week 14 Session 1 (Only 1)
+
+### Limit Theorem
+
+IID sequence of Random Variables $$X_1,X_2,X_3, ... $$
+
+Independent
+
+Identically distributed: same CDF/ same PMF / same PDF
+
+$$E[X_i]=\mu$$
+
+$$Var[X_i]=\sigma^2$$
+
+$$\mu,\sigma^2$$ are finite numbers
+
+$$S_n=\sum_{i=1}^{n}X_i$$        - Sum of $$X_1,...,X_n$$
+
+$$M_n=\frac{S_n}{n}=\frac{\sum_{i=1}^{n}X_i}{n}$$ - Sample mean of $$X_1,...,X_n$$
+
+$$E[S_n]=E[\sum_{i=1}^{n}X_i]=\sum_{i=1}^{n}E[X_i]=n \mu$$
+$$Var[S_n]=Var[\sum_{i=1}^{n}X_i]=n \sigma^2$$
+
+$$Var[S_n]=E[(S_n-n \mu)^2]$$
+
+$$=E[(\sum_{i=1}^{n}(X_i-\mu))^2]$$
+
+$$=E[\sum_{i=1}^{n} (X_i-\mu)^2 + \sum_{i=1}^{n} \sum_{j=1, j \neq i}^{n} (X_i-\mu)(X_j-\mu)]$$
+
+$$=\sum_{i=1}^{n} Var[X_i] + \sum \sum_{i \neq j} Cov(X_i, X_j)$$
+
+where $$Cov(X_i,X_j)=0$$
+$$=n \sigma^2$$
+
+$$E[M_n]=E[\frac{S_n}{n}]=\frac{1}{n} E[S_n]=\mu$$
+
+$$Var[M_n]=Var[\frac{S_n}{n}]=\frac{1}{n^2} Var[S_n]=\frac{n \sigma^2}{n^2} =\frac{\sigma^2}{n}$$
+
+------
+
+$$X_1,...,X_n$$ IID RVs with finite mean and finite variance
+
+Unknown $$\mu$$
+
+Estimate for $$\mu \rightarrow$$ Sample mean $$M_n$$
+
+$$M_n=\frac{\sum_{i=1}^{n}X_i}{n}$$
+
+Consider a $$\epsilon >0$$
+
+$$P(|M_n-\mu| \geq \epsilon)$$
+
+Using Chebyshev Inequality
+
+$$P(|M_n-\mu| \geq \epsilon) \leq \frac{Var[M_n]}{\epsilon^2}=\frac{\sigma^2}{n \epsilon^2}$$
+
+$$X_1, X_2...$$ continuous with PDF $$f$$
+
+$$M_1=\frac{X_1}{1}=X_1$$
+
+![image-20241127204856606](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241127204856606.png)
+
+$$M_{10}=\frac{X_1 + ... + X_10}{10} $$
+
+![image-20241127204919974](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241127204919974.png)
+
+$$M_{100}$$
+
+![image-20241127205003662](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241127205003662.png)
+
+The shadow area shrinks
+
+#### Example
+
+Measure an unknown voltage $$v$$ using a noisy sensor
+
+$$X_i=v+N_i$$      - $$i^{th}$$ measurement
+
+$$M_n=\frac{X_1+...X_n}{n}$$ 
+
+$$N_1, N_2... $$ IID RVs with 0 mean and variance 1
+
+How man measurement should I take to get $$M_n$$ and $$v$$ within 1 unit distance with probability at least 0.99?
+
+$$X_1, X_2, ... X_n$$ are IID RVs
+
+$$E[X_i]=E[v+N_i]=v$$
+
+$$Var[X_i]=Var[v+N_i]=1$$
+
+$$P(|M_n-v|<1) \geq 0.99 \implies P(|M_n-v|\geq 1)\leq 0.01$$
+
+$$P(|M_n-v|\geq 1)\leq 0.01 \leq \frac{\sigma^2}{n \cdot 1}=\frac{1}{n}$$
+
+Pick $$n$$ such that $$\frac{1}{n} \leq 0.01$$
+$$n\geq 100$$
+
+------
+
+### Weak Law of Large Numbers
+
+If $$X_1, X_2, ... $$ is IID sequence of RVs with finite mean $$\mu$$, finite variance $$\sigma^2$$. Then for all $$\epsilon >0$$
+
+$$\lim_{n \rightarrow \infty} P(|M_n-\mu|\geq \epsilon)=0$$
+
+$$\lim_{n \rightarrow \infty} P(|M_n-\mu|< \epsilon)=1$$
+
+#### Example
+
+Coin with unknown probability of heads $$0\leq p \leq 1$$
+
+Toss the coin $$n$$ times, tosses are independent
+
+$$X_i=\begin{cases} 1 & \text{if\:} i^{th} \text{\:toss is H} \\ 0 &  \text{if\:} i^{th} \text{\:toss is T} \end{cases}$$
+
+$$E[X_i]=p$$
+
+$$Var[X_i]=E[X_i^2]-p^2$$
+
+$$=p-p^2=p(1-p)$$
+
+$$M_n=\frac{\sum_{i=1}^{n}X_i}{n}$$
+
+$$P(|M_n-p|\geq 0.1) \leq \frac{Var[X_i]}{n \cdot 0.1^2}=\frac{p(1-p)}{n \cdot 0.01}$$
+
+![image-20241127210517466](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241127210517466.png)
+
+Function of $$p(1-p)$$, max at $$1/4$$
+
+$$P(|M_n-p|\geq 0.1) \leq \frac{1/4}{n \cdot 0.01}=\frac{25}{n}$$
+
+If $$n=250$$
+
+$$P(|M_n-p|\geq 0.1) \leq \frac{1}{10}$$
+
+Equivalently, $$P(|M_n-p| < 0.1) \geq 0.9$$
+
+------
+
+### Strong Law of Large Numbers
+
+If $$X_1, X_2, ... $$ is IID sequence of RVs with finite mean $$\mu$$, finite variance $$\sigma^2$$.
+
+Sequence if sample means
+
+$$M_1=\frac{X_1}{1}=X_1$$
+
+$$M_{2}=\frac{X_1  + X_2}{2} $$
+
+$$M_{n}=\frac{X_1 + ... + X_n}{n} $$
+
+$$\epsilon=\{M_n \text{converges to} \mu, \text{i.e.,} \lim_{n \rightarrow \infty} M_n=\mu \}$$
+
+Strong law of large number states that $$\epsilon$$ has probability 1
+
+------
+
+Example
+
+6-sided die with unknown probabilities for each side. Would like to estimate probabilities of an even number showing up.
+
+Roll the die $$n$$ times. Rolls are independent. Calculate the relative frequency of even numbers.
+
+Relative frequency= $$\frac{\text{Total number of rolls with even number}}{n}$$
+
+$$X_i=\begin{cases} 1 & \text{if even number shows on\:} i^{th} \text{\: roll} \\ 0 & \text{otherwise}\end{cases}$$
+
+$$\frac{\sum_{i=1}^{n}X_i}{n}=$$ Relative frequency of even number
+
+Strong law
+
+$$\frac{\sum X_i}{n} \rightarrow E[X_i]$$ as $$n \rightarrow \infty=P(\text{even number})$$ 
+
+Sample mean, True mean
+
+Sum $$S_n=\sum_{i=1}^{n}X_i$$
+
+------
+
+### Central Limit Theorem
+
+$$X_1,X_2...$$ IID sequence with finite mean $$\mu$$ and finite variance $$\sigma^2$$
+
+$$E[S_n]=n \mu$$
+
+$$Var[S_n]=n \sigma^2$$
+$$Y_n=\frac{S_n - E[S_n]}{\sqrt{Var(S_n)}}$$
+
+$$E[Y_n]=E[\frac{S_n - E[S_n]}{\sqrt{Var(S_n)}}] =0$$
+
+$$Var[Y_n]=Var(\frac{S_n - E[S_n]}{\sqrt{Var(S_n)}})$$
+
+$$=\frac{1}{\sqrt{Var(S_n}} Var(S_n)=1$$
+
+CDF of $$Y_1$$
+$$Y_1=\frac{S_1-E[S_1]}{\sqrt{Var(S_1)}}$$
+
+$$S_1=X_1$$
+
+$$Y_1=\frac{X_1-\mu}{\sigma}$$
+
+$$F_{Y_1}(y)=P(Y_1 \leq y)$$
+
+$$=P(\frac{X_1-\mu}{\sigma}\leq y)$$
+
+$$=P(X_1 \leq \mu+\sigma y)$$
+
+$$=F_{X_1}(\mu+\sigma y)$$
+
+CDF of $$Y_2$$
+
+$$P(Y_2 \leq y)=P(\frac{S_2-2\mu}{\sigma \sqrt{2}} \leq y)$$
+
+$$=P(S_2 \leq 2 \mu + \sigma \sqrt{2} y)$$
+
+$$=(X_1+X_2 \leq 2 \mu + \sigma \sqrt{2} y)$$
+
+![image-20241127212010791](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241127212010791.png)
+
+$$P(Y_n \leq y)$$
+
+$$P(S_n \leq \text{threshold})$$
+
+------
+
+### Central Limit Theorem
+
+$$X_1,X_2...$$ IID sequence with finite mean $$\mu$$ and finite variance $$\sigma^2$$
+
+$$Y_n=\frac{S_n - E[S_n]}{\sqrt{Var(S_n)}}$$
+
+$$\lim_{n \rightarrow \infty}F_{Y_n}(y)=\phi(y)$$ for all $$y \in \R$$ where $$\phi$$ is the CDF of standard normal distribution
+
+#### Example
+
+Continuous IID RV with mean $$\mu$$ and variance $$\sigma^2$$
+
+$$X_1,X_2, ...$$
+
+$$P(\sum_{i=1}^{n}X_i >t)=P(S_n >t)$$
+
+$$=P(\frac{S_n-E[S_n]}{\sqrt{Var(S_n)}} > \frac{t-n \mu}{\sigma \sqrt{n}})$$
+
+$$=P(Y_n > \frac{t- n \mu}{\sigma \sqrt{n}})$$
+
+$$=1-F_{Y_n}(\frac{t-n \mu}{\sigma \sqrt{n}})$$
+
+$$\approx 1- \phi(\frac{t-n \mu}{\sigma\sqrt{n}})$$
+
+#### Example
+
+$$n$$ independent coin tosses
+
+Probabilities of $$H=p$$
+
+$$X_i=\begin{cases} 1 & \text{if\:} H \text{ on\:} i^{th} \text{\: toss} \\ 0 & \text{otherwise}\end{cases}$$
+
+$$k$$ is some positive integer
+
+$$P(\sum_{i=1}^{n} X_i > k)=P(\sum_{i=1}^{n} X_i > k+0.5)$$
+
+$$=P(S_n > k+0.5)$$
+
+$$=P(\frac{S_n-np}{\sqrt{n (p-p^2)}} > \frac{k+0.5-np}{\sqrt{n (p-p^2)}})$$
+
+$$=P(Y_n > \frac{k+0.5-np}{\sqrt{n (p-p^2)}})$$
+
+$$\approx 1- \phi(\frac{k+0.5-np}{\sqrt{n (p-p^2)}})$$
+
+$$P(\text{Total number of\:} H \text{\:in\:} n \text{\:independent tosses} >k)$$
+
+Total number of $$H$$ has a <u>binomial distribution</u>
+
+$$P(S_n>k)=\sum_{s=k+1}^{n}P_{S_n}(s)=\sum_{s=k+1}^{n}\binom{n}{s}p^s(1-p)^{n-s}$$
+
+$$n=30, p =\frac{1}{30}$$
+
+$$P(S_n >2)$$ 
+
+Exact value from binomial distribution 0.077
+
+Approximated value using CLT 0.064
+
+$$P(\sum X_i >k)=P(\sum X_i \geq k+1)$$
+
+$$=P(S_n \geq k+1)$$
+
+$$=P(\frac{S_n - E[S_n]}{\sqrt{Var(S_n)}} \geq \frac{k+1-np}{\sqrt{n (p-p^2)}})$$
+
+------
+
+#### Example
+
+10 fair 6-sided dice are rolled
+
+Sum of 10 numbers
+
+Approximate the probability that the sum is between 30 and 40
+
+$$E[X_i]=3.5$$
+
+$$Var[X_i]=\frac{35}{12}$$
+
+$$S_{10}=X_1+...+X_{10}$$
+
+$$P(30 \leq S_{10} \leq 40)$$
+
+$$=P(29.5 \leq S_{10} \leq 40.5)$$
+
+$$=P(\frac{29.5-35}{\sqrt{\frac{350}{12}}} < \frac{S_{10}-(10)(3.5)}{\sqrt{\frac{35}{12}} \sqrt{10}} \leq \frac{40.5-35}{\sqrt{\frac{350}{12}}})$$
+
+$$\approx \phi(b)-\phi(a)$$
+
+ where $$a=\frac{29.5-35}{\sqrt{\frac{350}{12}}}, b=\frac{40.5-35}{\sqrt{\frac{350}{12}}}$$
 
 
 
