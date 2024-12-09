@@ -10850,7 +10850,7 @@ $$E[Y_n]=E[\frac{S_n - E[S_n]}{\sqrt{Var(S_n)}}] =0$$
 
 $$Var[Y_n]=Var(\frac{S_n - E[S_n]}{\sqrt{Var(S_n)}})$$
 
-$$=\frac{1}{\sqrt{Var(S_n}} Var(S_n)=1$$
+$$=\frac{1}{\sqrt{Var(S_n)}} Var(S_n)=1$$
 
 CDF of $$Y_1$$
 $$Y_1=\frac{S_1-E[S_1]}{\sqrt{Var(S_1)}}$$
@@ -10973,43 +10973,736 @@ $$\approx \phi(b)-\phi(a)$$
 
  where $$a=\frac{29.5-35}{\sqrt{\frac{350}{12}}}, b=\frac{40.5-35}{\sqrt{\frac{350}{12}}}$$
 
+## Week 15 Session 1
 
+### Weak Law of Large Numbers
 
+If $$X_1,X_2,...$$ is IID sequence of RVs with finite mean $$\mu$$ and finite variance $$\sigma^2$$. Then for all $$\epsilon>0$$
 
+$$\lim_{n \rightarrow \infty} P(|M_n-\mu| \geq \epsilon)=0$$
 
+$$\lim_{n \rightarrow \infty} P(|M_n-\mu| <\epsilon)=1$$
 
+### Central Limit Theorem
 
+$$X_1,X_2,...$$ IID RVs with finite mean $$\mu$$ and finite (positive) $$\sigma^2$$
 
+$$Y_n=\frac{S_n-E[S_n]}{\sqrt{Var[S_n]}}$$
 
+$$\lim_{n \rightarrow \infty} F_{Y_n}(y)=\phi(y)$$ for all $$y \in \R$$
+where $$\phi$$ is the CDF of standard normal distribution
 
+#### Example
 
+$$P(S_n>t)=P(\frac{S_n-E[S_n]}{\sqrt{Var[S_n]}} > \frac{t- n \mu}{\sigma \sqrt{n}})$$
 
+$$=P(Y_n > \frac{t- n \mu}{\sigma \sqrt{n}})$$
 
+$$\approx 1- \phi(\frac{t- n \mu}{\sigma \sqrt{n}})$$         -CLT
 
+------
 
+### Confidence Interval
 
+$$X_1,X_2,X_3,...$$ IID with finite unknown mean $$m$$ and finite positive variance $$\sigma^2$$
 
+$$X_1,X_2,...X_n$$
 
+$$M_n=\frac{\sum_{i=1}^{n} X_i}{n}$$ as an estimate for the true mean $$m$$ of the distribution of $$X_i$$
+Find a $$\delta$$ such that
 
+$$P(|M_n-m |\leq \delta) \approx 0.95$$
 
+where $$0.95$$ is the confidence level 
 
+$$P(|M_n-m| \leq \delta)=P(|m-M_n| \leq \delta)$$
 
+$$=P(- \delta \leq m-M_n \leq \delta)$$
 
+$$=P(M_n- \delta \leq m \leq M_n + \delta) \approx 0.95$$
 
+$$[M_n-\delta,M_n+\delta]$$ is the confidence interval with a confidence level of $$0.95$$
 
+Given $$1-\alpha$$, find a $$\delta$$ such that
 
+$$P(|M_n-m| \leq \delta)\approx 1- \alpha$$
 
+where $$1-\alpha$$ is the confidence level
 
+$$P(M_n- \delta \leq m \leq M_n + \delta) \approx 1-\alpha$$
 
+$$P(|M_n-m| \leq \delta)=P(|\frac{S_n}{n}-m|\leq \delta)$$
 
+$$=P(|\frac{S_n-nm}{n}|  \leq \delta)$$
 
+$$=P(|\frac{\sigma \sqrt{n}}{n}\frac{S_n-nm}{\sigma \sqrt{n}}|\leq \delta)$$
 
+Recall that $$Y_n=\frac{S_n-nm}{\sigma \sqrt{n}}$$ 
 
+$$=P(|\frac{\sigma}{\sqrt{n}} Y_n| \leq \delta)$$
 
+$$=P(-\delta \leq \frac{\delta Y_n}{\sqrt{n}} \leq \delta)$$
 
+$$=P(-\frac{\delta \sqrt{n}}{\sigma} \leq Y_n \leq \frac{\delta \sqrt{n}}{\sigma})$$
 
+$$\approx \phi(\frac{\delta \sqrt{n}}{\sigma}) - \phi(-\frac{\delta \sqrt{n}}{\sigma})$$  - CLT
 
+$$=2 \phi(\frac{\delta \sqrt{n}}{\sigma})-1 \approx 1- \alpha$$
 
+Recall that $$\phi(-x)=1-\phi(x)$$
+
+$$2 \phi(\frac{\delta \sqrt{n}}{\sigma})-1 \approx 1- \alpha$$
+
+$$ \phi(\frac{\delta \sqrt{n}}{\sigma})=\frac{ 2-\alpha}{2}$$
+
+$$ \phi(\frac{\delta \sqrt{n}}{\sigma})=1-\frac{ \alpha}{2}$$
+
+$$ \frac{\delta \sqrt{n}}{\sigma}=\phi^{-1}(1-\frac{ \alpha}{2})$$
+
+$$\phi^{-1}$$ is the inverse of the standard normal CDF and we denote $$\phi^{-1}(1-\frac{ \alpha}{2})=y_{\frac{\alpha}{2}}$$
+
+$$ \frac{\delta \sqrt{n}}{\sigma}=y_{\frac{\alpha}{2}}$$
+
+$$\delta=\frac{\sigma y_{\frac{\alpha}{2}}}{ \sqrt{n}}$$
+
+$$P(|M_n-m| \leq\frac{\sigma y_{\frac{\alpha}{2}}}{ \sqrt{n}}) \approx 1-\alpha$$
+
+$$P(M_n-\frac{\sigma y_{\frac{\alpha}{2}}}{ \sqrt{n}} \leq m \leq M_n+\frac{\sigma y_{\frac{\alpha}{2}}}{ \sqrt{n}} ) \approx 1-\alpha$$
+
+#### Example
+
+$$X_1,X_2, ... ,X_{100}$$ IID RVs $$\sigma^2=2$$ and $$m$$ is unknown $$(\sigma=\sqrt{2})$$
+
+$$M_{100}=\frac{X_1+...+X_{100}}{100}$$
+
+$$x_1,x_2,...,x_{100}$$
+
+$$M_{100}=\frac{x_1+...+x_{100}}{100}=7.129$$
+
+Find a $$93\%$$ confidence interval for $$m$$
+
+$$1-\alpha=0.93$$
+
+$$\alpha=0.07$$
+
+$$y_{\frac{\alpha}{2}}=\phi^{-1}(1-\frac{\alpha}{2})=1.812$$
+
+Confidence interval is 
+
+$$[7.129-\frac{\sqrt{2} \cdot 1.812}{\sqrt{100}},7.129+\frac{\sqrt{2} \cdot 1.812}{\sqrt{100}}]$$
+
+$$[6.873,7.385]$$ - $$93\%$$ confidence interval when $$M_{100}=7.129$$
+
+Find a $$97\%$$ confidence interval
+
+$$1-\alpha=0.97$$
+
+$$\alpha=0.03$$
+
+$$y_{\frac{\alpha}{2}}=\phi^{-1}(1-\frac{\alpha}{2})=2.17$$
+
+Confidence interval
+
+$$[7.129-\frac{\sqrt{2} \cdot 2.17}{\sqrt{100}},7.129+\frac{\sqrt{2} \cdot 2.17}{\sqrt{100}}]$$
+
+$$[6.822,7.436]$$ - $$97\%$$ confidence interval when $$M_{100}=7.129$$
+
+------
+
+$$P(|M_n-m| \leq \delta) \geq 1-\alpha$$
+$$P(|M_n-m|> \delta) \leq \alpha$$
+
+Using Chebyshev's Inequality
+
+$$\leq \frac{\sigma^2}{n \delta^2}$$
+
+and we set this to be equal to $$\alpha$$
+
+$$\frac{\sigma^2}{n \delta^2}=\alpha$$
+
+$$\delta^2=\frac{\sigma^2}{n \alpha}$$
+
+In our example above
+
+$$\sigma^2=2, n=100,93\%$$ confidence and $$\alpha=0.07$$
+
+Chebyshev inequality givens $$\delta^2=\frac{2}{100 \cdot 0.07}$$
+
+$$\delta=0.53$$
+
+$$[M_n-\delta, M_n+ \delta]$$
+
+$$[7.129-0.53, 7.129+0.53]$$
+
+$$[6.599,7.659]$$
+
+Using CLT, recall
+
+$$[6.873,7.385]$$ - $$93\%$$ confidence interval when $$M_{100}=7.129$$
+
+------
+
+$$X_1,X_2,...X_n$$ IID RVs with some underlying distributions
+
+$$\theta$$ is some parameter / property of the underlying distributions
+
+### Statistics
+
+Given data/ observations, we want to find/ estimate same parameter or property of the underlying distributions
+
+Parameter Estimation Problem
+
+![image-20241204004206015](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241204004206015.png)
+
+1. Probability model with unknown parameter $$\theta$$
+2. IID RVs $$X_1,...,X_n$$ 
+3. Estimation $$g$$
+4. $$\hat{\theta}=g(X_1,...X_n)$$ is the estimate of $$\theta$$ (RV)
+
+1. $$\hat{\theta}=g(X_1,...X_{n})$$ is a RV
+
+2. The probability distribution of $$\hat{\theta}$$ depends on the parameter $$\theta$$
+
+#### Example
+
+<u>Estimate the mean $$m$$</u>
+
+Sample mean $$M_n=g(X_1,...X_n)=\frac{\sum_{i=1}^{n}X_i}{n}$$
+
+<u>Estimate the variance $$\sigma^2$$</u>
+
+Sample variance $$\hat{\sigma_n}^2=\frac{1}{n-1} \sum_{i=1}^{n}(X_i-M_n)^2$$
+
+Suppose $$X_1, ...X_n$$ are IID $$exp(\theta)$$
+
+<u>Estimate $$\theta$$</u>
+
+$$\hat{\theta}=g(X_1,...X_{n})=\frac{n}{X_1+...+X_n}$$
+
+For $$exp(\theta)$$
+
+$$m=\frac{1}{\theta}, \theta=\frac{1}{m}$$
+
+### Estimation Procedure
+
+1. Observing the realizations $$x_1,...x_n$$ of $$X_1, ... , X_n$$
+2. Calculate $$g(x_1,...x_n)$$ which is the estimate of $$\theta$$
+
+### Properties of Estimation
+
+1. $$\hat{\theta}$$ is a RV whose probability distribution depends on $$\theta$$
+
+   $$E_{\theta}[\hat{\theta}]=$$ expected value of $$\hat{\theta}$$ when the underlying parameter is $$\theta$$
+
+   Bias of the estimator
+
+   $$B(\hat{\theta})=E_{\theta}[\hat{\theta}]-\theta$$
+
+   #### Example
+
+   Sample mean $$(X_1,...X_n)$$ IID RVs with mean $$m$$
+
+   $$\hat{\theta}=\frac{X_1+...+X_n}{n}$$
+
+   $$B(\hat{\theta})=E[\frac{X_1+...+X_n}{n}]-m=m-m=0$$
+
+   sample mean is unbiased estimator of the true mean $$m$$
+
+2. Mean square error
+
+   $$MSE(\hat{\theta})=E_{\theta}[(\hat{\theta}-\theta)^2]$$
+
+   $$MSE$$ of samples mean with respect to $$m$$
+
+   $$E[(M_n-m)^2]=Var[M_n]$$
+
+   $$=Var[\frac{S_n}{n}]$$
+
+   $$=\frac{1}{n^2} n \sigma^2$$
+
+   $$=\frac{\sigma^2}{n}$$
+
+3. Strong consistency
+
+   $$\hat{\theta}_n=g(X_1,...X_n)$$
+
+   If $$P(\lim_{n \rightarrow \infty} \hat{\theta}_n = \theta)=1$$, then our estimator is strongly consistent
+
+   Sample mean
+
+   Strong law of large numbers
+
+   $$P(\lim_{n \rightarrow \infty} M_n=m)=1$$
+
+   Sample mean is strongly consistent estimator of true mean $$m$$
+
+------
+
+#### Example
+
+$$X_1,...X_n$$ IID RVs
+
+Assume the true mean $$m$$ is known and variance is unknown
+
+Estimator for variance
+
+$$\sigma^2=E[(X_i-m)^2]$$
+
+$$\hat{\theta}=\frac{\sum_{i=1}^{n} (X_i-m)^2}{n}$$
+
+Bias of $$\hat{\theta}$$
+
+$$E[\hat{\theta}]-\sigma^2=E[\frac{\sum_{i=1}^{n} (X_i-m)^2}{n}]-\sigma^2$$
+
+$$=\frac{\sum_{i=1}^{n}}{n}E[(X_i-m)^2]-\sigma^2$$
+
+$$=\sigma^2-\sigma^2=0$$
+
+Strong consistency of $$\hat{\theta}$$?
+
+$$\lim_{n \rightarrow \infty} \hat{\theta}=\lim_{n \rightarrow \infty} \frac{\sum_{i=1}^{n} (X_i-m)^2}{n}$$
+
+$$=\lim_{n \rightarrow \infty} \frac{\sum_{i=1}^{n} Z_i}{n}$$
+
+According to strong law
+
+$$E[Z_i]=E[(X_i-m)^2]=\sigma^2$$
+
+$$P(\lim_{n \rightarrow \infty} \hat{\theta}=\sigma^2=1)$$
+
+$$\implies \hat{\theta}$$ is a strongly consistent estimator of $$\sigma^2$$ 
+
+#### Example
+
+$$X_1,...X_n$$ IID RVs, $$m, \sigma^2$$ unknown
+
+Estimator for variance
+
+$$\hat{\theta}=\frac{\sum_{i=1}^{n} (X_i-M_n)^2}{n}$$
+
+$$E[\hat{\theta}]=\frac{1}{n} E[\sum_{i=1}^{n} (X_i-M_n)^2]$$
+
+$$=\frac{1}{n} E[\sum_{i=1}^{n} (X_i^2-2M_n X_i+M_n^2)]$$
+
+$$=\frac{1}{n} E[\sum_{i=1}^{n} X_i^2- \sum_{i=1}^{n} 2M_n X_i+\sum_{i=1}^{n} M_n^2]$$
+
+$$=\frac{1}{n} E[\sum_{i=1}^{n} X_i^2-  2M_n S_n+n M_n^2]$$
+
+$$=\frac{1}{n} E[\sum_{i=1}^{n} X_i^2-n M_n^2]$$      - $$M_n=\frac{S_n}{n}$$
+
+$$=\frac{1}{n}[\sum_{i=1}^{n} E[X_i^2]-n E[M_n^2]]$$
+
+$$=\frac{1}{n} [\sum_{i=1}^{n} (\sigma^2+m^2)-n(\frac{\sigma^2}{n}+m^2)]$$
+
+$$=\frac{n (\sigma^2+m^2)}{n}-(\frac{\sigma^2}{n}+m^2)$$
+
+$$=\frac{n-1}{n} \sigma^2$$
+
+$$B(\hat{\theta})=E[\hat{\theta}]-\sigma^2$$
+
+$$=\frac{n-1}{n}\sigma^2-\sigma^2$$
+$$=\frac{-\sigma^2}{n}$$
+
+$$\hat{\theta}$$ is not a unbiased estimator
+
+Sample variance 
+
+$${\sum^{n}}^2=\frac{1}{n-1}\sum_{i=1}^{n} (X_i-M_n)^2$$ is the unbiased estimator of $$\sigma^2$$
+
+$$E[{\sum^{n}}^2]=\sigma^2$$
+
+$$B[{\sum^{n}}^2]=\sigma^2-\sigma^2=0$$
+
+## Week 15 Session 2
+
+### Parameter Estimation Problem
+
+![image-20241207003502218](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241207003502218.png)
+
+#### Properties of estimation
+
+1. Bias of the esimator
+
+   $$B(\hat{\theta})=E_{\theta}(\hat{\theta})-\theta$$
+
+2. Mean squared error
+
+   $$MSE(\hat{\theta})=E_{\theta}[(\hat{\theta}-\theta)^2]$$
+
+3. Strong Consistency
+
+   $$\hat{\theta}_{n}=g(X_1,...,X_n)$$
+
+If $$P(\lim_{n \rightarrow \infty} \hat{\theta}_{n}=\theta)=1$$, then our estimator is strongly consistent
+
+Relationship between MSE and bias
+
+$$MSE(\hat{\theta})=E_{\theta}[(\hat{\theta}-\theta)^2]$$
+
+Define $$Z=\hat{\theta}-\theta$$
+
+$$E[Z^2]=Var[Z]+(E[Z])^2$$
+
+$$=Var[\hat{\theta}-\theta]+(E[\hat{\theta}-\theta])^2$$
+
+$$=Var[\hat{\theta}]+(E[\hat{\theta}] - \theta)^2$$
+
+where $$B(\hat{\theta})=E[\hat{\theta}] - \theta$$
+
+$$MSE(\hat{\theta})=Var[\hat{\theta}]+(B(\hat{\theta}))^2$$
+
+------
+
+Estimating variance $$\sigma^2$$
+
+$$\hat{\theta}=\frac{1}{n} \sum_{i=1}^{n} (X_i-M_n)^2$$
+
+Is it strongly consistent?
+
+$$\hat{\theta}_{n} = \frac{1}{n} \sum_{i=1}^{n} (X_i^2-2M_nX_i+M_n^2)$$
+
+$$=\frac{\sum_{i=1}^{n}X_i^2}{n}-M_n^2$$
+
+$$\lim_{n \rightarrow \infty} \hat{\theta}_{n}=\lim_{n \rightarrow \infty}\frac{\sum_{i=1}^{n}X_i^2}{n}-\lim_{n \rightarrow \infty}M_n^2$$
+
+$$=E[X_i^2]-(E[X_i])^2$$
+
+$$=Var[X_i]=\sigma^2$$
+
+Strong law states that:
+
+$$X_1,X_2,...$$ IID
+
+$$\frac{\sum_{i=1}^{n}X_i^2}{n} \rightarrow E[X_i]$$
+
+$$\hat{\theta}_{n}$$ is strongly consistent
+
+$${\sum_{n}^{n}}^2=\frac{1}{n-1} \sum_{i=1}^{n} (X_i-M_n)^2$$
+
+$$\lim_{n \rightarrow \infty}{\sum_{n}^{n}}^2=\lim_{n \rightarrow \infty}\frac{1}{n-1} \sum_{i=1}^{n} (X_i-M_n)^2$$
+
+$$=\lim_{n \rightarrow \infty}\frac{n}{n-1} \frac{1}{n} \sum_{i=1}^{n} (X_i-M_n)^2$$
+
+$$=\lim_{n \rightarrow \infty}\frac{n}{n-1} \hat{\theta}_{n}$$
+
+$$=\lim_{n \rightarrow \infty}\frac{n}{n-1} \lim_{n \rightarrow \infty} \hat{\theta}_{n}$$
+
+$$=\sigma^2$$
+
+$${\sum_{n}^{n}}^2$$ is strongly consistent
+
+------
+
+### Maximum Likelihood Estimation
+
+$$X_1,..., X_n$$ IID
+
+$$f_{X}(x,\theta)$$
+
+$$P_{X}(x,\theta)$$
+
+Observe $$x_1,...,x_n$$ of $$X_1,...,X_n$$
+
+#### Likelihood function
+
+$$l(x_1,...,x_n; \theta)=f_{X_1,...,X_n}(x_1,...,x_n; \theta)$$
+
+$$=f_{X_1}(x_1;\theta)... f_{X_n}(x_n;\theta)$$
+
+Principle of the max likelihood estimation: choose the value of $$\theta$$ that maximize the likelihood function for the given realization $$x_1,...,x_n$$ of $$X_1,...,X_n$$
+
+$$\hat{\theta}=argmax_{\theta} \: l(x_1,...,x_n; \theta)$$
+
+=Value of $$\theta$$ that minimizes $$l(x_1,...,x_n; \theta)$$
+
+=Value of $$\theta$$ that maximizes log of $$l(x_1,...,x_n; \theta)$$
+
+#### Example
+
+$$X_1,...,X_{10}$$ IID Bernoulli $$(p)$$
+
+$$p$$ is unknown, needs to be estimated
+
+$$P(X_i=1)=0, P(X_i=0)=1-p$$
+
+1111000000
+
+ML estimate for $$p$$
+
+$$l(x_1,...,x_n; p)=p^4(1-p)^6$$
+
+$$log l(x_1,...,x_n; p) = 4 log (p) + 6 log(1-p)$$
+
+$$\max_{ 0 \leq p \leq 1} 4 log (p) + 6 log(1-p)$$
+
+First derivative:
+
+$$\frac{4}{p}+\frac{6}{1-p}=0$$
+Thus $$\hat{P}_{ML}=\frac{4}{10}$$
+
+ML estimate for $$p$$ is $$\frac{4}{10}$$
+
+$$(x_1, ..., x_{10})=(11 0000 0000)$$
+
+$$l(x_1,...,x_n; p)=p^2(1-p)^8$$
+
+$$log l(x_1,...,x_n; p) = 2 log (p) + 8 log(1-p)$$
+
+$$\max_{ 0 \leq p \leq 1} 2 log (p) + 8 log(1-p)$$
+
+$$\hat{P}_{ML}=\frac{2}{10}$$
+
+------
+
+#### Example
+
+$$X_1,...X_n$$ IID $$exp(\theta)$$
+
+$$f(x;\theta)=\theta e^{-\theta x}$$
+
+Observation $$x_1,...,x_n$$
+
+ML estimate for $$\theta$$
+
+$$l(x_1,...,x_n; \theta)= \theta e^{-\theta x_1} ... \theta e^{-\theta x_n}$$
+
+$$=\theta e^{-\theta (x_1+...+x_n)}$$
+
+$$log l(x_1,...,x_n; \theta)=n log(\theta)- \theta(x_1+...+x_n)$$
+
+$$max_{\theta} log l(x_1,...,x_n; \theta)$$
+
+First derivative = 0 
+
+$$\frac{n}{\theta}-(x_1+...+x_n)=0$$
+
+$$\hat{\theta}_{ML}=\frac{n}{x_1+...+x_n}$$
+
+------
+
+#### Example
+
+$$X_1,...X_n$$ IID Gaussian RV
+
+Estimate the mean and variance 
+
+$$\theta_1=\text{mean}, \theta_2=\text{variance}$$
+
+Observe $$x_1,...,x_n$$
+
+$$f_{X}(x; \theta_1,\theta_2)=\frac{1}{\sqrt{2 \pi \theta_2}} exp(-\frac{(x-\theta_1)^2}{2 \theta_2})$$
+
+Log likelihood
+
+$$\log l (x_1,...x_n; \theta_1, \theta_2)$$
+
+$$=-\frac{n}{2} log(2 \pi \theta_2)-\sum_{i=1}^{n}\frac{(x-\theta_1)^2}{2 \theta_2}$$
+
+To maximize over $$\theta_1,\theta_2$$
+
+$$\frac{d}{d \theta_1} [-\frac{n}{2} log(2 \pi \theta_2)-\sum_{i=1}^{n}\frac{(x-\theta_1)^2}{2 \theta_2} ]=0$$
+
+$$\frac{d}{d \theta_2} [-\frac{n}{2} log(2 \pi \theta_2)-\sum_{i=1}^{n}\frac{(x-\theta_1)^2}{2 \theta_2} ]=0$$
+
+$$2 \sum_{i=1}^{n} \frac{(x-\theta_1)}{2 \theta_2}=0$$
+
+$$-\frac{n}{2 \theta_2}+\frac{1}{2 \theta^2} \sum_{i=1}^{n} (x-\theta_1)^2 =0$$
+
+$$\sum_{i=1}^{n}x_i=n \theta_1$$
+
+$$\hat{\theta_1}=\frac{\sum_{i=1}^{n} x_i}{n}$$
+
+$$-\frac{1}{2 \theta_2} [n- \frac{1}{\theta_2} \sum_{i=1}^{n} (x_i - \theta_1)^2]=0$$
+
+$$\hat{\theta_2} =\frac{\sum_{i=1}^{n} (x_i-\theta_1)^2}{n}$$
+
+------
+
+### Properties of ML estimations
+
+1. Under some technical conditions
+
+   $$\lim_{n \rightarrow \infty}P(|\hat{\theta}^{ML}_{n}-\theta|\geq \epsilon)=0$$ for all $$\epsilon >0$$
+
+   $$\hat{\theta}^{ML}_{n}=$$ ML estimate of $$\theta$$ based on $$n$$ random variables $$X_1,...X_n$$
+
+2. Under some strong conditions
+
+   $$P(\lim_{n \rightarrow \infty} \hat{\theta}^{ML}_{n} =\theta)=1$$
+
+   Strong consistency
+
+3. Asymptotic Normality
+
+   CDF of $$\sqrt{n} (\hat{\theta}^{ML}_{n}-\theta)$$ as $$n \rightarrow \infty$$ $$\mathcal{N}(0,\sigma_{\theta}^2)$$ 
+
+   where $$\sigma_{\theta}$$ is the variance depends on $$\theta$$
+
+------
+
+### Hypothesis Testing (Not examinable)
+
+#### Example
+
+$$X$$ two possibilities for its probability distribution
+
+Hypothesis $$H_0: X \sim \mathcal{N}(0,1)$$ 
+
+Hypothesis $$H_1: X \sim \mathcal{N}(10,1)$$
+
+![image-20241207032947909](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241207032947909.png)
+
+#### Decision Rule
+
+Accept $$H_0$$ if $$X \leq 5$$
+
+Accept $$H_1$$ if $$X>5$$
+
+Type I error
+
+$$H_0$$ is true but we accept $$H_1 (X>5)$$ 
+
+$$\alpha=P_{H_0}(X>5)=1- \phi(5)$$
+
+Type II error
+
+$$H_1$$ is true but we accept $$H_0 (X\leq5)$$ 
+
+$$\beta=P_{H_1}(X \leq 5)=P_{H_1} (\frac{X-10}{1} \leq \frac{5-10}{1})$$
+
+$$=\phi(-5)$$
+
+#### Decision Rule
+
+Accept $$H_0$$ if $$X \leq 10$$
+
+Accept $$H_1$$ if $$X>10$$
+
+$$\alpha=P_{H_0}(X>10)=1- \phi(10)$$
+
+$$\beta=P_{H_1}(X \leq 10)=P_{H_1} (\frac{X-10}{1} \leq \frac{10-10}{1})=\phi(0)=\frac{1}{2}$$
+
+------
+
+### Binary Hypothesis Test
+
+Null hypothesis $$H_0: X \sim P_{X}(x;H_0), f_{X}(x;H_0)$$
+
+Alternative hypothesis $$H_1: X \sim P_{X}(x; H_1), f_{X}(x,H_1)$$
+
+------
+
+### Common Decision Rule
+
+Likelihood Ratio Test
+
+Suppose $$x$$ of $$X$$
+
+$$L(X)=\frac{P(x;H_1)}{P(x;H_0)}$$
+
+$$\text{Decision Rule}=\begin{cases} \text{Accept\:} H_1 & L(X)>t \\  \text{Accept\:} H_0 & L(X)\leq t \end{cases}$$
+
+------
+
+$$n$$ IID RVs $$X_1,...X_n$$
+
+$$H_0: X_i \sim P(x;H_0)$$
+
+$$H_1: X_i \sim P(x;H_1)$$
+
+Observe $$x_1,...x_n$$
+
+$$L(x_1,...x_n)=\frac{P(x_1;H_1) ... P(x_n;H_1)}{P(x_1;H_0)... P(x_n;H_0)}$$
+
+$$\text{Decision Rule}=\begin{cases} \text{Accept\:} H_1 & L(x_1,...x_n)>t \\  \text{Accept\:} H_0 & L(x_1,...x_n)\leq t \end{cases}$$
+
+Type I error probability
+
+$$\alpha=P_{H_0} (\text{Accept\:} H_1)$$
+
+$$=P_{H_0}(L(X_1,...X_n)>t)$$
+
+Desired level of type I error probability $$\alpha^{\ast}$$
+
+Find the threshold $$t$$ by solving this:
+
+$$P_{H_0}(L(X_1,...X_n)>t) = \alpha^{\ast}$$
+
+Type II
+
+$$\beta=P_{H_0} (\text{Accept\:} H_0)$$
+
+$$=P_{H_0}(L(X_1,...X_n)\leq t)$$
+
+------
+
+#### Example
+
+$$X_1,...X_n$$ IID
+
+$$H_0: X_i \sim \mathcal{N}(0,1)$$ 
+
+$$H_1: X_i \sim \mathcal{N}(10,1)$$
+
+Likelihood Ratio Test
+
+$$L(X_1,...X_n)=\frac{\prod_{i=1}^{n} \frac{1}{\sqrt{2\pi}}exp(- \frac{(X_i-10)^2}{2})}{\prod_{i=1}^{n} \frac{1}{\sqrt{2\pi}}exp(- \frac{(X_i)^2}{2})}$$
+
+$$L(X_1,...X_n) >t$$
+
+$$\sum_{i=1}^{n} X_i >s$$  for same threshold $$s$$
+
+Suppose we want Type I error probability should be 0.05
+
+$$P_{H_0}(\sum_{i=1}^{n} X_i >s)=0.05$$
+
+$$\sum X_i \sim \mathcal{N}(0,n)$$
+
+$$P_{H_0} (\frac{\sum X_i -0}{\sqrt{n}} > \frac{s-0}{\sqrt{n}})=1-\phi(\frac{s}{\sqrt{n}})=0.05$$
+
+------
+
+#### Example
+
+$$X_1,...X_n$$ IID
+
+$$H_0: X_i \sim \mathcal{N}(0,1)$$ 
+
+$$H_1: X_i \sim \mathcal{N}(0,4)$$
+
+$$L(X_1,...X_n)=\frac{\prod_{i=1}^{n} exp(- \frac{(X_i)^2}{2 \cdot 4})}{\prod_{i=1}^{n} \frac{1}{\sqrt{2\pi}}exp(- \frac{(X_i)^2}{2})}$$
+
+$$\sum_{i=1}^{n} X_i >s$$
+
+Accept $$H_0$$ if $$\sum_{i=1}^{n} X_i \leq s$$
+
+Accept $$H_1$$ if $$\sum_{i=1}^{n} X_i > s$$
+
+$$P_{H_0} (\text{Accept\:} H_1)=0.05$$
+
+$$P_{H_0} (\sum_{i=1}^{n} X_i > s)=0.05$$
+
+$$\sum_{i=1}^{n} X_i =$$ sum of squares of $$n$$ IID standard normal= Chi-square RV with $$n$$ degrees of freedom
+
+## UCI Final Exam 
+
+![image-20241204210222074](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241204210222074.png)
+
+![image-20241204210241235](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241204210241235.png)
+
+![img](https://media1.cheggcdn.com/coop/9c0/9c086ea1-eac1-48f2-ab03-1eba85734e04/1670958433969_1.png?u=0db2e95a-11f2-4ec6-b817-e328d977c997&q=b135e866-08f4-4c3e-89a7-eea394e66f8d&context=gdg-qna-dgs&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9tZWRpYTEuY2hlZ2djZG4uY29tL2Nvb3AvOWMwLzljMDg2ZWExLWVhYzEtNDhmMi1hYjAzLTFlYmE4NTczNGUwNC8xNjcwOTU4NDMzOTY5XzEucG5nP3U9MGRiMmU5NWEtMTFmMi00ZWM2LWI4MTctZTMyOGQ5NzdjOTk3JnE9YjEzNWU4NjYtMDhmNC00YzNlLTg5YTctZWVhMzk0ZTY2ZjhkJmNvbnRleHQ9Z2RnLXFuYS1kZ3MiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3MzM0MzM5MzV9LCJEYXRlR3JlYXRlclRoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTczMzQzMTgzNX19fV19&Key-Pair-Id=K1M1OMQ09SPKJC&Signature=p5rhixtmlh9igTYf6fqlvoAPMhx7qRC2li-O3t36MbECNgG9cvrQ0epbuZsI~g34Hh7FlLF1xptQUd46nCCDgJ1T4awCkHSYuC6Vib9LF9~0~kpKDk79JzoJ-FEApDZVT35OfAuVoAoox538tdfgnwCPrhBjc8YRRKc1uAXFXQTQ8OLNaacRxFk3erSB-i7ofz7O1gPCrBe8zVOXKe~3eGT-MTY2xGeXEEVOE3zQmcgQ6oqBI5ge1FgjEexKcQKBfSZTurzfq~WU7DX~FGbaHmAkbscVDnp0by1nSEFZnZJohMOuT7cT6N9NlYPZi9wvwvpObFjBwCU64027jer6-g__)
+
+![img](https://media1.cheggcdn.com/coop/f36/f36c7904-12a3-4cec-ad28-a524c7118766/1670958457797_2.png?u=0db2e95a-11f2-4ec6-b817-e328d977c997&q=b135e866-08f4-4c3e-89a7-eea394e66f8d&context=gdg-qna-dgs&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9tZWRpYTEuY2hlZ2djZG4uY29tL2Nvb3AvZjM2L2YzNmM3OTA0LTEyYTMtNGNlYy1hZDI4LWE1MjRjNzExODc2Ni8xNjcwOTU4NDU3Nzk3XzIucG5nP3U9MGRiMmU5NWEtMTFmMi00ZWM2LWI4MTctZTMyOGQ5NzdjOTk3JnE9YjEzNWU4NjYtMDhmNC00YzNlLTg5YTctZWVhMzk0ZTY2ZjhkJmNvbnRleHQ9Z2RnLXFuYS1kZ3MiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3MzM0MzM5MzV9LCJEYXRlR3JlYXRlclRoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTczMzQzMTgzNX19fV19&Key-Pair-Id=K1M1OMQ09SPKJC&Signature=JtIOtu9KyQh8tVuflJHsVUU206dFGe1s6jHdCPf0-CCukX3PHQfnEmqeM9RavK2ah1ecWJHkslEZSFTsyZ3LDWgP5NWarmNire2sJx3FOpYgPfSggbCAwd-VC3lE1K~2wb14TehKpdpp2T~ryBNv7tgKu8tcA9cvOg-SDi2LvYJcJ~cvsMdA-anUEEnSauSraVHbSSg7wdmD89-HTs2GSk5hZO0TOeRCXo0lhc8OS6FPWZ5BYSGJFWI7DOyjirFMgGq5I1G24p0kj5Vb2eDpFMDo-Gty5uGBlsYDdLbZJzcbe5aXe8sG37YTc3DH817NjaKVt8Z~wpOq7PqQsnufVQ__)
+
+![img3](https://media1.cheggcdn.com/coop/1fa/1faf411b-fc18-49e9-8e49-8fc5e852f42f/1670958487529_3.png?u=0db2e95a-11f2-4ec6-b817-e328d977c997&q=b135e866-08f4-4c3e-89a7-eea394e66f8d&context=gdg-qna-dgs&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9tZWRpYTEuY2hlZ2djZG4uY29tL2Nvb3AvMWZhLzFmYWY0MTFiLWZjMTgtNDllOS04ZTQ5LThmYzVlODUyZjQyZi8xNjcwOTU4NDg3NTI5XzMucG5nP3U9MGRiMmU5NWEtMTFmMi00ZWM2LWI4MTctZTMyOGQ5NzdjOTk3JnE9YjEzNWU4NjYtMDhmNC00YzNlLTg5YTctZWVhMzk0ZTY2ZjhkJmNvbnRleHQ9Z2RnLXFuYS1kZ3MiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3MzM0MzM5MzV9LCJEYXRlR3JlYXRlclRoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTczMzQzMTgzNX19fV19&Key-Pair-Id=K1M1OMQ09SPKJC&Signature=i07xiWgO~KsRoZgKw5tHDhF3EkhYWR70V~IkKb06On~aUppAYZQy1VKBuWkiIRUkwCx608PmFje0dcQGFah8BbU6c52M7pvZtc5FtnripyGVXftEldcoHEzj5Q86s0SZac1w2lYrB5ozhFmGYo0~b2cmp87aJkjdcNkb3gkbjO~ozLyfXjfhBkw9uR1gHLirGjUvECOxdltYONI2DsdsIV8Z-ndK6FomM2~tzvTN74LYglyTsW5IUk1fvu~w9LpE1gBNsxLV6PQQNbp8GOmCalsrCfb~cuFZh26s0wsBs6BWkXgwRPtP5BBzaY2T1Wd1bIP3Eb0c2jwEVKgrS-baUA__)
+
+![image-20241204210305702](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241204210305702.png)
+
+![image-20241204210319077](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241204210319077.png)
+
+![image-20241204210325921](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241204210325921.png)
+
+![image-20241204210333243](C:\Users\Levi\AppData\Roaming\Typora\typora-user-images\image-20241204210333243.png)
 
 
 
